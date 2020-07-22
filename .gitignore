@@ -1,0 +1,4 @@
+# Project exclude paths
+/assure/target/
+/channel-app/target/
+/commons/target/
