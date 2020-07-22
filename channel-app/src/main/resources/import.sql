@@ -1,1 +1,1 @@
-insert into omsdb.assure_channel values (1,now(),now(),0,"SELF","INTERNAL");
+insert into omsdb.assure_channel values (1,now(),now(),0,'SELF','INTERNAL');
