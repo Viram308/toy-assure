@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Head -->
+<head th:replace="snippets.html :: name_head"></head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav th:replace="snippets.html :: name_app_navbar"></nav>
+  <!-- Container start -->
+  <div class="container">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" style="background-color: white;padding-left: 0px;padding-bottom: 10px;margin-bottom: 10px;font-size:20px">
+      <li class="breadcrumb-item"><a th:href="@{/ui/home}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Product</li>
+    </ol>
+  </nav>
+  <!-- Top row with form-->
+
+  	</div> <!-- Container end-->
+<!-- Footer -->
+<footer th:replace="snippets.html :: name_footer"></footer>
+<script th:src="@{/static/product.js}"></script>
+
+
+
+</body>	
+
+</html>

@@ -539,3 +539,194 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 	at org.apache.commons.dbcp.DelegatingStatement.execute(DelegatingStatement.java:264)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 90 more
+2020-07-23 14:25:01 INFO  ClientApiController:61 - get all clients
+2020-07-23 14:25:08 INFO  ClientDto:58 - Number of clients returned : 0
+2020-07-23 14:25:19 INFO  ClientApiController:61 - get all clients
+2020-07-23 14:25:19 INFO  ClientDto:58 - Number of clients returned : 0
+2020-07-23 14:25:47 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "client": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 24] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "client": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 24] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 14:32:38 INFO  ClientApiController:61 - get all clients
+2020-07-23 14:32:41 INFO  ClientDto:58 - Number of clients returned : 0
+2020-07-23 14:33:02 INFO  ClientApiController:33 - adding client
+2020-07-23 14:33:03 INFO  ClientDto:30 - Client added
+2020-07-23 14:33:04 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 14:35:03 INFO  ClientApiController:47 - search clients
+2020-07-23 14:35:04 INFO  ClientDto:42 - Number of clients returned : 1
+2020-07-23 14:35:14 INFO  ClientApiController:40 - get client for id : 1
+2020-07-23 14:35:32 INFO  ClientApiController:54 - update client for id : 1
+2020-07-23 14:36:12 INFO  ClientApiController:47 - search clients
+2020-07-23 14:36:12 INFO  ClientDto:42 - Number of clients returned : 1
+2020-07-23 14:36:23 INFO  ClientApiController:47 - search clients
+2020-07-23 14:36:23 INFO  ClientDto:42 - Number of clients returned : 0
+2020-07-23 14:36:26 INFO  ClientApiController:47 - search clients
+2020-07-23 14:36:26 INFO  ClientDto:42 - Number of clients returned : 1
+2020-07-23 15:12:39 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:12:40 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:12:47 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:13:14 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:13:16 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:13:30 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:16:29 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:16:29 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:16:30 INFO  ClientApiController:40 - get client for id : 1
+2020-07-23 15:16:38 INFO  ClientApiController:61 - update client for id : 1
+2020-07-23 15:16:39 INFO  ClientDto:60 - Client updated
+2020-07-23 15:16:40 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:16:45 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:16:45 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:18:28 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:19:43 INFO  ClientApiController:54 - search clients by name
+2020-07-23 15:19:43 INFO  ClientDto:51 - Number of clients returned while search by name : 0
+2020-07-23 15:19:49 INFO  ClientApiController:54 - search clients by name
+2020-07-23 15:19:49 INFO  ClientDto:51 - Number of clients returned while search by name : 1
+2020-07-23 15:23:17 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:23:19 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:23:26 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:28:30 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:28:30 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:28:33 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:29:18 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:29:18 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:29:21 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:29:28 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:31:19 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:33:59 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:34:23 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:34:34 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:35:14 INFO  ClientApiController:54 - search clients by name
+2020-07-23 15:35:14 INFO  ClientDto:51 - Number of clients returned while search by name : 1
+2020-07-23 15:35:21 INFO  ClientApiController:54 - search clients by name
+2020-07-23 15:35:21 INFO  ClientDto:51 - Number of clients returned while search by name : 0
+2020-07-23 15:35:46 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:39:55 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:40:10 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:40:20 INFO  ClientApiController:54 - search clients by name
+2020-07-23 15:40:20 INFO  ClientDto:51 - Number of clients returned while search by name : 0
+2020-07-23 15:40:31 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:40:31 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:40:37 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:42:40 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:42:57 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:45:54 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:46:09 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:46:10 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:46:11 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:46:16 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:46:20 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:46:25 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:47:01 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:47:01 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:47:03 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.assure.pojo.Client> com.assure.controller.ClientApiController.search(com.assure.model.form.ClientForm)
+2020-07-23 15:57:52 INFO  ClientApiController:47 - search clients
+2020-07-23 15:57:53 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 15:58:06 INFO  ClientApiController:68 - get all clients
+2020-07-23 15:58:06 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 15:58:07 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 15:58:14 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 15:58:24 INFO  ClientApiController:47 - search clients
+2020-07-23 15:58:24 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-23 15:58:32 INFO  ClientApiController:47 - search clients
+2020-07-23 15:58:32 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 15:58:35 INFO  ClientApiController:47 - search clients
+2020-07-23 15:58:35 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 15:58:38 INFO  ClientApiController:47 - search clients
+2020-07-23 15:58:38 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 15:58:41 INFO  ClientApiController:47 - search clients
+2020-07-23 15:58:41 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 15:58:43 INFO  ClientApiController:47 - search clients
+2020-07-23 15:58:43 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-23 15:58:50 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 20] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 20] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 16:00:54 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:00:54 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 16:00:56 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 16:01:10 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 16:01:17 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:01:17 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 16:01:19 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 16:02:43 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 16:05:00 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 16:05:23 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 16:05:34 INFO  ClientApiController:47 - search clients
+2020-07-23 16:05:34 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 16:05:41 WARN  DefaultHandlerExceptionResolver:384 - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.commons.enums.ClientType` from String "": value not one of declared Enum instance names: [CLIENT, CUSTOMER]
+ at [Source: (PushbackInputStream); line: 1, column: 19] (through reference chain: com.assure.model.form.ClientForm["type"])
+2020-07-23 16:06:13 WARN  DefaultHandlerExceptionResolver:361 - Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "searchByName"
+2020-07-23 16:06:35 WARN  DefaultHandlerExceptionResolver:361 - Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "searchByName"
+2020-07-23 16:06:54 INFO  ClientApiController:54 - search clients by name
+2020-07-23 16:06:54 INFO  ClientDto:51 - Number of clients returned while search by name : 1
+2020-07-23 16:07:01 WARN  DefaultHandlerExceptionResolver:361 - Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "searchByName"
+2020-07-23 16:10:28 INFO  ClientApiController:54 - search clients by name
+2020-07-23 16:10:28 INFO  ClientDto:51 - Number of clients returned while search by name : 0
+2020-07-23 16:14:44 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:14:44 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 16:14:46 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:14:46 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 16:14:58 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:14:58 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 16:15:07 INFO  ClientApiController:54 - search clients by name
+2020-07-23 16:15:07 INFO  ClientDto:51 - Number of clients returned while search by name : 0
+2020-07-23 16:15:16 WARN  DefaultHandlerExceptionResolver:361 - Failed to bind request element: org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "searchByName"
+2020-07-23 16:16:45 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:16:46 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 16:16:48 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:16:48 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 16:16:51 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:16:51 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-23 16:17:00 INFO  ClientApiController:54 - search clients by name
+2020-07-23 16:17:00 INFO  ClientDto:51 - Number of clients returned while search by name : 0
+2020-07-23 16:17:03 INFO  ClientApiController:54 - search clients by name
+2020-07-23 16:17:03 INFO  ClientDto:51 - Number of clients returned while search by name : 1
+2020-07-23 16:17:09 INFO  ClientApiController:54 - search clients by name
+2020-07-23 16:17:09 INFO  ClientDto:51 - Number of clients returned while search by name : 1
+2020-07-23 16:17:14 INFO  ClientApiController:47 - search clients
+2020-07-23 16:17:14 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 16:17:17 INFO  ClientApiController:47 - search clients
+2020-07-23 16:17:17 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 16:17:20 INFO  ClientApiController:47 - search clients
+2020-07-23 16:17:20 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-23 16:17:30 INFO  ClientApiController:33 - adding client
+2020-07-23 16:17:31 INFO  ClientDto:31 - Client added
+2020-07-23 16:17:31 INFO  ClientApiController:47 - search clients
+2020-07-23 16:17:32 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-23 16:17:37 INFO  ClientApiController:47 - search clients
+2020-07-23 16:17:37 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-23 16:17:40 INFO  ClientApiController:47 - search clients
+2020-07-23 16:17:40 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-23 16:17:45 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:17:45 INFO  ClientDto:67 - Number of clients returned : 2
+2020-07-23 16:17:54 INFO  ClientApiController:47 - search clients
+2020-07-23 16:17:54 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-23 16:17:56 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:17:56 INFO  ClientDto:67 - Number of clients returned : 2
+2020-07-23 16:18:01 INFO  ClientApiController:40 - get client for id : 1
+2020-07-23 16:18:05 INFO  ClientApiController:61 - update client for id : 1
+2020-07-23 16:18:05 INFO  ClientDto:60 - Client updated
+2020-07-23 16:18:05 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:18:05 INFO  ClientDto:67 - Number of clients returned : 2
+2020-07-23 16:18:11 INFO  ClientApiController:40 - get client for id : 2
+2020-07-23 16:18:15 INFO  ClientApiController:61 - update client for id : 2
+2020-07-23 16:18:15 INFO  ClientDto:60 - Client updated
+2020-07-23 16:18:15 INFO  ClientApiController:68 - get all clients
+2020-07-23 16:18:15 INFO  ClientDto:67 - Number of clients returned : 2

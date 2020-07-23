@@ -1,0 +1,64 @@
+<!-- Head fragment -->
+  <head th:fragment="name_head" xmlns:th="http://www.thymeleaf.org">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="baseUrl" th:attr="content=${baseUrl}">
+    <script src="https://kit.fontawesome.com/f99bf6c8a8.js" crossorigin="anonymous"></script>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/static/app.css}">
+    <link rel="stylesheet" th:href="@{/static/jquery.toast.min.css}">
+    
+
+  </head>
+
+<!-- Nav bar -->
+  <nav xmlns:th="http://www.thymeleaf.org" class="navbar navbar-expand-lg navbar-light bg-light  mb-1" th:fragment="name_app_navbar">
+  <a class="navbar-brand" th:href="@{/ui/home}">
+    <img th:src="@{/static/logo.jpg}" class="d-inline-block align-top" alt="">
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav" style="font-size: 18px">
+    <!-- List of navigations -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ui/home}">Home</a>
+      </li>
+        
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ui/client}">Client</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ui/product}">Product</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ui/inventory}">Inventory</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/ui/order}">Order</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+
+<!-- Footer fragment -->
+<footer xmlns:th="http://www.thymeleaf.org" class="footer  mt-1" th:fragment="name_footer">
+  Copyright Increff 2020
+  &nbsp;
+  <!-- JS files -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script th:src="@{/static/app.js}"/></script>
+  <script th:src="@{/static/papaparse.min.js}"/></script>
+  <script th:src="@{/static/jquery.toast.min.js}"></script>
+</footer>
