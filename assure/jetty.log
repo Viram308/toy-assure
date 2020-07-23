@@ -730,3 +730,5 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 2020-07-23 16:18:15 INFO  ClientDto:60 - Client updated
 2020-07-23 16:18:15 INFO  ClientApiController:68 - get all clients
 2020-07-23 16:18:15 INFO  ClientDto:67 - Number of clients returned : 2
+2020-07-23 20:57:13 INFO  ClientApiController:68 - get all clients
+2020-07-23 20:57:17 INFO  ClientDto:67 - Number of clients returned : 2

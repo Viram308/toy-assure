@@ -26,39 +26,55 @@ function handleAjaxError(response){
 }
 
 
-// Read tsv files
+function writeErrors(data) {
+    var csv = 'Line number,ErrorText\n';
+    data.forEach(function(row) {
+            csv += row.join(',');
+            csv += "\n";
+    });
+
+    console.log(csv);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'error.csv';
+    hiddenElement.click();
+}
+
 function readFileData(file, callback){
-	var config = {
-		header: true,
-		delimiter: "\t",
-		skipEmptyLines: "greedy",
-		complete: function(results) {
-			callback(results);
-        }	
+    var config = {
+        header: true,
+        delimiter: ',',
+        skipEmptyLines: "greedy",
+        complete: function(results) {
+            callback(results);
+        }   
     }
     Papa.parse(file, config);
 }
 
-// Write in tsv files
 function writeFileData(arr){
-	var config = {
-		quoteChar: '',
-		escapeChar: '',
-		delimiter: "\t"
-	};
-	
-	var data = Papa.unparse(arr, config);
-    var blob = new Blob([data], {type: 'text/tsv;charset=utf-8;'});
+    console.log(arr);
+    var config = {
+        quotes: true,
+        delimiter: ',',
+        header: false,
+        download: true,
+        skipEmptyLines: true
+    };
+    
+    var data = Papa.unparse(arr, config);
+    var blob = new Blob([data], {type: 'text/csv;charset=utf-8;'});
     var fileUrl =  null;
 
     if (navigator.msSaveBlob) {
-        fileUrl = navigator.msSaveBlob(blob, 'download.tsv');
+        fileUrl = navigator.msSaveBlob(blob, 'file.csv');
     } else {
         fileUrl = window.URL.createObjectURL(blob);
     }
     var tempLink = document.createElement('a');
     tempLink.href = fileUrl;
-    tempLink.setAttribute('download', 'download.tsv');
+    tempLink.setAttribute('download', 'file.csv');
     tempLink.click(); 
 }
 

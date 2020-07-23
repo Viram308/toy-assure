@@ -55,6 +55,16 @@ public class ClientApi {
     }
 
     @Transactional(readOnly = true)
+    public List<Client> getAllClients(){
+        return clientDao.selectByType(ClientType.CLIENT);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Client> getAllCustomers(){
+        return clientDao.selectByType(ClientType.CUSTOMER);
+    }
+
+    @Transactional(readOnly = true)
     public Client getCheck(Long id){
         Client client = clientDao.select(Client.class,id);
         if (client == null) {

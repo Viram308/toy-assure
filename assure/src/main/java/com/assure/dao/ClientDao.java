@@ -19,7 +19,8 @@ public class ClientDao extends AbstractDao {
     private static String selectAll = "select c from Client c";
     // search
     private static String searchByName = "select c from Client c where c.name like :name";
-
+    // select clients
+    private static String selectByType = "select c from Client c where c.type=:type";
     @PersistenceContext
     private EntityManager em;
 
@@ -43,4 +44,9 @@ public class ClientDao extends AbstractDao {
         return query.getResultList();
     }
 
+    public List<Client> selectByType(ClientType clientType) {
+        TypedQuery<Client> query = getQuery(selectByType, Client.class);
+        query.setParameter("type", clientType);
+        return query.getResultList();
+    }
 }

@@ -8,8 +8,21 @@ function getClientUrl(){
 function addClient(){
 	//Set the values to add
 	var $form = $("#client-add-form");
+	var name=$("#client-add-form input[name=name]").val().trim();
+		if(name==""){
+			$.toast({
+            heading: 'Error',
+            text: "Please enter name !!",
+            position: 'bottom-right',
+            showHideTransition: 'fade',
+            hideAfter: 3000,
+            icon: 'error',
+            allowToastClose: true
+        });
+		}
 	var json = toJson($form);
 	var url = getClientUrl();
+
 	// call api
 	$.ajax({
 		url: url,
@@ -60,6 +73,18 @@ function updateClient(event){
 
    //Set the values to update
    var $form = $("#client-edit-form");
+   var name=$("#client-edit-form input[name=name]").val().trim();
+		if(name==""){
+			$.toast({
+            heading: 'Error',
+            text: "Please enter name !!",
+            position: 'bottom-right',
+            showHideTransition: 'fade',
+            hideAfter: 3000,
+            icon: 'error',
+            allowToastClose: true
+        });
+		}
    var json = toJson($form);
    // call api
    $.ajax({
@@ -176,6 +201,8 @@ function searchClient(){
 	}
 	return false;
 }
+
+
 
 function showAddClientModal(){
 	$('#add-client-modal').modal('toggle');
