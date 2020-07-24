@@ -33,7 +33,7 @@ public class Product extends AbstractPojo implements Serializable {
     private String brandId;
 
     @NotNull
-    private Double mrp = 0.0;
+    private Double mrp;
 
     @Column(columnDefinition = "TEXT")
     private String description;

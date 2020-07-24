@@ -11,18 +11,109 @@ function toJson($form){
     return json;
 }
 
-// handle error for REST api failure
-function handleAjaxError(response){
-	var response = JSON.parse(response.responseText);
-	$.toast({
+
+function handleAjaxError(jqXHR){
+    console.log(jqXHR.status);
+    var response = jQuery.parseJSON(jqXHR.responseText);
+    console.log(response);
+    if(jqXHR.status === 500){
+        $.toast({
             heading: 'Error',
-            text: response.message,
+            text: "Some error occurred. Please try after some time.",
             position: 'bottom-right',
             showHideTransition: 'fade',
             hideAfter: 3000,
             icon: 'error',
             allowToastClose: true
         });
+    }else if(jqXHR.status === 400) {
+        var header = response.message;
+        var errorText = [];
+        var jsonArray = [];
+        if(response.subErrors != null && response.subErrors.length>1){
+            for(var i=0; i<response.subErrors.length; i++){
+                console.log(response.subErrors[i]+"      SubError");
+                var message = response.subErrors[i].message;
+                var num = response.subErrors[i].field.match(/(\d+)/);
+                var line = ""+(parseInt(num[0])+1)
+                errorText = [line, message];
+                jsonArray.push(errorText);
+                num={};
+            }
+            console.log(errorText);
+            console.log(jsonArray);
+            $.toast({
+                heading: header,
+                text: "Error occurred while traversing request. Please download error file.",
+                position: 'bottom-right',
+                showHideTransition: 'fade',
+                hideAfter: 5000,
+                icon: 'error',
+                allowToastClose: true
+            });
+            return jsonArray;
+        } else if(response.subErrors != null && response.subErrors.length===1){
+            $.toast({
+                heading: header,
+                text: response.subErrors[0].message,
+                position: 'bottom-right',
+                showHideTransition: 'fade',
+                hideAfter: 5000,
+                icon: 'error',
+                allowToastClose: true
+            });
+            return;
+        } else {
+            $.toast({
+                heading: "Error",
+                text: response.message,
+                position: 'bottom-right',
+                showHideTransition: 'fade',
+                hideAfter: 5000,
+                icon: 'error',
+                allowToastClose: true
+            });
+        }
+    }else if(jqXHR.status === 404) {
+        if(response.subErrors != null || response.subErrors.length>1){
+            var header = response.message;
+            var errorText = [];
+            var jsonArray = [];
+            console.log(response.subErrors[0].message);
+            for(var i=0; i<response.subErrors.length; i++){
+                console.log(response.subErrors[i]+"      SubError");
+                var message = response.subErrors[i].message;
+                var num = response.subErrors[i].field.match(/(\d+)/);
+                var line = ""+(parseInt(num[0])+1)
+                errorText = [line, message];
+                jsonArray.push(errorText);
+                num={};
+            }
+            console.log(errorText);
+            console.log(jsonArray);
+            $.toast({
+                heading: 'Info',
+                text: 'Entity not found. Please download error file.',
+                position: 'bottom-right',
+                showHideTransition: 'fade',
+                hideAfter: 3000,
+                icon: 'info',
+                allowToastClose: true
+            });
+            return jsonArray;
+        } else {
+            $.toast({
+                heading: 'Info',
+                text: response.message,
+                position: 'bottom-right',
+                showHideTransition: 'fade',
+                hideAfter: 5000,
+                icon: 'info',
+                allowToastClose: true
+            });
+            return;
+        }
+    }
 }
 
 

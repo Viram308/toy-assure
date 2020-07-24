@@ -57,9 +57,25 @@ public class ClientApiController {
 
     @ApiOperation(value = "Updates a Client")
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public Client updateUser(@PathVariable Long id, @RequestBody ClientForm clientForm) {
+    public Client updateClient(@PathVariable Long id, @RequestBody ClientForm clientForm) {
         logger.info("update client for id : "+id);
         return clientDto.updateClient(id, clientForm);
+    }
+
+
+
+    @ApiOperation(value = "Gets only type Client")
+    @RequestMapping(value = "/allClients", method = RequestMethod.GET)
+    public List<Client> getOnlyClients() {
+        logger.info("get only clients");
+        return clientDto.getOnlyClients();
+    }
+
+    @ApiOperation(value = "Gets only type Customer")
+    @RequestMapping(value = "/allCustomers", method = RequestMethod.GET)
+    public List<Client> getOnlyCustomers() {
+        logger.info("get only customers");
+        return clientDto.getOnlyCustomers();
     }
 
     @ApiOperation(value = "Gets all Clients")

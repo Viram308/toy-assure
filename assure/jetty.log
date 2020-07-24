@@ -732,3 +732,1012 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 2020-07-23 16:18:15 INFO  ClientDto:67 - Number of clients returned : 2
 2020-07-23 20:57:13 INFO  ClientApiController:68 - get all clients
 2020-07-23 20:57:17 INFO  ClientDto:67 - Number of clients returned : 2
+2020-07-24 16:50:22 INFO  ProductApiController:61 - get all products
+2020-07-24 16:50:23 INFO  ClientApiController:70 - get only clients
+2020-07-24 16:50:55 INFO  ProductApiController:61 - get all products
+2020-07-24 16:50:55 INFO  ClientApiController:70 - get only clients
+2020-07-24 16:55:14 INFO  ProductApiController:33 - adding products
+2020-07-24 16:57:20 INFO  ProductApiController:61 - get all products
+2020-07-24 16:57:20 INFO  ClientApiController:70 - get only clients
+2020-07-24 16:57:28 INFO  ProductApiController:61 - get all products
+2020-07-24 16:57:28 INFO  ClientApiController:70 - get only clients
+2020-07-24 17:00:29 INFO  ProductApiController:33 - adding products
+2020-07-24 17:00:37 INFO  ProductApiController:61 - get all products
+2020-07-24 17:00:37 INFO  ClientApiController:70 - get only clients
+2020-07-24 17:00:49 INFO  ProductApiController:33 - adding products
+2020-07-24 17:58:01 INFO  ProductApiController:61 - get all products
+2020-07-24 17:58:01 INFO  ClientApiController:70 - get only clients
+2020-07-24 17:58:42 INFO  ProductApiController:61 - get all products
+2020-07-24 17:58:42 INFO  ClientApiController:70 - get only clients
+2020-07-24 17:59:26 INFO  ProductApiController:61 - get all products
+2020-07-24 18:00:00 INFO  ProductApiController:61 - get all products
+2020-07-24 18:00:00 INFO  ClientApiController:70 - get only clients
+2020-07-24 18:00:34 INFO  ProductApiController:47 - search products
+2020-07-24 18:00:39 INFO  ProductApiController:47 - search products
+2020-07-24 18:00:43 INFO  ProductApiController:47 - search products
+2020-07-24 18:06:42 WARN  ExceptionHandlerExceptionResolver:391 - Failed to invoke @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> com.assure.controller.AppRestControllerAdvice.handle(java.lang.Throwable)
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.web.accept.PathExtensionContentNegotiationStrategy$ActivationMediaTypeFactory
+	at org.springframework.web.accept.PathExtensionContentNegotiationStrategy.handleNoMatch(PathExtensionContentNegotiationStrategy.java:130)
+	at org.springframework.web.accept.ServletPathExtensionContentNegotiationStrategy.handleNoMatch(ServletPathExtensionContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypeKey(AbstractMappingContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypes(AbstractMappingContentNegotiationStrategy.java:61)
+	at org.springframework.web.accept.ContentNegotiationManager.resolveMediaTypes(ContentNegotiationManager.java:125)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getAcceptableMediaTypes(AbstractMessageConverterMethodProcessor.java:329)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:203)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:380)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:59)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:136)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:74)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1207)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1030)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:760)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1617)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1604)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:545)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1589)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1296)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:485)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1559)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1211)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:221)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:500)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:386)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:560)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:378)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:268)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:117)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:367)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:782)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:914)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-24 18:06:42 WARN  ExceptionHandlerExceptionResolver:391 - Failed to invoke @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> com.assure.controller.AppRestControllerAdvice.handle(java.lang.Throwable)
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.web.accept.PathExtensionContentNegotiationStrategy$ActivationMediaTypeFactory
+	at org.springframework.web.accept.PathExtensionContentNegotiationStrategy.handleNoMatch(PathExtensionContentNegotiationStrategy.java:130)
+	at org.springframework.web.accept.ServletPathExtensionContentNegotiationStrategy.handleNoMatch(ServletPathExtensionContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypeKey(AbstractMappingContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypes(AbstractMappingContentNegotiationStrategy.java:61)
+	at org.springframework.web.accept.ContentNegotiationManager.resolveMediaTypes(ContentNegotiationManager.java:125)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getAcceptableMediaTypes(AbstractMessageConverterMethodProcessor.java:329)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:203)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:380)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:59)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:136)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:74)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1207)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1030)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:760)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1617)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1604)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:545)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1589)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1296)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:485)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1559)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1211)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:221)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:500)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:386)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:560)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:378)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:268)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:117)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:367)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:782)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:914)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-24 18:14:14 INFO  ProductApiController:61 - get all products
+2020-07-24 18:14:14 INFO  ClientApiController:70 - get only clients
+2020-07-24 18:14:43 INFO  ProductApiController:33 - adding products
+2020-07-24 19:58:46 INFO  ProductApiController:61 - get all products
+2020-07-24 19:58:46 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:03:08 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:03:08 INFO  ProductApiController:61 - get all products
+2020-07-24 20:18:06 INFO  ProductApiController:61 - get all products
+2020-07-24 20:18:06 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:20:43 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:20:43 INFO  ProductApiController:61 - get all products
+2020-07-24 20:22:23 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:22:23 INFO  ProductApiController:61 - get all products
+2020-07-24 20:23:57 INFO  ProductApiController:61 - get all products
+2020-07-24 20:23:57 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:25:45 INFO  ProductApiController:61 - get all products
+2020-07-24 20:25:45 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:25:58 INFO  ProductApiController:33 - adding products
+2020-07-24 20:26:52 WARN  ExceptionHandlerExceptionResolver:391 - Failed to invoke @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> com.assure.controller.AppRestControllerAdvice.handle(java.lang.Throwable)
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.web.accept.PathExtensionContentNegotiationStrategy$ActivationMediaTypeFactory
+	at org.springframework.web.accept.PathExtensionContentNegotiationStrategy.handleNoMatch(PathExtensionContentNegotiationStrategy.java:130)
+	at org.springframework.web.accept.ServletPathExtensionContentNegotiationStrategy.handleNoMatch(ServletPathExtensionContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypeKey(AbstractMappingContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypes(AbstractMappingContentNegotiationStrategy.java:61)
+	at org.springframework.web.accept.ContentNegotiationManager.resolveMediaTypes(ContentNegotiationManager.java:125)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getAcceptableMediaTypes(AbstractMessageConverterMethodProcessor.java:329)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:203)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:380)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:59)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:136)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:74)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1207)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1030)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:760)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1617)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1604)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:545)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1589)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1296)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:485)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1559)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1211)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:221)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:500)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:386)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:560)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:378)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:268)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:117)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:367)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:782)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:914)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-24 20:26:52 WARN  ExceptionHandlerExceptionResolver:391 - Failed to invoke @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> com.assure.controller.AppRestControllerAdvice.handle(java.lang.Throwable)
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.web.accept.PathExtensionContentNegotiationStrategy$ActivationMediaTypeFactory
+	at org.springframework.web.accept.PathExtensionContentNegotiationStrategy.handleNoMatch(PathExtensionContentNegotiationStrategy.java:130)
+	at org.springframework.web.accept.ServletPathExtensionContentNegotiationStrategy.handleNoMatch(ServletPathExtensionContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypeKey(AbstractMappingContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypes(AbstractMappingContentNegotiationStrategy.java:61)
+	at org.springframework.web.accept.ContentNegotiationManager.resolveMediaTypes(ContentNegotiationManager.java:125)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getAcceptableMediaTypes(AbstractMessageConverterMethodProcessor.java:329)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:203)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:380)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:59)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:136)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:74)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1207)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1030)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:760)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1617)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1604)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:545)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1589)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1296)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:485)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1559)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1211)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:221)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:500)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:386)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:560)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:378)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:268)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:117)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:367)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:782)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:914)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-24 20:27:13 INFO  ProductApiController:33 - adding products
+2020-07-24 20:29:23 INFO  ProductApiController:33 - adding products
+2020-07-24 20:29:55 INFO  ProductApiController:33 - adding products
+2020-07-24 20:31:03 INFO  ProductApiController:47 - search products
+2020-07-24 20:31:55 INFO  ProductApiController:33 - adding products
+2020-07-24 20:33:03 INFO  ProductApiController:61 - get all products
+2020-07-24 20:33:03 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:33:25 INFO  ProductApiController:33 - adding products
+2020-07-24 20:35:56 WARN  ExceptionHandlerExceptionResolver:391 - Failed to invoke @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> com.assure.controller.AppRestControllerAdvice.handle(java.lang.Throwable)
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.web.accept.PathExtensionContentNegotiationStrategy$ActivationMediaTypeFactory
+	at org.springframework.web.accept.PathExtensionContentNegotiationStrategy.handleNoMatch(PathExtensionContentNegotiationStrategy.java:130)
+	at org.springframework.web.accept.ServletPathExtensionContentNegotiationStrategy.handleNoMatch(ServletPathExtensionContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypeKey(AbstractMappingContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypes(AbstractMappingContentNegotiationStrategy.java:61)
+	at org.springframework.web.accept.ContentNegotiationManager.resolveMediaTypes(ContentNegotiationManager.java:125)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getAcceptableMediaTypes(AbstractMessageConverterMethodProcessor.java:329)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:203)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:380)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:59)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:136)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:74)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1207)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1030)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:760)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1617)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1604)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:545)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1589)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1296)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:485)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1559)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1211)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:221)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:500)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:386)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:560)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:378)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:268)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:117)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:782)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:914)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-24 20:35:56 WARN  ExceptionHandlerExceptionResolver:391 - Failed to invoke @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> com.assure.controller.AppRestControllerAdvice.handle(java.lang.Throwable)
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.web.accept.PathExtensionContentNegotiationStrategy$ActivationMediaTypeFactory
+	at org.springframework.web.accept.PathExtensionContentNegotiationStrategy.handleNoMatch(PathExtensionContentNegotiationStrategy.java:130)
+	at org.springframework.web.accept.ServletPathExtensionContentNegotiationStrategy.handleNoMatch(ServletPathExtensionContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypeKey(AbstractMappingContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypes(AbstractMappingContentNegotiationStrategy.java:61)
+	at org.springframework.web.accept.ContentNegotiationManager.resolveMediaTypes(ContentNegotiationManager.java:125)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getAcceptableMediaTypes(AbstractMessageConverterMethodProcessor.java:329)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:203)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:380)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:59)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:136)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:74)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1207)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1030)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:760)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1617)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1604)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:545)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1589)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1296)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:485)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1559)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1211)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:221)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:500)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:386)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:560)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:378)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:268)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:117)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:135)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:782)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:914)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-24 20:36:04 INFO  ProductApiController:61 - get all products
+2020-07-24 20:36:04 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:36:28 INFO  ProductApiController:33 - adding products
+2020-07-24 20:36:41 INFO  ProductApiController:61 - get all products
+2020-07-24 20:36:41 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:37:04 INFO  ClientApiController:84 - get all clients
+2020-07-24 20:37:04 INFO  ClientDto:67 - Number of clients returned : 2
+2020-07-24 20:37:15 INFO  ProductApiController:61 - get all products
+2020-07-24 20:37:15 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:37:32 INFO  ProductApiController:33 - adding products
+2020-07-24 20:39:03 INFO  ProductApiController:61 - get all products
+2020-07-24 20:39:03 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:39:18 INFO  ProductApiController:33 - adding products
+2020-07-24 20:39:18 INFO  ProductDto:38 - hiii
+2020-07-24 20:42:54 INFO  ProductApiController:61 - get all products
+2020-07-24 20:42:54 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:43:08 INFO  ProductApiController:33 - adding products
+2020-07-24 20:43:08 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 20:43:08 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 20:49:32 INFO  ProductApiController:61 - get all products
+2020-07-24 20:49:32 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:49:42 INFO  ProductApiController:33 - adding products
+2020-07-24 20:49:42 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 20:49:42 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 20:49:42 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 20:49:42 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 20:49:42 INFO  ProductCsvFormValidator:63 - check product
+2020-07-24 20:50:11 INFO  ProductApiController:61 - get all products
+2020-07-24 20:53:27 INFO  ProductApiController:33 - adding products
+2020-07-24 20:53:27 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 20:53:27 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 20:53:27 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 20:53:27 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 20:53:27 INFO  ProductCsvFormValidator:63 - check product
+2020-07-24 20:53:36 INFO  ProductApiController:61 - get all products
+2020-07-24 20:53:36 INFO  ClientApiController:70 - get only clients
+2020-07-24 20:53:51 INFO  ProductApiController:33 - adding products
+2020-07-24 20:53:51 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 20:53:51 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 20:53:51 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 20:53:51 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 20:53:51 INFO  ProductCsvFormValidator:63 - check product
+2020-07-24 20:56:22 INFO  ProductApiController:33 - adding products
+2020-07-24 20:56:23 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 20:56:23 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 20:56:23 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 20:56:23 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 20:56:23 INFO  ProductCsvFormValidator:63 - check product for clientId :1 clientskuid : a1
+2020-07-24 20:59:37 INFO  ProductApiController:33 - adding products
+2020-07-24 20:59:38 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 20:59:38 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 20:59:38 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 20:59:38 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 20:59:38 INFO  ProductCsvFormValidator:63 - check product for clientId :1 clientskuid : a1
+2020-07-24 20:59:38 INFO  ProductApi:77 - clientId: 1
+2020-07-24 20:59:38 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 21:03:19 INFO  ProductApiController:33 - adding products
+2020-07-24 21:03:20 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:03:20 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:03:21 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:03:21 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:03:21 INFO  ProductCsvFormValidator:63 - check product for clientId :1 clientskuid : a1
+2020-07-24 21:03:21 INFO  ProductApi:77 - clientId: 1
+2020-07-24 21:03:21 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 21:06:00 INFO  ProductApiController:61 - get all products
+2020-07-24 21:06:01 INFO  ClientApiController:70 - get only clients
+2020-07-24 21:06:20 INFO  ProductApiController:33 - adding products
+2020-07-24 21:06:20 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:06:20 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:06:21 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:06:21 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:06:21 INFO  ProductCsvFormValidator:63 - check product for clientId :1 clientskuid : a1
+2020-07-24 21:06:21 INFO  ProductApi:77 - clientId: 1
+2020-07-24 21:06:21 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 21:08:30 INFO  ProductApiController:40 - get product for globalSkuId : 1
+2020-07-24 21:08:49 INFO  ProductApiController:61 - get all products
+2020-07-24 21:08:59 INFO  ProductApiController:47 - search products
+2020-07-24 21:09:08 INFO  ProductApiController:47 - search products
+2020-07-24 21:09:10 INFO  ProductApiController:47 - search products
+2020-07-24 21:12:08 INFO  ProductApiController:40 - get product for globalSkuId : 1
+2020-07-24 21:12:36 INFO  ProductApiController:33 - adding products
+2020-07-24 21:12:36 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:12:36 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:12:36 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:12:36 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:12:36 INFO  ProductCsvFormValidator:63 - check product for clientId :1 clientskuid : a1
+2020-07-24 21:12:36 INFO  ProductApi:77 - clientId: 1
+2020-07-24 21:12:36 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 21:12:59 INFO  ProductApiController:47 - search products
+2020-07-24 21:14:02 INFO  ProductApiController:33 - adding products
+2020-07-24 21:14:02 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:14:02 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:14:02 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:14:02 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:14:02 INFO  ProductCsvFormValidator:63 - check product for clientId :1 clientskuid : string
+2020-07-24 21:14:02 INFO  ProductApi:77 - clientId: 1
+2020-07-24 21:14:02 INFO  ProductApi:78 - clientSKU : string
+2020-07-24 21:15:40 INFO  ProductApiController:40 - get product for globalSkuId : 1
+2020-07-24 21:16:45 INFO  ProductApiController:33 - adding products
+2020-07-24 21:16:45 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:16:45 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:16:45 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:16:45 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:16:45 INFO  ProductCsvFormValidator:63 - check product for clientId :1 clientskuid : string
+2020-07-24 21:16:45 INFO  ProductApi:77 - clientId: 1
+2020-07-24 21:16:45 INFO  ProductApi:78 - clientSKU : string
+2020-07-24 21:18:49 INFO  ProductApiController:40 - get product for globalSkuId : 1
+2020-07-24 21:18:50 WARN  SqlExceptionHelper:137 - SQL Error: 1146, SQLState: 42S02
+2020-07-24 21:18:50 ERROR SqlExceptionHelper:142 - Table 'omsdb.assure_product' doesn't exist
+2020-07-24 21:20:37 INFO  ClientApiController:84 - get all clients
+2020-07-24 21:20:37 INFO  ClientDto:67 - Number of clients returned : 0
+2020-07-24 21:20:46 INFO  ClientApiController:33 - adding client
+2020-07-24 21:20:46 INFO  ClientDto:31 - Client added
+2020-07-24 21:20:46 INFO  ClientApiController:84 - get all clients
+2020-07-24 21:20:46 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-24 21:20:57 INFO  ClientApiController:47 - search clients
+2020-07-24 21:20:57 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-24 21:20:58 INFO  ClientApiController:47 - search clients
+2020-07-24 21:20:58 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-24 21:21:01 INFO  ClientApiController:47 - search clients
+2020-07-24 21:21:01 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-24 21:21:03 INFO  ClientApiController:40 - get client for id : 1
+2020-07-24 21:21:06 INFO  ClientApiController:61 - update client for id : 1
+2020-07-24 21:21:06 INFO  ClientDto:60 - Client updated
+2020-07-24 21:21:07 INFO  ClientApiController:47 - search clients
+2020-07-24 21:21:07 INFO  ClientDto:44 - Number of clients returned : 0
+2020-07-24 21:21:16 INFO  ClientApiController:47 - search clients
+2020-07-24 21:21:16 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-24 21:21:29 INFO  ClientApiController:33 - adding client
+2020-07-24 21:21:29 INFO  ClientDto:31 - Client added
+2020-07-24 21:21:29 INFO  ClientApiController:47 - search clients
+2020-07-24 21:21:29 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-24 21:21:32 INFO  ClientApiController:54 - search clients by name
+2020-07-24 21:21:32 INFO  ClientDto:51 - Number of clients returned while search by name : 2
+2020-07-24 21:21:38 INFO  ProductApiController:61 - get all products
+2020-07-24 21:21:38 INFO  ClientApiController:70 - get only clients
+2020-07-24 21:21:41 INFO  ProductApiController:47 - search products
+2020-07-24 21:22:06 INFO  ProductApiController:47 - search products
+2020-07-24 21:22:25 INFO  ProductApiController:47 - search products
+2020-07-24 21:25:54 WARN  ExceptionHandlerExceptionResolver:391 - Failed to invoke @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> com.assure.controller.AppRestControllerAdvice.handle(java.lang.Throwable)
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.web.accept.PathExtensionContentNegotiationStrategy$ActivationMediaTypeFactory
+	at org.springframework.web.accept.PathExtensionContentNegotiationStrategy.handleNoMatch(PathExtensionContentNegotiationStrategy.java:130)
+	at org.springframework.web.accept.ServletPathExtensionContentNegotiationStrategy.handleNoMatch(ServletPathExtensionContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypeKey(AbstractMappingContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypes(AbstractMappingContentNegotiationStrategy.java:61)
+	at org.springframework.web.accept.ContentNegotiationManager.resolveMediaTypes(ContentNegotiationManager.java:125)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getAcceptableMediaTypes(AbstractMessageConverterMethodProcessor.java:329)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:203)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:380)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:59)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:136)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:74)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1207)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1030)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:760)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1617)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1604)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:545)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1589)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1296)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:485)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1559)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1211)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:221)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:500)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:386)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:560)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:378)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:268)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:117)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:367)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:782)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:914)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-24 21:25:54 WARN  ExceptionHandlerExceptionResolver:391 - Failed to invoke @ExceptionHandler method: public org.springframework.http.ResponseEntity<java.lang.Object> com.assure.controller.AppRestControllerAdvice.handle(java.lang.Throwable)
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.web.accept.PathExtensionContentNegotiationStrategy$ActivationMediaTypeFactory
+	at org.springframework.web.accept.PathExtensionContentNegotiationStrategy.handleNoMatch(PathExtensionContentNegotiationStrategy.java:130)
+	at org.springframework.web.accept.ServletPathExtensionContentNegotiationStrategy.handleNoMatch(ServletPathExtensionContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypeKey(AbstractMappingContentNegotiationStrategy.java:78)
+	at org.springframework.web.accept.AbstractMappingContentNegotiationStrategy.resolveMediaTypes(AbstractMappingContentNegotiationStrategy.java:61)
+	at org.springframework.web.accept.ContentNegotiationManager.resolveMediaTypes(ContentNegotiationManager.java:125)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.getAcceptableMediaTypes(AbstractMessageConverterMethodProcessor.java:329)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:183)
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:203)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:81)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:132)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:380)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:59)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:136)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:74)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1207)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1030)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:760)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1617)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:226)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1604)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:545)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:536)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1589)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1296)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:485)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1559)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1211)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:221)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:146)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:500)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:386)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:560)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:378)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:268)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:117)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:336)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:313)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:171)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:129)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:367)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:782)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:914)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-24 21:26:18 INFO  ProductApiController:47 - search products
+2020-07-24 21:26:37 INFO  ProductApiController:33 - adding products
+2020-07-24 21:26:38 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:26:38 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:26:38 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:26:38 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:26:38 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : string
+2020-07-24 21:26:38 INFO  ProductApi:77 - clientId: 2
+2020-07-24 21:26:38 INFO  ProductApi:78 - clientSKU : string
+2020-07-24 21:27:00 INFO  ProductApiController:61 - get all products
+2020-07-24 21:27:18 INFO  ProductApiController:54 - update product for globalSkuId : 1
+2020-07-24 21:32:18 INFO  ProductApiController:33 - adding products
+2020-07-24 21:32:18 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:32:18 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:32:18 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:32:18 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:32:18 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : string
+2020-07-24 21:32:18 INFO  ProductApi:77 - clientId: 2
+2020-07-24 21:32:18 INFO  ProductApi:78 - clientSKU : string
+2020-07-24 21:49:04 INFO  ProductApiController:61 - get all products
+2020-07-24 21:49:04 INFO  ClientApiController:70 - get only clients
+2020-07-24 21:49:20 INFO  ProductApiController:33 - adding products
+2020-07-24 21:49:20 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:49:20 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:49:20 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:49:20 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:49:20 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 21:49:20 INFO  ProductApi:77 - clientId: 2
+2020-07-24 21:49:20 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 21:49:20 INFO  ProductApi:80 - Hi product : null
+2020-07-24 21:49:20 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 21:49:20 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 21:49:20 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 21:49:20 INFO  ProductDto:39 - validated
+2020-07-24 21:49:20 INFO  ProductDto:44 - No errors
+2020-07-24 21:49:48 INFO  ProductApiController:61 - get all products
+2020-07-24 21:49:48 INFO  ClientApiController:70 - get only clients
+2020-07-24 21:53:16 INFO  ProductApiController:33 - adding products
+2020-07-24 21:53:16 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:53:16 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:53:16 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:53:16 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:53:16 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : string
+2020-07-24 21:53:16 INFO  ProductApi:77 - clientId: 2
+2020-07-24 21:53:16 INFO  ProductApi:78 - clientSKU : string
+2020-07-24 21:53:16 INFO  ProductApi:80 - Hi product : null
+2020-07-24 21:53:16 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 21:53:16 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 21:53:16 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 21:53:16 INFO  ProductDto:39 - validated
+2020-07-24 21:53:16 INFO  ProductDto:44 - No errors
+2020-07-24 21:54:32 INFO  ProductApiController:33 - adding products
+2020-07-24 21:54:32 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:54:32 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:54:32 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:54:32 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:54:32 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 21:54:32 INFO  ProductApi:77 - clientId: 2
+2020-07-24 21:54:32 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 21:54:33 INFO  ProductApi:80 - Hi product : null
+2020-07-24 21:54:33 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 21:54:33 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 21:54:33 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 21:54:33 INFO  ProductDto:39 - validated
+2020-07-24 21:54:33 INFO  ProductDto:44 - No errors
+2020-07-24 21:56:02 INFO  ProductApiController:47 - search products
+2020-07-24 21:59:28 INFO  ProductApiController:33 - adding products
+2020-07-24 21:59:28 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 21:59:28 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 21:59:28 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 21:59:28 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 21:59:28 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 21:59:28 INFO  ProductApi:77 - clientId: 2
+2020-07-24 21:59:28 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 21:59:28 INFO  ProductApi:80 - Hi product : null
+2020-07-24 21:59:28 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 21:59:28 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 21:59:28 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 21:59:28 INFO  ProductDto:39 - validated
+2020-07-24 21:59:28 INFO  ProductDto:44 - No errors
+2020-07-24 22:24:29 INFO  ProductApiController:33 - adding products
+2020-07-24 22:24:29 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 22:24:29 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 22:24:29 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 22:24:29 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 22:24:29 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 22:24:29 INFO  ProductApi:77 - clientId: 2
+2020-07-24 22:24:29 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 22:24:30 INFO  ProductApi:80 - Hi product : null
+2020-07-24 22:24:30 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 22:24:30 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 22:24:30 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 22:24:30 INFO  ProductDto:39 - validated
+2020-07-24 22:24:30 INFO  ProductDto:44 - No errors
+2020-07-24 22:24:30 INFO  ProductDto:50 - products added
+2020-07-24 22:24:40 INFO  ProductApiController:47 - search products
+2020-07-24 22:26:00 INFO  ProductApiController:47 - search products
+2020-07-24 22:26:12 INFO  ProductApiController:61 - get all products
+2020-07-24 22:29:50 INFO  ProductApiController:33 - adding products
+2020-07-24 22:29:50 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 22:29:50 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 22:29:51 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 22:29:51 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 22:29:51 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 22:29:51 INFO  ProductApi:77 - clientId: 2
+2020-07-24 22:29:51 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 22:29:51 INFO  ProductApi:80 - Hi product : null
+2020-07-24 22:29:51 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 22:29:51 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 22:29:51 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 22:29:51 INFO  ProductDto:39 - validated
+2020-07-24 22:29:51 INFO  ProductDto:44 - No errors
+2020-07-24 22:29:51 INFO  ProductDto:50 - products added:1
+2020-07-24 22:30:08 INFO  ProductApiController:47 - search products
+2020-07-24 22:30:16 INFO  ProductApiController:61 - get all products
+2020-07-24 22:31:52 INFO  ProductApiController:33 - adding products
+2020-07-24 22:31:52 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 22:31:52 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 22:31:53 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 22:31:53 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 22:31:53 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 22:31:53 INFO  ProductApi:77 - clientId: 2
+2020-07-24 22:31:53 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 22:31:53 INFO  ProductApi:80 - Hi product : null
+2020-07-24 22:31:53 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 22:31:53 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 22:31:53 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 22:31:53 INFO  ProductDto:39 - validated
+2020-07-24 22:31:53 INFO  ProductDto:44 - No errors
+2020-07-24 22:31:54 INFO  ProductDto:50 - products added:1
+2020-07-24 22:40:51 INFO  ProductApiController:61 - get all products
+2020-07-24 22:40:51 INFO  ClientApiController:70 - get only clients
+2020-07-24 22:41:05 INFO  ProductApiController:33 - adding products
+2020-07-24 22:41:05 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 22:41:05 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 22:41:05 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 22:41:05 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 22:41:05 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 22:41:05 INFO  ProductApi:77 - clientId: 2
+2020-07-24 22:41:05 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 22:41:05 INFO  ProductApi:80 - Hi product : null
+2020-07-24 22:41:05 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 22:41:05 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 22:41:05 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 22:41:05 INFO  ProductDto:39 - validated
+2020-07-24 22:41:05 INFO  ProductDto:44 - No errors
+2020-07-24 22:41:06 INFO  ProductDto:50 - products added:null
+2020-07-24 22:42:48 INFO  ProductApiController:61 - get all products
+2020-07-24 22:42:53 INFO  ProductApiController:33 - adding products
+2020-07-24 22:42:53 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 22:42:53 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 22:42:53 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 22:42:53 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 22:42:53 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : string
+2020-07-24 22:42:53 INFO  ProductApi:77 - clientId: 2
+2020-07-24 22:42:53 INFO  ProductApi:78 - clientSKU : string
+2020-07-24 22:42:53 INFO  ProductApi:80 - Hi product : null
+2020-07-24 22:42:53 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 22:42:53 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 22:42:53 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 22:42:53 INFO  ProductDto:39 - validated
+2020-07-24 22:42:53 INFO  ProductDto:44 - No errors
+2020-07-24 22:42:53 INFO  ProductDto:50 - products added:null
+2020-07-24 22:57:55 INFO  ProductApiController:33 - adding products
+2020-07-24 22:57:55 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 22:57:55 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 22:57:55 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 22:57:55 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 22:57:55 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 22:57:55 INFO  ProductApi:77 - clientId: 2
+2020-07-24 22:57:55 INFO  ProductApi:78 - clientSKU : a1
+2020-07-24 22:57:55 INFO  ProductApi:80 - Hi product : null
+2020-07-24 22:57:55 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 22:57:55 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 22:57:55 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 22:57:55 INFO  ProductDto:39 - validated
+2020-07-24 22:57:55 INFO  ProductDto:44 - No errors
+2020-07-24 22:57:56 INFO  ProductDto:50 - products added:null
+2020-07-24 23:04:08 INFO  ProductApiController:61 - get all products
+2020-07-24 23:04:08 INFO  ClientApiController:70 - get only clients
+2020-07-24 23:04:27 INFO  ProductApiController:33 - adding products
+2020-07-24 23:04:27 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:04:27 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:04:27 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:04:27 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:04:27 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:04:27 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:04:27 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:04:28 INFO  ProductApi:82 - Hi product : null
+2020-07-24 23:04:28 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:04:28 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:04:28 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 23:04:28 INFO  ProductDto:39 - validated
+2020-07-24 23:04:28 INFO  ProductDto:44 - No errors
+2020-07-24 23:04:28 INFO  ProductApi:27 - 
+2020-07-24 23:04:28 INFO  ProductDto:50 - products added:null
+2020-07-24 23:07:33 INFO  ClientApiController:70 - get only clients
+2020-07-24 23:07:33 INFO  ProductApiController:61 - get all products
+2020-07-24 23:07:43 INFO  ProductApiController:33 - adding products
+2020-07-24 23:07:43 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:07:43 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:07:43 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:07:43 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:07:43 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:07:43 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:07:43 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:07:43 INFO  ProductApi:82 - Hi product : null
+2020-07-24 23:07:43 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:07:43 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:07:43 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 23:07:43 INFO  ProductDto:38 - validated
+2020-07-24 23:07:43 INFO  ProductDto:43 - No errors
+2020-07-24 23:07:44 INFO  ProductApi:27 - 
+2020-07-24 23:07:44 ERROR ExceptionMapperStandardImpl:39 - HHH000346: Error during managed flush [Validation failed for classes [com.assure.pojo.Product] during persist time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='may not be null', propertyPath=clientId, rootBeanClass=class com.assure.pojo.Product, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+	ConstraintViolationImpl{interpolatedMessage='may not be null', propertyPath=clientSkuId, rootBeanClass=class com.assure.pojo.Product, messageTemplate='{javax.validation.constraints.NotNull.message}'}
+]]
+2020-07-24 23:09:42 INFO  ProductApiController:61 - get all products
+2020-07-24 23:09:42 INFO  ClientApiController:70 - get only clients
+2020-07-24 23:09:50 INFO  ProductApiController:33 - adding products
+2020-07-24 23:09:50 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:09:50 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:09:50 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:09:50 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:09:50 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:09:50 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:09:50 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:09:50 INFO  ProductApi:82 - Hi product : null
+2020-07-24 23:09:50 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:09:50 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:09:50 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 23:09:50 INFO  ProductDto:38 - validated
+2020-07-24 23:09:50 INFO  ProductDto:43 - No errors
+2020-07-24 23:14:49 INFO  ProductApiController:33 - adding products
+2020-07-24 23:14:49 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:14:49 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:14:50 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:14:50 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:14:50 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:14:50 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:14:50 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:14:50 INFO  ProductApi:82 - Hi product : null
+2020-07-24 23:14:50 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:14:50 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:14:50 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 23:14:50 INFO  ProductDto:38 - validated
+2020-07-24 23:14:50 INFO  ProductDto:43 - No errors
+2020-07-24 23:14:50 INFO  ProductDto:47 - 
+2020-07-24 23:14:50 INFO  ProductDto:48 - 
+2020-07-24 23:19:03 INFO  ProductApiController:33 - adding products
+2020-07-24 23:19:03 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:19:03 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:19:04 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:19:04 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:19:04 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:19:04 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:19:04 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:19:04 INFO  ProductApi:82 - Hi product : null
+2020-07-24 23:19:04 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:19:04 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:19:04 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 23:19:04 INFO  ProductDto:38 - validated
+2020-07-24 23:19:04 INFO  ProductDto:43 - No errors
+2020-07-24 23:19:04 INFO  ProductDto:47 - 2
+2020-07-24 23:19:04 INFO  ProductDto:48 - a1
+2020-07-24 23:19:06 INFO  ProductApi:27 - 2
+2020-07-24 23:19:07 INFO  ProductDto:52 - products added:2
+2020-07-24 23:19:07 INFO  ProductApiController:47 - search products
+2020-07-24 23:19:15 INFO  ProductApiController:40 - get product for globalSkuId : 15
+2020-07-24 23:20:25 INFO  ProductApiController:40 - get product for globalSkuId : 15
+2020-07-24 23:21:13 INFO  ProductApiController:33 - adding products
+2020-07-24 23:21:13 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:21:13 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:21:13 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:21:13 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:21:13 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:21:13 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:21:13 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:21:13 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@26d6ca66
+2020-07-24 23:21:13 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:21:13 INFO  ProductCsvFormValidator:67 - null product
+2020-07-24 23:21:14 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:21:14 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 23:21:14 INFO  ProductDto:38 - validated
+2020-07-24 23:21:14 INFO  ProductDto:40 - 1
+2020-07-24 23:22:15 INFO  ProductApiController:33 - adding products
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:22:15 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:22:15 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:22:15 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@f58acb3
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:67 - null product
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:22:15 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 23:23:13 INFO  ProductApiController:33 - adding products
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:23:13 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:23:13 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:23:13 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@23962837
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:67 - null product
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:23:13 INFO  ProductCsvFormValidator:78 - check brand
+2020-07-24 23:23:53 INFO  ProductApiController:33 - adding products
+2020-07-24 23:23:53 INFO  ProductCsvFormValidator:40 - empty map
+2020-07-24 23:23:53 INFO  ProductCsvFormValidator:42 - checkData
+2020-07-24 23:23:53 INFO  ProductCsvFormValidator:48 - data collected
+2020-07-24 23:23:53 INFO  ProductCsvFormValidator:57 - check client
+2020-07-24 23:23:53 INFO  ProductCsvFormValidator:63 - check product for clientId :2 clientskuid : a1
+2020-07-24 23:23:53 INFO  ProductApi:79 - clientId: 2
+2020-07-24 23:23:53 INFO  ProductApi:80 - clientSKU : a1
+2020-07-24 23:23:53 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@1a02825c
+2020-07-24 23:23:53 INFO  ProductCsvFormValidator:65 - check null product
+2020-07-24 23:23:53 INFO  ProductCsvFormValidator:67 - null product
+2020-07-24 23:23:53 INFO  ProductCsvFormValidator:72 - chack name
+2020-07-24 23:24:28 INFO  ProductApiController:47 - search products
+2020-07-24 23:24:32 INFO  ProductApiController:47 - search products
+2020-07-24 23:24:35 INFO  ProductApiController:47 - search products
+2020-07-24 23:24:39 INFO  ProductApiController:47 - search products
+2020-07-24 23:24:43 INFO  ProductApiController:40 - get product for globalSkuId : 15
+2020-07-24 23:25:48 INFO  ProductApiController:40 - get product for globalSkuId : 15
+2020-07-24 23:26:05 INFO  ProductApiController:40 - get product for globalSkuId : 15

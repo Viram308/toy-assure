@@ -1,14 +1,11 @@
 package com.assure.dao;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
 import com.assure.pojo.Client;
 import com.commons.enums.ClientType;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 @Repository
 public class ClientDao extends AbstractDao {
@@ -21,8 +18,6 @@ public class ClientDao extends AbstractDao {
     private static String searchByName = "select c from Client c where c.name like :name";
     // select clients
     private static String selectByType = "select c from Client c where c.type=:type";
-    @PersistenceContext
-    private EntityManager em;
 
     // select according to brand and category
     public Client selectByNameAndType(String name, ClientType type) {
@@ -40,7 +35,7 @@ public class ClientDao extends AbstractDao {
 
     public List<Client> searchByName(String name) {
         TypedQuery<Client> query = getQuery(searchByName, Client.class);
-        query.setParameter("name", name+"%");
+        query.setParameter("name", name + "%");
         return query.getResultList();
     }
 

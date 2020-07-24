@@ -68,10 +68,22 @@ public class ClientDto {
         return clientList;
     }
 
+    @Transactional(readOnly = true)
+    public List<Client> getOnlyClients() {
+        return clientApi.getAllClients();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Client> getOnlyCustomers() {
+        return clientApi.getAllCustomers();
+    }
+
     public void validate(ClientForm clientForm) {
         String type=StringUtil.toUpperCase(clientForm.getType().toString());
         if(StringUtil.isEmpty(clientForm.getName()) || (!type.equals(ClientType.CLIENT.toString()) && !type.equals(ClientType.CUSTOMER.toString()))){
             throw new ApiException("Enter valid name and type");
         }
     }
+
+
 }

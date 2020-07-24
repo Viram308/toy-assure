@@ -1,5 +1,10 @@
 var errorArray = [];
+var fileData = [];
 
+function getClientUrl(){
+	var baseUrl = $("meta[name=baseUrl]").attr("content")
+	return baseUrl + "/api/client";
+}
 // get url
 function getProductUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content")
@@ -39,7 +44,7 @@ function updateProduct(){
             return;
      }
 	//Get the ID
-	var id = $("#product-edit-form input[name=id]").val();	
+	var id = $("#product-edit-form input[name=globalSkuId]").val();	
 	var url = getProductUrl() + "/" + id;
 	//Set the values to update
 	var $form = $("#product-edit-form");
@@ -87,11 +92,6 @@ function getProductList(){
 	   });
 }
 
-// FILE UPLOAD METHODS
-var fileData = [];
-var errorData = [];
-var processCount = 0;
-
 
 function processDataProduct(){
 	if(validateFields()){
@@ -122,15 +122,15 @@ function readFileDataCallbackProduct(results){
 function uploadRowsProduct(){
 	//Update progress
 	updateUploadDialogProduct();
-	var clientName = $('#upload-product-modal select[name=clientName]').val();
+	var clientId = $('#upload-product-modal select[name=clientName]').val();
     var dataArr = [];
     var jsonArray = {};
     for (var i = 0; i < fileData.length; i++){
-        fileData[i].clientName = clientName;
+        fileData[i].clientId = clientId;
         dataArr.push(fileData[i])
     }
     console.log(dataArr);
-    jsonArray.product = dataArr;
+    jsonArray.productFormList = dataArr;
 	var json = JSON.stringify(jsonArray);
 	console.log(json);
 	var url = getProductUrl();
@@ -157,6 +157,7 @@ function uploadRowsProduct(){
         error: function(jqXHR){
             errorArray = [];
             errorArray = handleAjaxError(jqXHR);
+            $('#errorCountProduct').html("" + errorArray.length);
             console.log(errorArray);
         }
 	});
@@ -191,8 +192,8 @@ function displayProductList(data){
 	}
 }
 
-function displayEditProduct(id){
-	var url = getProductUrl() + "/" + id;
+function displayEditProduct(globalSkuId){
+	var url = getProductUrl() + "/" + globalSkuId;
 	// call api
 	$.ajax({
 		url: url,
@@ -210,10 +211,9 @@ function resetUploadDialogProduct(){
 	var $file = $('#productFile');
 	$file.val('');
 	$('#productFileName').html("Choose File");
-	//Reset various counts
-	processCount = 0;
+	//Reset various count
 	fileData = [];
-	errorData = [];
+	errorArray = [];
 	//Update counts	
 	updateUploadDialogProduct();
 }
@@ -221,8 +221,7 @@ function resetUploadDialogProduct(){
 // update data
 function updateUploadDialogProduct(){
 	$('#rowCountProduct').html("" + fileData.length);
-	$('#processCountProduct').html("" + processCount);
-	$('#errorCountProduct').html("" + errorData.length);
+	$('#errorCountProduct').html("" + errorArray.length);
 }
 
 function updateFileNameProduct(){
@@ -234,6 +233,29 @@ function updateFileNameProduct(){
 function displayUploadDataProduct(){
 	resetUploadDialogProduct(); 	
 	$('#upload-product-modal').modal('toggle');
+}
+
+function displayClientDropDownList(data){
+    $('#clientSelect').empty();
+    $('#clientSelected').empty();
+    var options = '<option value="0" selected>Select Client</option>';
+    $.each(data, function(index, value) {
+        options += '<option value="' + value.id + '">' + value.name + '</option>';
+    });
+    $('#clientSelect').append(options);
+    $('#clientSelected').append(options);
+}
+
+function getClientList(){
+	var url = getClientUrl() + "/allClients";
+	$.ajax({
+        url: url,
+        type: 'GET',
+        success: function(data) {
+            displayClientDropDownList(data);
+        },
+        error: handleAjaxError
+	});
 }
 
 
@@ -273,7 +295,17 @@ function validateUpdateFields() {
     }
     return true;
 }
-
+function infoToast(infoText) {
+    $.toast({
+        heading: 'Info',
+        text: infoText,
+        position: 'bottom-right',
+        showHideTransition: 'fade',
+        hideAfter: 3000,
+        icon: 'info',
+        allowToastClose: true
+    });
+}
 // fill entries
 function displayProduct(data){
 	$("#product-edit-form input[name=clientSkuId]").val(data.clientSkuId);	
@@ -282,6 +314,7 @@ function displayProduct(data){
 	$("#product-edit-form input[name=brandId]").val(data.brandId);
 	$("#product-edit-form input[name=mrp]").val(data.mrp);
 	$("#product-edit-form input[name=description]").val(data.description);
+	$("#product-edit-form input[name=clientId]").val(data.clientId);
 	$("#product-edit-form input[name=globalSkuId]").val(data.globalSkuId);
 	$('#edit-product-modal').modal('toggle');
 }
@@ -297,3 +330,4 @@ function init(){
 
 $(document).ready(init);
 $(document).ready(getProductList);
+$(document).ready(getClientList);
