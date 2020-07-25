@@ -38,6 +38,18 @@
         <a class="nav-link" th:href="@{/ui/product}">Product</a>
       </li>
 
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          BinSku
+        </a>
+        <div class="dropdown-menu">
+          <a class="nav-link" th:href="@{/ui/bin}">Bin</a>
+          <a class="nav-link" th:href="@{/ui/inventory}">Inventory</a>
+        </div>
+      </li>
+
+
       <li class="nav-item">
         <a class="nav-link" th:href="@{/ui/inventory}">Inventory</a>
       </li>
