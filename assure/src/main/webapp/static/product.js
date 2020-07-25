@@ -41,7 +41,7 @@ function searchProduct(event){
 
 function updateProduct(){
 	if(!validateUpdateFields()){
-            return;
+            return false;
      }
 	//Get the ID
 	var id = $("#product-edit-form input[name=globalSkuId]").val();	
@@ -152,13 +152,20 @@ function uploadRowsProduct(){
                 icon: 'success',
                 allowToastClose: true,
             });
+            $('#upload-product-modal').modal('toggle');
             searchProduct();
         },
         error: function(jqXHR){
             errorArray = [];
             errorArray = handleAjaxError(jqXHR);
             $('#errorCountProduct').html("" + errorArray.length);
-            console.log(errorArray);
+            if(errorArray != null && errorArray.length > 1){
+                document.getElementById('download-errors-product').focus();
+            }
+            document.getElementById("product-upload-form").reset();
+            var $file = $('#productFile');
+	$file.val('');
+	$('#productFileName').html("Choose File");
         }
 	});
 
@@ -166,6 +173,7 @@ function uploadRowsProduct(){
 
 function downloadErrorsProduct(){
 	writeErrors(errorArray);
+
 }
 
 //UI DISPLAY METHODS

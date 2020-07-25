@@ -4,10 +4,8 @@ import com.assure.dao.ProductDao;
 import com.assure.model.form.ProductSearchForm;
 import com.assure.pojo.Product;
 import com.assure.util.NormalizeUtil;
-import com.assure.validator.ProductCsvFormValidator;
 import com.commons.api.ApiException;
 import com.commons.util.StringUtil;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,16 +14,13 @@ import java.util.List;
 
 @Service
 public class ProductApi {
-    private static final Logger logger = Logger.getLogger(ProductApi.class);
     @Autowired
     private ProductDao productDao;
 
     @Transactional
     public Product add(Product product) {
         NormalizeUtil.normalizeProduct(product);
-        Product product1 = productDao.insert(product);
-        logger.info(product1.getClientId());
-        return product1;
+        return productDao.insert(product);
     }
 
     @Transactional(readOnly = true)
@@ -68,19 +63,15 @@ public class ProductApi {
     @Transactional(readOnly = true)
     public void getCheckExisting(String clientSkuId, Long clientId) {
         Product product = getByClientIdAndClientSkuId(clientId, clientSkuId);
-        if(product != null){
-            throw new ApiException("Product already exists for clientSkuId :"+clientSkuId+" and clientId :"+clientId);
+        if (product != null) {
+            throw new ApiException("Product already exists for clientSkuId :" + clientSkuId + " and clientId :" + clientId);
         }
     }
 
     @Transactional(readOnly = true)
     public Product getByClientIdAndClientSkuId(Long clientId, String clientSkuId) {
         clientSkuId = StringUtil.toLowerCase(clientSkuId);
-        logger.info("clientId: "+clientId);
-        logger.info("clientSKU : "+clientSkuId);
-        Product product = productDao.selectByClientIdAndClientSkuId(clientId, clientSkuId);
-        logger.info("Hi product : "+product);
-        return product;
+        return productDao.selectByClientIdAndClientSkuId(clientId, clientSkuId);
     }
 
 

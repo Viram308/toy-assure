@@ -33,9 +33,9 @@ public class ProductDto {
     @Autowired
     private ProductCsvFormValidator productCsvFormValidator;
 
+    @Transactional(rollbackFor = CustomValidationException.class)
     public List<ProductData> addProducts(ProductCsvForm productCsvForm, BindingResult result) {
         productCsvFormValidator.validate(productCsvForm, result);
-        logger.info("validated");
         if (result.hasErrors()) {
             logger.info(result.getErrorCount());
             throw new CustomValidationException(result);
@@ -49,7 +49,7 @@ public class ProductDto {
 
             productList.add(productApi.add(product));
         }
-        logger.info("products added:"+productList.get(0).getClientId());
+        logger.info("products added");
         return productList.stream().map(o->ConverterUtil.convertProductToProductData(o,clientApi.get(o.getClientId()))).collect(Collectors.toList());
     }
 

@@ -1741,3 +1741,448 @@ List of constraint violations:[
 2020-07-24 23:24:43 INFO  ProductApiController:40 - get product for globalSkuId : 15
 2020-07-24 23:25:48 INFO  ProductApiController:40 - get product for globalSkuId : 15
 2020-07-24 23:26:05 INFO  ProductApiController:40 - get product for globalSkuId : 15
+2020-07-25 09:12:02 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:12:02 INFO  ProductApiController:61 - get all products
+2020-07-25 09:12:42 INFO  ProductApiController:33 - adding products
+2020-07-25 09:12:42 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:12:42 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:12:42 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:12:42 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:12:42 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : a1
+2020-07-25 09:12:42 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:12:42 INFO  ProductApi:80 - clientSKU : a1
+2020-07-25 09:12:42 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@1caecbe2
+2020-07-25 09:12:42 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:12:42 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:12:42 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:14:49 INFO  ProductApiController:33 - adding products
+2020-07-25 09:14:49 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:14:49 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:14:49 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:14:49 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:14:49 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : a1
+2020-07-25 09:14:49 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:14:49 INFO  ProductApi:80 - clientSKU : a1
+2020-07-25 09:14:49 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@261a9d9a
+2020-07-25 09:14:49 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:14:49 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:14:49 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:18:17 INFO  ProductApiController:33 - adding products
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : a1
+2020-07-25 09:18:17 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:18:17 INFO  ProductApi:80 - clientSKU : a1
+2020-07-25 09:18:17 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@554e870a
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:18:17 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:18:17 INFO  ProductDto:39 - validated
+2020-07-25 09:18:17 INFO  ProductDto:41 - 3
+2020-07-25 09:20:55 INFO  ProductApiController:33 - adding products
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : a1
+2020-07-25 09:20:55 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:20:55 INFO  ProductApi:80 - clientSKU : a1
+2020-07-25 09:20:55 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@3338e451
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:20:55 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:20:55 INFO  ProductDto:39 - validated
+2020-07-25 09:20:55 INFO  ProductDto:41 - 3
+2020-07-25 09:22:30 INFO  ProductApiController:33 - adding products
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:22:30 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:22:30 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:22:30 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:22:30 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:22:30 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:22:30 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:22:30 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:22:30 INFO  ProductDto:39 - validated
+2020-07-25 09:22:30 INFO  ProductDto:41 - 1
+2020-07-25 09:23:43 INFO  ProductApiController:33 - adding products
+2020-07-25 09:23:43 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:23:43 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:23:43 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:23:43 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:23:43 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:23:43 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:23:43 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:23:43 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:23:43 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:23:43 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:23:43 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:23:43 INFO  ProductDto:39 - validated
+2020-07-25 09:23:43 INFO  ProductDto:44 - No errors
+2020-07-25 09:23:43 INFO  ProductDto:48 - 2
+2020-07-25 09:23:43 INFO  ProductDto:49 - k1
+2020-07-25 09:23:44 INFO  ProductApi:27 - 2
+2020-07-25 09:23:44 INFO  ProductDto:53 - products added:2
+2020-07-25 09:23:44 INFO  ProductApiController:47 - search products
+2020-07-25 09:23:58 INFO  ProductApiController:40 - get product for globalSkuId : 15
+2020-07-25 09:24:24 INFO  ProductApiController:61 - get all products
+2020-07-25 09:24:24 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:24:28 INFO  ProductApiController:40 - get product for globalSkuId : 15
+2020-07-25 09:24:33 INFO  ProductApiController:54 - update product for globalSkuId : 15
+2020-07-25 09:24:33 INFO  ProductApi:79 - clientId: null
+2020-07-25 09:24:33 INFO  ProductApi:80 - clientSKU : a1
+2020-07-25 09:24:33 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:24:33 INFO  ProductDto:78 - Product updated
+2020-07-25 09:24:33 INFO  ProductApiController:47 - search products
+2020-07-25 09:25:32 INFO  ProductApiController:47 - search products
+2020-07-25 09:25:35 INFO  ProductApiController:47 - search products
+2020-07-25 09:25:40 INFO  ProductApiController:47 - search products
+2020-07-25 09:25:42 INFO  ProductApiController:40 - get product for globalSkuId : 16
+2020-07-25 09:25:54 INFO  ProductApiController:54 - update product for globalSkuId : 16
+2020-07-25 09:25:54 INFO  ProductApi:79 - clientId: null
+2020-07-25 09:25:54 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:25:54 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:25:54 INFO  ProductDto:78 - Product updated
+2020-07-25 09:25:54 INFO  ProductApiController:47 - search products
+2020-07-25 09:31:23 INFO  ProductApiController:33 - adding products
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:31:23 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:31:23 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:31:23 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@6d2ea6b2
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:31:23 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:31:23 INFO  ProductDto:39 - validated
+2020-07-25 09:31:23 INFO  ProductDto:41 - 1
+2020-07-25 09:32:52 INFO  ProductApiController:33 - adding products
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:32:52 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:32:52 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:32:52 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@2a335152
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:32:52 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:32:52 INFO  ProductDto:39 - validated
+2020-07-25 09:32:52 INFO  ProductDto:41 - 2
+2020-07-25 09:37:02 INFO  ProductApiController:33 - adding products
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:37:02 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:37:02 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:37:02 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@17a6b8c3
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:37:02 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:37:02 INFO  ProductDto:39 - validated
+2020-07-25 09:37:02 INFO  ProductDto:41 - 2
+2020-07-25 09:39:49 INFO  ProductApiController:61 - get all products
+2020-07-25 09:39:49 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:39:58 INFO  ProductApiController:33 - adding products
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:39:58 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:39:58 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:39:58 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@6fa5181a
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:39:58 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:39:58 INFO  ProductDto:39 - validated
+2020-07-25 09:39:58 INFO  ProductDto:41 - 2
+2020-07-25 09:48:46 INFO  ProductApiController:61 - get all products
+2020-07-25 09:48:46 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:49:00 INFO  ProductApiController:33 - adding products
+2020-07-25 09:49:00 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:49:00 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:49:01 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:49:01 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:49:01 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:49:01 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:49:01 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:49:01 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@36bfa11c
+2020-07-25 09:49:01 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:49:01 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:49:01 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:49:01 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:49:01 INFO  ProductDto:39 - validated
+2020-07-25 09:49:01 INFO  ProductDto:41 - 2
+2020-07-25 09:49:19 INFO  ProductApiController:33 - adding products
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:49:19 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:49:19 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:49:19 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@537f071c
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:49:19 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:49:19 INFO  ProductDto:39 - validated
+2020-07-25 09:49:19 INFO  ProductDto:41 - 2
+2020-07-25 09:49:53 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:49:53 INFO  ProductApiController:61 - get all products
+2020-07-25 09:50:03 INFO  ProductApiController:33 - adding products
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:50:03 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:50:03 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:50:03 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@3294320c
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:50:03 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:50:03 INFO  ProductDto:39 - validated
+2020-07-25 09:50:03 INFO  ProductDto:41 - 2
+2020-07-25 09:52:16 INFO  ProductApiController:61 - get all products
+2020-07-25 09:52:16 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:52:24 INFO  ProductApiController:33 - adding products
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k1
+2020-07-25 09:52:24 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:52:24 INFO  ProductApi:80 - clientSKU : k1
+2020-07-25 09:52:24 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@53c9f35
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:52:24 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:52:24 INFO  ProductDto:39 - validated
+2020-07-25 09:52:24 INFO  ProductDto:41 - 2
+2020-07-25 09:53:54 INFO  ProductApiController:33 - adding products
+2020-07-25 09:53:54 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:53:54 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:53:54 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:53:54 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:53:54 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k2
+2020-07-25 09:53:54 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:53:54 INFO  ProductApi:80 - clientSKU : k2
+2020-07-25 09:53:54 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:53:54 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:53:54 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:53:54 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:53:54 INFO  ProductDto:39 - validated
+2020-07-25 09:53:54 INFO  ProductDto:44 - No errors
+2020-07-25 09:53:54 INFO  ProductDto:48 - 2
+2020-07-25 09:53:54 INFO  ProductDto:49 - k2
+2020-07-25 09:53:54 INFO  ProductApi:27 - 2
+2020-07-25 09:53:54 INFO  ProductDto:53 - products added:2
+2020-07-25 09:53:55 INFO  ProductApiController:47 - search products
+2020-07-25 09:54:22 INFO  ProductApiController:33 - adding products
+2020-07-25 09:54:22 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:54:22 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:54:22 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:54:22 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:54:22 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k3
+2020-07-25 09:54:22 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:54:22 INFO  ProductApi:80 - clientSKU : k3
+2020-07-25 09:54:22 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:54:22 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:54:22 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:54:22 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:54:22 INFO  ProductDto:39 - validated
+2020-07-25 09:54:22 INFO  ProductDto:44 - No errors
+2020-07-25 09:54:22 INFO  ProductDto:48 - 2
+2020-07-25 09:54:22 INFO  ProductDto:49 - k3
+2020-07-25 09:54:22 INFO  ProductApi:27 - 2
+2020-07-25 09:54:22 INFO  ProductDto:53 - products added:2
+2020-07-25 09:54:22 INFO  ProductApiController:47 - search products
+2020-07-25 09:54:59 INFO  ProductApiController:33 - adding products
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k4
+2020-07-25 09:54:59 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:54:59 INFO  ProductApi:80 - clientSKU : k4
+2020-07-25 09:54:59 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k5
+2020-07-25 09:54:59 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:54:59 INFO  ProductApi:80 - clientSKU : k5
+2020-07-25 09:54:59 INFO  ProductApi:82 - Hi product : null
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:54:59 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:54:59 INFO  ProductDto:39 - validated
+2020-07-25 09:54:59 INFO  ProductDto:44 - No errors
+2020-07-25 09:54:59 INFO  ProductDto:48 - 2
+2020-07-25 09:54:59 INFO  ProductDto:49 - k4
+2020-07-25 09:54:59 INFO  ProductApi:27 - 2
+2020-07-25 09:54:59 INFO  ProductDto:48 - 2
+2020-07-25 09:54:59 INFO  ProductDto:49 - k5
+2020-07-25 09:54:59 INFO  ProductApi:27 - 2
+2020-07-25 09:54:59 INFO  ProductDto:53 - products added:2
+2020-07-25 09:54:59 INFO  ProductApiController:47 - search products
+2020-07-25 09:56:05 INFO  ProductApiController:61 - get all products
+2020-07-25 09:56:05 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:56:13 INFO  ProductApiController:33 - adding products
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k4
+2020-07-25 09:56:13 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:56:13 INFO  ProductApi:80 - clientSKU : k4
+2020-07-25 09:56:13 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@bb77759
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k5
+2020-07-25 09:56:13 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:56:13 INFO  ProductApi:80 - clientSKU : k5
+2020-07-25 09:56:13 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@3409b22f
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:56:13 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:56:13 INFO  ProductDto:39 - validated
+2020-07-25 09:56:13 INFO  ProductDto:41 - 2
+2020-07-25 09:56:37 INFO  ProductApiController:61 - get all products
+2020-07-25 09:56:37 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:56:56 INFO  ProductApiController:61 - get all products
+2020-07-25 09:56:56 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:57:56 INFO  ProductApiController:61 - get all products
+2020-07-25 09:57:56 INFO  ClientApiController:70 - get only clients
+2020-07-25 09:58:03 INFO  ProductApiController:33 - adding products
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k4
+2020-07-25 09:58:03 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:58:03 INFO  ProductApi:80 - clientSKU : k4
+2020-07-25 09:58:03 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@3e71cb9
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k5
+2020-07-25 09:58:03 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:58:03 INFO  ProductApi:80 - clientSKU : k5
+2020-07-25 09:58:03 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@1347df77
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:58:03 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:58:03 INFO  ProductDto:39 - validated
+2020-07-25 09:58:03 INFO  ProductDto:41 - 2
+2020-07-25 09:59:22 INFO  ProductApiController:33 - adding products
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k4
+2020-07-25 09:59:22 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:59:22 INFO  ProductApi:80 - clientSKU : k4
+2020-07-25 09:59:22 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@cfe27e5
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k5
+2020-07-25 09:59:22 INFO  ProductApi:79 - clientId: 2
+2020-07-25 09:59:22 INFO  ProductApi:80 - clientSKU : k5
+2020-07-25 09:59:22 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@1e2f206e
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 09:59:22 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 09:59:22 INFO  ProductDto:39 - validated
+2020-07-25 09:59:22 INFO  ProductDto:41 - 2
+2020-07-25 10:00:38 INFO  ProductApiController:61 - get all products
+2020-07-25 10:00:38 INFO  ClientApiController:70 - get only clients
+2020-07-25 10:00:45 INFO  ProductApiController:33 - adding products
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:39 - empty map
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k4
+2020-07-25 10:00:45 INFO  ProductApi:79 - clientId: 2
+2020-07-25 10:00:45 INFO  ProductApi:80 - clientSKU : k4
+2020-07-25 10:00:45 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@3ab76c8e
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:41 - checkData
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:47 - data collected
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:55 - check client
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:61 - check product for clientId :2 clientSkuId : k5
+2020-07-25 10:00:45 INFO  ProductApi:79 - clientId: 2
+2020-07-25 10:00:45 INFO  ProductApi:80 - clientSKU : k5
+2020-07-25 10:00:45 INFO  ProductApi:82 - Hi product : com.assure.pojo.Product@427100ee
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:63 - check null product
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:65 - null product
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:70 - check name
+2020-07-25 10:00:45 INFO  ProductCsvFormValidator:76 - check brand
+2020-07-25 10:00:45 INFO  ProductDto:39 - validated
+2020-07-25 10:00:45 INFO  ProductDto:41 - 2
+2020-07-25 10:01:32 INFO  ProductApiController:47 - search products
+2020-07-25 10:01:50 INFO  ProductApiController:40 - get product for globalSkuId : 20
+2020-07-25 10:02:10 INFO  ProductApiController:54 - update product for globalSkuId : 20
+2020-07-25 10:02:10 INFO  ProductApi:79 - clientId: null
+2020-07-25 10:02:10 INFO  ProductApi:80 - clientSKU : k5
+2020-07-25 10:02:10 INFO  ProductApi:82 - Hi product : null
+2020-07-25 10:02:10 INFO  ProductDto:78 - Product updated
+2020-07-25 10:02:10 INFO  ProductApiController:47 - search products
+2020-07-25 10:02:13 INFO  ProductApiController:40 - get product for globalSkuId : 20
+2020-07-25 10:02:25 INFO  ProductApiController:61 - get all products
+2020-07-25 10:02:25 INFO  ClientApiController:70 - get only clients
+2020-07-25 10:02:28 INFO  ProductApiController:40 - get product for globalSkuId : 20
+2020-07-25 10:04:15 INFO  ProductApiController:61 - get all products
+2020-07-25 10:04:15 INFO  ClientApiController:70 - get only clients
