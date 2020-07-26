@@ -30,7 +30,7 @@ function handleAjaxError(jqXHR){
         var header = response.message;
         var errorText = [];
         var jsonArray = [];
-        if(response.subErrors != null && response.subErrors.length>1){
+        if(response.subErrors != null && response.subErrors.length>0){
             for(var i=0; i<response.subErrors.length; i++){
                 console.log(response.subErrors[i]+"      SubError");
                 var message = response.subErrors[i].message;
@@ -52,17 +52,6 @@ function handleAjaxError(jqXHR){
                 allowToastClose: true
             });
             return jsonArray;
-        } else if(response.subErrors != null && response.subErrors.length===1){
-            $.toast({
-                heading: header,
-                text: response.subErrors[0].message,
-                position: 'bottom-right',
-                showHideTransition: 'fade',
-                hideAfter: 5000,
-                icon: 'error',
-                allowToastClose: true
-            });
-            return;
         } else {
             $.toast({
                 heading: "Error",

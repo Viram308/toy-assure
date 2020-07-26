@@ -1,11 +1,13 @@
 package com.assure.dto;
 
 import com.assure.api.ClientApi;
+import com.assure.api.InventoryApi;
 import com.assure.api.ProductApi;
 import com.assure.model.form.ProductCsvForm;
 import com.assure.model.form.ProductForm;
 import com.assure.model.form.ProductSearchForm;
 import com.assure.model.response.ProductData;
+import com.assure.pojo.Inventory;
 import com.assure.pojo.Product;
 import com.assure.util.ConverterUtil;
 import com.assure.validator.ProductCsvFormValidator;
@@ -31,6 +33,8 @@ public class ProductDto {
     @Autowired
     private ClientApi clientApi;
     @Autowired
+    private InventoryApi inventoryApi;
+    @Autowired
     private ProductCsvFormValidator productCsvFormValidator;
 
     @Transactional(rollbackFor = CustomValidationException.class)
@@ -40,16 +44,15 @@ public class ProductDto {
             logger.info(result.getErrorCount());
             throw new CustomValidationException(result);
         }
-        logger.info("No errors");
+        logger.info("No errors in product csv file");
         List<Product> productList = new ArrayList<>();
         for(ProductForm productForm : productCsvForm.getProductFormList()){
             Product product = ConverterUtil.convertProductFormToProduct(productForm);
-            logger.info(productForm.getClientId());
-            logger.info(product.getClientSkuId());
-
             productList.add(productApi.add(product));
+            Inventory inventory = ConverterUtil.convertProductToInventory(product);
+            inventoryApi.add(inventory);
         }
-        logger.info("products added");
+        logger.info("products added with 0 inventory");
         return productList.stream().map(o->ConverterUtil.convertProductToProductData(o,clientApi.get(o.getClientId()))).collect(Collectors.toList());
     }
 
@@ -61,7 +64,7 @@ public class ProductDto {
 
     @Transactional(readOnly = true)
     public List<ProductData> searchProducts(ProductSearchForm productSearchForm) {
-        List<Product> productList = productApi.search(productSearchForm);
+        List<Product> productList = productApi.search(productSearchForm.getProductName());
         if(productSearchForm.getClientId() == 0) {
             return productList.stream().map(o -> ConverterUtil.convertProductToProductData(o, clientApi.get(o.getClientId()))).collect(Collectors.toList());
         }

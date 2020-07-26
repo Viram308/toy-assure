@@ -24,6 +24,10 @@ public class AppUiController extends AbstractUiController {
 	public ModelAndView product() {
 		return mav("product.html");
 	}
+	@RequestMapping(value = "/bin")
+	public ModelAndView binSku() {
+		return mav("bin.html");
+	}
 
 	@RequestMapping(value = "/inventory")
 	public ModelAndView inventory() {

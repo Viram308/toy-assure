@@ -159,7 +159,7 @@ function uploadRowsProduct(){
             errorArray = [];
             errorArray = handleAjaxError(jqXHR);
             $('#errorCountProduct').html("" + errorArray.length);
-            if(errorArray != null && errorArray.length > 1){
+            if(errorArray != null && errorArray.length > 0){
                 document.getElementById('download-errors-product').focus();
             }
             document.getElementById("product-upload-form").reset();
@@ -172,6 +172,18 @@ function uploadRowsProduct(){
 }
 
 function downloadErrorsProduct(){
+	if(errorArray.length==0){
+		$.toast({
+                    heading: 'Error',
+                    text: 'There are no errors to download !!',
+                    position: 'bottom-right',
+                    showHideTransition: 'fade',
+                    hideAfter: 3000,
+                    icon: 'error',
+                    allowToastClose: true,
+                });
+		return false;
+	}
 	writeErrors(errorArray);
 
 }
@@ -293,12 +305,8 @@ function validateUpdateFields() {
        infoToast("Please enter Brand ID value.");
        return false;
     }
-    if(mrp<=0 || mrp.trim==""){
+    if(mrp<=0 || mrp.trim()==""){
     	infoToast("Please enter valid MRP value.");
-       return false;
-    }
-    if (description==null || description.trim()=="") {
-       infoToast("Please enter description.");
        return false;
     }
     return true;

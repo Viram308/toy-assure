@@ -1,7 +1,6 @@
 package com.assure.api;
 
 import com.assure.dao.ProductDao;
-import com.assure.model.form.ProductSearchForm;
 import com.assure.pojo.Product;
 import com.assure.util.NormalizeUtil;
 import com.commons.api.ApiException;
@@ -29,8 +28,8 @@ public class ProductApi {
     }
 
     @Transactional(readOnly = true)
-    public List<Product> search(ProductSearchForm productSearchForm) {
-        String name = StringUtil.toLowerCase(productSearchForm.getProductName());
+    public List<Product> search(String name) {
+        name = StringUtil.toLowerCase(name);
         return productDao.searchByName(name);
     }
 
@@ -75,4 +74,7 @@ public class ProductApi {
     }
 
 
+    public List<Product> getByClientId(Long clientId) {
+        return productDao.selectByClientId(clientId);
+    }
 }

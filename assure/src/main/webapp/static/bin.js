@@ -16,6 +16,12 @@ function getBinUrl(){
 	return baseUrl + "/api/bin";
 }
 
+
+function getBinSkuUrl(){
+	var baseUrl = $("meta[name=baseUrl]").attr("content")
+	return baseUrl + "/api/binSku";
+}
+
 function getInventoryUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content")
 	return baseUrl + "/api/inventory";
@@ -48,7 +54,7 @@ function addBin(){
             icon: 'success',
             allowToastClose: true
         });
-	   		searchBin();
+	   		getBinList();
 	   	},
 	   	error: handleAjaxError
 	   });
@@ -64,7 +70,7 @@ function searchBin(event){
 	
 	var $form = $("#bin-form");
 	var json = toJson($form);
-	var url = getBinUrl()+"/search";
+	var url = getBinSkuUrl()+"/search";
 	// call api
 	$.ajax({
 		url: url,
@@ -89,7 +95,7 @@ function updateBin(){
      }
 	//Get the ID
 	var id = $("#bin-edit-form input[name=binSkuId]").val();	
-	var url = getBinUrl() + "/" + id;
+	var url = getBinSkuUrl() + "/" + id;
 	//Set the values to update
 	var $form = $("#bin-edit-form");
 	var json = toJson($form);
@@ -130,13 +136,25 @@ function getBinList(){
 		type: 'GET',
 		success: function(data) {
 	   		// display data
-	   		displayBinListInTable(data);
 	   		displayBinListInDropDown(data);  
 	   	},
 	   	error: handleAjaxError
 	   });
 }
 
+function getBinSkuList(){
+	var url = getBinSkuUrl();
+	// call api
+	$.ajax({
+		url: url,
+		type: 'GET',
+		success: function(data) {
+	   		// display data
+	   		displayBinListInTable(data);  
+	   	},
+	   	error: handleAjaxError
+	   });
+}
 
 function processDataBin(){
 	if(validateFields()){
@@ -175,10 +193,10 @@ function uploadRowsBin(){
         dataArr.push(fileData[i])
     }
     console.log(dataArr);
-    jsonArray.binInventoryFormList = dataArr;
+    jsonArray.binSkuFormList = dataArr;
 	var json = JSON.stringify(jsonArray);
 	console.log(json);
-	var url = getBinUrl();
+	var url = getBinSkuUrl();
 
 	$.ajax({
         url: url,
@@ -197,14 +215,14 @@ function uploadRowsBin(){
                 icon: 'success',
                 allowToastClose: true,
             });
-            $('#upload-bin-modal').modal('toggle');
+            $('#upload-binInventory-modal').modal('toggle');
             searchBin();
         },
         error: function(jqXHR){
             errorArray = [];
             errorArray = handleAjaxError(jqXHR);
             $('#errorCountBinInventory').html("" + errorArray.length);
-            if(errorArray != null && errorArray.length > 1){
+            if(errorArray != null && errorArray.length > 0){
                 document.getElementById('download-errors-binInventory').focus();
             }
             document.getElementById("binInventory-upload-form").reset();
@@ -217,6 +235,18 @@ function uploadRowsBin(){
 }
 
 function downloadErrorsBin(){
+	if(errorArray.length==0){
+		$.toast({
+                    heading: 'Error',
+                    text: 'There are no errors to download !!',
+                    position: 'bottom-right',
+                    showHideTransition: 'fade',
+                    hideAfter: 3000,
+                    icon: 'error',
+                    allowToastClose: true,
+                });
+		return false;
+	}
 	writeErrors(errorArray);
 
 }
@@ -244,7 +274,7 @@ function displayBinListInTable(data){
 }
 
 function displayEditBin(binSkuId){
-	var url = getBinUrl() + "/" + binSkuId;
+	var url = getBinSkuUrl() + "/" + binSkuId;
 	// call api
 	$.ajax({
 		url: url,
@@ -287,11 +317,13 @@ function displayUploadDataBin(){
 }
 
 function displayClientDropDownList(data){
+	$('#clientSelect').empty();
     $('#clientSelected').empty();
     var options = '<option value="0" selected>Select Client</option>';
     $.each(data, function(index, value) {
         options += '<option value="' + value.id + '">' + value.name + '</option>';
     });
+    $('#clientSelect').append(options);
     $('#clientSelected').append(options);
 }
 
@@ -299,7 +331,7 @@ function displayBinListInDropDown(data){
     $('#binSelect').empty();
     var options = '<option value="0" selected>Select Bin</option>';
     $.each(data, function(index, value) {
-        options += '<option value="' + value.binSkuId + '">' + value.binId + '</option>';
+        options += '<option value="' + value.binId + '">' + value.binId + '</option>';
     });
     $('#binSelect').append(options);
 }
@@ -332,9 +364,9 @@ function validateFields(){
 
 function validateUpdateFields() {
 	var quantity=$("#bin-edit-form input[name=updateQuantity]").val();
-    if(mrp<=0 || mrp.trim==""){
-    	infoToast("Please enter valid MRP value.");
-       return false;
+    if(quantity<=0 || quantity.trim()==""){
+    	infoToast("Please enter valid Quantity value.");
+       	return false;
     }
     return true;
 }
@@ -376,4 +408,5 @@ function init(){
 
 $(document).ready(init);
 $(document).ready(getBinList);
+$(document).ready(getBinSkuList);
 $(document).ready(getClientList);

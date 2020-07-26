@@ -9,10 +9,82 @@
   <nav th:replace="snippets.html :: name_app_navbar"></nav>
   <!-- Container start -->
   <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" style="background-color: white;padding-left: 0px;padding-bottom: 10px;margin-bottom: 10px;font-size:20px">
+        <li class="breadcrumb-item"><a th:href="@{/ui/home}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Inventory</li>
+      </ol>
+    </nav>
+    <!-- Top row with form-->
+    <div class="row">
+      <!-- Inventory form -->
+      <form class="form-inline w-100" id="inventory-form"  autocomplete="off">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-2">
+              <label for="clientSelect" class="control-label">Client</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" style="margin-top: 5px">
+        	<div class="row">
+           <div class="col-2">
+              <div class="form-group">
+                <select class="form-control" id="clientSelect" name="clientId"  style="width:90%">
+                 <option value="">Select Client</option>
+               </select>
+             </div>
+           </div>
+          <div class="col-1">
+            <div class="form-group">
+             <button type="button" class="btn btn-outline-info" id="search-inventory">Search</button>
+           </div>
+         </div>
+       </div>
+   </div>
+   </form>
+     </div>
+ <div class="row">
+  &nbsp;
+</div>
+<div class="row">
 
-  	</div> <!-- Container end-->
+  <!-- Table -->
+  <div class="col-12">
+    <table class="table table-striped" id="inventory-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>	
+          <th scope="col">Client</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Available Quantity</th>
+          <th scope="col">Allocated Quantity</th>
+          <th scope="col">Fulfilled Quantity</th>
+      	</tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+<!-- Blank Row -->
+<div class="row">
+  &nbsp;
+</div>
+<!-- Blank Row -->
+<div class="row">
+  &nbsp;
+</div>
+
+
+
+</div> <!-- Container end-->
 <!-- Footer -->
 <footer th:replace="snippets.html :: name_footer"></footer>
+<script th:src="@{/static/inventory.js}"></script>
 
 
 

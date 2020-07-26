@@ -2186,3 +2186,296 @@ List of constraint violations:[
 2020-07-25 10:02:28 INFO  ProductApiController:40 - get product for globalSkuId : 20
 2020-07-25 10:04:15 INFO  ProductApiController:61 - get all products
 2020-07-25 10:04:15 INFO  ClientApiController:70 - get only clients
+2020-07-26 18:40:41 INFO  BinController:38 - get all bins
+2020-07-26 18:40:41 INFO  BinSkuController:37 - get all binSku
+2020-07-26 18:40:41 INFO  ClientApiController:70 - get only clients
+2020-07-26 18:40:54 INFO  BinController:31 - adding bins
+2020-07-26 18:40:59 INFO  BinDto:26 - No. of bins added :20
+2020-07-26 18:40:59 INFO  BinSkuController:51 - search binSku
+2020-07-26 18:41:04 INFO  BinSkuController:51 - search binSku
+2020-07-26 18:41:35 INFO  BinController:38 - get all bins
+2020-07-26 18:41:35 INFO  ClientApiController:70 - get only clients
+2020-07-26 18:41:35 INFO  BinSkuController:37 - get all binSku
+2020-07-26 19:23:27 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 19:23:30 INFO  BinSkuDto:49 - No errors in binInventory csv file
+2020-07-26 19:40:27 INFO  BinController:38 - get all bins
+2020-07-26 19:40:27 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:40:27 INFO  BinSkuController:37 - get all binSku
+2020-07-26 19:40:34 INFO  ClientApiController:84 - get all clients
+2020-07-26 19:40:34 INFO  ClientDto:67 - Number of clients returned : 0
+2020-07-26 19:40:42 INFO  ClientApiController:33 - adding client
+2020-07-26 19:40:42 INFO  ClientDto:31 - Client added
+2020-07-26 19:40:43 INFO  ClientApiController:84 - get all clients
+2020-07-26 19:40:43 INFO  ClientDto:67 - Number of clients returned : 1
+2020-07-26 19:41:00 INFO  ClientApiController:33 - adding client
+2020-07-26 19:41:01 INFO  ClientDto:31 - Client added
+2020-07-26 19:41:01 INFO  ClientApiController:84 - get all clients
+2020-07-26 19:41:01 INFO  ClientDto:67 - Number of clients returned : 2
+2020-07-26 19:41:10 INFO  ClientApiController:33 - adding client
+2020-07-26 19:41:10 INFO  ClientDto:31 - Client added
+2020-07-26 19:41:10 INFO  ClientApiController:84 - get all clients
+2020-07-26 19:41:10 INFO  ClientDto:67 - Number of clients returned : 3
+2020-07-26 19:41:16 INFO  ClientApiController:47 - search clients
+2020-07-26 19:41:16 INFO  ClientDto:44 - Number of clients returned : 2
+2020-07-26 19:41:19 INFO  ClientApiController:47 - search clients
+2020-07-26 19:41:19 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-26 19:41:21 INFO  ClientApiController:47 - search clients
+2020-07-26 19:41:21 INFO  ClientDto:44 - Number of clients returned : 1
+2020-07-26 19:41:24 INFO  ClientApiController:47 - search clients
+2020-07-26 19:41:24 INFO  ClientDto:44 - Number of clients returned : 2
+2020-07-26 19:41:26 INFO  ClientApiController:54 - search clients by name
+2020-07-26 19:41:26 INFO  ClientDto:51 - Number of clients returned while search by name : 3
+2020-07-26 19:41:29 INFO  ClientApiController:40 - get client for id : 3
+2020-07-26 19:41:33 INFO  ClientApiController:61 - update client for id : 3
+2020-07-26 19:41:33 INFO  ClientDto:60 - Client updated
+2020-07-26 19:41:33 INFO  ClientApiController:54 - search clients by name
+2020-07-26 19:41:33 INFO  ClientDto:51 - Number of clients returned while search by name : 3
+2020-07-26 19:41:34 INFO  ClientApiController:40 - get client for id : 3
+2020-07-26 19:41:37 INFO  ClientApiController:61 - update client for id : 3
+2020-07-26 19:41:37 INFO  ClientDto:60 - Client updated
+2020-07-26 19:41:38 INFO  ClientApiController:54 - search clients by name
+2020-07-26 19:41:38 INFO  ClientDto:51 - Number of clients returned while search by name : 3
+2020-07-26 19:41:43 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:41:43 INFO  ProductApiController:61 - get all products
+2020-07-26 19:42:05 INFO  ProductApiController:33 - adding products
+2020-07-26 19:42:05 INFO  ProductDto:47 - No errors in product csv file
+2020-07-26 19:42:06 INFO  ProductDto:55 - products added with 0 inventory
+2020-07-26 19:42:06 INFO  ProductApiController:47 - search products
+2020-07-26 19:42:11 INFO  ProductApiController:40 - get product for globalSkuId : 2
+2020-07-26 19:42:14 INFO  ProductApiController:54 - update product for globalSkuId : 2
+2020-07-26 19:42:14 INFO  ProductDto:80 - Product updated
+2020-07-26 19:42:14 INFO  ProductApiController:47 - search products
+2020-07-26 19:42:16 INFO  ProductApiController:40 - get product for globalSkuId : 1
+2020-07-26 19:42:19 INFO  ProductApiController:54 - update product for globalSkuId : 1
+2020-07-26 19:42:19 INFO  ProductDto:80 - Product updated
+2020-07-26 19:42:19 INFO  ProductApiController:47 - search products
+2020-07-26 19:42:34 INFO  ProductApiController:47 - search products
+2020-07-26 19:42:39 INFO  ProductApiController:47 - search products
+2020-07-26 19:42:42 INFO  ProductApiController:47 - search products
+2020-07-26 19:42:44 INFO  ProductApiController:47 - search products
+2020-07-26 19:42:49 INFO  BinController:38 - get all bins
+2020-07-26 19:42:49 INFO  BinSkuController:37 - get all binSku
+2020-07-26 19:42:49 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:43:01 INFO  BinController:38 - get all bins
+2020-07-26 19:43:01 INFO  BinSkuController:37 - get all binSku
+2020-07-26 19:43:01 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:43:18 INFO  BinController:31 - adding bins
+2020-07-26 19:43:27 INFO  BinDto:26 - No. of bins added :50
+2020-07-26 19:43:27 INFO  BinController:38 - get all bins
+2020-07-26 19:43:52 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 19:43:52 INFO  BinSkuDto:46 - 1
+2020-07-26 19:44:31 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 19:44:31 INFO  BinSkuDto:49 - No errors in binInventory csv file
+2020-07-26 19:44:31 INFO  BinSkuDto:60 - binSkuList added
+2020-07-26 19:44:31 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:44:41 INFO  BinController:38 - get all bins
+2020-07-26 19:44:41 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:44:41 INFO  BinSkuController:37 - get all binSku
+2020-07-26 19:44:51 INFO  BinController:38 - get all bins
+2020-07-26 19:44:51 INFO  BinSkuController:37 - get all binSku
+2020-07-26 19:44:51 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:51:02 INFO  ProductApiController:61 - get all products
+2020-07-26 19:51:02 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:51:05 INFO  InventoryController:30 - get all inventory
+2020-07-26 19:51:05 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:51:06 INFO  InventoryDto:58 - InventoryDataList size : 2
+2020-07-26 19:51:22 INFO  InventoryController:37 - search inventory
+2020-07-26 19:51:22 WARN  SqlExceptionHelper:137 - SQL Error: 1064, SQLState: 42000
+2020-07-26 19:51:22 ERROR SqlExceptionHelper:142 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+2020-07-26 19:51:26 INFO  InventoryController:37 - search inventory
+2020-07-26 19:51:26 INFO  InventoryDto:58 - InventoryDataList size : 2
+2020-07-26 19:51:28 INFO  InventoryController:37 - search inventory
+2020-07-26 19:51:28 WARN  SqlExceptionHelper:137 - SQL Error: 1064, SQLState: 42000
+2020-07-26 19:51:28 ERROR SqlExceptionHelper:142 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+2020-07-26 19:51:54 INFO  BinController:38 - get all bins
+2020-07-26 19:51:54 INFO  BinSkuController:37 - get all binSku
+2020-07-26 19:51:54 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:52:01 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:52:05 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:52:08 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:52:08 WARN  SqlExceptionHelper:137 - SQL Error: 1064, SQLState: 42000
+2020-07-26 19:52:08 ERROR SqlExceptionHelper:142 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+2020-07-26 19:52:10 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:52:20 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:52:23 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:52:25 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:56:50 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 19:56:50 INFO  BinSkuDto:49 - No errors in binInventory csv file
+2020-07-26 19:56:51 INFO  BinSkuDto:60 - binSkuList added
+2020-07-26 19:56:51 INFO  BinSkuController:51 - search binSku
+2020-07-26 19:57:17 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 19:57:17 INFO  BinSkuDto:46 - 1
+2020-07-26 19:57:54 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 19:57:54 INFO  BinSkuDto:46 - 2
+2020-07-26 19:58:37 INFO  BinController:31 - adding bins
+2020-07-26 19:58:38 INFO  BinDto:26 - No. of bins added :1
+2020-07-26 19:58:39 INFO  BinController:38 - get all bins
+2020-07-26 19:59:08 INFO  InventoryController:30 - get all inventory
+2020-07-26 19:59:08 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:59:08 INFO  InventoryDto:58 - InventoryDataList size : 2
+2020-07-26 19:59:21 INFO  BinController:38 - get all bins
+2020-07-26 19:59:21 INFO  BinSkuController:37 - get all binSku
+2020-07-26 19:59:21 INFO  ClientApiController:70 - get only clients
+2020-07-26 19:59:23 INFO  BinSkuController:44 - get binSku for binSkuId : 1
+2020-07-26 19:59:35 WARN  PageNotFound:252 - Request method 'PUT' not supported
+2020-07-26 20:04:09 INFO  InventoryController:30 - get all inventory
+2020-07-26 20:04:09 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:04:09 INFO  InventoryDto:58 - InventoryDataList size : 2
+2020-07-26 20:04:11 INFO  InventoryController:37 - search inventory
+2020-07-26 20:04:11 INFO  InventoryDto:58 - InventoryDataList size : 2
+2020-07-26 20:04:13 INFO  InventoryController:37 - search inventory
+2020-07-26 20:04:13 WARN  SqlExceptionHelper:137 - SQL Error: 1064, SQLState: 42000
+2020-07-26 20:04:13 ERROR SqlExceptionHelper:142 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+2020-07-26 20:19:32 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:19:32 INFO  ProductApiController:61 - get all products
+2020-07-26 20:19:35 INFO  BinController:38 - get all bins
+2020-07-26 20:19:35 INFO  BinSkuController:37 - get all binSku
+2020-07-26 20:19:35 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:19:49 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:19:55 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:19:59 INFO  InventoryController:30 - get all inventory
+2020-07-26 20:19:59 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:20:00 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:20:05 INFO  InventoryController:37 - search inventory
+2020-07-26 20:20:05 INFO  InventoryDto:62 - InventoryDataList size : 0
+2020-07-26 20:20:08 INFO  InventoryController:37 - search inventory
+2020-07-26 20:20:08 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:20:12 INFO  BinController:38 - get all bins
+2020-07-26 20:20:12 INFO  BinSkuController:37 - get all binSku
+2020-07-26 20:20:12 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:20:17 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:20:21 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:20:24 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:20:27 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:20:37 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:20:41 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:20:45 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:20:47 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:20:57 INFO  InventoryController:30 - get all inventory
+2020-07-26 20:20:57 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:20:57 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:21:06 INFO  BinController:38 - get all bins
+2020-07-26 20:21:06 INFO  BinSkuController:37 - get all binSku
+2020-07-26 20:21:06 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:21:07 INFO  BinSkuController:44 - get binSku for binSkuId : 1
+2020-07-26 20:21:11 INFO  BinSkuController:58 - update binSku
+2020-07-26 20:21:12 INFO  BinSkuDto:122 - Inventory updated
+2020-07-26 20:21:12 INFO  BinSkuController:51 - search binSku
+2020-07-26 20:21:20 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:21:20 INFO  InventoryController:30 - get all inventory
+2020-07-26 20:21:20 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:21:27 INFO  ProductApiController:61 - get all products
+2020-07-26 20:21:27 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:21:30 INFO  InventoryController:30 - get all inventory
+2020-07-26 20:21:30 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:21:30 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:22:17 INFO  BinController:38 - get all bins
+2020-07-26 20:22:17 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:22:17 INFO  BinSkuController:37 - get all binSku
+2020-07-26 20:22:29 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 20:22:29 INFO  BinSkuDto:46 - 3
+2020-07-26 20:23:22 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 20:23:22 INFO  BinSkuDto:46 - 1
+2020-07-26 20:24:10 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 20:24:10 INFO  BinSkuDto:46 - 1
+2020-07-26 20:26:53 INFO  ProductApiController:61 - get all products
+2020-07-26 20:26:53 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:27:02 INFO  ProductApiController:33 - adding products
+2020-07-26 20:27:02 INFO  ProductDto:47 - No errors in product csv file
+2020-07-26 20:27:04 INFO  ProductDto:55 - products added with 0 inventory
+2020-07-26 20:27:04 INFO  ProductApiController:47 - search products
+2020-07-26 20:28:11 INFO  ProductApiController:33 - adding products
+2020-07-26 20:28:11 INFO  ProductDto:44 - 1
+2020-07-26 20:29:07 INFO  ProductApiController:61 - get all products
+2020-07-26 20:29:07 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:29:15 INFO  ProductApiController:33 - adding products
+2020-07-26 20:29:15 INFO  ProductDto:44 - 1
+2020-07-26 20:39:10 INFO  ProductApiController:40 - get product for globalSkuId : 4
+2020-07-26 20:43:30 INFO  ProductApiController:61 - get all products
+2020-07-26 20:43:30 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:43:39 INFO  ProductApiController:33 - adding products
+2020-07-26 20:43:39 INFO  ProductDto:44 - 8
+2020-07-26 20:43:50 INFO  ProductApiController:33 - adding products
+2020-07-26 20:43:50 INFO  ProductDto:44 - 1
+2020-07-26 20:44:00 INFO  ProductApiController:61 - get all products
+2020-07-26 20:44:00 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:44:14 INFO  ProductApiController:33 - adding products
+2020-07-26 20:44:15 INFO  ProductDto:44 - 8
+2020-07-26 20:44:23 INFO  ProductApiController:33 - adding products
+2020-07-26 20:44:23 INFO  ProductDto:44 - 1
+2020-07-26 20:44:38 INFO  ProductApiController:33 - adding products
+2020-07-26 20:44:38 INFO  ProductDto:44 - 1
+2020-07-26 20:44:49 INFO  BinController:38 - get all bins
+2020-07-26 20:44:49 INFO  BinSkuController:37 - get all binSku
+2020-07-26 20:44:49 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:44:56 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 20:44:56 INFO  BinSkuDto:46 - 1
+2020-07-26 20:45:07 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 20:45:07 INFO  BinSkuDto:46 - 1
+2020-07-26 20:48:59 INFO  ProductApiController:61 - get all products
+2020-07-26 20:48:59 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:50:08 INFO  ProductApiController:61 - get all products
+2020-07-26 20:50:08 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:50:22 INFO  ProductApiController:33 - adding products
+2020-07-26 20:50:22 INFO  ProductDto:44 - 1
+2020-07-26 20:50:29 INFO  BinController:38 - get all bins
+2020-07-26 20:50:29 INFO  BinSkuController:37 - get all binSku
+2020-07-26 20:50:29 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:50:48 INFO  BinSkuController:30 - adding bin sku
+2020-07-26 20:50:48 INFO  BinSkuDto:46 - 1
+2020-07-26 20:51:02 INFO  InventoryController:30 - get all inventory
+2020-07-26 20:51:02 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:51:02 INFO  InventoryDto:62 - InventoryDataList size : 4
+2020-07-26 20:51:08 INFO  InventoryController:37 - search inventory
+2020-07-26 20:51:08 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:51:10 INFO  InventoryController:37 - search inventory
+2020-07-26 20:51:11 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:51:13 INFO  InventoryController:37 - search inventory
+2020-07-26 20:51:13 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:51:16 INFO  InventoryController:37 - search inventory
+2020-07-26 20:51:16 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 20:51:19 INFO  ProductApiController:61 - get all products
+2020-07-26 20:51:19 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:51:23 INFO  ProductApiController:40 - get product for globalSkuId : 4
+2020-07-26 20:51:59 INFO  ProductApiController:33 - adding products
+2020-07-26 20:51:59 INFO  ProductDto:47 - No errors in product csv file
+2020-07-26 20:51:59 INFO  ProductDto:55 - products added with 0 inventory
+2020-07-26 20:52:00 INFO  ProductApiController:47 - search products
+2020-07-26 20:52:06 INFO  ProductApiController:40 - get product for globalSkuId : 5
+2020-07-26 20:52:19 INFO  ProductApiController:40 - get product for globalSkuId : 5
+2020-07-26 20:53:40 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:53:40 INFO  ProductApiController:61 - get all products
+2020-07-26 20:53:45 INFO  ProductApiController:40 - get product for globalSkuId : 6
+2020-07-26 20:55:35 INFO  ProductApiController:61 - get all products
+2020-07-26 20:55:35 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:55:37 INFO  ProductApiController:40 - get product for globalSkuId : 6
+2020-07-26 20:55:42 INFO  ProductApiController:54 - update product for globalSkuId : 6
+2020-07-26 20:55:42 INFO  ProductDto:80 - Product updated
+2020-07-26 20:55:42 INFO  ProductApiController:47 - search products
+2020-07-26 20:56:48 INFO  ProductApiController:61 - get all products
+2020-07-26 20:56:48 INFO  ClientApiController:70 - get only clients
+2020-07-26 20:56:51 INFO  ProductApiController:40 - get product for globalSkuId : 4
+2020-07-26 20:56:54 INFO  ProductApiController:54 - update product for globalSkuId : 4
+2020-07-26 20:56:55 INFO  ProductDto:80 - Product updated
+2020-07-26 20:56:55 INFO  ProductApiController:47 - search products
+2020-07-26 21:02:13 INFO  ProductApiController:40 - get product for globalSkuId : 4
+2020-07-26 21:02:18 INFO  ProductApiController:54 - update product for globalSkuId : 4
+2020-07-26 21:02:18 INFO  ProductDto:80 - Product updated
+2020-07-26 21:02:19 INFO  ProductApiController:47 - search products
+2020-07-26 21:02:55 INFO  InventoryController:30 - get all inventory
+2020-07-26 21:02:55 INFO  ClientApiController:70 - get only clients
+2020-07-26 21:02:55 INFO  InventoryDto:62 - InventoryDataList size : 6
+2020-07-26 21:03:09 INFO  InventoryController:37 - search inventory
+2020-07-26 21:03:09 INFO  InventoryDto:62 - InventoryDataList size : 2
+2020-07-26 21:03:11 INFO  InventoryController:37 - search inventory
+2020-07-26 21:03:11 INFO  InventoryDto:62 - InventoryDataList size : 4
+2020-07-26 21:03:33 INFO  ProductApiController:61 - get all products
+2020-07-26 21:03:33 INFO  ClientApiController:70 - get only clients
+2020-07-26 21:03:34 INFO  ProductApiController:40 - get product for globalSkuId : 5
+2020-07-26 21:03:38 INFO  ProductApiController:54 - update product for globalSkuId : 5
+2020-07-26 21:03:38 INFO  ProductDto:80 - Product updated
+2020-07-26 21:03:38 INFO  ProductApiController:47 - search products
+2020-07-26 21:03:40 INFO  ProductApiController:40 - get product for globalSkuId : 6
+2020-07-26 21:03:43 INFO  ProductApiController:54 - update product for globalSkuId : 6
+2020-07-26 21:03:43 INFO  ProductDto:80 - Product updated
+2020-07-26 21:03:43 INFO  ProductApiController:47 - search products

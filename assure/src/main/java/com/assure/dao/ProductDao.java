@@ -10,12 +10,14 @@ import java.util.List;
 public class ProductDao extends AbstractDao {
 
 
-    // select according to brand and category
+    // select according to clientId and clientSkuId
     private static String selectByClientSkuIdClientId = "select p from Product p where p.clientSkuId=:clientSkuId and p.clientId=:clientId";
     // select all
     private static String selectAll = "select p from Product p";
     // search
     private static String searchByName = "select p from Product p where p.name like :name";
+    // select according to clientId
+    private static String selectByClientId = "select p from Product p where p.clientId=:clientId";
 
     // select all
     public List<Product> selectAll() {
@@ -34,5 +36,11 @@ public class ProductDao extends AbstractDao {
         query.setParameter("clientSkuId", clientSkuId);
         query.setParameter("clientId", clientId);
         return getSingle(query);
+    }
+
+    public List<Product> selectByClientId(Long clientId) {
+        TypedQuery<Product> query = getQuery(selectByClientId, Product.class);
+        query.setParameter("clientId", clientId);
+        return query.getResultList();
     }
 }
