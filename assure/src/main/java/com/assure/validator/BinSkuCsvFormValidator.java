@@ -6,9 +6,10 @@ import com.assure.dto.ProductDto;
 import com.assure.model.form.BinSkuCsvForm;
 import com.assure.model.form.BinSkuForm;
 import com.assure.pojo.Bin;
-import com.assure.pojo.Client;
-import com.assure.pojo.Product;
 import com.commons.enums.ClientType;
+import com.commons.response.ClientData;
+import com.commons.response.ProductData;
+import com.commons.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -45,15 +46,15 @@ public class BinSkuCsvFormValidator implements Validator {
                 errors.popNestedPath();
             }
             Long clientId = binSkuForm.getClientId();
-            Client client = clientDto.getClient(clientId);
-            if (client == null || !client.getType().equals(ClientType.CLIENT)) {
+            ClientData clientData = clientDto.getClient(clientId);
+            if (clientData == null || !StringUtil.toUpperCase(clientData.getType()).equals(ClientType.CLIENT.toString())) {
                 errors.pushNestedPath("binSkuFormList[" + index + "]");
                 errors.rejectValue("clientId", "not found", "Client doesn't exist for clientId :" + clientId);
                 errors.popNestedPath();
             }
             String clientSkuId = binSkuForm.getClientSkuId();
-            Product product = productDto.getProductByClientIdAndClientSkuId(clientId, clientSkuId);
-            if (product == null) {
+            ProductData productData = productDto.getProductByClientIdAndClientSkuId(clientId, clientSkuId);
+            if (productData == null) {
                 errors.pushNestedPath("binSkuFormList[" + index + "]");
                 errors.rejectValue("clientSkuId", "not found", "product doesn't exist for clientSkuId : " + clientSkuId + " and clientId :" + clientId);
                 errors.popNestedPath();

@@ -2,11 +2,11 @@ package com.assure.validator;
 
 import com.assure.dto.ClientDto;
 import com.assure.dto.ProductDto;
-import com.assure.model.form.ProductCsvForm;
-import com.assure.model.form.ProductForm;
-import com.assure.pojo.Client;
-import com.assure.pojo.Product;
 import com.commons.enums.ClientType;
+import com.commons.form.ProductCsvForm;
+import com.commons.form.ProductForm;
+import com.commons.response.ClientData;
+import com.commons.response.ProductData;
 import com.commons.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -40,7 +40,7 @@ public class ProductCsvFormValidator implements Validator {
             String productName = productForm.getProductName();
             String brandId = productForm.getBrandId();
             String clientSkuId = productForm.getClientSkuId();
-            Client client = clientDto.getClient(clientId);
+            ClientData clientData = clientDto.getClient(clientId);
             if (checkDuplicate.containsKey(clientSkuId)) {
                 errors.pushNestedPath("productFormList[" + index + "]");
                 errors.rejectValue("clientSkuId", "duplicate", "clientSkuId already present in csv file");
@@ -48,13 +48,13 @@ public class ProductCsvFormValidator implements Validator {
             } else {
                 checkDuplicate.put(clientSkuId, 1);
             }
-            if (client == null || !client.getType().equals(ClientType.CLIENT)) {
+            if (clientData == null || !StringUtil.toUpperCase(clientData.getType()).equals(ClientType.CLIENT.toString())) {
                 errors.pushNestedPath("productFormList[" + index + "]");
                 errors.rejectValue("clientId", "not found", "Client doesn't exist for clientId :" + clientId);
                 errors.popNestedPath();
             }
-            Product product = productDto.getProductByClientIdAndClientSkuId(clientId, clientSkuId);
-            if (product != null) {
+            ProductData productData = productDto.getProductByClientIdAndClientSkuId(clientId, clientSkuId);
+            if (productData != null) {
                 errors.pushNestedPath("productFormList[" + index + "]");
                 errors.rejectValue("clientSkuId", "duplicate", "product already exist for clientSkuId : " + clientSkuId + " and clientId :" + clientId);
                 errors.popNestedPath();

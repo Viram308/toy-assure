@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Head -->
+<head th:replace="snippets.html :: name_head"></head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav th:replace="snippets.html :: name_app_navbar"></nav>
+  <!-- Container start -->
+  <div class="container">
+<div class="row">
+  &nbsp;
+</div>
+
+ <!-- Top row with form-->
+<div class="row">
+   <div class="col-2">
+   <center> <a th:href="@{/ui/channelListing}" title="Channel Listing"> <i class="fa fa-product-hunt fa-3x" aria-hidden="true"></i> </a></center>
+   </div> 
+   <div class="col-2">
+    <center><a th:href="@{/ui/channelOrder}" title="Channel Order"> <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i> </a></center>
+   </div> 
+</div> 
+<div class="row">
+&nbsp;
+  </div>
+<div class="row">
+   <div class="col-2">
+    <center><h5>Channel Listing</h5></center>
+   </div>
+   <div class="col-2">
+    <center><h5>Channel Order</h5></center>
+   </div>
+</div> 
+ 
+
+
+
+</div> <!-- Container end-->
+<!-- Footer -->
+<footer th:replace="snippets.html :: name_footer"></footer>
+
+
+
+</body>	
+
+</html>

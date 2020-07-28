@@ -3,10 +3,10 @@ package com.assure.dto;
 import com.assure.api.ClientApi;
 import com.assure.api.InventoryApi;
 import com.assure.api.ProductApi;
-import com.assure.model.form.ProductCsvForm;
-import com.assure.model.form.ProductForm;
-import com.assure.model.form.ProductSearchForm;
-import com.assure.model.response.ProductData;
+import com.commons.form.ProductCsvForm;
+import com.commons.form.ProductForm;
+import com.commons.form.ProductSearchForm;
+import com.commons.response.ProductData;
 import com.assure.pojo.Inventory;
 import com.assure.pojo.Product;
 import com.assure.util.ConverterUtil;
@@ -88,8 +88,10 @@ public class ProductDto {
     }
 
     @Transactional(readOnly = true)
-    public Product getProductByClientIdAndClientSkuId(Long clientId, String clientSkuId) {
-        return productApi.getByClientIdAndClientSkuId(clientId,clientSkuId);
+    public ProductData getProductByClientIdAndClientSkuId(Long clientId, String clientSkuId) {
+        Product product= productApi.getByClientIdAndClientSkuId(clientId,clientSkuId);
+        return ConverterUtil.convertProductToProductData(product,clientApi.get(product.getClientId()));
+
     }
 
     public void validate(ProductForm productForm){

@@ -1,4 +1,4 @@
-package com.assure.model.form;
+package com.commons.form;
 
 import lombok.Getter;
 import lombok.Setter;

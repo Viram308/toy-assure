@@ -18,11 +18,9 @@ public class Channel extends AbstractPojo implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(nullable = false)
     private String name;
 
     @NotNull
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private InvoiceType invoiceType;
 }

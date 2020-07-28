@@ -1,6 +1,5 @@
 package com.assure.util;
 
-import com.assure.model.form.ClientForm;
 import com.assure.pojo.Client;
 import com.assure.pojo.Product;
 import com.commons.enums.ClientType;

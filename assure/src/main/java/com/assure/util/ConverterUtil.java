@@ -1,11 +1,12 @@
 package com.assure.util;
 
 import com.assure.model.form.BinSkuForm;
-import com.assure.model.form.ClientForm;
-import com.assure.model.form.ProductForm;
+import com.commons.form.ClientForm;
+import com.commons.form.ProductForm;
 import com.assure.model.response.BinSkuData;
 import com.assure.model.response.InventoryData;
-import com.assure.model.response.ProductData;
+import com.commons.response.ClientData;
+import com.commons.response.ProductData;
 import com.assure.pojo.BinSku;
 import com.assure.pojo.Client;
 import com.assure.pojo.Inventory;
@@ -81,5 +82,13 @@ public class ConverterUtil {
         inventoryData.setAllocatedQuantity(inventory.getAllocatedQuantity());
         inventoryData.setFulfilledQuantity(inventory.getFulfilledQuantity());
         return inventoryData;
+    }
+
+    public static ClientData convertClientToClientData(Client client) {
+        ClientData clientData = new ClientData();
+        clientData.setId(client.getId());
+        clientData.setName(client.getName());
+        clientData.setType(client.getType().toString());
+        return clientData;
     }
 }

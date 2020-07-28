@@ -1,11 +1,12 @@
 package com.assure.dto;
 
 import com.assure.api.ClientApi;
-import com.assure.model.form.ClientForm;
+import com.commons.form.ClientForm;
 import com.assure.pojo.Client;
 import com.assure.util.ConverterUtil;
 import com.commons.api.ApiException;
 import com.commons.enums.ClientType;
+import com.commons.response.ClientData;
 import com.commons.util.StringUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,58 +25,61 @@ public class ClientDto {
     private ClientApi clientApi;
 
     @Transactional
-    public Client addClient(ClientForm clientForm) {
+    public ClientData addClient(ClientForm clientForm) {
         validate(clientForm);
         Client client = ConverterUtil.convertClientFormToClient(clientForm);
         client=clientApi.add(client);
         logger.info("Client added");
-        return client;
+        return ConverterUtil.convertClientToClientData(client);
     }
 
     @Transactional(readOnly = true)
-    public Client getClient(Long id) {
-        return clientApi.get(id);
+    public ClientData getClient(Long id) {
+        return ConverterUtil.convertClientToClientData(clientApi.get(id));
     }
 
     @Transactional(readOnly = true)
-    public List<Client> searchClients(ClientForm clientForm) {
+    public List<ClientData> searchClients(ClientForm clientForm) {
         List<Client> clientList = clientApi.searchByName(clientForm.getName());
         clientList = clientList.stream().filter(o-> (clientForm.getType().equals(o.getType()))).collect(Collectors.toList());
         logger.info("Number of clients returned : "+clientList.size());
-        return clientList;
+        return clientList.stream().map(ConverterUtil::convertClientToClientData).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public List<Client> searchClientsByName(String name) {
+    public List<ClientData> searchClientsByName(String name) {
         List<Client> clientList = clientApi.searchByName(name);
         logger.info("Number of clients returned while search by name : "+clientList.size());
-        return clientList;
+        return clientList.stream().map(ConverterUtil::convertClientToClientData).collect(Collectors.toList());
     }
 
     @Transactional
-    public Client updateClient(Long id, ClientForm clientForm) {
+    public ClientData updateClient(Long id, ClientForm clientForm) {
         validate(clientForm);
         Client client = ConverterUtil.convertClientFormToClient(clientForm);
         client=clientApi.update(id,client);
         logger.info("Client updated");
-        return client;
+        return ConverterUtil.convertClientToClientData(client);
     }
 
     @Transactional(readOnly = true)
-    public List<Client> getAllClients() {
+    public List<ClientData> getAllClients() {
         List<Client> clientList = clientApi.getAll();
         logger.info("Number of clients returned : "+clientList.size());
-        return clientList;
+        return clientList.stream().map(ConverterUtil::convertClientToClientData).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public List<Client> getOnlyClients() {
-        return clientApi.getAllClients();
+    public List<ClientData> getOnlyClients() {
+        List<Client> clientList = clientApi.getAllClients();
+        return clientList.stream().map(ConverterUtil::convertClientToClientData).collect(Collectors.toList());
+
     }
 
     @Transactional(readOnly = true)
-    public List<Client> getOnlyCustomers() {
-        return clientApi.getAllCustomers();
+    public List<ClientData> getOnlyCustomers() {
+        List<Client> clientList = clientApi.getAllCustomers();
+        return clientList.stream().map(ConverterUtil::convertClientToClientData).collect(Collectors.toList());
     }
 
     public void validate(ClientForm clientForm) {

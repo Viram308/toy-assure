@@ -1,13 +1,10 @@
 package com.assure.controller;
 
 import com.assure.dto.ProductDto;
-import com.assure.model.form.ClientForm;
-import com.assure.model.form.ProductCsvForm;
-import com.assure.model.form.ProductForm;
-import com.assure.model.form.ProductSearchForm;
-import com.assure.model.response.ProductData;
-import com.assure.pojo.Client;
-import com.assure.pojo.Product;
+import com.commons.form.ProductCsvForm;
+import com.commons.form.ProductForm;
+import com.commons.form.ProductSearchForm;
+import com.commons.response.ProductData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.log4j.Logger;

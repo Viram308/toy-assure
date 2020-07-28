@@ -1,4 +1,4 @@
-package com.assure.model.form;
+package com.commons.form;
 
 import com.commons.enums.ClientType;
 import lombok.Getter;
