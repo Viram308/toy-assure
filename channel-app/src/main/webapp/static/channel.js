@@ -66,7 +66,7 @@ function getChannelList(){
 	   });
 }
 
-function updateChannel(event){
+function updateChannel(){
 
    //Get the ID
    var id = $("#channel-edit-form input[name=id]").val();
@@ -74,7 +74,7 @@ function updateChannel(event){
 
    //Set the values to update
    var $form = $("#channel-edit-form");
-   var name=$("#channel-edit-form input[name=name]").val().trim();
+   var name=$("#channel-edit-form input[name=channelName]").val().trim();
 		if(name==""){
 			$.toast({
             heading: 'Error',

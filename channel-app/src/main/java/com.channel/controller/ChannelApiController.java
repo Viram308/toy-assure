@@ -3,6 +3,7 @@ package com.channel.controller;
 import com.channel.dto.ChannelDto;
 import com.channel.model.form.ChannelForm;
 import com.channel.model.response.ChannelData;
+import com.commons.response.ClientData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.log4j.Logger;
@@ -56,4 +57,19 @@ public class ChannelApiController {
         logger.info("get all channels");
         return channelDto.getAllChannels();
     }
+
+    @ApiOperation(value = "Gets all Clients")
+    @RequestMapping(value = "/allClients", method = RequestMethod.GET)
+    public List<ClientData> getAllClients() {
+        logger.info("get all clients");
+        return channelDto.getAllClients();
+    }
+
+    @ApiOperation(value = "Gets all Customers")
+    @RequestMapping(value = "/allCustomers", method = RequestMethod.GET)
+    public List<ClientData> getAllCustomers() {
+        logger.info("get all customers");
+        return channelDto.getAllCustomers();
+    }
+
 }

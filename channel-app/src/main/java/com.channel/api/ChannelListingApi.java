@@ -28,13 +28,6 @@ public class ChannelListingApi {
     }
 
     @Transactional(readOnly = true)
-    public List<ChannelListing> searchChannelListing(ChannelListingSearchForm channelListingSearchForm) {
-        Long clientId = channelListingSearchForm.getClientId();
-        Long channelId = channelListingSearchForm.getChannelId();
-        return channelListingDao.searchChannelListing(clientId,channelId);
-    }
-
-    @Transactional(readOnly = true)
     public List<ChannelListing> getAllChannelListing() {
         return channelListingDao.selectAll();
     }

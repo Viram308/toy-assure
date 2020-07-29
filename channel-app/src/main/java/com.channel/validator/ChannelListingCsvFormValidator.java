@@ -11,12 +11,14 @@ import com.commons.response.ClientData;
 import com.commons.response.ProductData;
 import com.commons.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import java.util.HashMap;
 import java.util.List;
 
+@Component
 public class ChannelListingCsvFormValidator implements Validator {
 
     @Autowired
@@ -53,7 +55,7 @@ public class ChannelListingCsvFormValidator implements Validator {
                 errors.rejectValue("channelSkuId", "duplicate", "channelSkuId already present in csv file");
                 errors.popNestedPath();
             } else {
-                checkDuplicateChannelSku.put(clientSkuId, 1);
+                checkDuplicateChannelSku.put(channelSkuId, 1);
             }
             ClientData clientData = channelListingDto.getClient(clientId);
             if (clientData == null || !StringUtil.toUpperCase(clientData.getType()).equals(ClientType.CLIENT.toString())) {

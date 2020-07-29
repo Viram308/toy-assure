@@ -229,7 +229,7 @@ function displayClientDropDownList(data){
 }
 
 function getClientList(){
-	var url = getClientUrl() + "/allClients";
+	var url = getChannelUrl() + "/allClients";
 	$.ajax({
         url: url,
         type: 'GET',

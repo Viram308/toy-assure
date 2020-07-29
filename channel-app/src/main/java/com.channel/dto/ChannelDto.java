@@ -1,12 +1,14 @@
 package com.channel.dto;
 
 import com.channel.api.ChannelApi;
+import com.channel.assure.ClientAssure;
 import com.channel.model.form.ChannelForm;
 import com.channel.model.response.ChannelData;
 import com.channel.pojo.Channel;
 import com.channel.util.ConverterUtil;
 import com.commons.api.ApiException;
 import com.commons.enums.InvoiceType;
+import com.commons.response.ClientData;
 import com.commons.util.StringUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ public class ChannelDto {
 
     @Autowired
     private ChannelApi channelApi;
+    @Autowired
+    private ClientAssure clientAssure;
 
     @Transactional(rollbackFor = ApiException.class)
     public ChannelData addChannel(ChannelForm channelForm) {
@@ -66,9 +70,19 @@ public class ChannelDto {
 
     }
 
+    @Transactional(readOnly = true)
+    public List<ClientData> getAllClients() {
+        return clientAssure.getClientDetails();
+    }
+
+    @Transactional(readOnly = true)
+    public List<ClientData> getAllCustomers() {
+        return clientAssure.getCustomerDetails();
+    }
+
     private void validate(ChannelForm channelForm) {
         String type=StringUtil.toUpperCase(channelForm.getInvoiceType());
-        if(StringUtil.isEmpty(channelForm.getChannelName()) || !(type.equals(InvoiceType.CHANNEL.toString()) && type.equals(InvoiceType.SELF.toString()))){
+        if(StringUtil.isEmpty(channelForm.getChannelName()) || !(type.equals(InvoiceType.CHANNEL.toString()) || type.equals(InvoiceType.SELF.toString()))){
             throw new ApiException("Please enter channel name and type !!");
         }
     }

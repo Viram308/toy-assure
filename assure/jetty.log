@@ -2479,3 +2479,146 @@ List of constraint violations:[
 2020-07-26 21:03:43 INFO  ProductApiController:54 - update product for globalSkuId : 6
 2020-07-26 21:03:43 INFO  ProductDto:80 - Product updated
 2020-07-26 21:03:43 INFO  ProductApiController:47 - search products
+2020-07-29 09:43:22 INFO  ClientApiController:79 - get all clients
+2020-07-29 09:43:28 INFO  ClientDto:68 - Number of clients returned : 3
+2020-07-29 09:43:32 INFO  ClientApiController:35 - get client for id : 3
+2020-07-29 09:43:36 INFO  ClientApiController:56 - update client for id : 3
+2020-07-29 09:43:37 INFO  ClientDto:61 - Client updated
+2020-07-29 09:43:37 INFO  ClientApiController:79 - get all clients
+2020-07-29 09:43:37 INFO  ClientDto:68 - Number of clients returned : 3
+2020-07-29 09:43:40 INFO  ClientApiController:35 - get client for id : 3
+2020-07-29 09:43:43 INFO  ClientApiController:56 - update client for id : 3
+2020-07-29 09:43:43 INFO  ClientDto:61 - Client updated
+2020-07-29 09:43:44 INFO  ClientApiController:79 - get all clients
+2020-07-29 09:43:44 INFO  ClientDto:68 - Number of clients returned : 3
+2020-07-29 10:12:17 INFO  ClientApiController:65 - get only clients
+2020-07-29 10:12:24 INFO  ClientApiController:65 - get only clients
+2020-07-29 10:14:48 INFO  ProductApiController:58 - get all products
+2020-07-29 10:14:48 INFO  ClientApiController:65 - get only clients
+2020-07-29 10:14:54 INFO  ProductApiController:44 - search products
+2020-07-29 10:15:53 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:15:53 INFO  ProductApiController:44 - search products
+2020-07-29 10:27:30 INFO  ClientApiController:65 - get only clients
+2020-07-29 10:27:53 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:27:53 INFO  ProductApiController:44 - search products
+2020-07-29 10:27:53 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:27:53 INFO  ProductApiController:44 - search products
+2020-07-29 10:27:53 INFO  ProductApiController:44 - search products
+2020-07-29 10:27:54 INFO  ProductApiController:44 - search products
+2020-07-29 10:28:20 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:28:20 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:28:55 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:28:55 INFO  ProductApiController:44 - search products
+2020-07-29 10:28:56 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:28:56 INFO  ProductApiController:44 - search products
+2020-07-29 10:28:56 INFO  ProductApiController:44 - search products
+2020-07-29 10:28:56 INFO  ProductApiController:44 - search products
+2020-07-29 10:28:56 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:28:56 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:29:01 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:29:01 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:29:05 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:29:05 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:30:15 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:30:15 INFO  ProductApiController:44 - search products
+2020-07-29 10:30:15 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:30:15 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:30:15 INFO  ProductApiController:44 - search products
+2020-07-29 10:30:15 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:31:22 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:31:22 INFO  ProductApiController:44 - search products
+2020-07-29 10:31:22 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:31:22 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:31:22 INFO  ProductApiController:44 - search products
+2020-07-29 10:31:22 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:32:14 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:32:14 INFO  ProductApiController:44 - search products
+2020-07-29 10:32:14 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:32:14 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:32:14 INFO  ProductApiController:44 - search products
+2020-07-29 10:32:14 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:38:41 INFO  ClientApiController:65 - get only clients
+2020-07-29 10:38:42 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:38:42 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:38:42 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:38:42 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:38:53 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:38:53 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:38:53 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:38:53 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:38:56 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:38:56 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:38:56 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:38:56 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:39:00 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:39:00 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:39:02 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:39:02 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:39:11 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:39:11 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:39:13 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:39:13 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:39:13 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:39:13 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:39:40 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:39:40 INFO  ProductApiController:44 - search products
+2020-07-29 10:39:41 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:39:41 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:39:41 INFO  ProductApiController:44 - search products
+2020-07-29 10:39:41 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:40:55 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:40:55 INFO  ProductApiController:44 - search products
+2020-07-29 10:40:55 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:40:55 INFO  ProductApiController:44 - search products
+2020-07-29 10:41:45 INFO  ClientApiController:35 - get client for id : 1
+2020-07-29 10:41:45 INFO  ProductApiController:44 - search products
+2020-07-29 10:41:45 INFO  ClientApiController:35 - get client for id : 1
+2020-07-29 10:41:45 INFO  ProductApiController:44 - search products
+2020-07-29 10:42:32 INFO  ClientApiController:35 - get client for id : 2
+2020-07-29 10:42:32 INFO  ProductApiController:44 - search products
+2020-07-29 10:42:32 INFO  ProductApiController:44 - search products
+2020-07-29 10:42:35 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:42:36 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:42:36 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:42:36 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:42:36 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:42:55 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:42:58 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:43:13 INFO  ClientApiController:35 - get client for id : 1
+2020-07-29 10:43:13 INFO  ProductApiController:44 - search products
+2020-07-29 10:43:13 INFO  ProductApiController:44 - search products
+2020-07-29 10:43:13 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:43:19 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:43:20 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:43:21 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:44:07 INFO  ClientApiController:65 - get only clients
+2020-07-29 10:44:07 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:44:08 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:44:08 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:44:40 INFO  ClientApiController:65 - get only clients
+2020-07-29 10:44:40 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:17 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:17 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:17 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:17 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:17 INFO  ProductApiController:37 - get product for globalSkuId : 3
+2020-07-29 10:45:17 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:18 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:18 INFO  ProductApiController:37 - get product for globalSkuId : 3
+2020-07-29 10:45:18 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:18 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:18 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:18 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:18 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:18 INFO  ProductApiController:37 - get product for globalSkuId : 3
+2020-07-29 10:45:37 INFO  ProductApiController:37 - get product for globalSkuId : 3
+2020-07-29 10:45:42 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:42 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:42 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:42 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:42 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:47 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:47 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:50 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-07-29 10:45:50 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-07-29 10:45:50 INFO  ProductApiController:37 - get product for globalSkuId : 3
