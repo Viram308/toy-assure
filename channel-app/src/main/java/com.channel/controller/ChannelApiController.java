@@ -2,7 +2,7 @@ package com.channel.controller;
 
 import com.channel.dto.ChannelDto;
 import com.channel.model.form.ChannelForm;
-import com.channel.model.response.ChannelData;
+import com.commons.response.ChannelData;
 import com.commons.response.ClientData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

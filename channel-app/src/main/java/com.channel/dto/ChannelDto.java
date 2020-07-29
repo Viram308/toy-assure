@@ -3,7 +3,7 @@ package com.channel.dto;
 import com.channel.api.ChannelApi;
 import com.channel.assure.ClientAssure;
 import com.channel.model.form.ChannelForm;
-import com.channel.model.response.ChannelData;
+import com.commons.response.ChannelData;
 import com.channel.pojo.Channel;
 import com.channel.util.ConverterUtil;
 import com.commons.api.ApiException;

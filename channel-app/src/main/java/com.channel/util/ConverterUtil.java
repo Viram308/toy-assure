@@ -2,7 +2,7 @@ package com.channel.util;
 
 import com.channel.model.form.ChannelForm;
 import com.channel.model.form.ChannelListingForm;
-import com.channel.model.response.ChannelData;
+import com.commons.response.ChannelData;
 import com.channel.model.response.ChannelListingData;
 import com.channel.pojo.Channel;
 import com.channel.pojo.ChannelListing;

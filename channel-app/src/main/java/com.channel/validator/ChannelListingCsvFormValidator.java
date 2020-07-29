@@ -4,7 +4,7 @@ import com.channel.dto.ChannelDto;
 import com.channel.dto.ChannelListingDto;
 import com.channel.model.form.ChannelListingCsvForm;
 import com.channel.model.form.ChannelListingForm;
-import com.channel.model.response.ChannelData;
+import com.commons.response.ChannelData;
 import com.channel.model.response.ChannelListingData;
 import com.commons.enums.ClientType;
 import com.commons.response.ClientData;

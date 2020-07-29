@@ -1,16 +1,18 @@
 package com.assure.util;
 
 import com.assure.model.form.BinSkuForm;
+import com.assure.model.form.OrderCsvForm;
+import com.assure.model.form.OrderItemForm;
+import com.assure.model.response.OrderData;
+import com.assure.model.response.OrderItemData;
+import com.assure.pojo.*;
 import com.commons.form.ClientForm;
 import com.commons.form.ProductForm;
 import com.assure.model.response.BinSkuData;
 import com.assure.model.response.InventoryData;
+import com.commons.response.ChannelData;
 import com.commons.response.ClientData;
 import com.commons.response.ProductData;
-import com.assure.pojo.BinSku;
-import com.assure.pojo.Client;
-import com.assure.pojo.Inventory;
-import com.assure.pojo.Product;
 
 public class ConverterUtil {
 
@@ -90,5 +92,38 @@ public class ConverterUtil {
         clientData.setName(client.getName());
         clientData.setType(client.getType().toString());
         return clientData;
+    }
+
+    public static OrderData convertOrderToOrderData(Order order, Client client, Client customer, ChannelData channelData) {
+        OrderData orderData = new OrderData();
+        orderData.setClientName(client.getName());
+        orderData.setCustomerName(customer.getName());
+        orderData.setChannelName(channelData.getName());
+        orderData.setChannelOrderId(order.getChannelOrderId());
+        orderData.setStatus(order.getStatus().toString());
+        return  orderData;
+    }
+
+    public static Order convertOrderCsvFormToOrder(OrderCsvForm orderCsvForm) {
+        Order order = new Order();
+        if(!orderCsvForm.getOrderItemFormList().isEmpty()){
+            OrderItemForm orderItemForm = orderCsvForm.getOrderItemFormList().get(0);
+            order.setChannelId(orderItemForm.getChannelId());
+            order.setClientId(orderItemForm.getClientId());
+            order.setCustomerId(orderItemForm.getCustomerId());
+            order.setChannelOrderId(orderItemForm.getChannelOrderId());
+            return order;
+        }
+        return null;
+    }
+
+    public static OrderItemData convertOrderItemToOrderItemData(OrderItem orderItem,Product product){
+        OrderItemData orderItemData = new OrderItemData();
+        orderItemData.setClientSkuId(product.getClientSkuId());
+        orderItemData.setProductName(product.getName());
+        orderItemData.setBrandId(product.getBrandId());
+        orderItemData.setOrderedQuantity(orderItem.getOrderedQuantity());
+        orderItemData.setSellingPricePerUnit(orderItem.getSellingPricePerUnit());
+        return orderItemData;
     }
 }

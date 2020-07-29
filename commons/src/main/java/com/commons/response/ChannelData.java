@@ -1,4 +1,4 @@
-package com.channel.model.response;
+package com.commons.response;
 
 import lombok.Getter;
 import lombok.Setter;
