@@ -15,6 +15,11 @@ public class OrderItemApi {
     @Autowired
     private OrderItemDao orderItemDao;
 
+    @Transactional
+    public void addOrderItem(OrderItem orderItem) {
+        orderItemDao.insert(orderItem);
+    }
+
     @Transactional(readOnly = true)
     public List<OrderItem> getOrderItemByOrderId(Long orderId) {
         return orderItemDao.selectByOrderId(orderId);
@@ -40,4 +45,6 @@ public class OrderItemApi {
         }
         return orderItem;
     }
+
+
 }

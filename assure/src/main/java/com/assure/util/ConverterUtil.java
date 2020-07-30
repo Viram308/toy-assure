@@ -96,12 +96,13 @@ public class ConverterUtil {
 
     public static OrderData convertOrderToOrderData(Order order, Client client, Client customer, ChannelData channelData) {
         OrderData orderData = new OrderData();
+        orderData.setOrderId(order.getId());
         orderData.setClientName(client.getName());
         orderData.setCustomerName(customer.getName());
         orderData.setChannelName(channelData.getName());
         orderData.setChannelOrderId(order.getChannelOrderId());
         orderData.setStatus(order.getStatus().toString());
-        return  orderData;
+        return orderData;
     }
 
     public static Order convertOrderCsvFormToOrder(OrderCsvForm orderCsvForm) {
@@ -125,5 +126,16 @@ public class ConverterUtil {
         orderItemData.setOrderedQuantity(orderItem.getOrderedQuantity());
         orderItemData.setSellingPricePerUnit(orderItem.getSellingPricePerUnit());
         return orderItemData;
+    }
+
+    public static OrderItem convertFormToOrderItemPojo(OrderItemForm orderItemForm, Long globalSkuId, Long orderId) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setOrderId(orderId);
+        orderItem.setGlobalSkuId(globalSkuId);
+        orderItem.setOrderedQuantity(orderItemForm.getOrderedQuantity());
+        orderItem.setSellingPricePerUnit(orderItemForm.getSellingPricePerUnit());
+        orderItem.setAllocatedQuantity(0L);
+        orderItem.setFulfilledQuantity(0L);
+        return orderItem;
     }
 }

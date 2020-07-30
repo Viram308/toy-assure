@@ -23,6 +23,11 @@ public class OrderApi {
     }
 
     @Transactional(readOnly = true)
+    public Order get(Long id) {
+        return orderDao.select(Order.class,id);
+    }
+
+    @Transactional(readOnly = true)
     public Order getOrderByChannelOrderIdAndChannelId(String channelOrderId, Long channelId) {
         return orderDao.selectByChannelOrderIdAndChannelId(channelOrderId,channelId);
     }

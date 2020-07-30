@@ -11,7 +11,7 @@ import java.util.List;
 public class OrderDao extends AbstractDao{
 
     // select according to channelOrderId and channelId
-    private static String selectByChannelOrderIdChannelId = "select o from Order o where o.channelOrderId=:channelOrderId and p.channelId=:channelId";
+    private static String selectByChannelOrderIdChannelId = "select o from Order o where o.channelOrderId=:channelOrderId and o.channelId=:channelId";
     // select All
     private static String selectAll = "select o from Order o";
     // select By status

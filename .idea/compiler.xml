@@ -7,9 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="assure" />
         <module name="commons" />
         <module name="channel-app" />
+        <module name="assure" />
       </profile>
     </annotationProcessing>
   </component>

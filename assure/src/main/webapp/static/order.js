@@ -98,7 +98,7 @@ function uploadRowsOrder(){
         dataArr.push(fileData[i])
     }
     console.log(dataArr);
-    jsonArray.orderFormList = dataArr;
+    jsonArray.orderItemFormList = dataArr;
 	var json = JSON.stringify(jsonArray);
 	console.log(json);
 	var url = getOrderUrl();
@@ -158,7 +158,7 @@ function downloadErrorsOrder(){
 
 
 function getOrderItems(id){
-	var url = getOrderUrl() + "/items" + id;
+	var url = getOrderUrl() + "/items/" + id;
    // call api
    $.ajax({
    	url: url,
@@ -182,7 +182,7 @@ function displayOrderItems(data){
 		+ '<td>' + e.productName + '</td>'
 		+ '<td>' + e.brandId + '</td>'
 		+ '<td>' + e.orderedQuantity + '</td>'
-		+ '<td>' + e.sellingPrice + '</td>'
+		+ '<td>' + e.sellingPricePerUnit + '</td>'
 		+ '</tr>';
 		$tbodyViewOrder.append(row);
 	}
@@ -194,24 +194,37 @@ function viewOrder(id){
 }
 
 
-function fulfillOrder(id,channelId){
-	var url = getOrderUrl()+"/"+id+"/fulfill/"+channelId;
+function fulfillOrder(id){
+	var url = getOrderUrl()+"/fulfill/"+id;
 	$.ajax({
         url: url,
         type: 'GET',
         success: function(data) {
-            $.toast({
-                heading: 'Info',
-                text: 'Order list updated.',
-                position: 'bottom-right',
-                showHideTransition: 'fade',
-                hideAfter: 3000,
-                icon: 'info',
-                allowToastClose: true,
-                afterShown: function () {
-                    displayOrderList(data);
-                }
-            });
+            let binaryString = window.atob(data);
+
+                        let binaryLen = binaryString.length;
+
+                        let bytes = new Uint8Array(binaryLen);
+
+                        for (let i = 0; i < binaryLen; i++) {
+                            let ascii = binaryString.charCodeAt(i);
+                            bytes[i] = ascii;
+                        }
+
+                        let blob = new Blob([bytes], {type: "application/pdf"});
+                        $.toast({
+                            heading: 'Success',
+                            text: 'Downloading PDF.',
+                            position: 'bottom-right',
+                            showHideTransition: 'fade',
+                            hideAfter: 3000,
+                            icon: 'success',
+                            allowToastClose: true,
+                            afterShown: function () {
+                                downloadBillPdf(blob);
+                            }
+                        });
+                        getOrderList();
         },
         error: handleAjaxError
 	});
@@ -223,7 +236,18 @@ function downloadPdf(id){
         url: url,
         type: 'GET',
         success: function(data) {
-            var sampleArr = base64ToArrayBuffer(data);
+            let binaryString = window.atob(data);
+
+            let binaryLen = binaryString.length;
+
+            let bytes = new Uint8Array(binaryLen);
+
+            for (let i = 0; i < binaryLen; i++) {
+                let ascii = binaryString.charCodeAt(i);
+                bytes[i] = ascii;
+            }
+
+            let blob = new Blob([bytes], {type: "application/pdf"});
             $.toast({
                 heading: 'Success',
                 text: 'Downloading PDF.',
@@ -233,7 +257,7 @@ function downloadPdf(id){
                 icon: 'success',
                 allowToastClose: true,
                 afterShown: function () {
-                    saveByteArray("Sample Report", sampleArr);
+                    downloadBillPdf(blob);
                 }
             });
         },
@@ -241,25 +265,19 @@ function downloadPdf(id){
 	});
 }
 
-function saveByteArray(reportName, byte) {
-    var blob = new Blob([byte], {type: "application/pdf"});
-    var link = document.createElement('a');
+// download pdf with proper name
+function downloadBillPdf(blob){
+    let link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    var fileName = reportName;
-    link.download = fileName;
+    var currentdate = new Date();
+    link.download = "invoice_"+ currentdate.getDate() + "/"
+    + (currentdate.getMonth()+1)  + "/" 
+    + currentdate.getFullYear() + "@"  
+    + currentdate.getHours() + "h_"  
+    + currentdate.getMinutes() + "m_" 
+    + currentdate.getSeconds()+"s.pdf";
     link.click();
-}
-
-function base64ToArrayBuffer(base64) {
-    var binaryString = window.atob(base64);
-    var binaryLen = binaryString.length;
-    var bytes = new Uint8Array(binaryLen);
-    for (var i = 0; i < binaryLen; i++) {
-       var ascii = binaryString.charCodeAt(i);
-       bytes[i] = ascii;
-    }
-    return bytes;
- }
+}   
 
 
  function allocateOrder(){
@@ -294,16 +312,16 @@ function displayOrderList(data){
 	for(var i in data){
 		var e = data[i];
 		if(e.status === 'ALLOCATED') {
-		    var buttonHtml1 = '<button type="button" id="invoiceBtn'+count+'" class="btn btn-outline-primary" onclick="fulfillOrder('+e.id+','+e.channelId+')">Fulfill Order</button>'
+		    var buttonHtml1 = '<button type="button" class="btn btn-outline-primary" onclick="fulfillOrder('+e.orderId+')">Fulfill Order</button>'
 		} else{
-            var buttonHtml1 = '<button type="button" id="invoiceBtn'+count+'" class="btn btn-outline-secondary" disabled>Fulfill Order</button>'
+            var buttonHtml1 = '<button type="button" class="btn btn-outline-secondary" disabled>Fulfill Order</button>'
         }
 		if(e.status === 'FULFILLED') {
-		    var buttonHtml2 = '<button type="button" id="invoiceBtn'+count+'" class="btn btn-outline-warning" onclick="downloadPdf('+ e.id +')">Download</button>'
+		    var buttonHtml2 = '<button type="button" class="btn btn-outline-success" onclick="downloadPdf('+ e.orderId +')">Download</button>'
 		}else{
-		    var buttonHtml2 = '<button type="button" id="invoiceBtn'+count+'" class="btn btn-outline-primary" disabled>Fulfill Order</button>'
+		    var buttonHtml2 = '<button type="button" class="btn btn-outline-success" disabled>Download</button>'
 		}
-		var buttonHtml3 = '<button class="btn btn-outline-primary" onclick="viewOrder(' + e.id + ')">View</button>'
+		var buttonHtml3 = '<button class="btn btn-outline-primary" onclick="viewOrder(' + e.orderId + ')">View</button>'
 		var row = '<tr>'
 		+ '<td>' + count + '</td>'
 		+ '<td>' + e.clientName + '</td>'
@@ -405,7 +423,7 @@ function getCustomerList(){
 }
 
 function getChannelList(){
-	var url = getClientUrl() + "/allChannel";
+	var url = getOrderUrl() + "/allChannel";
 	$.ajax({
         url: url,
         type: 'GET',
@@ -419,7 +437,7 @@ function getChannelList(){
 function validateFields(){
    var clientDropDown = $("#upload-order-modal select[name=clientName]");
    var customerDropDown = $("#upload-order-modal select[name=customerName]");
-   var channelOrderId = $("#upload-order-modal select[name=channelOrderId]").val().trim();
+   var channelOrderId = $("#upload-order-modal input[name=channelOrderId]").val().trim();
    if (clientDropDown.val() == '' || clientDropDown.val() == undefined || clientDropDown.val() == 0) {
        infoToast("Please select Client from the dropdown to proceed!");
        return false;
