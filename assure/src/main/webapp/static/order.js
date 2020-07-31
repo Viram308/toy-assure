@@ -158,6 +158,8 @@ function downloadErrorsOrder(){
 
 
 function getOrderItems(id){
+    var $tbodyViewOrder = $('#view-order-table').find('tbody');
+    $tbodyViewOrder.empty();
 	var url = getOrderUrl() + "/items/" + id;
    // call api
    $.ajax({
@@ -224,7 +226,7 @@ function fulfillOrder(id){
                                 downloadBillPdf(blob);
                             }
                         });
-                        getOrderList();
+                        searchOrder();
         },
         error: handleAjaxError
 	});
@@ -295,7 +297,7 @@ function downloadBillPdf(blob){
                 icon: 'info',
                 allowToastClose: true,
                 afterShown: function () {
-                   displayOrderList(data);
+                   searchOrder();
                 }
             });
         },
@@ -388,13 +390,13 @@ function displayChannelDropDownList(data){
 }
 
 function displayCustomerDropDownList(data){
-    $('#customerSelect').empty();
+    
     $('#customerSelected').empty();
     var options = '<option value="0" selected>Select Customer</option>';
     $.each(data, function(index, value) {
         options += '<option value="' + value.id + '">' + value.name + '</option>';
     });
-    $('#customerSelect').append(options);
+    
     $('#customerSelected').append(options);
 }
 
