@@ -28,6 +28,11 @@ public class ChannelListingApi {
     }
 
     @Transactional(readOnly = true)
+    public ChannelListing getChannelListingByParameters(Long channelId,Long clientId,Long globalSkuId) {
+        return channelListingDao.selectByParameters(channelId,clientId,globalSkuId);
+    }
+
+    @Transactional(readOnly = true)
     public List<ChannelListing> getAllChannelListing() {
         return channelListingDao.selectAll();
     }

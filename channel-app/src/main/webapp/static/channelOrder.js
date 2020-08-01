@@ -77,7 +77,7 @@ error: function(jqXHR){
                 document.getElementById('download-errors-channelOrder').focus();
             }
             document.getElementById("channelOrder-create-form").reset();
-            document.getElementById('download-errors-channelOrder').html(0);
+            
             $totalItems.val(0);
         }
 });
@@ -122,66 +122,6 @@ function getChannelOrderList(){
   });
 
   return false;
-}
-
-function allocateOrder(){
-  var url = getChannelOrderUrl()+"/allocate";
-  $.ajax({
-    url: url,
-    type: 'GET',
-    success: function(data) {
-      $.toast({
-        heading: 'Info',
-        text: 'Channel Order list updated.',
-        position: 'bottom-right',
-        showHideTransition: 'fade',
-        hideAfter: 3000,
-        icon: 'info',
-        allowToastClose: true,
-        afterShown: function () {
-         searchChannelOrder();
-       }
-     });
-    },
-    error: handleAjaxError
-  });
-}
-
-
-function fulfillChannelOrder(id){
-  var url = getChannelOrderUrl()+"/fulfill/"+id;
-  $.ajax({
-    url: url,
-    type: 'GET',
-    success: function(data) {
-      let binaryString = window.atob(data);
-
-      let binaryLen = binaryString.length;
-
-      let bytes = new Uint8Array(binaryLen);
-
-      for (let i = 0; i < binaryLen; i++) {
-        let ascii = binaryString.charCodeAt(i);
-        bytes[i] = ascii;
-      }
-
-      let blob = new Blob([bytes], {type: "application/pdf"});
-      $.toast({
-        heading: 'Success',
-        text: 'Downloading PDF.',
-        position: 'bottom-right',
-        showHideTransition: 'fade',
-        hideAfter: 3000,
-        icon: 'success',
-        allowToastClose: true,
-        afterShown: function () {
-          downloadBillPdf(blob);
-        }
-      });
-      searchChannelOrder();
-    },
-    error: handleAjaxError
-  });
 }
 
 function downloadPdf(id){
@@ -390,11 +330,6 @@ function displayChannelOrderList(){
   var count=1;
   for(var i in data){
     var e = data[i];
-    if(e.status === 'ALLOCATED') {
-      var buttonHtml1 = '<button type="button" class="btn btn-outline-primary" onclick="fulfillChannelOrder('+e.orderId+')">Fulfill Order</button>'
-    } else{
-      var buttonHtml1 = '<button type="button" class="btn btn-outline-secondary" disabled>Fulfill Order</button>'
-    }
     if(e.status === 'FULFILLED') {
       var buttonHtml2 = '<button type="button" class="btn btn-outline-success" onclick="downloadPdf('+ e.orderId +')">Download</button>'
     }else{
@@ -408,7 +343,6 @@ function displayChannelOrderList(){
     + '<td>' + e.channelName + '</td>'
     + '<td>' + e.channelOrderId + '</td>'
     + '<td>' + e.status + '</td>'
-    + '<td>' + buttonHtml1 + '</td>'
     + '<td>' + buttonHtml2 + '</td>'
     + '<td>' + buttonHtml3 + '</td>'
     + '</tr>';
@@ -579,6 +513,7 @@ function checkItemExist(clientSkuId){
 function showChannelOrderModal(){
   var $tbody = $('#channelOrder-item-table').find('tbody');
   $tbody.empty();
+  $('#errorCountChannelOrder').html(0);
   $totalItems.val(0);
   $('#add-channelOrder-modal').modal('toggle');
 
@@ -590,9 +525,6 @@ function showChannelOrderModal(){
 
 
     $('#search-channelOrder').click(searchChannelOrder);
-    $('#allocate-channelOrder').click(allocateChannelOrder)
-
-
     $('#show-add-channelOrder-modal').click(showChannelOrderModal);
     $('#add-item-button').click(addItemInTable);
     $('#process-data-channelOrder').click(createChannelOrder);

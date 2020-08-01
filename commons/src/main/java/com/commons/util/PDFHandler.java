@@ -27,7 +27,7 @@ public class PDFHandler {
     private static final Logger logger = Logger.getLogger(PDFHandler.class);
 
 
-    public static byte[] generatePDF(InvoiceData invoiceData, String OUTPUT_DIR, String INVOICE_TEMPLATE_XSL) throws ParserConfigurationException, IOException, FOPException, TransformerException {
+    public static byte[] generatePDF(InvoiceData invoiceData, String INVOICE_TEMPLATE_XSL) throws ParserConfigurationException, IOException, FOPException, TransformerException {
         DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
         Document document = documentBuilder.newDocument();

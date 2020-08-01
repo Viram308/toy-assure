@@ -2,21 +2,18 @@ package com.assure.dto;
 
 import com.assure.api.*;
 import com.assure.channel.ChannelDataApi;
-import com.assure.model.form.OrderCsvForm;
-import com.assure.model.form.OrderItemForm;
-import com.assure.model.form.OrderSearchForm;
-import com.assure.model.response.OrderData;
-import com.assure.model.response.OrderItemData;
 import com.assure.pojo.*;
 import com.assure.util.ConverterUtil;
 import com.assure.validator.OrderCsvFormValidator;
 import com.commons.api.ApiException;
 import com.commons.api.CustomValidationException;
 import com.commons.enums.OrderStatus;
-import com.commons.response.ChannelData;
-import com.commons.response.InvoiceData;
-import com.commons.response.InvoiceItemData;
+import com.commons.form.OrderCsvForm;
+import com.commons.form.OrderItemForm;
+import com.commons.form.OrderSearchForm;
+import com.commons.response.*;
 import com.commons.util.PDFHandler;
+import com.commons.util.StringUtil;
 import org.apache.fop.apps.FOPException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +26,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,7 +37,6 @@ import java.util.stream.Collectors;
 public class OrderDto {
 
     private static final Logger logger = Logger.getLogger(OrderDto.class);
-    private static final String PDF_PATH = "src/main/resources/com/assure/";
     private static final String INVOICE_TEMPLATE_XSL = "src/main/resources/com/assure/invoiceTemplate.xsl";
 
     @Autowired
@@ -172,6 +165,12 @@ public class OrderDto {
     }
 
     @Transactional(readOnly = true)
+    public OrderData get(Long id) {
+        Order order = orderApi.get(id);
+        return ConverterUtil.convertOrderToOrderData(order,clientApi.get(order.getClientId()), clientApi.get(order.getCustomerId()), channelDataApi.getChannelDetails(order.getChannelId()));
+    }
+
+    @Transactional(readOnly = true)
     public List<OrderData> getAllOrders() {
         List<Order> orderList = orderApi.getAll();
         return orderList.stream().map(o -> ConverterUtil.convertOrderToOrderData(o, clientApi.get(o.getClientId()), clientApi.get(o.getCustomerId()), channelDataApi.getChannelDetails(o.getChannelId()))).collect(Collectors.toList());
@@ -183,12 +182,28 @@ public class OrderDto {
         if(orderSearchForm.getClientId()!=0){
             orderList = orderList.stream().filter(o->(o.getClientId().equals(orderSearchForm.getClientId()))).collect(Collectors.toList());
         }
-        if(orderSearchForm.getCustomerId()!=0){
-            orderList = orderList.stream().filter(o->(o.getCustomerId().equals(orderSearchForm.getCustomerId()))).collect(Collectors.toList());
+        if(!StringUtil.isEmpty(orderSearchForm.getOrderStatus())){
+            orderList = orderList.stream().filter(o->(o.getStatus().toString().equals(StringUtil.toUpperCase(orderSearchForm.getOrderStatus())))).collect(Collectors.toList());
         }
         if(orderSearchForm.getChannelId()!=0){
             orderList = orderList.stream().filter(o->(o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
         }
+        return orderList.stream().map(o -> ConverterUtil.convertOrderToOrderData(o, clientApi.get(o.getClientId()), clientApi.get(o.getCustomerId()), channelDataApi.getChannelDetails(o.getChannelId()))).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<OrderData> searchChannelOrder(OrderSearchForm orderSearchForm) {
+        List<Order> orderList = orderApi.getAll();
+        if(orderSearchForm.getClientId()!=0){
+            orderList = orderList.stream().filter(o->(o.getClientId().equals(orderSearchForm.getClientId()))).collect(Collectors.toList());
+        }
+        if(!StringUtil.isEmpty(orderSearchForm.getOrderStatus())){
+            orderList = orderList.stream().filter(o->(o.getStatus().toString().equals(StringUtil.toUpperCase(orderSearchForm.getOrderStatus())))).collect(Collectors.toList());
+        }
+        if(orderSearchForm.getChannelId()!=0){
+            orderList = orderList.stream().filter(o->(o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
+        }
+        orderList = orderList.stream().filter(order -> (!order.getChannelId().equals(1L))).collect(Collectors.toList());
         return orderList.stream().map(o -> ConverterUtil.convertOrderToOrderData(o, clientApi.get(o.getClientId()), clientApi.get(o.getCustomerId()), channelDataApi.getChannelDetails(o.getChannelId()))).collect(Collectors.toList());
     }
 
@@ -238,10 +253,17 @@ public class OrderDto {
 
 
     public void generateInvoice(Long id, HttpServletResponse response) throws TransformerException, ParserConfigurationException, IOException, FOPException {
-        logger.info("Generating Invoice");
-        InvoiceData invoiceData = getInvoiceData(id);
-        logger.info("Generating PDF");
-        byte[] encodedBytes= PDFHandler.generatePDF(invoiceData,PDF_PATH,INVOICE_TEMPLATE_XSL);
+        Order order = orderApi.get(id);
+        byte[] encodedBytes;
+        if(order.getChannelId()==1){
+            logger.info("Generating Invoice");
+            InvoiceData invoiceData = getInvoiceData(id);
+            logger.info("Generating PDF");
+            encodedBytes = PDFHandler.generatePDF(invoiceData,INVOICE_TEMPLATE_XSL);
+        }
+        else {
+            encodedBytes = channelDataApi.getPDFBytes(id);
+        }
         String pdfFileName = "output.pdf";
         response.reset();
         response.addHeader("Pragma", "public");
@@ -258,15 +280,6 @@ public class OrderDto {
     }
 
     public void downloadInvoice(Long id,HttpServletResponse response) throws IOException, TransformerException, ParserConfigurationException, FOPException {
-//        File file = new File(String.valueOf(Paths.get(PDF_PATH+"order"+id+".pdf")));
-//        if(!(file.exists() && file.isFile())) {
-//            byte[] clientByteResponse = invoicePdfClient.getInvoicePDF(fileName);
-//            if(clientByteResponse == null) {
-//                throw new ApiException("Invoice Pdf not found with name : "+ fileName);
-//            }
-//            logger.info("got pdf "+ clientByteResponse.length);
-//            return Base64.getEncoder().encode(clientByteResponse);
-//        }
         generateInvoice(id,response);
     }
 
@@ -311,4 +324,6 @@ public class OrderDto {
         Date timeObj = new Date();
         return df.format(timeObj);
     }
+
+
 }

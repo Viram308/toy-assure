@@ -1,4 +1,4 @@
-package com.assure.model.form;
+package com.commons.form;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class OrderSearchForm {
     private Long clientId;
-    private Long customerId;
     private Long channelId;
+    private String orderStatus;
 }

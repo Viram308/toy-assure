@@ -1,17 +1,16 @@
 package com.assure.controller;
 
 import com.assure.dto.OrderDto;
-import com.assure.model.form.OrderCsvForm;
-import com.assure.model.form.OrderSearchForm;
-import com.assure.model.response.OrderData;
-import com.assure.model.response.OrderItemData;
+import com.commons.form.OrderCsvForm;
+import com.commons.form.OrderSearchForm;
+import com.commons.response.OrderData;
+import com.commons.response.OrderItemData;
 import com.commons.response.ChannelData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.fop.apps.FOPException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,11 +43,25 @@ public class OrderApiController {
         return orderDto.searchOrder(orderSearchForm);
     }
 
+    @ApiOperation(value = "Search Channel order")
+    @RequestMapping(value = "/searchChannelOrder", method = RequestMethod.POST)
+    public List<OrderData> searchChannelOrder(@RequestBody OrderSearchForm orderSearchForm) {
+        logger.info("search-channel-order");
+        return orderDto.searchChannelOrder(orderSearchForm);
+    }
+
     @ApiOperation(value = "Gets all order")
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<OrderData> getAllOrder() {
         logger.info("get all orders");
         return orderDto.getAllOrders();
+    }
+
+    @ApiOperation(value = "Gets all order")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public OrderData getAllOrder(@PathVariable Long id) {
+        logger.info("get by order id");
+        return orderDto.get(id);
     }
 
     @ApiOperation(value = "Gets order items by orderId")

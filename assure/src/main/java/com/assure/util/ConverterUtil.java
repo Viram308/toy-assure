@@ -1,10 +1,10 @@
 package com.assure.util;
 
 import com.assure.model.form.BinSkuForm;
-import com.assure.model.form.OrderCsvForm;
-import com.assure.model.form.OrderItemForm;
-import com.assure.model.response.OrderData;
-import com.assure.model.response.OrderItemData;
+import com.commons.form.OrderCsvForm;
+import com.commons.form.OrderItemForm;
+import com.commons.response.OrderData;
+import com.commons.response.OrderItemData;
 import com.assure.pojo.*;
 import com.commons.form.ClientForm;
 import com.commons.form.ProductForm;
