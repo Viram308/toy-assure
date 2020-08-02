@@ -1,8 +1,10 @@
 package com.channel.dto;
 
 import com.channel.api.ChannelApi;
+import com.channel.api.ChannelListingApi;
 import com.channel.assure.ClientAssure;
 import com.channel.model.form.ChannelForm;
+import com.channel.pojo.ChannelListing;
 import com.commons.response.ChannelData;
 import com.channel.pojo.Channel;
 import com.channel.util.ConverterUtil;
@@ -27,6 +29,8 @@ public class ChannelDto {
     private ChannelApi channelApi;
     @Autowired
     private ClientAssure clientAssure;
+    @Autowired
+    private ChannelListingApi channelListingApi;
 
     @Transactional(rollbackFor = ApiException.class)
     public ChannelData addChannel(ChannelForm channelForm) {
@@ -41,6 +45,17 @@ public class ChannelDto {
     public ChannelData getChannel(Long id) {
         Channel channel = channelApi.get(id);
         return ConverterUtil.convertChannelToChannelData(channel);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ChannelData> getChannelByClient(Long clientId) {
+        List<ChannelListing> channelListingList = channelListingApi.getByClientId(clientId);
+        List<Long> channelIdList = channelListingList.stream().map(ChannelListing::getChannelId).collect(Collectors.toList());
+        if(channelIdList.isEmpty()){
+            return null;
+        }
+        List<Channel> channelList = channelApi.getByChannelIdList(channelIdList);
+        return channelList.stream().map(ConverterUtil::convertChannelToChannelData).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)

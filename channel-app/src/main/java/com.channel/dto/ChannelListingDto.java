@@ -63,6 +63,13 @@ public class ChannelListingDto {
     }
 
     @Transactional(readOnly = true)
+    public ChannelListingData getChannelListing(Long id){
+        ChannelListing channelListing = channelListingApi.getChannelListing(id);
+        ProductData productData = productAssure.getProductData(channelListing.getGlobalSkuId());
+        return ConverterUtil.convertChannelListingToChannelListingData(channelListing, channelApi.get(channelListing.getChannelId()), productData);
+    }
+
+    @Transactional(readOnly = true)
     public ChannelListingData getChannelListingData(Long channelId, String channelSkuId, Long clientId) {
         ChannelListing channelListing = channelListingApi.getChannelListingByParameters(channelId, channelSkuId, clientId);
         if (channelListing != null) {
@@ -80,6 +87,13 @@ public class ChannelListingDto {
         if(channelListingSearchForm.getClientId()!=0){
             channelListings = channelListings.stream().filter(o->(channelListingSearchForm.getClientId().equals(o.getClientId()))).collect(Collectors.toList());
         }
+        return channelListings.stream().map(o -> ConverterUtil.convertChannelListingToChannelListingData(o, channelApi.get(o.getChannelId()), productAssure.getProductData(o.getGlobalSkuId()))).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<ChannelListingData> getAllChannelListingByChannelClient(Long channelId, Long clientId) {
+        List<ChannelListing> channelListings = channelListingApi.getByClientId(clientId);
+        channelListings = channelListings.stream().filter(channelListing -> channelListing.getChannelId().equals(channelId)).collect(Collectors.toList());
         return channelListings.stream().map(o -> ConverterUtil.convertChannelListingToChannelListingData(o, channelApi.get(o.getChannelId()), productAssure.getProductData(o.getGlobalSkuId()))).collect(Collectors.toList());
     }
 
@@ -106,6 +120,7 @@ public class ChannelListingDto {
     public List<ProductData> getProductByClientIdAndClientSkuId(Long clientId) {
         return productAssure.getProductByClientIdAndClientSkuId(clientId);
     }
+
 
 
 }

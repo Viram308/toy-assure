@@ -1,6 +1,7 @@
 package com.assure.validator;
 
 import com.assure.dto.BinDto;
+import com.assure.dto.BinSkuDto;
 import com.assure.dto.ClientDto;
 import com.assure.dto.ProductDto;
 import com.assure.model.form.BinSkuCsvForm;
@@ -10,6 +11,7 @@ import com.commons.enums.ClientType;
 import com.commons.response.ClientData;
 import com.commons.response.ProductData;
 import com.commons.util.StringUtil;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -19,6 +21,9 @@ import java.util.List;
 
 @Component
 public class BinSkuCsvFormValidator implements Validator {
+
+    private static final Logger logger = Logger.getLogger(BinSkuCsvFormValidator.class);
+
 
     @Autowired
     private ClientDto clientDto;
@@ -40,6 +45,7 @@ public class BinSkuCsvFormValidator implements Validator {
         for (BinSkuForm binSkuForm : binSkuFormList) {
             Long binId=binSkuForm.getBinId();
             Bin bin = binDto.getBin(binId);
+            logger.info("validate binId");
             if(bin==null){
                 errors.pushNestedPath("binSkuFormList[" + index + "]");
                 errors.rejectValue("binId", "not found", "Bin doesn't exist for binId :" + binId);
@@ -47,6 +53,7 @@ public class BinSkuCsvFormValidator implements Validator {
             }
             Long clientId = binSkuForm.getClientId();
             ClientData clientData = clientDto.getClient(clientId);
+            logger.info("validate client");
             if (clientData == null || !StringUtil.toUpperCase(clientData.getType()).equals(ClientType.CLIENT.toString())) {
                 errors.pushNestedPath("binSkuFormList[" + index + "]");
                 errors.rejectValue("clientId", "not found", "Client doesn't exist for clientId :" + clientId);
@@ -54,6 +61,7 @@ public class BinSkuCsvFormValidator implements Validator {
             }
             String clientSkuId = binSkuForm.getClientSkuId();
             ProductData productData = productDto.getProductByClientIdAndClientSkuId(clientId, clientSkuId);
+            logger.info("validate product");
             if (productData == null) {
                 errors.pushNestedPath("binSkuFormList[" + index + "]");
                 errors.rejectValue("clientSkuId", "not found", "product doesn't exist for clientSkuId : " + clientSkuId + " and clientId :" + clientId);

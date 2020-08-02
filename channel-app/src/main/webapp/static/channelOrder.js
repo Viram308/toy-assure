@@ -24,6 +24,7 @@ function createChannelOrder(){
             icon: 'error',
             allowToastClose: true
         });
+      return false;
     }
     var table = document.getElementById("channelOrder-item-table");
     var orderData=[];
@@ -35,7 +36,7 @@ function createChannelOrder(){
           "clientId":$("#channelOrder-create-form select[name=clientName]").val(),
           "customerId":$("#channelOrder-create-form select[name=customerName]").val(),
           "channelId":$("#channelOrder-create-form select[name=channelName]").val(),
-          "channelOrderId":$("#channelOrder-create-form select[name=channelOrderId]").val(),
+          "channelOrderId":$("#channelOrder-create-form input[name=channelOrderId]").val(),
           "clientSkuId":row.cells[0].innerHTML,
           "orderedQuantity":row.cells[4].innerHTML,
           "sellingPricePerUnit":row.cells[5].innerHTML 
@@ -76,9 +77,7 @@ error: function(jqXHR){
             if(errorArray != null && errorArray.length > 0){
                 document.getElementById('download-errors-channelOrder').focus();
             }
-            document.getElementById("channelOrder-create-form").reset();
             
-            $totalItems.val(0);
         }
 });
 }
@@ -158,6 +157,23 @@ function downloadPdf(id){
     error: handleAjaxError
   });
 }
+
+
+// download pdf with proper name
+function downloadBillPdf(blob){
+    let link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    var currentdate = new Date();
+    link.download = "invoice_"+ currentdate.getDate() + "/"
+    + (currentdate.getMonth()+1)  + "/" 
+    + currentdate.getFullYear() + "@"  
+    + currentdate.getHours() + "h_"  
+    + currentdate.getMinutes() + "m_" 
+    + currentdate.getSeconds()+"s.pdf";
+    link.click();
+}   
+
+
 
 function getOrderItems(id){
   var $tbodyViewOrder = $('#view-channelOrder-table').find('tbody');
@@ -288,7 +304,7 @@ function getCustomerList(){
 }
 
 function getChannelList(){
-  var url = getChannelUrl() + "/allChannel";
+  var url = getChannelUrl();
   $.ajax({
     url: url,
     type: 'GET',
@@ -311,8 +327,8 @@ function getChannelListByClientId(clientId){
   });
 }
 
-function getChannelListingData(channelId){
-  var url = getChannelListingUrl() + "/getByChannel/"+channelId;
+function getChannelListingData(channelId,clientId){
+  var url = getChannelListingUrl() + "/getByChannelAndClient/"+channelId+"/"+clientId;
   $.ajax({
     url: url,
     type: 'GET',
@@ -324,7 +340,7 @@ function getChannelListingData(channelId){
 }
 
 
-function displayChannelOrderList(){
+function displayChannelOrderList(data){
   var $tbody = $('#channelOrder-table').find('tbody');
   $tbody.empty();
   var count=1;
@@ -356,7 +372,7 @@ function displayChannelOrderList(){
 
 function updateQuantityInTable(clientSkuId,finalQuantity){
   clientSkuId = clientSkuId.toLowerCase();
-  var table = $('#channelOrder-item-table');
+  var table = document.getElementById('channelOrder-item-table');
   var checkEquality=9;
   // if barcode exist then add quantity in table row
   for (var i = 1, row; row = table.rows[i]; i++) {
@@ -389,7 +405,7 @@ function validateFields(){
    infoToast("Please select Channel from the dropdown to proceed!");
    return false;
  }
- var channelOrderId = $("#channelOrder-create-form select[name=channelOrderId]").val().trim();
+ var channelOrderId = $("#channelOrder-create-form input[name=channelOrderId]").val().trim();
  if (channelOrderId == '') {
    infoToast("Please enter channel orderId");
    return false;
@@ -401,17 +417,13 @@ function validateFields(){
    return false;
  }
 
- var quantity = $("#channelOrder-create-form select[name=quantity]").val().trim();
- if (quantity == '' || quantity<=0) {
+ var quantity = $("#channelOrder-create-form input[name=quantity]").val();
+ if (quantity<=0) {
    infoToast("Please enter positive quantity");
    return false;
  }
 
 
- if( document.getElementById("channelListingFile").files.length == 0 ){
-   infoToast("No file selected.Please choose a file to proceed.");
-   return false;
- }
  return true;
 }
 
@@ -447,7 +459,7 @@ function downloadErrorsChannelOrder(){
 
 function addItemInTable(){
   if(validateFields()){
-    var quantity = $("#channelOrder-create-form select[name=quantity]").val().trim();
+    var quantity = $("#channelOrder-create-form input[name=quantity]").val();
     var channelListingId = $("#channelOrder-create-form select[name=channelSkuId]").val();
     var url = getChannelListingUrl() +"/"+channelListingId;
     $.ajax({
@@ -460,6 +472,7 @@ function addItemInTable(){
           updateQuantityInTable(data.clientSkuId,finalQuantity);
         }
         else{
+            var $tbody = $('#channelOrder-item-table').find('tbody');
           var itemId=$totalItems.val();
           itemId++;
           $totalItems.val(itemId);
@@ -495,7 +508,7 @@ error: handleAjaxError
 
 function checkItemExist(clientSkuId){
   clientSkuId = clientSkuId.toLowerCase();
-  var table = $('#channelOrder-item-table');
+  var table = document.getElementById('channelOrder-item-table');
   var quantity=0;
   var checkEquality=9;
   // check row wise each cell
@@ -540,8 +553,9 @@ function showChannelOrderModal(){
       var $tbody = $('#channelOrder-item-table').find('tbody');
       $tbody.empty();
       $totalItems.val(0);
-      channelId = $(this).find("option:selected").val();
-      getChannelListingData(channelId);
+      var clientId = $('#channelOrder-create-form select[name=clientName]').val();
+      var channelId = $(this).find("option:selected").val();
+      getChannelListingData(channelId,clientId);
     });
 
     

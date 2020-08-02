@@ -102,6 +102,8 @@ public class ConverterUtil {
         orderData.setChannelName(channelData.getName());
         orderData.setChannelOrderId(order.getChannelOrderId());
         orderData.setStatus(order.getStatus().toString());
+        orderData.setChannelId(channelData.getId());
+        orderData.setClientId(client.getId());
         return orderData;
     }
 

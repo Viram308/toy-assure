@@ -24,4 +24,9 @@ public class AppUiController extends AbstractUiController {
 	public ModelAndView channelListing() {
 		return mav("channelListing.html");
 	}
+
+	@RequestMapping(value = "/channelOrder")
+	public ModelAndView channelOrder() {
+		return mav("channelOrder.html");
+	}
 }

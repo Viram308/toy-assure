@@ -67,7 +67,7 @@ public class OrderDto {
             order.setStatus(OrderStatus.CREATED);
             orderApi.addOrder(order);
             for (OrderItemForm orderItemForm : orderCsvForm.getOrderItemFormList()) {
-                Product product = productApi.getByClientIdAndClientSkuId(order.getClientId(),orderItemForm.getClientSkuId());
+                Product product = productApi.getByClientIdAndClientSkuId(order.getClientId(), orderItemForm.getClientSkuId());
                 OrderItem orderItem = ConverterUtil.convertFormToOrderItemPojo(orderItemForm, product.getGlobalSkuId(), order.getId());
                 orderItemApi.addOrderItem(orderItem);
             }
@@ -75,6 +75,22 @@ public class OrderDto {
         logger.info("Allocate Orders");
         return allocateOrders();
     }
+
+    @Transactional
+    public void addChannelOrder(OrderCsvForm orderCsvForm) {
+        Order order = ConverterUtil.convertOrderCsvFormToOrder(orderCsvForm);
+        if (order != null) {
+            order.setStatus(OrderStatus.CREATED);
+            orderApi.addOrder(order);
+            logger.info("order created");
+            for (OrderItemForm orderItemForm : orderCsvForm.getOrderItemFormList()) {
+                Product product = productApi.getByClientIdAndClientSkuId(order.getClientId(), orderItemForm.getClientSkuId());
+                OrderItem orderItem = ConverterUtil.convertFormToOrderItemPojo(orderItemForm, product.getGlobalSkuId(), order.getId());
+                orderItemApi.addOrderItem(orderItem);
+            }
+        }
+    }
+
 
     @Transactional(readOnly = true)
     public ChannelData getChannelDetails(Long channelId) {
@@ -84,7 +100,7 @@ public class OrderDto {
     @Transactional(readOnly = true)
     public OrderData getOrderDetails(String channelOrderId, Long channelId) {
         Order order = orderApi.getOrderByChannelOrderIdAndChannelId(channelOrderId, channelId);
-        if(order!=null) {
+        if (order != null) {
             return ConverterUtil.convertOrderToOrderData(order, clientApi.get(order.getClientId()), clientApi.get(order.getCustomerId()), channelDataApi.getChannelDetails(order.getChannelId()));
         }
         return null;
@@ -93,7 +109,7 @@ public class OrderDto {
     @Transactional
     public List<OrderData> allocateOrders() {
         int recordUpdated = orderAllocation();
-        logger.info("Records updated : "+recordUpdated);
+        logger.info("Records updated : " + recordUpdated);
         return getAllOrders();
     }
 
@@ -131,6 +147,10 @@ public class OrderDto {
 
     @Transactional(rollbackFor = ApiException.class)
     public boolean orderItemAllocationLogic(OrderItem orderItem) {
+        long quantityToAdd = orderItem.getOrderedQuantity() - orderItem.getAllocatedQuantity();
+        if (quantityToAdd == 0) {
+            return true;
+        }
         Inventory inventory = inventoryApi.getInventoryByGlobalSkuId(orderItem.getGlobalSkuId());
         List<Long> globalSkuIdList = new ArrayList<>();
         globalSkuIdList.add(orderItem.getGlobalSkuId());
@@ -138,36 +158,39 @@ public class OrderDto {
         if (skuList == null) {
             throw new ApiException("No BinSku records found.");
         }
-        long remaining_available_quantity = Math.subtractExact(inventory.getAvailableQuantity(), orderItem.getOrderedQuantity());
-        Long ordered_quantity = orderItem.getOrderedQuantity();
-        if (remaining_available_quantity >= 0) {
-            inventory.setAvailableQuantity(remaining_available_quantity);
-            inventory.setAllocatedQuantity(inventory.getAllocatedQuantity() + orderItem.getOrderedQuantity());
-            orderItem.setAllocatedQuantity(orderItem.getAllocatedQuantity() + ordered_quantity);
-            long min_Val;
-            for (BinSku binSku : skuList) {
-                if (ordered_quantity > 0) {
-                    if (binSku.getQuantity() >= ordered_quantity) {
-                        binSku.setQuantity(Math.subtractExact(binSku.getQuantity(), ordered_quantity));
-                        ordered_quantity = 0L;
-                    } else {
-                        min_Val = Math.min(binSku.getQuantity(), ordered_quantity);
-                        ordered_quantity = Math.subtractExact(ordered_quantity, min_Val);
-                        binSku.setQuantity(0L);
-                    }
-                }
-                binSkuApi.update(binSku.getId(),binSku);
-            }
+        long remaining_available_quantity = Math.subtractExact(inventory.getAvailableQuantity(), quantityToAdd);
+        if (remaining_available_quantity < 0) {
+            quantityToAdd = inventory.getAvailableQuantity();
+            inventory.setAvailableQuantity(0L);
         }
-        inventoryApi.update(inventory.getId(),inventory);
-        orderItemApi.updateOrderItem(orderItem.getId(),orderItem);
+        else{
+            inventory.setAvailableQuantity(remaining_available_quantity);
+        }
+        inventory.setAllocatedQuantity(inventory.getAllocatedQuantity() + quantityToAdd);
+        orderItem.setAllocatedQuantity(orderItem.getAllocatedQuantity() + quantityToAdd);
+        long min_Val;
+        for (BinSku binSku : skuList) {
+            if (quantityToAdd > 0) {
+                if (binSku.getQuantity() >= quantityToAdd) {
+                    binSku.setQuantity(Math.subtractExact(binSku.getQuantity(), quantityToAdd));
+                    quantityToAdd = 0L;
+                } else {
+                    min_Val = Math.min(binSku.getQuantity(), quantityToAdd);
+                    quantityToAdd = Math.subtractExact(quantityToAdd, min_Val);
+                    binSku.setQuantity(0L);
+                }
+            }
+            binSkuApi.update(binSku.getId(), binSku);
+        }
+        inventoryApi.update(inventory.getId(), inventory);
+        orderItemApi.updateOrderItem(orderItem.getId(), orderItem);
         return orderItem.getAllocatedQuantity().equals(orderItem.getOrderedQuantity());
     }
 
     @Transactional(readOnly = true)
     public OrderData get(Long id) {
         Order order = orderApi.get(id);
-        return ConverterUtil.convertOrderToOrderData(order,clientApi.get(order.getClientId()), clientApi.get(order.getCustomerId()), channelDataApi.getChannelDetails(order.getChannelId()));
+        return ConverterUtil.convertOrderToOrderData(order, clientApi.get(order.getClientId()), clientApi.get(order.getCustomerId()), channelDataApi.getChannelDetails(order.getChannelId()));
     }
 
     @Transactional(readOnly = true)
@@ -179,14 +202,14 @@ public class OrderDto {
     @Transactional(readOnly = true)
     public List<OrderData> searchOrder(OrderSearchForm orderSearchForm) {
         List<Order> orderList = orderApi.getAll();
-        if(orderSearchForm.getClientId()!=0){
-            orderList = orderList.stream().filter(o->(o.getClientId().equals(orderSearchForm.getClientId()))).collect(Collectors.toList());
+        if (orderSearchForm.getClientId() != 0) {
+            orderList = orderList.stream().filter(o -> (o.getClientId().equals(orderSearchForm.getClientId()))).collect(Collectors.toList());
         }
-        if(!StringUtil.isEmpty(orderSearchForm.getOrderStatus())){
-            orderList = orderList.stream().filter(o->(o.getStatus().toString().equals(StringUtil.toUpperCase(orderSearchForm.getOrderStatus())))).collect(Collectors.toList());
+        if (!StringUtil.isEmpty(orderSearchForm.getOrderStatus())) {
+            orderList = orderList.stream().filter(o -> (o.getStatus().toString().equals(StringUtil.toUpperCase(orderSearchForm.getOrderStatus())))).collect(Collectors.toList());
         }
-        if(orderSearchForm.getChannelId()!=0){
-            orderList = orderList.stream().filter(o->(o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
+        if (orderSearchForm.getChannelId() != 0) {
+            orderList = orderList.stream().filter(o -> (o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
         }
         return orderList.stream().map(o -> ConverterUtil.convertOrderToOrderData(o, clientApi.get(o.getClientId()), clientApi.get(o.getCustomerId()), channelDataApi.getChannelDetails(o.getChannelId()))).collect(Collectors.toList());
     }
@@ -194,14 +217,14 @@ public class OrderDto {
     @Transactional(readOnly = true)
     public List<OrderData> searchChannelOrder(OrderSearchForm orderSearchForm) {
         List<Order> orderList = orderApi.getAll();
-        if(orderSearchForm.getClientId()!=0){
-            orderList = orderList.stream().filter(o->(o.getClientId().equals(orderSearchForm.getClientId()))).collect(Collectors.toList());
+        if (orderSearchForm.getClientId() != 0) {
+            orderList = orderList.stream().filter(o -> (o.getClientId().equals(orderSearchForm.getClientId()))).collect(Collectors.toList());
         }
-        if(!StringUtil.isEmpty(orderSearchForm.getOrderStatus())){
-            orderList = orderList.stream().filter(o->(o.getStatus().toString().equals(StringUtil.toUpperCase(orderSearchForm.getOrderStatus())))).collect(Collectors.toList());
+        if (!StringUtil.isEmpty(orderSearchForm.getOrderStatus())) {
+            orderList = orderList.stream().filter(o -> (o.getStatus().toString().equals(StringUtil.toUpperCase(orderSearchForm.getOrderStatus())))).collect(Collectors.toList());
         }
-        if(orderSearchForm.getChannelId()!=0){
-            orderList = orderList.stream().filter(o->(o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
+        if (orderSearchForm.getChannelId() != 0) {
+            orderList = orderList.stream().filter(o -> (o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
         }
         orderList = orderList.stream().filter(order -> (!order.getChannelId().equals(1L))).collect(Collectors.toList());
         return orderList.stream().map(o -> ConverterUtil.convertOrderToOrderData(o, clientApi.get(o.getClientId()), clientApi.get(o.getCustomerId()), channelDataApi.getChannelDetails(o.getChannelId()))).collect(Collectors.toList());
@@ -210,38 +233,38 @@ public class OrderDto {
     @Transactional(readOnly = true)
     public List<OrderItemData> getOrderItems(Long id) {
         List<OrderItem> orderItemList = orderItemApi.getOrderItemByOrderId(id);
-        return orderItemList.stream().map(o->ConverterUtil.convertOrderItemToOrderItemData(o,productApi.get(o.getGlobalSkuId()))).collect(Collectors.toList());
+        return orderItemList.stream().map(o -> ConverterUtil.convertOrderItemToOrderItemData(o, productApi.get(o.getGlobalSkuId()))).collect(Collectors.toList());
     }
 
     @Transactional(rollbackFor = ApiException.class)
-    public void fulfillOrder(Long id,HttpServletResponse response) throws TransformerException, ParserConfigurationException, IOException, FOPException {
+    public void fulfillOrder(Long id, HttpServletResponse response) throws TransformerException, ParserConfigurationException, IOException, FOPException {
         Order order = orderApi.get(id);
         boolean result = orderItemFulfillmentLogic(order);
         if (!result) {
-            throw new ApiException("Can't fulfill order for orderId : "+id);
+            throw new ApiException("Can't fulfill order for orderId : " + id);
         }
         order.setStatus(OrderStatus.FULFILLED);
         orderApi.updateOrder(order);
-        generateInvoice(order.getId(),response);
+        generateInvoice(order.getId(), response);
     }
 
     @Transactional(rollbackFor = ApiException.class)
     public boolean orderItemFulfillmentLogic(Order order) {
         List<OrderItem> orderItemList = orderItemApi.getOrderItemByOrderId(order.getId());
-        for(OrderItem orderItem : orderItemList){
+        for (OrderItem orderItem : orderItemList) {
 
             Long ordered_quantity = orderItem.getOrderedQuantity();
             Long allocated_quantity = orderItem.getAllocatedQuantity();
-            if((allocated_quantity - ordered_quantity) < 0){
-                throw new ApiException("OrderItem with orderItemId : "+orderItem.getId() +" is not allocated");
+            if ((allocated_quantity - ordered_quantity) < 0) {
+                throw new ApiException("OrderItem with orderItemId : " + orderItem.getId() + " is not allocated");
             }
             Inventory inventory = inventoryApi.getInventoryByGlobalSkuId(orderItem.getGlobalSkuId());
             inventory.setAllocatedQuantity(inventory.getAllocatedQuantity() - ordered_quantity);
             inventory.setFulfilledQuantity(inventory.getFulfilledQuantity() + ordered_quantity);
-            inventoryApi.update(inventory.getId(),inventory);
+            inventoryApi.update(inventory.getId(), inventory);
             orderItem.setAllocatedQuantity(orderItem.getAllocatedQuantity() - ordered_quantity);
             orderItem.setFulfilledQuantity(orderItem.getFulfilledQuantity() + ordered_quantity);
-            orderItemApi.updateOrderItem(orderItem.getId(),orderItem);
+            orderItemApi.updateOrderItem(orderItem.getId(), orderItem);
         }
         return true;
     }
@@ -255,13 +278,12 @@ public class OrderDto {
     public void generateInvoice(Long id, HttpServletResponse response) throws TransformerException, ParserConfigurationException, IOException, FOPException {
         Order order = orderApi.get(id);
         byte[] encodedBytes;
-        if(order.getChannelId()==1){
+        if (order.getChannelId() == 1) {
             logger.info("Generating Invoice");
             InvoiceData invoiceData = getInvoiceData(id);
             logger.info("Generating PDF");
-            encodedBytes = PDFHandler.generatePDF(invoiceData,INVOICE_TEMPLATE_XSL);
-        }
-        else {
+            encodedBytes = PDFHandler.generatePDF(invoiceData, INVOICE_TEMPLATE_XSL);
+        } else {
             encodedBytes = channelDataApi.getPDFBytes(id);
         }
         String pdfFileName = "output.pdf";
@@ -279,8 +301,8 @@ public class OrderDto {
         servletOutputStream.close();
     }
 
-    public void downloadInvoice(Long id,HttpServletResponse response) throws IOException, TransformerException, ParserConfigurationException, FOPException {
-        generateInvoice(id,response);
+    public void downloadInvoice(Long id, HttpServletResponse response) throws IOException, TransformerException, ParserConfigurationException, FOPException {
+        generateInvoice(id, response);
     }
 
     private InvoiceData getInvoiceData(Long id) {
@@ -297,7 +319,7 @@ public class OrderDto {
         invoiceData.setInvoiceType(channelData.getInvoiceType());
         Long index = 1L;
         List<InvoiceItemData> invoiceItemDataList = new ArrayList<>();
-        for(OrderItem orderItem : orderItemList){
+        for (OrderItem orderItem : orderItemList) {
             InvoiceItemData invoiceItemData = new InvoiceItemData();
             invoiceItemData.setId(index);
             invoiceItemData.setOrderedQuantity(orderItem.getOrderedQuantity());

@@ -42,8 +42,8 @@ public class BinSkuDto {
     @Transactional(rollbackFor = CustomValidationException.class)
     public void addBinSku(BinSkuCsvForm binSkuCsvForm, BindingResult result) {
         binSkuCsvFormValidator.validate(binSkuCsvForm, result);
+        logger.info("Errors in binSkuCsv : " + result.getErrorCount());
         if (result.hasErrors()) {
-            logger.info(result.getErrorCount());
             throw new CustomValidationException(result);
         }
         logger.info("No errors in binInventory csv file");

@@ -6,6 +6,8 @@ import com.channel.assure.OrderItemAssure;
 import com.channel.assure.ProductAssure;
 import com.channel.model.response.ChannelOrderItemData;
 import com.channel.pojo.ChannelListing;
+import com.channel.validator.ChannelOrderCsvFormValidator;
+import com.commons.api.CustomValidationException;
 import com.commons.enums.InvoiceType;
 import com.commons.form.OrderCsvForm;
 import com.commons.form.OrderSearchForm;
@@ -17,6 +19,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -34,7 +37,7 @@ import java.util.stream.Collectors;
 public class ChannelOrderDto {
 
     private static final Logger logger = Logger.getLogger(ChannelOrderDto.class);
-    private static final String INVOICE_TEMPLATE_XSL = "src/main/resources/com/assure/invoiceTemplate.xsl";
+    private static final String INVOICE_TEMPLATE_XSL = "src/main/resources/com/channel/invoiceTemplate.xsl";
 
 
     @Autowired
@@ -45,15 +48,24 @@ public class ChannelOrderDto {
     private ProductAssure productAssure;
     @Autowired
     private ChannelListingApi channelListingApi;
+    @Autowired
+    private ChannelOrderCsvFormValidator channelOrderCsvFormValidator;
 
-    @Transactional
-    public List<OrderData> addChannelOrder(OrderCsvForm orderCsvForm) {
-        return orderAssure.addChannelOrder(orderCsvForm);
+    @Transactional(rollbackFor = CustomValidationException.class)
+    public void addChannelOrder(OrderCsvForm orderCsvForm, BindingResult result) {
+        channelOrderCsvFormValidator.validate(orderCsvForm, result);
+        logger.info("Errors in form :"+result.getErrorCount());
+        if (result.hasErrors()) {
+            throw new CustomValidationException(result);
+        }
+        String response = orderAssure.addChannelOrder(orderCsvForm);
+        logger.info(response);
     }
 
     @Transactional(readOnly = true)
     public List<OrderData> getChannelOrders() {
-        return orderAssure.getChannelOrders();
+        List<OrderData> orderDataList = orderAssure.getChannelOrders();
+        return orderDataList.stream().filter(orderData -> !(orderData.getChannelId().equals(1L))).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
@@ -62,9 +74,10 @@ public class ChannelOrderDto {
     }
 
     @Transactional(readOnly = true)
-    public List<ChannelOrderItemData> getOrderItems(Long id, Long clientId, Long channelId) {
+    public List<ChannelOrderItemData> getOrderItems(Long id) {
+        OrderData orderData = orderAssure.get(id);
         List<OrderItemData> orderItemDataList = orderItemAssure.getOrderItems(id);
-        return convertToChannelOrderItemData(orderItemDataList,clientId,channelId);
+        return convertToChannelOrderItemData(orderItemDataList,orderData.getClientId(),orderData.getChannelId());
     }
 
     private List<ChannelOrderItemData> convertToChannelOrderItemData(List<OrderItemData> orderItemDataList, Long clientId, Long channelId) {

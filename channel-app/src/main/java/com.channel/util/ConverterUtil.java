@@ -30,9 +30,13 @@ public class ConverterUtil {
         ChannelListingData channelListingData = new ChannelListingData();
         channelListingData.setChannelName(channel.getName());
         channelListingData.setChannelSkuId(channelListing.getChannelSkuId());
+        channelListingData.setClientSkuId(productData.getClientSkuId());
         channelListingData.setProductName(productData.getProductName());
         channelListingData.setBrandId(productData.getBrandId());
+        channelListingData.setSellingPricePerUnit(productData.getMrp());
         channelListingData.setClientName(productData.getClientName());
+        channelListingData.setChannelId(channelListing.getChannelId());
+        channelListingData.setId(channelListing.getId());
         return channelListingData;
     }
 

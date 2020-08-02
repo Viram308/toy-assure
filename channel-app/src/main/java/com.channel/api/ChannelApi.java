@@ -35,6 +35,11 @@ public class ChannelApi {
     }
 
     @Transactional(readOnly = true)
+    public List<Channel> getByChannelIdList(List<Long> channelIdList) {
+        return channelDao.selectByIdList(channelIdList);
+    }
+
+    @Transactional(readOnly = true)
     public List<Channel> searchByName(String channelName) {
         channelName= StringUtil.toLowerCase(channelName);
         return channelDao.searchByName(channelName);
@@ -73,5 +78,6 @@ public class ChannelApi {
             throw new ApiException("Given Name and Type pair already exists");
         }
     }
+
 
 }

@@ -16,6 +16,8 @@ public class ChannelDao extends AbstractDao {
     private static String selectAll = "select c from Channel c";
     // search
     private static String searchByName = "select c from Channel c where c.name like :name";
+    // select by Id list
+    private static String selectByIdList = "select c from Channel c where c.id IN :channelIdList";
 
     // select according to brand and category
     public Channel selectByNameAndType(String name, InvoiceType type) {
@@ -34,6 +36,12 @@ public class ChannelDao extends AbstractDao {
     public List<Channel> searchByName(String name) {
         TypedQuery<Channel> query = getQuery(searchByName, Channel.class);
         query.setParameter("name", name + "%");
+        return query.getResultList();
+    }
+
+    public List<Channel> selectByIdList(List<Long> channelIdList) {
+        TypedQuery<Channel> query = getQuery(selectByIdList, Channel.class);
+        query.setParameter("channelIdList", channelIdList);
         return query.getResultList();
     }
 }

@@ -2,6 +2,7 @@ package com.channel.api;
 
 import com.channel.dao.ChannelListingDao;
 import com.channel.model.form.ChannelListingSearchForm;
+import com.channel.model.response.ChannelListingData;
 import com.channel.pojo.ChannelListing;
 import com.commons.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class ChannelListingApi {
     }
 
     @Transactional(readOnly = true)
+    public List<ChannelListing> getByClientId(Long clientId) {
+        return channelListingDao.selectByClientId(clientId);
+    }
+
+    @Transactional(readOnly = true)
     public ChannelListing getChannelListingByParameters(Long channelId,Long clientId,Long globalSkuId) {
         return channelListingDao.selectByParameters(channelId,clientId,globalSkuId);
     }
@@ -35,5 +41,10 @@ public class ChannelListingApi {
     @Transactional(readOnly = true)
     public List<ChannelListing> getAllChannelListing() {
         return channelListingDao.selectAll();
+    }
+
+    @Transactional(readOnly = true)
+    public ChannelListing getChannelListing(Long id) {
+        return channelListingDao.select(ChannelListing.class,id);
     }
 }

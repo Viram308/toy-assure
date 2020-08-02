@@ -8,11 +8,13 @@ import com.commons.util.AbstractRestTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpStatusCodeException;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class OrderItemAssure extends AbstractRestTemplate {
     @Value("${server.url}")
     private String SERVER_URL;

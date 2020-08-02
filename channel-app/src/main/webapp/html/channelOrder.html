@@ -51,7 +51,7 @@
            <div class="col-2">
               <div class="form-group">
                 <select class="form-control" id="statusSelect" name="orderStatus"  style="width:90%">
-                 <option value="0">Select Status</option>
+                 <option value="">Select Status</option>
                  <option value="created">CREATED</option>
                  <option value="allocated">ALLOCATED</option>
                  <option value="fulfilled">FULFILLED</option>
@@ -117,7 +117,7 @@
 
 <!-- Add Order Model -->
 <div class="modal fade" tabindex="-1" role="dialog" id="add-channelOrder-modal">
-<div class="modal-dialog" role="document">
+<div class="modal-dialog modal-lg" role="document">
   <div class="modal-content">
 
     <div class="modal-header">
@@ -132,79 +132,89 @@
       <div class="row">
        <input type="hidden" id="totalItems" name="totalItems" value="0">
      </div>
-     <form id="channelOrder-create-form" autocomplete="off">
-      <div class="row">
-        <div class="col" style="margin:10px;">
-          <div class="form-group">
-          <label for="clientSelected" class="col-sm-2 col-form-label">Client</label>
-            <div class="col-sm-6">
-            <select class="form-control" id="clientSelected" name="clientName">
+
+     <form class="form-inline w-100" id="channelOrder-create-form"  autocomplete="off">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-3">
+              <label for="clientSelected" class="control-label">Client</label>
+            </div>
+            <div class="col-3">
+              <label for="customerSelected" class="control-label">Customer</label>
+            </div>
+            <div class="col-3">
+              <label for="channelSelected" class="control-label">Channel</label>
+            </div>
+            <div class="col-3">
+              <label for="inputChannelOrderId" class="control-label">Channel OrderId</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" style="margin-top: 5px">
+          <div class="row">
+            <div class="col-3">
+              <div class="form-group">
+                <select class="form-control" id="clientSelected" name="clientName" style="width: 90%">
               <option value="">Select Client</option>
             </select>
-            </div>
-          </div>
-        </div>
-        <div class="col" style="margin:10px;">
-          <div class="form-group">
-          <label for="customerSelected" class="col-sm-2 col-form-label">Customer</label>
-          <div class="col-sm-6">
-            <select class="form-control" id="customerSelected" name="customerName">
+             </div>
+           </div>
+           <div class="col-3">
+              <div class="form-group">
+                <select class="form-control" id="customerSelected" name="customerName" style="width: 90%">
               <option value="">Select Customer</option>
             </select>
-          </div>
-        </div>
-        </div>
-        <div class="col">
-        </div>
-        <div class="w-100"></div>
-      </div>
-      <div class="row">
-        <div class="col" style="margin:10px;">
-          <div class="form-group">
-          <label for="channelSelected" class="col-sm-2 col-form-label">Channel</label>
-          <div class="col-sm-6">
-            <select class="form-control" id="channelSelected" name="channelName">
+             </div>
+           </div>
+           <div class="col-3">
+              <div class="form-group">
+                <select class="form-control" id="channelSelected" name="channelName" style="width: 90%">
               <option value="">Select Channel</option>
             </select>
+             </div>
+           </div>
+           <div class="col-3">
+              <div class="form-group">
+                <input type="text" class="form-control" name="channelOrderId" id="inputChannelOrderId" placeholder="Enter OrderId" style="width: 90%">
+             </div>
+           </div>
+     </div>
+   </div>
+
+
+   <div class="col-12" style="margin-top: 20px">
+          <div class="row">
+            <div class="col-3">
+              <label for="channelSkuIdSelected" class="control-label">Channel Sku</label>
+            </div>
+            <div class="col-3">
+              <label for="inputQuantity" class="control-label">Quantity</label>
+            </div>
           </div>
         </div>
-        </div>
-        <div class="col" style="margin:10px;">
-          <div class="form-group">
-              <label for="inputChannelOrderId" class="col-sm-2 col-form-label">Order Id</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="channelOrderId" id="inputChannelOrderId" placeholder="Enter Channel OrderId" required>
-              </div>
-            </div>
-       </div>
-       <div class="col">
-        </div>
-        <div class="w-100"></div>
-      </div>
-      <div class="row">
-        <div class="col" style="margin:10px;">
-          <div class="form-group">
-          <label for="channelSkuIdSelected" class="col-sm-2 col-form-label">Channel Sku</label>
-            <div class="col-sm-6">
-            <select class="form-control" id="channelSkuIdSelected" name="channelSkuId">
-              <option value="">Select Channel Sku</option>
+        <div class="col-12" style="margin-top: 5px">
+          <div class="row">
+            <div class="col-3">
+              <div class="form-group">
+                <select class="form-control" id="channelSkuIdSelected" name="channelSkuId" style="width: 90%;">
+              <option value="">Channel Sku</option>
             </select>
-            </div>
-          </div>
-        </div>
-        <div class="col" style="margin:10px;">
-          <div class="form-group">
-          <label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
-          <div class="col-sm-6">
-            <input type="number" class="form-control" name="quantity" id="inputQuantity" placeholder="Enter Quantity" style="margin-left: 10px">
-          </div>
-        </div>
-        </div>
-        <div class="col" style="margin:10px;">
-        <button type="button" class="btn btn-outline-primary" id="add-item-button" style="margin-left: 20px">Add Item</button>
-        </div>
-      </div>
-    </form>
+             </div>
+           </div>
+           <div class="col-3">
+              <div class="form-group">
+                <input type="number" class="form-control" name="quantity" id="inputQuantity" placeholder="Enter Quantity" style="width: 90%;">
+             </div>
+           </div>
+           <div class="col-3">
+              <div class="form-group">
+                <button type="button" class="btn btn-outline-primary" id="add-item-button">Add Item</button>
+             </div>
+           </div>
+           
+     </div>
+   </div>
+   </form>
 
 
       <!-- Blank Row -->
@@ -228,6 +238,7 @@
             <th scope="col">Brand</th>
             <th scope="col">Ordered Qty</th>
             <th scope="col">Selling Price</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>

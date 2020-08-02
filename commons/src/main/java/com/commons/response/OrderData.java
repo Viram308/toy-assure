@@ -12,4 +12,6 @@ public class OrderData {
     private String channelName;
     private String channelOrderId;
     private String status;
+    private Long channelId;
+    private Long clientId;
 }

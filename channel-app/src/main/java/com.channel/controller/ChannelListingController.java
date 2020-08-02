@@ -40,10 +40,26 @@ public class ChannelListingController {
         return channelListingDto.searchChannelListing(channelListingSearchForm);
     }
 
+    @ApiOperation(value = "Gets Channel Listing")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ChannelListingData getChannelListing(@PathVariable Long id) {
+        logger.info("get channel listing");
+        return channelListingDto.getChannelListing(id);
+    }
+
     @ApiOperation(value = "Gets all Channel Listing")
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<ChannelListingData> getAllChannelListings() {
         logger.info("get all channel listing");
         return channelListingDto.getAllChannelListing();
+    }
+
+
+
+    @ApiOperation(value = "Gets all Channel Listing by Channel and Client")
+    @RequestMapping(value = "/getByChannelAndClient/{channelId}/{clientId}", method = RequestMethod.GET)
+    public List<ChannelListingData> getAllChannelListingsByChannelClient(@PathVariable Long channelId,@PathVariable Long clientId) {
+        logger.info("get all channel listing by channel client");
+        return channelListingDto.getAllChannelListingByChannelClient(channelId,clientId);
     }
 }

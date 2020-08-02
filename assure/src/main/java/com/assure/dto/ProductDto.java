@@ -90,8 +90,10 @@ public class ProductDto {
     @Transactional(readOnly = true)
     public ProductData getProductByClientIdAndClientSkuId(Long clientId, String clientSkuId) {
         Product product= productApi.getByClientIdAndClientSkuId(clientId,clientSkuId);
-        return ConverterUtil.convertProductToProductData(product,clientApi.get(product.getClientId()));
-
+        if(product!=null){
+            return ConverterUtil.convertProductToProductData(product,clientApi.get(product.getClientId()));
+        }
+        return null;
     }
 
     public void validate(ProductForm productForm){

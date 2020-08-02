@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.fop.apps.FOPException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -31,9 +32,10 @@ public class ChannelOrderController {
 
     @ApiOperation(value = "Adds a Channel Order")
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public List<OrderData> addChannelOrder(@RequestBody OrderCsvForm orderCsvForm){
+    public String addChannelOrder(@RequestBody OrderCsvForm orderCsvForm, BindingResult result){
         logger.info("adding channel order");
-        return channelOrderDto.addChannelOrder(orderCsvForm);
+        channelOrderDto.addChannelOrder(orderCsvForm,result);
+        return "Channel order added";
     }
 
     @ApiOperation(value = "Get Channel Orders")
@@ -44,17 +46,17 @@ public class ChannelOrderController {
     }
 
     @ApiOperation(value = "Search Channel Orders")
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
     public List<OrderData> searchChannelOrders(@RequestBody OrderSearchForm orderSearchForm){
         logger.info("search channel orders");
         return channelOrderDto.searchChannelOrders(orderSearchForm);
     }
 
     @ApiOperation(value = "Gets order items by orderId")
-    @RequestMapping(value = "/items/{id}/{clientId}/{channelId}", method = RequestMethod.GET)
-    public List<ChannelOrderItemData> getOrderItemsByOrderId(@PathVariable Long id, @PathVariable Long clientId, @PathVariable Long channelId) {
+    @RequestMapping(value = "/items/{id}", method = RequestMethod.GET)
+    public List<ChannelOrderItemData> getOrderItemsByOrderId(@PathVariable Long id) {
         logger.info("get all order items for orderId");
-        return channelOrderDto.getOrderItems(id,clientId,channelId);
+        return channelOrderDto.getOrderItems(id);
     }
 
     @ApiOperation(value = "Download invoice")

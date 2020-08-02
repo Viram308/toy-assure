@@ -3,9 +3,9 @@ package com.assure.controller;
 import com.assure.dto.OrderDto;
 import com.commons.form.OrderCsvForm;
 import com.commons.form.OrderSearchForm;
+import com.commons.response.ChannelData;
 import com.commons.response.OrderData;
 import com.commons.response.OrderItemData;
-import com.commons.response.ChannelData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.fop.apps.FOPException;
@@ -36,6 +36,13 @@ public class OrderApiController {
         return orderDto.addOrder(orderCsvForm, result);
     }
 
+    @ApiOperation(value = "Adds a new channel order")
+    @RequestMapping(value = "/addChannelOrder", method = RequestMethod.POST)
+    public void addChannelOrderDetail(@RequestBody OrderCsvForm orderCsvForm, BindingResult result) {
+        logger.info("add-new-channel-order");
+        orderDto.addChannelOrder(orderCsvForm);
+    }
+
     @ApiOperation(value = "Search order")
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public List<OrderData> searchDetail(@RequestBody OrderSearchForm orderSearchForm) {
@@ -62,6 +69,13 @@ public class OrderApiController {
     public OrderData getAllOrder(@PathVariable Long id) {
         logger.info("get by order id");
         return orderDto.get(id);
+    }
+
+    @ApiOperation(value = "Gets order by channelId and channelOrderId")
+    @RequestMapping(value = "/{channelId}/{channelOrderId}", method = RequestMethod.GET)
+    public OrderData getAllOrder(@PathVariable Long channelId,@PathVariable String channelOrderId) {
+        logger.info("Gets order by channelId and channelOrderId");
+        return orderDto.getOrderDetails(channelOrderId,channelId);
     }
 
     @ApiOperation(value = "Gets order items by orderId")

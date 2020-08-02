@@ -37,6 +37,13 @@ public class ChannelApiController {
         return channelDto.getChannel(id);
     }
 
+    @ApiOperation(value = "Gets Channels by ClientId")
+    @RequestMapping(value = "/getByClient/{clientId}", method = RequestMethod.GET)
+    public List<ChannelData> getChannelByClient(@PathVariable Long clientId) {
+        logger.info("get channel for id : " + clientId);
+        return channelDto.getChannelByClient(clientId);
+    }
+
     @ApiOperation(value = "Search Channels")
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public List<ChannelData> search(@RequestBody ChannelForm channelForm) {
