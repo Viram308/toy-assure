@@ -54,7 +54,7 @@ public class ChannelOrderDto {
     @Transactional(rollbackFor = CustomValidationException.class)
     public void addChannelOrder(OrderCsvForm orderCsvForm, BindingResult result) {
         channelOrderCsvFormValidator.validate(orderCsvForm, result);
-        logger.info("Errors in form :"+result.getErrorCount());
+        logger.info("Errors in form :" + result.getErrorCount());
         if (result.hasErrors()) {
             throw new CustomValidationException(result);
         }
@@ -69,7 +69,7 @@ public class ChannelOrderDto {
     }
 
     @Transactional(readOnly = true)
-    public List<OrderData> searchChannelOrders(OrderSearchForm orderSearchForm){
+    public List<OrderData> searchChannelOrders(OrderSearchForm orderSearchForm) {
         return orderAssure.searchChannelOrder(orderSearchForm);
     }
 
@@ -77,16 +77,16 @@ public class ChannelOrderDto {
     public List<ChannelOrderItemData> getOrderItems(Long id) {
         OrderData orderData = orderAssure.get(id);
         List<OrderItemData> orderItemDataList = orderItemAssure.getOrderItems(id);
-        return convertToChannelOrderItemData(orderItemDataList,orderData.getClientId(),orderData.getChannelId());
+        return convertToChannelOrderItemData(orderItemDataList, orderData.getClientId(), orderData.getChannelId());
     }
 
     private List<ChannelOrderItemData> convertToChannelOrderItemData(List<OrderItemData> orderItemDataList, Long clientId, Long channelId) {
         List<ChannelOrderItemData> channelOrderItemDataList = new ArrayList<>();
-        for(OrderItemData orderItemData : orderItemDataList){
+        for (OrderItemData orderItemData : orderItemDataList) {
             ChannelOrderItemData channelOrderItemData = new ChannelOrderItemData();
             List<ProductData> productDataList = productAssure.getProductByClientIdAndClientSkuId(clientId);
             productDataList = productDataList.stream().filter(productData -> (StringUtil.toLowerCase(productData.getClientSkuId()).equals(StringUtil.toLowerCase(orderItemData.getClientSkuId())))).collect(Collectors.toList());
-            ChannelListing channelListing = channelListingApi.getChannelListingByParameters(channelId,clientId,productDataList.get(0).getGlobalSkuId());
+            ChannelListing channelListing = channelListingApi.getChannelListingByParameters(channelId, clientId, productDataList.get(0).getGlobalSkuId());
             channelOrderItemData.setChannelSkuId(channelListing.getChannelSkuId());
             channelOrderItemData.setBrandId(orderItemData.getBrandId());
             channelOrderItemData.setClientSkuId(orderItemData.getClientSkuId());
@@ -129,14 +129,15 @@ public class ChannelOrderDto {
         invoiceData.setInvoiceType(InvoiceType.CHANNEL.toString());
         Long index = 1L;
         List<InvoiceItemData> invoiceItemDataList = new ArrayList<>();
-        for(OrderItemData orderItemData : orderItemDataList){
+        for (OrderItemData orderItemData : orderItemDataList) {
             InvoiceItemData invoiceItemData = new InvoiceItemData();
             invoiceItemData.setId(index);
             invoiceItemData.setOrderedQuantity(orderItemData.getOrderedQuantity());
             invoiceItemData.setSellingPricePerUnit(orderItemData.getSellingPricePerUnit());
-             invoiceItemData.setProductName(orderItemData.getProductName());
+            invoiceItemData.setProductName(orderItemData.getProductName());
             invoiceItemData.setBrandId(orderItemData.getBrandId());
             invoiceItemDataList.add(invoiceItemData);
+            index++;
         }
         invoiceData.setInvoiceItemDataList(invoiceItemDataList);
         return invoiceData;
@@ -157,11 +158,11 @@ public class ChannelOrderDto {
     }
 
     public byte[] getPDFInBytes(InvoiceData invoiceData) throws ParserConfigurationException, TransformerException, FOPException, IOException {
-        return PDFHandler.generatePDF(invoiceData,INVOICE_TEMPLATE_XSL);
+        return PDFHandler.generatePDF(invoiceData, INVOICE_TEMPLATE_XSL);
     }
 
     public void downloadInvoice(Long id, HttpServletResponse response) throws ParserConfigurationException, IOException, FOPException, TransformerException {
-        generateInvoice(id,response);
+        generateInvoice(id, response);
     }
 
 

@@ -328,6 +328,7 @@ public class OrderDto {
             invoiceItemData.setProductName(product.getName());
             invoiceItemData.setBrandId(product.getBrandId());
             invoiceItemDataList.add(invoiceItemData);
+            index++;
         }
         invoiceData.setInvoiceItemDataList(invoiceItemDataList);
         return invoiceData;
