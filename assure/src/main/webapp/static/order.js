@@ -202,29 +202,14 @@ function fulfillOrder(id){
         url: url,
         type: 'GET',
         success: function(data) {
-            let binaryString = window.atob(data);
-
-                        let binaryLen = binaryString.length;
-
-                        let bytes = new Uint8Array(binaryLen);
-
-                        for (let i = 0; i < binaryLen; i++) {
-                            let ascii = binaryString.charCodeAt(i);
-                            bytes[i] = ascii;
-                        }
-
-                        let blob = new Blob([bytes], {type: "application/pdf"});
                         $.toast({
                             heading: 'Success',
-                            text: 'Downloading PDF.',
+                            text: 'Order list updated',
                             position: 'bottom-right',
                             showHideTransition: 'fade',
                             hideAfter: 3000,
                             icon: 'success',
                             allowToastClose: true,
-                            afterShown: function () {
-                                downloadBillPdf(blob);
-                            }
                         });
                         searchOrder();
         },
@@ -238,18 +223,7 @@ function downloadPdf(id){
         url: url,
         type: 'GET',
         success: function(data) {
-            let binaryString = window.atob(data);
-
-            let binaryLen = binaryString.length;
-
-            let bytes = new Uint8Array(binaryLen);
-
-            for (let i = 0; i < binaryLen; i++) {
-                let ascii = binaryString.charCodeAt(i);
-                bytes[i] = ascii;
-            }
-
-            let blob = new Blob([bytes], {type: "application/pdf"});
+            var sampleArr = base64ToArrayBuffer(data);
             $.toast({
                 heading: 'Success',
                 text: 'Downloading PDF.',
@@ -259,19 +233,18 @@ function downloadPdf(id){
                 icon: 'success',
                 allowToastClose: true,
                 afterShown: function () {
-                    downloadBillPdf(blob);
-                }
-            });
+                    saveByteArray(sampleArr);                }
+                });
         },
         error: handleAjaxError
 	});
 }
 
-// download pdf with proper name
-function downloadBillPdf(blob){
-    let link = document.createElement('a');
+
+function saveByteArray(byte) {
+    var blob = new Blob([byte], {type: "application/pdf"});
+    var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
-    var currentdate = new Date();
     link.download = "invoice_"+ currentdate.getDate() + "/"
     + (currentdate.getMonth()+1)  + "/" 
     + currentdate.getFullYear() + "@"  
@@ -279,7 +252,19 @@ function downloadBillPdf(blob){
     + currentdate.getMinutes() + "m_" 
     + currentdate.getSeconds()+"s.pdf";
     link.click();
-}   
+}
+
+function base64ToArrayBuffer(base64) {
+    var binaryString = window.atob(base64);
+    var binaryLen = binaryString.length;
+    var bytes = new Uint8Array(binaryLen);
+    for (var i = 0; i < binaryLen; i++) {
+       var ascii = binaryString.charCodeAt(i);
+       bytes[i] = ascii;
+    }
+    return bytes;
+ }
+
 
 
  function allocateOrder(){

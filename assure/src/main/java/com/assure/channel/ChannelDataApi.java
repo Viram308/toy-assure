@@ -37,12 +37,22 @@ public class ChannelDataApi extends AbstractRestTemplate {
     }
 
     public byte[] getPDFBytes(Long id) {
-        String GET_CHANNEL_URL = CHANNEL_URL + "/channelOrder/getPDFBytes/" +id;
+        String GET_CHANNEL_URL = CHANNEL_URL + "/channelOrder/download/" +id;
         try {
             HttpEntity<ChannelData> entity = new HttpEntity<>(getHeaders());
             return restTemplate.exchange(GET_CHANNEL_URL, HttpMethod.GET, entity, byte[].class,"1").getBody();
         } catch (HttpStatusCodeException e) {
             return null;
+        }
+    }
+
+    public String generateInvoice(Long id) {
+        String GET_CHANNEL_URL = CHANNEL_URL + "/channelOrder/generateInvoice/" +id;
+        try {
+            HttpEntity<String> entity = new HttpEntity<>(getHeaders());
+            return restTemplate.exchange(GET_CHANNEL_URL, HttpMethod.GET, entity, String.class).getBody();
+        } catch (HttpStatusCodeException e) {
+            return "Error";
         }
     }
 }

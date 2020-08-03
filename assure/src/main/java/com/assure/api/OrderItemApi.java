@@ -16,8 +16,8 @@ public class OrderItemApi {
     private OrderItemDao orderItemDao;
 
     @Transactional
-    public void addOrderItem(OrderItem orderItem) {
-        orderItemDao.insert(orderItem);
+    public OrderItem addOrderItem(OrderItem orderItem) {
+        return orderItemDao.insert(orderItem);
     }
 
     @Transactional(readOnly = true)

@@ -10,24 +10,19 @@ import org.w3c.dom.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXResult;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 public class PDFHandler {
 
     private static final Logger logger = Logger.getLogger(PDFHandler.class);
 
 
-    public static byte[] generatePDF(InvoiceData invoiceData, String INVOICE_TEMPLATE_XSL) throws ParserConfigurationException, IOException, FOPException, TransformerException {
+    public static void generatePDF(InvoiceData invoiceData, String PDF_PATH, String INVOICE_TEMPLATE_XSL) throws ParserConfigurationException, IOException, FOPException, TransformerException {
         DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
         Document document = documentBuilder.newDocument();
@@ -96,31 +91,34 @@ public class PDFHandler {
         total.appendChild(document.createTextNode(totalAmount + " Rs."));
         root.appendChild(total);
         logger.info("XML element created");
-//        File file = new File(OUTPUT_DIR+"order"+invoiceData.getOrderId()+".pdf");
-////        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-//        Transformer transformer = transformerFactory.newTransformer();
+
+        File file = new File(PDF_PATH+"order"+invoiceData.getOrderId()+".pdf");
+
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+
+        Transformer transformer = transformerFactory.newTransformer();
         DOMSource domSource = new DOMSource(document);
-        logger.info("DomSource"+domSource.toString());
-//        Result streamResult = new StreamResult(new File(OUTPUT_DIR+"order"+invoiceData.getOrderId()+".xml"));
-//        transformer.transform(domSource, streamResult);
-        logger.info("XML Finished");
+
+        ByteArrayOutputStream xmlBaos = new ByteArrayOutputStream();
+        StreamResult streamResult = new StreamResult(xmlBaos);
+        transformer.transform(domSource, streamResult);
+        logger.info("XML transformed");
+
+
         FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
-        FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
-        ByteArrayOutputStream out;
-        out = new java.io.ByteArrayOutputStream();
-        Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF,foUserAgent, out);
+        ByteArrayOutputStream pdfBaos = new ByteArrayOutputStream();
+        Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, pdfBaos);
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer transformer2 = factory.newTransformer(new StreamSource(INVOICE_TEMPLATE_XSL));
-        logger.info("XSL file taken");
         Result res = new SAXResult(fop.getDefaultHandler());
-//        Source src = new StreamSource(new File(OUTPUT_DIR+"order"+invoiceData.getOrderId()+".xml"));
-        transformer2.transform(domSource, res);
-        out.close();
-        out.flush();
-        byte[] byteArray = out.toByteArray();
+        logger.info("XML bytes : "+xmlBaos.toByteArray().length);
+        Source src = new StreamSource(new ByteArrayInputStream(xmlBaos.toByteArray()));
 
-        // serialize PDF to Base64
-        return java.util.Base64.getEncoder().encode(byteArray);
+        transformer2.transform(src, res);
+        FileOutputStream fos = new FileOutputStream(file);
+        BufferedOutputStream bos = new BufferedOutputStream(fos);
+        bos.write(pdfBaos.toByteArray());
+
     }
 
 }

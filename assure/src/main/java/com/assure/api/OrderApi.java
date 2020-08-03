@@ -4,6 +4,7 @@ import com.assure.dao.OrderDao;
 import com.assure.pojo.Order;
 import com.commons.api.ApiException;
 import com.commons.enums.OrderStatus;
+import com.commons.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,7 @@ public class OrderApi {
 
     @Transactional(readOnly = true)
     public Order getOrderByChannelOrderIdAndChannelId(String channelOrderId, Long channelId) {
+        channelOrderId = StringUtil.toLowerCase(channelOrderId);
         return orderDao.selectByChannelOrderIdAndChannelId(channelOrderId,channelId);
     }
 

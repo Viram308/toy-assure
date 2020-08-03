@@ -1,18 +1,19 @@
 package com.assure.dto;
 
+
 import com.assure.api.ClientApi;
 import com.assure.api.InventoryApi;
 import com.assure.api.ProductApi;
-import com.commons.form.ProductCsvForm;
-import com.commons.form.ProductForm;
-import com.commons.form.ProductSearchForm;
-import com.commons.response.ProductData;
 import com.assure.pojo.Inventory;
 import com.assure.pojo.Product;
 import com.assure.util.ConverterUtil;
 import com.assure.validator.ProductCsvFormValidator;
 import com.commons.api.ApiException;
 import com.commons.api.CustomValidationException;
+import com.commons.form.ProductCsvForm;
+import com.commons.form.ProductForm;
+import com.commons.form.ProductSearchForm;
+import com.commons.response.ProductData;
 import com.commons.util.StringUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

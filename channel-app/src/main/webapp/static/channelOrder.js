@@ -129,35 +129,45 @@ function downloadPdf(id){
     url: url,
     type: 'GET',
     success: function(data) {
-      let binaryString = window.atob(data);
-
-      let binaryLen = binaryString.length;
-
-      let bytes = new Uint8Array(binaryLen);
-
-      for (let i = 0; i < binaryLen; i++) {
-        let ascii = binaryString.charCodeAt(i);
-        bytes[i] = ascii;
-      }
-
-      let blob = new Blob([bytes], {type: "application/pdf"});
-      $.toast({
-        heading: 'Success',
-        text: 'Downloading PDF.',
-        position: 'bottom-right',
-        showHideTransition: 'fade',
-        hideAfter: 3000,
-        icon: 'success',
-        allowToastClose: true,
-        afterShown: function () {
-          downloadBillPdf(blob);
-        }
-      });
+      var sampleArr = base64ToArrayBuffer(data);
+            $.toast({
+                heading: 'Success',
+                text: 'Downloading PDF.',
+                position: 'bottom-right',
+                showHideTransition: 'fade',
+                hideAfter: 3000,
+                icon: 'success',
+                allowToastClose: true,
+                afterShown: function () {
+                    saveByteArray(sampleArr);                }
+                });
     },
     error: handleAjaxError
   });
 }
+function saveByteArray(byte) {
+    var blob = new Blob([byte], {type: "application/pdf"});
+    var link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = "invoice_"+ currentdate.getDate() + "/"
+    + (currentdate.getMonth()+1)  + "/" 
+    + currentdate.getFullYear() + "@"  
+    + currentdate.getHours() + "h_"  
+    + currentdate.getMinutes() + "m_" 
+    + currentdate.getSeconds()+"s.pdf";
+    link.click();
+}
 
+function base64ToArrayBuffer(base64) {
+    var binaryString = window.atob(base64);
+    var binaryLen = binaryString.length;
+    var bytes = new Uint8Array(binaryLen);
+    for (var i = 0; i < binaryLen; i++) {
+       var ascii = binaryString.charCodeAt(i);
+       bytes[i] = ascii;
+    }
+    return bytes;
+ }
 
 // download pdf with proper name
 function downloadBillPdf(blob){
@@ -207,6 +217,7 @@ function getOrderItems(id){
     + '<td>' + e.sellingPricePerUnit + '</td>'
     + '</tr>';
     $tbodyViewOrder.append(row);
+    count++;
   }
 }
 

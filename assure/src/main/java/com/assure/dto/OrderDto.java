@@ -7,6 +7,7 @@ import com.assure.util.ConverterUtil;
 import com.assure.validator.OrderCsvFormValidator;
 import com.commons.api.ApiException;
 import com.commons.api.CustomValidationException;
+import com.commons.enums.InvoiceType;
 import com.commons.enums.OrderStatus;
 import com.commons.form.OrderCsvForm;
 import com.commons.form.OrderItemForm;
@@ -25,10 +26,14 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +42,7 @@ import java.util.stream.Collectors;
 public class OrderDto {
 
     private static final Logger logger = Logger.getLogger(OrderDto.class);
+    private static final String PDF_PATH = "src/main/resources/com/assure/";
     private static final String INVOICE_TEMPLATE_XSL = "src/main/resources/com/assure/invoiceTemplate.xsl";
 
     @Autowired
@@ -162,8 +168,7 @@ public class OrderDto {
         if (remaining_available_quantity < 0) {
             quantityToAdd = inventory.getAvailableQuantity();
             inventory.setAvailableQuantity(0L);
-        }
-        else{
+        } else {
             inventory.setAvailableQuantity(remaining_available_quantity);
         }
         inventory.setAllocatedQuantity(inventory.getAllocatedQuantity() + quantityToAdd);
@@ -245,7 +250,7 @@ public class OrderDto {
         }
         order.setStatus(OrderStatus.FULFILLED);
         orderApi.updateOrder(order);
-        generateInvoice(order.getId(), response);
+        generateInvoice(order.getId());
     }
 
     @Transactional(rollbackFor = ApiException.class)
@@ -275,17 +280,42 @@ public class OrderDto {
     }
 
 
-    public void generateInvoice(Long id, HttpServletResponse response) throws TransformerException, ParserConfigurationException, IOException, FOPException {
+    public void generateInvoice(Long id) throws TransformerException, ParserConfigurationException, IOException, FOPException {
         Order order = orderApi.get(id);
-        byte[] encodedBytes;
-        if (order.getChannelId() == 1) {
+        ChannelData channelData = channelDataApi.getChannelDetails(order.getChannelId());
+        if(channelData.getInvoiceType().equals(InvoiceType.SELF.toString())){
             logger.info("Generating Invoice");
             InvoiceData invoiceData = getInvoiceData(id);
             logger.info("Generating PDF");
-            encodedBytes = PDFHandler.generatePDF(invoiceData, INVOICE_TEMPLATE_XSL);
-        } else {
-            encodedBytes = channelDataApi.getPDFBytes(id);
+            PDFHandler.generatePDF(invoiceData, PDF_PATH, INVOICE_TEMPLATE_XSL);
+            logger.info("PDF generated");
+            return;
         }
+        channelDataApi.generateInvoice(id);
+    }
+
+    public void downloadInvoice(Long id, HttpServletResponse response) throws IOException, TransformerException, ParserConfigurationException, FOPException {
+        byte[] fileInBytes;
+        File file = new File(String.valueOf(Paths.get(PDF_PATH+"order"+id+".pdf")));
+        if(!(file.exists() && file.isFile())) {
+            byte[] channelByteResponse = channelDataApi.getPDFBytes(id);
+            if(channelByteResponse == null) {
+                throw new ApiException("Invoice Pdf not found for orderId : "+ id);
+            }
+            logger.info("got pdf "+ channelByteResponse.length);
+            byte[] encodedBytes =  Base64.getEncoder().encode(channelByteResponse);
+            createResponse(encodedBytes,response);
+        }
+        else{
+            fileInBytes = Files.readAllBytes(Paths.get(PDF_PATH+"order"+id+".pdf"));
+            logger.info(fileInBytes.length);
+            byte[] encodedBytes = Base64.getEncoder().encode(fileInBytes);
+            createResponse(encodedBytes,response);
+        }
+
+    }
+
+    private void createResponse(byte[] encodedBytes, HttpServletResponse response) throws IOException {
         String pdfFileName = "output.pdf";
         response.reset();
         response.addHeader("Pragma", "public");
@@ -301,9 +331,6 @@ public class OrderDto {
         servletOutputStream.close();
     }
 
-    public void downloadInvoice(Long id, HttpServletResponse response) throws IOException, TransformerException, ParserConfigurationException, FOPException {
-        generateInvoice(id, response);
-    }
 
     private InvoiceData getInvoiceData(Long id) {
         Order order = orderApi.get(id);

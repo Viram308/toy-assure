@@ -5,7 +5,6 @@ import com.channel.model.response.ChannelOrderItemData;
 import com.commons.form.OrderCsvForm;
 import com.commons.form.OrderSearchForm;
 import com.commons.response.OrderData;
-import com.commons.response.OrderItemData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.fop.apps.FOPException;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
@@ -59,18 +57,18 @@ public class ChannelOrderController {
         return channelOrderDto.getOrderItems(id);
     }
 
-    @ApiOperation(value = "Download invoice")
-    @RequestMapping(value = "/getPDFBytes/{id}", method = RequestMethod.GET)
-    public byte[] getPDFBytes(@PathVariable Long id) throws ParserConfigurationException, IOException, FOPException, TransformerException {
-        logger.info("get pdf bytes");
-        return channelOrderDto.getPDFBytes(id);
+    @ApiOperation(value = "Generate invoice")
+    @RequestMapping(value = "/generateInvoice/{id}", method = RequestMethod.GET)
+    public void generateInvoice(@PathVariable Long id) throws ParserConfigurationException, IOException, FOPException, TransformerException {
+        logger.info("Download Order");
+        channelOrderDto.generateInvoice(id);
     }
 
     @ApiOperation(value = "Download invoice")
     @RequestMapping(value = "/download/{id}", method = RequestMethod.GET)
-    public void downloadInvoice(@PathVariable Long id, HttpServletResponse response) throws ParserConfigurationException, IOException, FOPException, TransformerException {
-        logger.info("Download Order");
-        channelOrderDto.downloadInvoice(id,response);
+    public byte[] downloadInvoice(@PathVariable Long id) throws ParserConfigurationException, IOException, FOPException, TransformerException {
+        logger.info("Download Order from channel");
+        return channelOrderDto.downloadInvoice(id);
     }
 
 }

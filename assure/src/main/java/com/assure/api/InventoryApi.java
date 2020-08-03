@@ -34,6 +34,8 @@ public class InventoryApi {
     public Inventory update(Long id,Inventory inventory){
         Inventory inventoryUpdate = getCheck(id);
         inventoryUpdate.setAvailableQuantity(inventory.getAvailableQuantity());
+        inventoryUpdate.setAllocatedQuantity(inventory.getAllocatedQuantity());
+        inventoryUpdate.setFulfilledQuantity(inventory.getFulfilledQuantity());
         return inventoryDao.update(inventoryUpdate);
     }
 

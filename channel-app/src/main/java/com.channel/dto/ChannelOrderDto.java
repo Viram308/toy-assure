@@ -25,10 +25,14 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +41,7 @@ import java.util.stream.Collectors;
 public class ChannelOrderDto {
 
     private static final Logger logger = Logger.getLogger(ChannelOrderDto.class);
+    private static final String PDF_PATH = "src/main/resources/com/channel/";
     private static final String INVOICE_TEMPLATE_XSL = "src/main/resources/com/channel/invoiceTemplate.xsl";
 
 
@@ -99,21 +104,12 @@ public class ChannelOrderDto {
     }
 
 
-    public void generateInvoice(Long id, HttpServletResponse response) throws TransformerException, ParserConfigurationException, IOException, FOPException {
-        byte[] encodedBytes = getPDFBytes(id);
-        String pdfFileName = "output.pdf";
-        response.reset();
-        response.addHeader("Pragma", "public");
-        response.addHeader("Cache-Control", "max-age=0");
-        response.setHeader("Content-disposition", "attachment;filename=" + pdfFileName);
-        response.setContentType("application/pdf");
-
-        // avoid "byte shaving" by specifying precise length of transferred data
-        response.setContentLength(encodedBytes.length);
-        ServletOutputStream servletOutputStream = response.getOutputStream();
-        servletOutputStream.write(encodedBytes);
-        servletOutputStream.flush();
-        servletOutputStream.close();
+    public void generateInvoice(Long id) throws TransformerException, ParserConfigurationException, IOException, FOPException {
+        logger.info("Generating Invoice in channel");
+        InvoiceData invoiceData = getInvoiceData(id);
+        logger.info("Generating PDF");
+        PDFHandler.generatePDF(invoiceData, PDF_PATH, INVOICE_TEMPLATE_XSL);
+        logger.info("PDF generated");
     }
 
     public InvoiceData getInvoiceData(Long id) {
@@ -157,18 +153,8 @@ public class ChannelOrderDto {
         return df.format(timeObj);
     }
 
-    public byte[] getPDFInBytes(InvoiceData invoiceData) throws ParserConfigurationException, TransformerException, FOPException, IOException {
-        return PDFHandler.generatePDF(invoiceData, INVOICE_TEMPLATE_XSL);
-    }
-
-    public void downloadInvoice(Long id, HttpServletResponse response) throws ParserConfigurationException, IOException, FOPException, TransformerException {
-        generateInvoice(id, response);
-    }
-
-
-    public byte[] getPDFBytes(Long id) throws ParserConfigurationException, FOPException, IOException, TransformerException {
-        logger.info("Generating Invoice");
-        InvoiceData invoiceData = getInvoiceData(id);
-        return getPDFInBytes(invoiceData);
+    public byte[] downloadInvoice(Long id) throws ParserConfigurationException, IOException, FOPException, TransformerException {
+        byte[] fileBytes = Files.readAllBytes(Paths.get(PDF_PATH+"order"+id+".pdf"));
+        return Base64.getEncoder().encode(fileBytes);
     }
 }
