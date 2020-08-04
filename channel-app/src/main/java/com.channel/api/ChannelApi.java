@@ -72,6 +72,7 @@ public class ChannelApi {
 
     @Transactional(readOnly = true)
     public void getCheckExisting(String name, InvoiceType type){
+        name = StringUtil.toLowerCase(name);
         Channel channel = channelDao.selectByNameAndType(name, type);
         if (channel != null) {
             logger.info("Given Name and Type pair already exists");

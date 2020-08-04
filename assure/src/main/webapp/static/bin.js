@@ -263,6 +263,7 @@ function displayBinListInTable(data){
 		var row = '<tr>'
 		+ '<td>' + j + '</td>'
 		+ '<td>' + e.binId + '</td>'
+		+ '<td>'  + e.clientName + '</td>'
 		+ '<td>'  + e.productName + '</td>'
 		+ '<td>' + e.brandId + '</td>'
 		+ '<td>' + e.quantity + '</td>'

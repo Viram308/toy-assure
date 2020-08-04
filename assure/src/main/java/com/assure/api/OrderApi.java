@@ -19,6 +19,7 @@ public class OrderApi {
 
     @Transactional
     public void addOrder(Order order) {
+        order.setStatus(OrderStatus.CREATED);
         orderDao.insert(order);
     }
 

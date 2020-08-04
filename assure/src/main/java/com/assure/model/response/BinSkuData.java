@@ -9,6 +9,7 @@ public class BinSkuData {
     private Long binSkuId;
     private Long binId;
     private Long globalSkuId;
+    private String clientName;
     private String productName;
     private String brandId;
     private Long quantity;

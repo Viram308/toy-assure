@@ -70,7 +70,6 @@ public class OrderDto {
         }
         Order order = ConverterUtil.convertOrderCsvFormToOrder(orderCsvForm);
         if (order != null) {
-            order.setStatus(OrderStatus.CREATED);
             orderApi.addOrder(order);
             for (OrderItemForm orderItemForm : orderCsvForm.getOrderItemFormList()) {
                 Product product = productApi.getByClientIdAndClientSkuId(order.getClientId(), orderItemForm.getClientSkuId());
@@ -86,7 +85,6 @@ public class OrderDto {
     public void addChannelOrder(OrderCsvForm orderCsvForm) {
         Order order = ConverterUtil.convertOrderCsvFormToOrder(orderCsvForm);
         if (order != null) {
-            order.setStatus(OrderStatus.CREATED);
             orderApi.addOrder(order);
             logger.info("order created");
             for (OrderItemForm orderItemForm : orderCsvForm.getOrderItemFormList()) {

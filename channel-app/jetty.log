@@ -3996,3 +3996,15 @@ java.lang.NoClassDefFoundError: Could not initialize class org.springframework.w
 2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 1
 2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 2
 2020-08-04 08:06:12 INFO  ChannelOrderController:70 - Download Order from channel
+2020-08-04 13:37:46 INFO  ChannelApiController:64 - get all channels
+2020-08-04 13:37:50 INFO  ChannelApiController:36 - get channel for id : 4
+2020-08-04 13:38:04 INFO  ChannelApiController:57 - update channel for id : 4
+2020-08-04 13:38:05 WARN  SqlExceptionHelper:137 - SQL Error: 1406, SQLState: 22001
+2020-08-04 13:38:05 ERROR SqlExceptionHelper:142 - Data truncation: Data too long for column 'name' at row 1
+2020-08-04 13:38:15 INFO  ChannelApiController:57 - update channel for id : 4
+2020-08-04 13:38:16 INFO  ChannelDto:77 - channel updated
+2020-08-04 13:38:16 INFO  ChannelApiController:50 - search channels
+2020-08-04 13:38:26 INFO  ChannelApiController:36 - get channel for id : 4
+2020-08-04 13:38:32 INFO  ChannelApiController:57 - update channel for id : 4
+2020-08-04 13:38:32 INFO  ChannelDto:77 - channel updated
+2020-08-04 13:38:33 INFO  ChannelApiController:50 - search channels

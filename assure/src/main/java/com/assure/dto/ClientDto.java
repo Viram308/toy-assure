@@ -35,7 +35,11 @@ public class ClientDto {
 
     @Transactional(readOnly = true)
     public ClientData getClient(Long id) {
-        return ConverterUtil.convertClientToClientData(clientApi.get(id));
+        Client client = clientApi.get(id);
+        if(client != null){
+            return ConverterUtil.convertClientToClientData(client);
+        }
+        return null;
     }
 
     @Transactional(readOnly = true)

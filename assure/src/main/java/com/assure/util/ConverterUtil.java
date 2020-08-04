@@ -64,7 +64,7 @@ public class ConverterUtil {
 
     }
 
-    public static BinSkuData convertBinSkuToBinSkuData(BinSku binSku, Product product) {
+    public static BinSkuData convertBinSkuToBinSkuData(BinSku binSku, Product product,Client client) {
         BinSkuData binSkuData = new BinSkuData();
         binSkuData.setBinId(binSku.getBinId());
         binSkuData.setBinSkuId(binSku.getId());
@@ -72,6 +72,7 @@ public class ConverterUtil {
         binSkuData.setGlobalSkuId(product.getGlobalSkuId());
         binSkuData.setProductName(product.getName());
         binSkuData.setBrandId(product.getBrandId());
+        binSkuData.setClientName(client.getName());
         return binSkuData;
     }
 

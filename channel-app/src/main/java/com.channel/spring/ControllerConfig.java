@@ -3,6 +3,7 @@ package com.channel.spring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -76,5 +77,10 @@ public class ControllerConfig extends WebMvcConfigurerAdapter {
         resolver.setPrefix("html/");
         resolver.setTemplateMode(TemplateMode.HTML);
         return resolver;
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 }

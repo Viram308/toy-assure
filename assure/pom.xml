@@ -32,7 +32,7 @@
         <!-- Jetty configuration -->
         <jetty.version>9.4.21.v20190926</jetty.version>
         <jetty.http.port>9002</jetty.http.port>
-        <jetty.context>/oms/</jetty.context>
+        <jetty.context>/oms</jetty.context>
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
     </properties>

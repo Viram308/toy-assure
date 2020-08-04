@@ -4821,3 +4821,14 @@ java.lang.NoClassDefFoundError: Could not initialize class org.springframework.w
 2020-08-04 08:06:06 INFO  OrderApiController:105 - get channels
 2020-08-04 08:06:12 INFO  OrderApiController:112 - Download Order
 2020-08-04 08:06:12 INFO  OrderDto:305 - got pdf 7800
+2020-08-04 13:36:17 INFO  BinController:38 - get all bins
+2020-08-04 13:36:17 INFO  BinSkuController:37 - get all binSku
+2020-08-04 13:36:17 INFO  ClientApiController:65 - get only clients
+2020-08-04 13:36:49 INFO  BinSkuController:51 - search binSku
+2020-08-04 13:36:54 INFO  BinSkuController:51 - search binSku
+2020-08-04 13:36:57 INFO  BinController:38 - get all bins
+2020-08-04 13:36:57 INFO  BinSkuController:37 - get all binSku
+2020-08-04 13:36:57 INFO  ClientApiController:65 - get only clients
+2020-08-04 13:36:58 INFO  InventoryController:30 - get all inventory
+2020-08-04 13:36:58 INFO  ClientApiController:65 - get only clients
+2020-08-04 13:36:59 INFO  InventoryDto:62 - InventoryDataList size : 4
