@@ -4705,3 +4705,119 @@ java.lang.NoClassDefFoundError: Could not initialize class org.springframework.w
 2020-08-03 22:45:14 INFO  OrderApiController:49 - search-order
 2020-08-03 22:45:32 INFO  OrderApiController:112 - Download Order
 2020-08-03 22:45:32 INFO  OrderDto:311 - 0
+2020-08-04 07:34:58 INFO  OrderApiController:63 - get all orders
+2020-08-04 07:34:58 INFO  ClientApiController:72 - get only customers
+2020-08-04 07:34:58 INFO  ClientApiController:65 - get only clients
+2020-08-04 07:34:58 INFO  OrderApiController:105 - get channels
+2020-08-04 07:36:09 INFO  OrderApiController:35 - add-new-order
+2020-08-04 07:36:09 INFO  OrderCsvFormValidator:40 - Validate
+2020-08-04 07:36:09 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-04 07:36:09 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-04 07:36:09 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-04 07:36:09 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-04 07:36:09 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-04 07:36:09 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-04 07:36:10 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-04 07:36:10 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-04 07:36:10 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-04 07:36:10 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-04 07:36:10 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-04 07:36:10 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-04 07:36:13 INFO  OrderDto:81 - Allocate Orders
+2020-08-04 07:36:16 INFO  OrderDto:132 - Changing the status of the order(5) to Allocated.
+2020-08-04 07:36:16 INFO  OrderDto:118 - Records updated : 1
+2020-08-04 07:36:18 INFO  OrderApiController:49 - search-order
+2020-08-04 07:36:26 INFO  OrderApiController:91 - Fulfill Order
+2020-08-04 07:36:26 INFO  OrderDto:287 - Generating Invoice
+2020-08-04 07:36:27 INFO  OrderDto:289 - Generating PDF
+2020-08-04 07:36:27 INFO  PDFHandler:93 - XML element created
+2020-08-04 07:36:28 INFO  PDFHandler:105 - XML transformed
+2020-08-04 07:36:32 INFO  PDFHandler:114 - XML bytes : 628
+2020-08-04 07:36:33 WARN  FOUserAgent:94 - Font "Symbol,normal,700" not found. Substituting with "Symbol,normal,400".
+2020-08-04 07:36:33 WARN  FOUserAgent:94 - Font "ZapfDingbats,normal,700" not found. Substituting with "ZapfDingbats,normal,400".
+2020-08-04 07:36:33 INFO  FOUserAgent:83 - Rendered page #1.
+2020-08-04 07:36:33 INFO  PDFHandler:118 - PDF Bytes : 5836
+2020-08-04 07:36:33 INFO  OrderDto:291 - PDF generated
+2020-08-04 07:36:34 INFO  OrderApiController:49 - search-order
+2020-08-04 07:36:55 INFO  OrderApiController:112 - Download Order
+2020-08-04 07:36:55 INFO  OrderDto:311 - 0
+2020-08-04 07:50:48 INFO  OrderApiController:63 - get all orders
+2020-08-04 07:50:48 INFO  ClientApiController:65 - get only clients
+2020-08-04 07:50:48 INFO  OrderApiController:105 - get channels
+2020-08-04 07:50:48 INFO  ClientApiController:72 - get only customers
+2020-08-04 07:51:17 INFO  OrderApiController:35 - add-new-order
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:40 - Validate
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-04 07:51:17 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-04 07:51:17 INFO  OrderDto:81 - Allocate Orders
+2020-08-04 07:51:18 INFO  OrderDto:132 - Changing the status of the order(6) to Allocated.
+2020-08-04 07:51:18 INFO  OrderDto:118 - Records updated : 1
+2020-08-04 07:51:18 INFO  OrderApiController:49 - search-order
+2020-08-04 07:51:27 INFO  OrderApiController:91 - Fulfill Order
+2020-08-04 07:51:27 INFO  OrderDto:287 - Generating Invoice
+2020-08-04 07:51:27 INFO  OrderDto:289 - Generating PDF
+2020-08-04 07:51:28 INFO  PDFHandler:94 - XML element created
+2020-08-04 07:51:28 INFO  PDFHandler:106 - XML transformed
+2020-08-04 07:51:30 INFO  PDFHandler:115 - XML bytes : 628
+2020-08-04 07:51:30 WARN  FOUserAgent:94 - Font "Symbol,normal,700" not found. Substituting with "Symbol,normal,400".
+2020-08-04 07:51:30 WARN  FOUserAgent:94 - Font "ZapfDingbats,normal,700" not found. Substituting with "ZapfDingbats,normal,400".
+2020-08-04 07:51:30 INFO  FOUserAgent:83 - Rendered page #1.
+2020-08-04 07:51:30 INFO  PDFHandler:119 - PDF Bytes : 5836
+2020-08-04 07:51:30 INFO  OrderDto:291 - PDF generated
+2020-08-04 07:51:30 INFO  OrderApiController:49 - search-order
+2020-08-04 07:52:06 INFO  OrderApiController:112 - Download Order
+2020-08-04 07:52:06 INFO  OrderDto:311 - 5836
+2020-08-04 07:52:24 INFO  OrderApiController:112 - Download Order
+2020-08-04 07:52:24 INFO  OrderDto:311 - 5836
+2020-08-04 07:52:43 INFO  ClientApiController:65 - get only clients
+2020-08-04 07:52:43 INFO  OrderApiController:63 - get all orders
+2020-08-04 07:52:43 INFO  ClientApiController:72 - get only customers
+2020-08-04 07:52:50 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-04 07:52:50 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-04 07:52:56 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-04 07:53:03 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-04 07:53:05 INFO  ClientApiController:35 - get client for id : 1
+2020-08-04 07:53:05 INFO  ClientApiController:35 - get client for id : 3
+2020-08-04 07:53:05 INFO  OrderApiController:77 - Gets order by channelId and channelOrderId
+2020-08-04 07:53:05 INFO  ProductApiController:44 - search products
+2020-08-04 07:53:05 INFO  ClientApiController:35 - get client for id : 1
+2020-08-04 07:53:06 INFO  ClientApiController:35 - get client for id : 3
+2020-08-04 07:53:06 INFO  OrderApiController:77 - Gets order by channelId and channelOrderId
+2020-08-04 07:53:06 INFO  ProductApiController:44 - search products
+2020-08-04 07:53:06 INFO  OrderApiController:42 - add-new-channel-order
+2020-08-04 07:53:06 INFO  OrderDto:91 - order created
+2020-08-04 07:53:06 INFO  OrderApiController:56 - search-channel-order
+2020-08-04 07:53:15 INFO  OrderApiController:98 - Allocate Orders
+2020-08-04 07:53:15 INFO  OrderDto:132 - Changing the status of the order(7) to Allocated.
+2020-08-04 07:53:15 INFO  OrderDto:118 - Records updated : 1
+2020-08-04 07:53:16 INFO  OrderApiController:49 - search-order
+2020-08-04 07:53:21 INFO  OrderApiController:56 - search-channel-order
+2020-08-04 07:53:24 INFO  OrderApiController:70 - get by order id
+2020-08-04 07:53:24 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-04 07:53:24 INFO  ProductApiController:44 - search products
+2020-08-04 07:53:24 INFO  ProductApiController:44 - search products
+2020-08-04 07:54:02 INFO  OrderApiController:91 - Fulfill Order
+2020-08-04 07:54:02 INFO  OrderApiController:70 - get by order id
+2020-08-04 07:54:02 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-04 07:54:07 INFO  OrderApiController:49 - search-order
+2020-08-04 07:54:11 INFO  OrderApiController:56 - search-channel-order
+2020-08-04 07:54:26 INFO  OrderApiController:112 - Download Order
+2020-08-04 07:54:26 INFO  OrderDto:305 - got pdf 7800
+2020-08-04 07:55:26 INFO  OrderApiController:112 - Download Order
+2020-08-04 07:55:26 INFO  OrderDto:305 - got pdf 7800
+2020-08-04 08:06:05 INFO  OrderApiController:63 - get all orders
+2020-08-04 08:06:06 INFO  ClientApiController:65 - get only clients
+2020-08-04 08:06:06 INFO  ClientApiController:72 - get only customers
+2020-08-04 08:06:06 INFO  OrderApiController:105 - get channels
+2020-08-04 08:06:12 INFO  OrderApiController:112 - Download Order
+2020-08-04 08:06:12 INFO  OrderDto:305 - got pdf 7800

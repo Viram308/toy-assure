@@ -2,6 +2,7 @@ package com.commons.util;
 
 import com.commons.response.InvoiceData;
 import com.commons.response.InvoiceItemData;
+import org.apache.commons.io.FileUtils;
 import org.apache.fop.apps.*;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
@@ -115,9 +116,11 @@ public class PDFHandler {
         Source src = new StreamSource(new ByteArrayInputStream(xmlBaos.toByteArray()));
 
         transformer2.transform(src, res);
-        FileOutputStream fos = new FileOutputStream(file);
-        BufferedOutputStream bos = new BufferedOutputStream(fos);
-        bos.write(pdfBaos.toByteArray());
+        logger.info("PDF Bytes : " + pdfBaos.toByteArray().length);
+        FileUtils.writeByteArrayToFile(file,pdfBaos.toByteArray());
+//        FileOutputStream fos = new FileOutputStream(file);
+//        BufferedOutputStream bos = new BufferedOutputStream(fos);
+//        bos.write(pdfBaos.toByteArray());
 
     }
 

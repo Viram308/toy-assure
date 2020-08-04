@@ -146,6 +146,7 @@ function downloadPdf(id){
   });
 }
 function saveByteArray(byte) {
+    var currentdate = new Date();
     var blob = new Blob([byte], {type: "application/pdf"});
     var link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);

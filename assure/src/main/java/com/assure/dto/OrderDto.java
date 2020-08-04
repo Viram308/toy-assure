@@ -303,8 +303,7 @@ public class OrderDto {
                 throw new ApiException("Invoice Pdf not found for orderId : "+ id);
             }
             logger.info("got pdf "+ channelByteResponse.length);
-            byte[] encodedBytes =  Base64.getEncoder().encode(channelByteResponse);
-            createResponse(encodedBytes,response);
+            createResponse(channelByteResponse,response);
         }
         else{
             fileInBytes = Files.readAllBytes(Paths.get(PDF_PATH+"order"+id+".pdf"));

@@ -3857,3 +3857,142 @@ java.lang.NoClassDefFoundError: Could not initialize class org.springframework.w
 2020-08-03 22:45:14 INFO  ChannelApiController:36 - get channel for id : 1
 2020-08-03 22:45:14 INFO  ChannelApiController:36 - get channel for id : 2
 2020-08-03 22:45:14 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:35:08 INFO  ChannelApiController:64 - get all channels
+2020-08-04 07:35:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:35:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:35:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:35:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:36:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:18 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:36:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:34 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:34 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:34 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:36:34 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:36:34 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:50:49 INFO  ChannelApiController:64 - get all channels
+2020-08-04 07:50:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:50:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:50:49 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:50:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:50:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:17 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:17 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:18 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:30 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:31 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:31 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:51:31 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:31 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:51:31 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:52:43 INFO  ChannelOrderController:42 - getting channel orders
+2020-08-04 07:52:43 INFO  ChannelApiController:71 - get all clients
+2020-08-04 07:52:43 INFO  ChannelApiController:78 - get all customers
+2020-08-04 07:52:43 INFO  ChannelApiController:64 - get all channels
+2020-08-04 07:52:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:52:44 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:52:44 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:52:44 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:52:44 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:52:44 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:52:47 INFO  ChannelApiController:43 - get channel for id : 1
+2020-08-04 07:52:49 INFO  ChannelListingController:62 - get all channel listing by channel client
+2020-08-04 07:52:56 INFO  ChannelListingController:46 - get channel listing
+2020-08-04 07:53:03 INFO  ChannelListingController:46 - get channel listing
+2020-08-04 07:53:05 INFO  ChannelOrderController:34 - adding channel order
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:44 - Validate
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:49 - Validate item
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:55 - validate client
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:62 - validate customer
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:69 - validate channel
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:76 - validate order
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:83 - validate product
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:49 - Validate item
+2020-08-04 07:53:05 INFO  ChannelOrderCsvFormValidator:55 - validate client
+2020-08-04 07:53:06 INFO  ChannelOrderCsvFormValidator:62 - validate customer
+2020-08-04 07:53:06 INFO  ChannelOrderCsvFormValidator:69 - validate channel
+2020-08-04 07:53:06 INFO  ChannelOrderCsvFormValidator:76 - validate order
+2020-08-04 07:53:06 INFO  ChannelOrderCsvFormValidator:83 - validate product
+2020-08-04 07:53:06 INFO  ChannelOrderDto:62 - Errors in form :0
+2020-08-04 07:53:06 INFO  ChannelOrderDto:67 - 
+2020-08-04 07:53:06 INFO  ChannelOrderController:49 - search channel orders
+2020-08-04 07:53:06 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:53:06 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:53:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:53:21 INFO  ChannelOrderController:49 - search channel orders
+2020-08-04 07:53:21 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:53:21 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:53:24 INFO  ChannelOrderController:56 - get all order items for orderId
+2020-08-04 07:53:24 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:54:02 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:54:02 INFO  ChannelOrderController:63 - Download Order
+2020-08-04 07:54:02 INFO  ChannelOrderDto:108 - Generating Invoice in channel
+2020-08-04 07:54:02 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:54:02 INFO  ChannelOrderDto:110 - Generating PDF
+2020-08-04 07:54:02 INFO  PDFHandler:94 - XML element created
+2020-08-04 07:54:03 INFO  PDFHandler:106 - XML transformed
+2020-08-04 07:54:06 INFO  PDFHandler:115 - XML bytes : 625
+2020-08-04 07:54:06 WARN  FOUserAgent:94 - Font "Symbol,normal,700" not found. Substituting with "Symbol,normal,400".
+2020-08-04 07:54:06 WARN  FOUserAgent:94 - Font "ZapfDingbats,normal,700" not found. Substituting with "ZapfDingbats,normal,400".
+2020-08-04 07:54:06 INFO  FOUserAgent:83 - Rendered page #1.
+2020-08-04 07:54:06 INFO  PDFHandler:119 - PDF Bytes : 5848
+2020-08-04 07:54:07 INFO  ChannelOrderDto:112 - PDF generated
+2020-08-04 07:54:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:54:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:54:07 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:54:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:54:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:54:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 07:54:07 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:54:11 INFO  ChannelOrderController:49 - search channel orders
+2020-08-04 07:54:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:54:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 07:54:13 INFO  ChannelOrderController:70 - Download Order from channel
+2020-08-04 07:54:26 INFO  ChannelOrderController:70 - Download Order from channel
+2020-08-04 07:55:26 INFO  ChannelOrderController:70 - Download Order from channel
+2020-08-04 08:06:08 INFO  ChannelApiController:64 - get all channels
+2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-04 08:06:09 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-04 08:06:12 INFO  ChannelOrderController:70 - Download Order from channel
