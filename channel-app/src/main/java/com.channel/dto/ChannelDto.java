@@ -95,7 +95,7 @@ public class ChannelDto {
         return clientAssure.getCustomerDetails();
     }
 
-    private void validate(ChannelForm channelForm) {
+    public void validate(ChannelForm channelForm) {
         String type=StringUtil.toUpperCase(channelForm.getInvoiceType());
         if(StringUtil.isEmpty(channelForm.getChannelName()) || !(type.equals(InvoiceType.CHANNEL.toString()) || type.equals(InvoiceType.SELF.toString()))){
             throw new ApiException("Please enter channel name and type !!");

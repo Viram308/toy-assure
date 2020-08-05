@@ -4832,3 +4832,524 @@ java.lang.NoClassDefFoundError: Could not initialize class org.springframework.w
 2020-08-04 13:36:58 INFO  InventoryController:30 - get all inventory
 2020-08-04 13:36:58 INFO  ClientApiController:65 - get only clients
 2020-08-04 13:36:59 INFO  InventoryDto:62 - InventoryDataList size : 4
+2020-08-05 14:14:35 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:14:36 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:14:37 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 14:14:40 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:14:40 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:14:40 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 14:14:45 INFO  ClientApiController:72 - get only customers
+2020-08-05 14:14:45 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:14:45 INFO  OrderApiController:63 - get all orders
+2020-08-05 14:14:57 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:14:57 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 14:15:14 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:15:16 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 14:15:16 INFO  ClientApiController:35 - get client for id : 3
+2020-08-05 14:15:16 INFO  OrderApiController:77 - Gets order by channelId and channelOrderId
+2020-08-05 14:15:16 INFO  ProductApiController:44 - search products
+2020-08-05 14:16:53 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 14:16:53 INFO  ClientApiController:35 - get client for id : 3
+2020-08-05 14:16:53 INFO  OrderApiController:77 - Gets order by channelId and channelOrderId
+2020-08-05 14:16:53 INFO  ProductApiController:44 - search products
+2020-08-05 14:16:54 INFO  OrderApiController:42 - add-new-channel-order
+2020-08-05 14:17:01 INFO  OrderDto:89 - order created
+2020-08-05 14:17:04 INFO  OrderApiController:56 - search-channel-order
+2020-08-05 14:17:22 INFO  ClientApiController:79 - get all clients
+2020-08-05 14:17:22 INFO  ClientDto:72 - Number of clients returned : 3
+2020-08-05 14:17:26 INFO  ProductApiController:58 - get all products
+2020-08-05 14:17:26 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:17:34 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:17:34 INFO  BinController:38 - get all bins
+2020-08-05 14:17:34 INFO  BinSkuController:37 - get all binSku
+2020-08-05 14:17:43 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:17:44 INFO  InventoryController:30 - get all inventory
+2020-08-05 14:17:44 INFO  InventoryDto:62 - InventoryDataList size : 4
+2020-08-05 14:17:50 INFO  OrderApiController:63 - get all orders
+2020-08-05 14:17:50 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:17:50 INFO  OrderApiController:105 - get channels
+2020-08-05 14:17:50 INFO  ClientApiController:72 - get only customers
+2020-08-05 14:17:55 INFO  OrderApiController:98 - Allocate Orders
+2020-08-05 14:17:56 INFO  OrderDto:130 - Changing the status of the order(8) to Allocated.
+2020-08-05 14:17:56 INFO  OrderDto:116 - Records updated : 1
+2020-08-05 14:17:57 INFO  OrderApiController:49 - search-order
+2020-08-05 14:18:00 INFO  OrderApiController:91 - Fulfill Order
+2020-08-05 14:18:00 INFO  OrderApiController:70 - get by order id
+2020-08-05 14:18:00 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 14:18:05 INFO  OrderApiController:49 - search-order
+2020-08-05 14:18:19 INFO  OrderApiController:112 - Download Order
+2020-08-05 14:18:19 INFO  OrderDto:303 - got pdf 7676
+2020-08-05 14:18:28 INFO  OrderApiController:56 - search-channel-order
+2020-08-05 14:18:32 INFO  OrderApiController:70 - get by order id
+2020-08-05 14:18:32 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 14:18:32 INFO  ProductApiController:44 - search products
+2020-08-05 14:18:34 INFO  OrderApiController:70 - get by order id
+2020-08-05 14:18:34 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 14:18:34 INFO  ProductApiController:44 - search products
+2020-08-05 14:18:34 INFO  ProductApiController:44 - search products
+2020-08-05 14:19:26 INFO  OrderApiController:56 - search-channel-order
+2020-08-05 14:19:29 INFO  OrderApiController:56 - search-channel-order
+2020-08-05 14:19:33 INFO  OrderApiController:56 - search-channel-order
+2020-08-05 14:19:35 INFO  OrderApiController:56 - search-channel-order
+2020-08-05 14:19:57 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:19:57 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:19:57 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 14:36:15 INFO  ClientApiController:79 - get all clients
+2020-08-05 14:36:19 INFO  ClientDto:72 - Number of clients returned : 3
+2020-08-05 14:36:33 INFO  ClientApiController:28 - adding client
+2020-08-05 14:36:38 INFO  ClientDto:32 - Client added
+2020-08-05 14:36:39 INFO  ClientApiController:79 - get all clients
+2020-08-05 14:36:39 INFO  ClientDto:72 - Number of clients returned : 4
+2020-08-05 14:37:26 INFO  ClientApiController:49 - search clients by name
+2020-08-05 14:37:26 INFO  ClientDto:56 - Number of clients returned while search by name : 3
+2020-08-05 14:37:32 INFO  ClientApiController:42 - search clients
+2020-08-05 14:37:33 INFO  ClientDto:49 - Number of clients returned : 2
+2020-08-05 14:37:44 INFO  ClientApiController:79 - get all clients
+2020-08-05 14:37:44 INFO  ClientDto:72 - Number of clients returned : 4
+2020-08-05 14:37:50 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 14:37:53 INFO  ClientApiController:56 - update client for id : 1
+2020-08-05 14:37:54 INFO  ClientDto:65 - Client updated
+2020-08-05 14:37:55 INFO  ClientApiController:79 - get all clients
+2020-08-05 14:37:55 INFO  ClientDto:72 - Number of clients returned : 4
+2020-08-05 14:37:57 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 14:37:59 INFO  ClientApiController:56 - update client for id : 1
+2020-08-05 14:37:59 INFO  ClientDto:65 - Client updated
+2020-08-05 14:38:00 INFO  ClientApiController:79 - get all clients
+2020-08-05 14:38:00 INFO  ClientDto:72 - Number of clients returned : 4
+2020-08-05 14:38:07 INFO  ClientApiController:35 - get client for id : 2
+2020-08-05 14:38:21 INFO  ClientApiController:56 - update client for id : 2
+2020-08-05 14:38:21 INFO  ClientApi:81 - Given Name and Type pair already exists
+2020-08-05 14:38:30 INFO  ProductApiController:58 - get all products
+2020-08-05 14:38:30 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:39:33 INFO  ProductApiController:30 - adding products
+2020-08-05 14:39:34 INFO  ProductDto:45 - 2
+2020-08-05 14:41:23 INFO  ProductApiController:30 - adding products
+2020-08-05 14:41:23 INFO  ProductDto:45 - 1
+2020-08-05 14:41:56 INFO  ProductApiController:58 - get all products
+2020-08-05 14:41:56 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:42:31 INFO  ProductApiController:30 - adding products
+2020-08-05 14:42:31 INFO  ProductDto:45 - 1
+2020-08-05 14:43:31 INFO  ProductApiController:30 - adding products
+2020-08-05 14:43:31 INFO  ProductDto:48 - No errors in product csv file
+2020-08-05 14:43:35 INFO  ProductDto:56 - products added with 0 inventory
+2020-08-05 14:43:36 INFO  ProductApiController:44 - search products
+2020-08-05 14:43:41 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:44:02 INFO  ProductApiController:37 - get product for globalSkuId : 4
+2020-08-05 14:44:53 INFO  ProductApiController:51 - update product for globalSkuId : 4
+2020-08-05 14:44:53 INFO  ProductDto:81 - Product updated
+2020-08-05 14:44:53 INFO  ProductApiController:44 - search products
+2020-08-05 14:45:29 INFO  ProductApiController:44 - search products
+2020-08-05 14:45:34 INFO  ProductApiController:44 - search products
+2020-08-05 14:46:06 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:46:28 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:46:58 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:46:58 INFO  BinController:38 - get all bins
+2020-08-05 14:46:58 INFO  BinSkuController:37 - get all binSku
+2020-08-05 14:47:29 INFO  BinController:31 - adding bins
+2020-08-05 14:47:32 INFO  BinDto:26 - No. of bins added :5
+2020-08-05 14:47:33 INFO  BinController:38 - get all bins
+2020-08-05 14:48:39 INFO  BinSkuController:30 - adding bin sku
+2020-08-05 14:48:39 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:48:40 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:48:40 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:48:40 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:48:40 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:48:40 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:48:40 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:48:40 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:48:40 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:48:40 INFO  BinSkuDto:50 - Errors in binSkuCsv : 0
+2020-08-05 14:48:40 INFO  BinSkuDto:54 - No errors in binInventory csv file
+2020-08-05 14:48:41 INFO  BinSkuDto:65 - binSkuList added
+2020-08-05 14:48:41 INFO  BinSkuController:51 - search binSku
+2020-08-05 14:49:24 INFO  BinSkuController:30 - adding bin sku
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:49:24 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:49:24 INFO  BinSkuDto:50 - Errors in binSkuCsv : 0
+2020-08-05 14:49:24 INFO  BinSkuDto:54 - No errors in binInventory csv file
+2020-08-05 14:49:25 INFO  BinSkuDto:65 - binSkuList added
+2020-08-05 14:49:25 INFO  BinSkuController:51 - search binSku
+2020-08-05 14:49:34 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:49:34 INFO  InventoryController:30 - get all inventory
+2020-08-05 14:49:34 INFO  InventoryDto:62 - InventoryDataList size : 5
+2020-08-05 14:49:45 INFO  BinController:38 - get all bins
+2020-08-05 14:49:45 INFO  BinSkuController:37 - get all binSku
+2020-08-05 14:49:45 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:50:25 INFO  BinSkuController:30 - adding bin sku
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:50:25 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:50:25 INFO  BinSkuDto:50 - Errors in binSkuCsv : 0
+2020-08-05 14:50:25 INFO  BinSkuDto:54 - No errors in binInventory csv file
+2020-08-05 14:50:26 INFO  BinSkuDto:65 - binSkuList added
+2020-08-05 14:50:26 INFO  BinSkuController:51 - search binSku
+2020-08-05 14:51:35 INFO  BinSkuController:30 - adding bin sku
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:51:35 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:51:35 INFO  BinSkuDto:50 - Errors in binSkuCsv : 0
+2020-08-05 14:51:35 INFO  BinSkuDto:54 - No errors in binInventory csv file
+2020-08-05 14:51:36 INFO  BinSkuDto:65 - binSkuList added
+2020-08-05 14:51:36 INFO  BinSkuController:51 - search binSku
+2020-08-05 14:52:24 INFO  BinSkuController:30 - adding bin sku
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:52:24 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:52:24 INFO  BinSkuDto:50 - Errors in binSkuCsv : 0
+2020-08-05 14:52:24 INFO  BinSkuDto:54 - No errors in binInventory csv file
+2020-08-05 14:52:25 INFO  BinSkuDto:65 - binSkuList added
+2020-08-05 14:52:25 INFO  BinSkuController:51 - search binSku
+2020-08-05 14:53:03 INFO  BinSkuController:51 - search binSku
+2020-08-05 14:53:21 INFO  ProductApiController:58 - get all products
+2020-08-05 14:53:21 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:53:25 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:53:25 INFO  InventoryController:30 - get all inventory
+2020-08-05 14:53:25 INFO  InventoryDto:62 - InventoryDataList size : 5
+2020-08-05 14:53:27 INFO  BinController:38 - get all bins
+2020-08-05 14:53:27 INFO  BinSkuController:37 - get all binSku
+2020-08-05 14:53:27 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:53:29 INFO  BinSkuController:44 - get binSku for binSkuId : 7
+2020-08-05 14:53:33 INFO  BinSkuController:58 - update binSku
+2020-08-05 14:53:33 INFO  BinSkuDto:140 - Inventory updated
+2020-08-05 14:53:33 INFO  BinSkuController:51 - search binSku
+2020-08-05 14:53:38 INFO  InventoryController:30 - get all inventory
+2020-08-05 14:53:38 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:53:38 INFO  InventoryDto:62 - InventoryDataList size : 5
+2020-08-05 14:53:46 INFO  BinController:38 - get all bins
+2020-08-05 14:53:46 INFO  BinSkuController:37 - get all binSku
+2020-08-05 14:53:46 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:55:35 INFO  BinSkuController:51 - search binSku
+2020-08-05 14:56:10 INFO  BinSkuController:30 - adding bin sku
+2020-08-05 14:56:10 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:56:10 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:56:10 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:56:10 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:56:10 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:56:10 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:56:10 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 14:56:11 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 14:56:11 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 14:56:11 INFO  BinSkuDto:50 - Errors in binSkuCsv : 1
+2020-08-05 14:56:33 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:56:33 INFO  ClientApiController:72 - get only customers
+2020-08-05 14:56:33 INFO  OrderApiController:63 - get all orders
+2020-08-05 14:56:33 INFO  OrderApiController:105 - get channels
+2020-08-05 14:56:39 INFO  InventoryController:30 - get all inventory
+2020-08-05 14:56:39 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:56:39 INFO  InventoryDto:62 - InventoryDataList size : 5
+2020-08-05 14:56:49 INFO  InventoryController:37 - search inventory
+2020-08-05 14:56:49 INFO  InventoryDto:62 - InventoryDataList size : 3
+2020-08-05 14:56:58 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:56:58 INFO  OrderApiController:63 - get all orders
+2020-08-05 14:56:58 INFO  ClientApiController:72 - get only customers
+2020-08-05 14:56:58 INFO  OrderApiController:105 - get channels
+2020-08-05 14:57:06 INFO  InventoryController:30 - get all inventory
+2020-08-05 14:57:06 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:57:06 INFO  InventoryDto:62 - InventoryDataList size : 5
+2020-08-05 14:57:09 INFO  BinController:38 - get all bins
+2020-08-05 14:57:09 INFO  BinSkuController:37 - get all binSku
+2020-08-05 14:57:09 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:57:33 INFO  OrderApiController:63 - get all orders
+2020-08-05 14:57:33 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:57:33 INFO  ClientApiController:72 - get only customers
+2020-08-05 14:57:33 INFO  OrderApiController:105 - get channels
+2020-08-05 14:59:23 INFO  ClientApiController:65 - get only clients
+2020-08-05 14:59:23 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:59:23 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 14:59:38 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 14:59:38 INFO  ProductApiController:44 - search products
+2020-08-05 14:59:39 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 14:59:40 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 14:59:40 INFO  ProductApiController:44 - search products
+2020-08-05 14:59:40 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 15:00:32 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:00:32 INFO  ProductApiController:58 - get all products
+2020-08-05 15:01:46 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 15:01:46 INFO  ProductApiController:44 - search products
+2020-08-05 15:01:46 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 15:01:46 INFO  ProductApiController:44 - search products
+2020-08-05 15:04:54 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:04:54 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 15:04:55 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:04:55 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 15:04:57 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:04:58 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:04:58 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:05:05 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:05:05 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:05:06 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 15:05:29 INFO  ProductApiController:37 - get product for globalSkuId : 4
+2020-08-05 15:05:34 INFO  ProductApiController:51 - update product for globalSkuId : 4
+2020-08-05 15:05:35 INFO  ProductDto:81 - Product updated
+2020-08-05 15:05:36 INFO  ProductApiController:44 - search products
+2020-08-05 15:05:53 INFO  ProductApiController:30 - adding products
+2020-08-05 15:05:53 INFO  ProductDto:48 - No errors in product csv file
+2020-08-05 15:05:54 INFO  ProductDto:56 - products added with 0 inventory
+2020-08-05 15:05:54 INFO  ProductApiController:44 - search products
+2020-08-05 15:06:37 INFO  ClientApiController:35 - get client for id : 2
+2020-08-05 15:06:38 INFO  ProductApiController:44 - search products
+2020-08-05 15:06:38 INFO  ProductApiController:44 - search products
+2020-08-05 15:06:39 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:06:39 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 15:06:39 INFO  ProductApiController:37 - get product for globalSkuId : 6
+2020-08-05 15:10:01 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:10:01 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:10:01 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:10:01 INFO  OrderApiController:105 - get channels
+2020-08-05 15:10:34 INFO  OrderApiController:35 - add-new-order
+2020-08-05 15:10:34 INFO  OrderCsvFormValidator:40 - Validate
+2020-08-05 15:10:34 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-05 15:10:34 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-05 15:10:34 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-05 15:10:34 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-05 15:10:34 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-05 15:10:35 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-05 15:10:35 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-05 15:10:35 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-05 15:10:35 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-05 15:10:35 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-05 15:10:35 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-05 15:10:35 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-05 15:10:38 INFO  OrderDto:80 - Allocate Orders
+2020-08-05 15:10:40 INFO  OrderDto:130 - Changing the status of the order(9) to Allocated.
+2020-08-05 15:10:40 INFO  OrderDto:116 - Records updated : 1
+2020-08-05 15:10:43 INFO  OrderApiController:49 - search-order
+2020-08-05 15:10:54 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:11:31 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:11:31 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:11:31 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:12:27 INFO  BinController:38 - get all bins
+2020-08-05 15:12:27 INFO  BinSkuController:37 - get all binSku
+2020-08-05 15:12:27 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:12:37 INFO  BinSkuController:44 - get binSku for binSkuId : 1
+2020-08-05 15:12:45 INFO  BinSkuController:58 - update binSku
+2020-08-05 15:12:46 INFO  BinSkuDto:140 - Inventory updated
+2020-08-05 15:12:46 INFO  BinSkuController:51 - search binSku
+2020-08-05 15:12:50 INFO  InventoryController:30 - get all inventory
+2020-08-05 15:12:51 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:12:51 INFO  InventoryDto:62 - InventoryDataList size : 6
+2020-08-05 15:12:58 INFO  InventoryController:37 - search inventory
+2020-08-05 15:12:58 INFO  InventoryDto:62 - InventoryDataList size : 3
+2020-08-05 15:13:10 INFO  ClientApiController:79 - get all clients
+2020-08-05 15:13:10 INFO  ClientDto:72 - Number of clients returned : 4
+2020-08-05 15:13:11 INFO  ProductApiController:58 - get all products
+2020-08-05 15:13:11 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:13:12 INFO  BinController:38 - get all bins
+2020-08-05 15:13:12 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:13:12 INFO  BinSkuController:37 - get all binSku
+2020-08-05 15:13:14 INFO  BinSkuController:44 - get binSku for binSkuId : 3
+2020-08-05 15:13:17 INFO  BinSkuController:58 - update binSku
+2020-08-05 15:13:18 INFO  BinSkuDto:140 - Inventory updated
+2020-08-05 15:13:18 INFO  BinSkuController:51 - search binSku
+2020-08-05 15:13:20 INFO  InventoryController:30 - get all inventory
+2020-08-05 15:13:20 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:13:21 INFO  InventoryDto:62 - InventoryDataList size : 6
+2020-08-05 15:13:22 INFO  InventoryController:37 - search inventory
+2020-08-05 15:13:22 INFO  InventoryDto:62 - InventoryDataList size : 3
+2020-08-05 15:13:27 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:13:27 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:13:27 INFO  OrderApiController:105 - get channels
+2020-08-05 15:13:27 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:13:40 INFO  OrderApiController:35 - add-new-order
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:40 - Validate
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-05 15:13:40 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-05 15:13:41 INFO  OrderDto:80 - Allocate Orders
+2020-08-05 15:13:41 INFO  OrderDto:116 - Records updated : 0
+2020-08-05 15:13:43 INFO  OrderApiController:49 - search-order
+2020-08-05 15:13:55 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:14:06 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:14:20 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:14:24 INFO  InventoryController:30 - get all inventory
+2020-08-05 15:14:24 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:14:24 INFO  InventoryDto:62 - InventoryDataList size : 6
+2020-08-05 15:14:48 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:14:49 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:14:48 INFO  OrderApiController:105 - get channels
+2020-08-05 15:14:48 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:14:56 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:15:30 INFO  OrderApiController:98 - Allocate Orders
+2020-08-05 15:15:30 INFO  OrderDto:116 - Records updated : 0
+2020-08-05 15:15:32 INFO  OrderApiController:49 - search-order
+2020-08-05 15:17:18 INFO  OrderApiController:91 - Fulfill Order
+2020-08-05 15:17:19 INFO  OrderDto:285 - Generating Invoice
+2020-08-05 15:17:19 INFO  OrderDto:287 - Generating PDF
+2020-08-05 15:17:22 INFO  PDFHandler:94 - XML element created
+2020-08-05 15:17:31 INFO  PDFHandler:106 - XML transformed
+2020-08-05 15:17:40 INFO  InventoryController:30 - get all inventory
+2020-08-05 15:17:40 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:17:41 INFO  InventoryDto:62 - InventoryDataList size : 6
+2020-08-05 15:18:01 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:18:01 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:18:01 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:18:01 INFO  OrderApiController:105 - get channels
+2020-08-05 15:18:13 INFO  PDFHandler:115 - XML bytes : 628
+2020-08-05 15:18:17 INFO  InventoryController:30 - get all inventory
+2020-08-05 15:18:17 WARN  FOUserAgent:94 - Font "Symbol,normal,700" not found. Substituting with "Symbol,normal,400".
+2020-08-05 15:18:17 WARN  FOUserAgent:94 - Font "ZapfDingbats,normal,700" not found. Substituting with "ZapfDingbats,normal,400".
+2020-08-05 15:18:18 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:18:18 INFO  InventoryDto:62 - InventoryDataList size : 6
+2020-08-05 15:18:20 INFO  FOUserAgent:83 - Rendered page #1.
+2020-08-05 15:18:20 INFO  PDFHandler:119 - PDF Bytes : 5837
+2020-08-05 15:18:20 INFO  OrderDto:289 - PDF generated
+2020-08-05 15:18:21 INFO  ProductApiController:58 - get all products
+2020-08-05 15:18:21 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:18:25 INFO  ProductApiController:37 - get product for globalSkuId : 5
+2020-08-05 15:18:36 INFO  ProductApiController:51 - update product for globalSkuId : 5
+2020-08-05 15:18:36 INFO  ProductDto:81 - Product updated
+2020-08-05 15:18:37 INFO  ProductApiController:44 - search products
+2020-08-05 15:19:12 INFO  BinSkuController:37 - get all binSku
+2020-08-05 15:19:12 INFO  BinController:38 - get all bins
+2020-08-05 15:19:12 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:19:13 INFO  BinController:38 - get all bins
+2020-08-05 15:19:13 INFO  BinSkuController:37 - get all binSku
+2020-08-05 15:19:13 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:19:28 INFO  BinSkuController:44 - get binSku for binSkuId : 7
+2020-08-05 15:19:30 INFO  BinSkuController:58 - update binSku
+2020-08-05 15:19:30 INFO  BinSkuDto:140 - Inventory updated
+2020-08-05 15:19:30 INFO  BinSkuController:51 - search binSku
+2020-08-05 15:20:03 INFO  BinSkuController:30 - adding bin sku
+2020-08-05 15:20:03 INFO  BinSkuCsvFormValidator:48 - validate binId
+2020-08-05 15:20:03 INFO  BinSkuCsvFormValidator:56 - validate client
+2020-08-05 15:20:03 INFO  BinSkuCsvFormValidator:64 - validate product
+2020-08-05 15:20:03 INFO  BinSkuDto:50 - Errors in binSkuCsv : 0
+2020-08-05 15:20:03 INFO  BinSkuDto:54 - No errors in binInventory csv file
+2020-08-05 15:20:03 INFO  BinSkuDto:65 - binSkuList added
+2020-08-05 15:20:03 INFO  BinSkuController:51 - search binSku
+2020-08-05 15:20:11 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:20:11 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:20:11 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:20:11 INFO  OrderApiController:105 - get channels
+2020-08-05 15:20:43 INFO  BinController:38 - get all bins
+2020-08-05 15:20:43 INFO  BinSkuController:37 - get all binSku
+2020-08-05 15:20:43 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:20:50 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:20:50 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:20:50 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:20:50 INFO  OrderApiController:105 - get channels
+2020-08-05 15:21:41 INFO  OrderApiController:35 - add-new-order
+2020-08-05 15:21:41 INFO  OrderCsvFormValidator:40 - Validate
+2020-08-05 15:21:41 INFO  OrderCsvFormValidator:45 - Validate item
+2020-08-05 15:21:41 INFO  OrderCsvFormValidator:51 - validate client
+2020-08-05 15:21:41 INFO  OrderCsvFormValidator:58 - validate customer
+2020-08-05 15:21:41 INFO  OrderCsvFormValidator:65 - validate channel
+2020-08-05 15:21:41 INFO  OrderCsvFormValidator:72 - validate order
+2020-08-05 15:21:41 INFO  OrderCsvFormValidator:79 - validate product
+2020-08-05 15:21:41 INFO  OrderDto:80 - Allocate Orders
+2020-08-05 15:21:41 INFO  OrderDto:116 - Records updated : 0
+2020-08-05 15:21:43 INFO  OrderApiController:49 - search-order
+2020-08-05 15:21:48 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:21:57 INFO  InventoryController:30 - get all inventory
+2020-08-05 15:21:57 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:21:57 INFO  InventoryDto:62 - InventoryDataList size : 6
+2020-08-05 15:22:51 INFO  BinController:38 - get all bins
+2020-08-05 15:22:51 INFO  BinSkuController:37 - get all binSku
+2020-08-05 15:22:51 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:22:54 INFO  BinSkuController:44 - get binSku for binSkuId : 7
+2020-08-05 15:22:57 INFO  BinSkuController:58 - update binSku
+2020-08-05 15:22:57 INFO  BinSkuDto:140 - Inventory updated
+2020-08-05 15:22:57 INFO  BinSkuController:51 - search binSku
+2020-08-05 15:23:03 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:23:03 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:23:03 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:23:03 INFO  OrderApiController:105 - get channels
+2020-08-05 15:23:08 INFO  OrderApiController:98 - Allocate Orders
+2020-08-05 15:23:08 INFO  OrderDto:116 - Records updated : 0
+2020-08-05 15:23:10 INFO  OrderApiController:49 - search-order
+2020-08-05 15:23:40 INFO  BinController:38 - get all bins
+2020-08-05 15:23:40 INFO  BinSkuController:37 - get all binSku
+2020-08-05 15:23:40 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:23:44 INFO  InventoryController:30 - get all inventory
+2020-08-05 15:23:44 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:23:45 INFO  InventoryDto:62 - InventoryDataList size : 6
+2020-08-05 15:23:54 INFO  BinController:38 - get all bins
+2020-08-05 15:23:54 INFO  BinSkuController:37 - get all binSku
+2020-08-05 15:23:54 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:23:56 INFO  BinSkuController:44 - get binSku for binSkuId : 8
+2020-08-05 15:23:58 INFO  BinSkuController:58 - update binSku
+2020-08-05 15:23:58 INFO  BinSkuDto:140 - Inventory updated
+2020-08-05 15:23:58 INFO  BinSkuController:51 - search binSku
+2020-08-05 15:24:00 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:24:00 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:24:00 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:24:00 INFO  OrderApiController:105 - get channels
+2020-08-05 15:24:01 INFO  OrderApiController:98 - Allocate Orders
+2020-08-05 15:24:01 INFO  OrderDto:130 - Changing the status of the order(11) to Allocated.
+2020-08-05 15:24:01 INFO  OrderDto:116 - Records updated : 1
+2020-08-05 15:24:05 INFO  OrderApiController:49 - search-order
+2020-08-05 15:24:10 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:24:14 INFO  OrderApiController:112 - Download Order
+2020-08-05 15:24:15 INFO  OrderDto:303 - got pdf 7676
+2020-08-05 15:25:05 INFO  ClientApiController:65 - get only clients
+2020-08-05 15:25:05 INFO  ClientApiController:72 - get only customers
+2020-08-05 15:25:05 INFO  OrderApiController:63 - get all orders
+2020-08-05 15:25:26 INFO  OrderApiController:112 - Download Order
+2020-08-05 15:25:26 INFO  OrderDto:303 - got pdf 7800
+2020-08-05 15:25:51 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:27:27 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:27:27 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 15:27:42 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 15:27:49 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:27:52 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:28:07 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:28:10 INFO  ClientApiController:35 - get client for id : 1
+2020-08-05 15:28:10 INFO  ClientApiController:35 - get client for id : 3
+2020-08-05 15:28:10 INFO  OrderApiController:77 - Gets order by channelId and channelOrderId
+2020-08-05 15:28:10 INFO  ProductApiController:44 - search products
+2020-08-05 15:28:10 INFO  OrderApiController:42 - add-new-channel-order
+2020-08-05 15:28:11 INFO  OrderDto:89 - order created
+2020-08-05 15:28:12 INFO  OrderApiController:56 - search-channel-order
+2020-08-05 15:29:29 INFO  ProductApiController:37 - get product for globalSkuId : 6
+2020-08-05 15:29:33 INFO  ProductApiController:37 - get product for globalSkuId : 6
+2020-08-05 15:30:38 INFO  ProductApiController:37 - get product for globalSkuId : 6
+2020-08-05 15:30:47 INFO  ProductApiController:37 - get product for globalSkuId : 6
+2020-08-05 15:31:11 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:31:11 INFO  ProductApiController:37 - get product for globalSkuId : 2
+2020-08-05 15:31:20 INFO  ProductApiController:37 - get product for globalSkuId : 1
+2020-08-05 15:32:22 INFO  OrderApiController:70 - get by order id
+2020-08-05 15:32:22 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:32:22 INFO  ProductApiController:44 - search products
+2020-08-05 15:32:29 INFO  OrderApiController:70 - get by order id
+2020-08-05 15:32:29 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:32:29 INFO  ProductApiController:44 - search products
+2020-08-05 15:33:11 INFO  OrderApiController:49 - search-order
+2020-08-05 15:33:34 INFO  OrderApiController:70 - get by order id
+2020-08-05 15:33:34 INFO  OrderApiController:84 - get all order items for orderId
+2020-08-05 15:33:34 INFO  ProductApiController:44 - search products
+2020-08-05 15:33:34 INFO  ProductApiController:44 - search products
+2020-08-05 15:33:45 INFO  OrderApiController:84 - get all order items for orderId

@@ -4,6 +4,7 @@ import com.channel.dao.ChannelListingDao;
 import com.channel.model.form.ChannelListingSearchForm;
 import com.channel.model.response.ChannelListingData;
 import com.channel.pojo.ChannelListing;
+import com.channel.util.NormalizeUtil;
 import com.commons.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class ChannelListingApi {
 
     @Transactional
     public void add(ChannelListing channelListing) {
+        NormalizeUtil.normalizeChannelListing(channelListing);
         channelListingDao.insert(channelListing);
     }
 

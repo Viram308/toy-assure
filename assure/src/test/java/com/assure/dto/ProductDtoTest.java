@@ -1,0 +1,173 @@
+package com.assure.dto;
+
+import com.assure.spring.AbstractUnitTest;
+import com.commons.api.ApiException;
+import com.commons.api.CustomValidationException;
+import com.commons.enums.ClientType;
+import com.commons.form.ClientForm;
+import com.commons.form.ProductCsvForm;
+import com.commons.form.ProductForm;
+import com.commons.form.ProductSearchForm;
+import com.commons.response.ClientData;
+import com.commons.response.ProductData;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+public class ProductDtoTest extends AbstractUnitTest {
+    private ClientForm clientForm1,clientForm2;
+    private ProductForm productForm1,productForm2,productForm3;
+    private ProductCsvForm productCsvForm = new ProductCsvForm();
+    private ProductSearchForm productSearchForm;
+
+    @Autowired
+    private ClientDto clientDto;
+    @Autowired
+    private ProductDto productDto;
+
+    @Before
+    public void setUp(){
+        clientForm1 = createClientForm("viram", ClientType.CLIENT);
+        clientForm2 = createClientForm("viram308",ClientType.CUSTOMER);
+        productForm1 = createProductForm("munch",10.00,"excellent","prod1","nestle");
+        productForm2 = createProductForm("kitkat",15.00,"nice","prod2","britannia");
+        productForm3 = createProductForm("munch",10.50,"nice","prod1","nestle");
+        productSearchForm = createProductSearchForm();
+    }
+
+    private ProductSearchForm createProductSearchForm() {
+        ProductSearchForm productSearchForm = new ProductSearchForm();
+        productSearchForm.setProductName("mun");
+        productSearchForm.setClientId(0L);
+        return productSearchForm;
+    }
+
+    private ProductForm createProductForm(String productName,double mrp,String description,String clientSkuId,String brandId) {
+        ProductForm productForm = new ProductForm();
+        productForm.setProductName(productName);
+        productForm.setMrp(mrp);
+        productForm.setDescription(description);
+        productForm.setClientSkuId(clientSkuId);
+        productForm.setBrandId(brandId);
+        return productForm;
+    }
+
+    private ClientForm createClientForm(String name, ClientType type) {
+        ClientForm clientForm = new ClientForm();
+        clientForm.setName(name);
+        clientForm.setType(type);
+        return clientForm;
+    }
+
+    private void addProduct(){
+        ClientData clientData = clientDto.addClient(clientForm1);
+        productForm1.setClientId(clientData.getId());
+        productForm2.setClientId(clientData.getId());
+        List<ProductForm> productFormList = new ArrayList<>();
+        productFormList.add(productForm1);
+        productFormList.add(productForm2);
+        productCsvForm.setProductFormList(productFormList);
+
+    }
+
+    @Test(expected = CustomValidationException.class)
+    public void testAddProduct(){
+        addProduct();
+        BindingResult result = mock(BindingResult.class);
+        when(result.hasErrors()).thenReturn(false);
+        productDto.addProducts(productCsvForm,result);
+        when(result.hasErrors()).thenReturn(true);
+        productDto.addProducts(productCsvForm,result);
+    }
+
+    @Test
+    public void testGetProduct(){
+        addProduct();
+        BindingResult result = mock(BindingResult.class);
+        when(result.hasErrors()).thenReturn(false);
+        List<ProductData> productDataList = productDto.addProducts(productCsvForm,result);
+        Long globalSkuId = productDataList.get(0).getGlobalSkuId();
+        ProductData productData = productDto.getProduct(globalSkuId);
+        assertNotNull(productData);
+        assertEquals(productDataList.get(0).getProductName(),productData.getProductName());
+        assertEquals(productDataList.get(0).getClientSkuId(),productData.getClientSkuId());
+        assertEquals(productDataList.get(0).getDescription(),productData.getDescription());
+        assertEquals(productDataList.get(0).getClientName(),productData.getClientName());
+        assertEquals(productDataList.get(0).getBrandId(),productData.getBrandId());
+        assertEquals(productDataList.get(0).getMrp(),productData.getMrp(),0.01);
+    }
+
+    @Test
+    public void testSearch(){
+        addProduct();
+        BindingResult result = mock(BindingResult.class);
+        when(result.hasErrors()).thenReturn(false);
+        productDto.addProducts(productCsvForm,result);
+        List<ProductData> productDataList = productDto.searchProducts(productSearchForm);
+        assertEquals(1,productDataList.size());
+        productSearchForm.setProductName("");
+        productSearchForm.setClientId(productForm1.getClientId());
+        productDataList = productDto.searchProducts(productSearchForm);
+        assertEquals(2,productDataList.size());
+    }
+
+    @Test
+    public void testUpdateProduct(){
+        addProduct();
+        BindingResult result = mock(BindingResult.class);
+        when(result.hasErrors()).thenReturn(false);
+        List<ProductData> productDataList = productDto.addProducts(productCsvForm,result);
+        Long globalSkuId = productDataList.get(0).getGlobalSkuId();
+        ProductData productData = productDto.updateProduct(globalSkuId,productForm3);
+        assertNotNull(productData);
+        assertEquals(productForm3.getMrp(),productData.getMrp(),0.01);
+        assertEquals(productForm3.getDescription(),productData.getDescription());
+    }
+
+    @Test
+    public void testGetAll(){
+        addProduct();
+        BindingResult result = mock(BindingResult.class);
+        when(result.hasErrors()).thenReturn(false);
+        productDto.addProducts(productCsvForm,result);
+        List<ProductData> productDataList = productDto.getAllProducts();
+        assertEquals(2,productDataList.size());
+    }
+
+    @Test
+    public void testGetProductByClientDetails(){
+        addProduct();
+        BindingResult result = mock(BindingResult.class);
+        when(result.hasErrors()).thenReturn(false);
+        productDto.addProducts(productCsvForm,result);
+        ProductData productData = productDto.getProductByClientIdAndClientSkuId(productForm1.getClientId(),productForm1.getClientSkuId());
+        assertNotNull(productData);
+        assertEquals(productForm1.getProductName(),productData.getProductName());
+        assertEquals(productForm1.getClientSkuId(),productData.getClientSkuId());
+        assertEquals(productForm1.getDescription(),productData.getDescription());
+        assertEquals(productForm1.getBrandId(),productData.getBrandId());
+        assertEquals(productForm1.getMrp(),productData.getMrp(),0.01);
+        productData = productDto.getProductByClientIdAndClientSkuId(productForm1.getClientId()+1,productForm2.getClientSkuId());
+        assertNull(productData);
+    }
+
+    @Test(expected = ApiException.class)
+    public void testValidate(){
+        productDto.validate(productForm1);
+        productForm1.setMrp(0);
+        // throw exception
+        productDto.validate(productForm1);
+    }
+
+
+
+
+}

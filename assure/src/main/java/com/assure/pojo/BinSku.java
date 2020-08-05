@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -24,8 +22,6 @@ public class BinSku extends AbstractPojo implements Serializable {
     @NotNull
     private Long globalSkuId;
 
-    @Min(0)
-    @Max(10000)
     @NotNull
     private Long quantity=0L;
 

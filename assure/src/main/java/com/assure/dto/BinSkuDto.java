@@ -130,6 +130,9 @@ public class BinSkuDto {
 
     @Transactional(rollbackFor = ApiException.class)
     public void updateBinSkuInventory(Long binSkuId, BinSkuUpdateForm binSkuUpdateForm) {
+        if(binSkuUpdateForm.getUpdateQuantity()<0){
+            throw new ApiException("Quantity should be positive !!");
+        }
         Long quantityToAdd = Math.subtractExact(binSkuUpdateForm.getUpdateQuantity(), binSkuUpdateForm.getOriginalQuantity());
         BinSku binSku = new BinSku();
         binSku.setQuantity(binSkuUpdateForm.getUpdateQuantity());

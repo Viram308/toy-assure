@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class Product extends AbstractPojo implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="s")
-    @SequenceGenerator(name="s", initialValue=1, allocationSize = 1)
+    @SequenceGenerator(name="s", allocationSize = 1)
     private Long globalSkuId;
 
     @NotNull
