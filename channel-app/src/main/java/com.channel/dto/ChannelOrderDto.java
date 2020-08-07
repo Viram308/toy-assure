@@ -1,6 +1,7 @@
 package com.channel.dto;
 
 import com.channel.api.ChannelListingApi;
+import com.channel.assure.ClientAssure;
 import com.channel.assure.OrderAssure;
 import com.channel.assure.OrderItemAssure;
 import com.channel.assure.ProductAssure;
@@ -44,6 +45,8 @@ public class ChannelOrderDto {
     private static final String PDF_PATH = "src/main/resources/com/channel/";
     private static final String INVOICE_TEMPLATE_XSL = "src/main/resources/com/channel/invoiceTemplate.xsl";
 
+    @Autowired
+    private ClientAssure clientAssure;
 
     @Autowired
     private OrderAssure orderAssure;
@@ -57,20 +60,17 @@ public class ChannelOrderDto {
     private ChannelOrderCsvFormValidator channelOrderCsvFormValidator;
 
     @Transactional(rollbackFor = CustomValidationException.class)
-    public void addChannelOrder(OrderCsvForm orderCsvForm, BindingResult result) {
+    public String addChannelOrder(OrderCsvForm orderCsvForm, BindingResult result) {
         channelOrderCsvFormValidator.validate(orderCsvForm, result);
-        logger.info("Errors in form :" + result.getErrorCount());
         if (result.hasErrors()) {
             throw new CustomValidationException(result);
         }
-        String response = orderAssure.addChannelOrder(orderCsvForm);
-        logger.info(response);
+        return orderAssure.addChannelOrder(orderCsvForm);
     }
 
     @Transactional(readOnly = true)
     public List<OrderData> getChannelOrders() {
-        List<OrderData> orderDataList = orderAssure.getChannelOrders();
-        return orderDataList.stream().filter(orderData -> !(orderData.getChannelId().equals(1L))).collect(Collectors.toList());
+        return orderAssure.getChannelOrders();
     }
 
     @Transactional(readOnly = true)
@@ -156,5 +156,37 @@ public class ChannelOrderDto {
     public byte[] downloadInvoice(Long id) throws ParserConfigurationException, IOException, FOPException, TransformerException {
         byte[] fileBytes = Files.readAllBytes(Paths.get(PDF_PATH+"order"+id+".pdf"));
         return Base64.getEncoder().encode(fileBytes);
+    }
+
+    public ClientData getClientData(Long clientId) {
+        return clientAssure.getClientData(clientId);
+    }
+
+    public OrderData getOrderDetails(String channelOrderId, Long channelId) {
+        return orderAssure.getOrderDetails(channelOrderId,channelId);
+    }
+
+    public List<ProductData> getProductByClientIdAndClientSkuId(Long clientId) {
+        return productAssure.getProductByClientIdAndClientSkuId(clientId);
+    }
+
+    public void setClientAssureRestTemplate(ClientAssure clientAssureRestTemplate) {
+        clientAssure = clientAssureRestTemplate;
+    }
+
+    public void setProductAssureRestTemplate(ProductAssure productAssureRestTemplate) {
+        productAssure = productAssureRestTemplate;
+    }
+
+    public void setOrderAssureRestTemplate(OrderAssure orderAssureRestTemplate){
+        orderAssure = orderAssureRestTemplate;
+    }
+
+    public void setOrderItemAssureRestTemplate(OrderItemAssure orderItemAssureRestTemplate) {
+        orderItemAssure = orderItemAssureRestTemplate;
+    }
+
+    public void setChannelListingApiRestTemplate(ChannelListingApi channelListingApiRestTemplate) {
+        channelListingApi = channelListingApiRestTemplate;
     }
 }

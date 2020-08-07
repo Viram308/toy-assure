@@ -87,9 +87,10 @@ public class OrderApiController {
 
     @ApiOperation(value = "Fulfill Order")
     @RequestMapping(value = "/fulfill/{id}", method = RequestMethod.GET)
-    public void fulfillOrder(@PathVariable Long id,HttpServletResponse response) throws ParserConfigurationException, IOException, FOPException, TransformerException {
+    public void fulfillOrder(@PathVariable Long id) throws ParserConfigurationException, IOException, FOPException, TransformerException {
         logger.info("Fulfill Order");
-        orderDto.fulfillOrder(id,response);
+        orderDto.fulfillOrder(id);
+        orderDto.generateInvoice(id);
     }
 
     @ApiOperation(value = "Allocate Order")

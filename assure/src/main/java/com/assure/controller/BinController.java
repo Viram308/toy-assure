@@ -27,7 +27,7 @@ public class BinController {
 
     @ApiOperation(value = "Adds bins")
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Long addBins(@RequestBody BinForm binForm) {
+    public List<Long> addBins(@RequestBody BinForm binForm) {
         logger.info("adding bins");
         return binDto.addBins(binForm);
     }

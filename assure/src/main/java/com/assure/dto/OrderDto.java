@@ -70,9 +70,10 @@ public class OrderDto {
         }
         Order order = ConverterUtil.convertOrderCsvFormToOrder(orderCsvForm);
         if (order != null) {
-            orderApi.addOrder(order);
+            order = orderApi.addOrder(order);
             for (OrderItemForm orderItemForm : orderCsvForm.getOrderItemFormList()) {
                 Product product = productApi.getByClientIdAndClientSkuId(order.getClientId(), orderItemForm.getClientSkuId());
+                Long globalSkuId = product.getGlobalSkuId();
                 OrderItem orderItem = ConverterUtil.convertFormToOrderItemPojo(orderItemForm, product.getGlobalSkuId(), order.getId());
                 orderItemApi.addOrderItem(orderItem);
             }
@@ -240,15 +241,15 @@ public class OrderDto {
     }
 
     @Transactional(rollbackFor = ApiException.class)
-    public void fulfillOrder(Long id, HttpServletResponse response) throws TransformerException, ParserConfigurationException, IOException, FOPException {
+    public void fulfillOrder(Long id) throws TransformerException, ParserConfigurationException, IOException, FOPException {
         Order order = orderApi.get(id);
+        // add check for allocated orders
         boolean result = orderItemFulfillmentLogic(order);
         if (!result) {
             throw new ApiException("Can't fulfill order for orderId : " + id);
         }
         order.setStatus(OrderStatus.FULFILLED);
         orderApi.updateOrder(order);
-        generateInvoice(order.getId());
     }
 
     @Transactional(rollbackFor = ApiException.class)
@@ -282,11 +283,8 @@ public class OrderDto {
         Order order = orderApi.get(id);
         ChannelData channelData = channelDataApi.getChannelDetails(order.getChannelId());
         if(channelData.getInvoiceType().equals(InvoiceType.SELF.toString())){
-            logger.info("Generating Invoice");
             InvoiceData invoiceData = getInvoiceData(id);
-            logger.info("Generating PDF");
             PDFHandler.generatePDF(invoiceData, PDF_PATH, INVOICE_TEMPLATE_XSL);
-            logger.info("PDF generated");
             return;
         }
         channelDataApi.generateInvoice(id);
@@ -329,7 +327,7 @@ public class OrderDto {
     }
 
 
-    private InvoiceData getInvoiceData(Long id) {
+    public InvoiceData getInvoiceData(Long id) {
         Order order = orderApi.get(id);
         List<OrderItem> orderItemList = orderItemApi.getOrderItemByOrderId(order.getId());
         InvoiceData invoiceData = new InvoiceData();
@@ -373,4 +371,7 @@ public class OrderDto {
     }
 
 
+    public void setChannelRestTemplate(ChannelDataApi channelRestTemplate) {
+        channelDataApi = channelRestTemplate;
+    }
 }

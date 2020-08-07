@@ -18,9 +18,9 @@ public class OrderApi {
     private OrderDao orderDao;
 
     @Transactional
-    public void addOrder(Order order) {
+    public Order addOrder(Order order) {
         order.setStatus(OrderStatus.CREATED);
-        orderDao.insert(order);
+        return orderDao.insert(order);
     }
 
     @Transactional(readOnly = true)

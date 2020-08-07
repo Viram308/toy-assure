@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -18,13 +19,15 @@ public class BinDto {
     private BinApi binApi;
 
     @Transactional
-    public Long addBins(BinForm binForm) {
+    public List<Long> addBins(BinForm binForm) {
         long i,noOfBins = binForm.getNoOfBins();
+        List<Long> binIdList = new ArrayList<>();
         for(i=0;i<noOfBins;i++){
-            binApi.add(new Bin());
+            Long binId = binApi.add(new Bin());
+            binIdList.add(binId);
         }
         logger.info("No. of bins added :"+noOfBins);
-        return noOfBins;
+        return binIdList;
     }
 
     @Transactional(readOnly = true)

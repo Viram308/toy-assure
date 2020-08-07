@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@Table(uniqueConstraints= @UniqueConstraint(columnNames = {"name"}))
+@Table(uniqueConstraints= @UniqueConstraint(columnNames = {"name","type"}))
 public class Client extends AbstractPojo implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

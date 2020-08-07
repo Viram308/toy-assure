@@ -32,8 +32,7 @@ public class ChannelOrderController {
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String addChannelOrder(@RequestBody OrderCsvForm orderCsvForm, BindingResult result){
         logger.info("adding channel order");
-        channelOrderDto.addChannelOrder(orderCsvForm,result);
-        return "Channel order added";
+        return channelOrderDto.addChannelOrder(orderCsvForm,result);
     }
 
     @ApiOperation(value = "Get Channel Orders")

@@ -31,8 +31,8 @@ public class BinDtoTest extends AbstractUnitTest {
 
     @Test
     public void testAddBins(){
-        Long noOfBins = binDto.addBins(binForm1);
-        assertEquals(binForm1.getNoOfBins(),noOfBins);
+        List<Long> binIdList= binDto.addBins(binForm1);
+        assertEquals(binForm1.getNoOfBins().longValue(),binIdList.size());
     }
 
     @Test

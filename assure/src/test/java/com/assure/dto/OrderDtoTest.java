@@ -1,21 +1,32 @@
 package com.assure.dto;
 
+import com.assure.channel.ChannelDataApi;
 import com.assure.model.form.BinForm;
 import com.assure.model.form.BinSkuCsvForm;
 import com.assure.model.form.BinSkuForm;
 import com.assure.spring.AbstractUnitTest;
+import com.commons.api.CustomValidationException;
 import com.commons.enums.ClientType;
+import com.commons.enums.OrderStatus;
 import com.commons.form.*;
-import com.commons.response.ClientData;
-import com.commons.response.OrderItemData;
+import com.commons.response.*;
+import org.apache.fop.apps.FOPException;
 import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -28,7 +39,12 @@ public class OrderDtoTest extends AbstractUnitTest {
     private BinSkuForm binSkuForm1,binSkuForm2;
     private OrderCsvForm orderCsvForm = new OrderCsvForm();
     private OrderItemForm orderItemForm1,orderItemForm2;
+    private ChannelData channelData;
+    private List<ChannelData> channelDataList = new ArrayList<>();
+    private OrderSearchForm orderSearchForm;
 
+    @Mock
+    private ChannelDataApi channelDataApi;
     @Autowired
     private ClientDto clientDto;
     @Autowired
@@ -44,7 +60,6 @@ public class OrderDtoTest extends AbstractUnitTest {
     @Before
     public void setUp(){
         MockitoAnnotations.initMocks(this);
-
         clientForm1 = createClientForm("viram", ClientType.CLIENT);
         clientForm2 = createClientForm("viram308",ClientType.CUSTOMER);
         productForm1 = createProductForm("munch",10.00,"excellent","prod1","nestle");
@@ -56,6 +71,24 @@ public class OrderDtoTest extends AbstractUnitTest {
         binSkuForm2 = createBinSkuForm(30L);
         orderItemForm1 = createOrderItemForm(10,15L);
         orderItemForm2 = createOrderItemForm(15,20L);
+        channelData = createChannelData();
+        orderSearchForm = createOrderSearchForm();
+    }
+
+    private OrderSearchForm createOrderSearchForm() {
+        OrderSearchForm orderSearchForm = new OrderSearchForm();
+        orderSearchForm.setChannelId(channelData.getId());
+        orderSearchForm.setOrderStatus("");
+        orderSearchForm.setClientId(0L);
+        return orderSearchForm;
+    }
+
+    private ChannelData createChannelData() {
+        ChannelData channelData = new ChannelData();
+        channelData.setId(1L);
+        channelData.setName("internal");
+        channelData.setInvoiceType("SELF");
+        return channelData;
     }
 
     private OrderItemForm createOrderItemForm(double sellingPricePerUnit,Long orderedQuantity) {
@@ -98,7 +131,7 @@ public class OrderDtoTest extends AbstractUnitTest {
         ClientData clientData2 = clientDto.addClient(clientForm2);
 
         productForm1.setClientId(clientData1.getId());
-        productForm2.setClientId(clientData2.getId());
+        productForm2.setClientId(clientData1.getId());
         List<ProductForm> productFormList = new ArrayList<>();
         productFormList.add(productForm1);
         productFormList.add(productForm2);
@@ -106,14 +139,13 @@ public class OrderDtoTest extends AbstractUnitTest {
         BindingResult result = mock(BindingResult.class);
         when(result.hasErrors()).thenReturn(false);
         productDto.addProducts(productCsvForm,result);
-        binDto.addBins(binForm1);
-        binDto.addBins(binForm2);
+        List<Long> binIdList = binDto.addBins(binForm1);
         binSkuForm1.setClientId(clientData1.getId());
         binSkuForm1.setClientSkuId(productForm1.getClientSkuId());
-        binSkuForm1.setBinId(1000L);
+        binSkuForm1.setBinId(binIdList.get(0));
         binSkuForm2.setClientId(clientData1.getId());
-        binSkuForm2.setClientSkuId(productForm1.getClientSkuId());
-        binSkuForm2.setBinId(1001L);
+        binSkuForm2.setClientSkuId(productForm2.getClientSkuId());
+        binSkuForm2.setBinId(binIdList.get(0));
         List<BinSkuForm> binSkuFormList = new ArrayList<>();
         binSkuFormList.add(binSkuForm1);
         binSkuFormList.add(binSkuForm2);
@@ -121,11 +153,170 @@ public class OrderDtoTest extends AbstractUnitTest {
         BindingResult result1 = mock(BindingResult.class);
         when(result1.hasErrors()).thenReturn(false);
         binSkuDto.addBinSku(binSkuCsvForm,result1);
-
+        List<OrderItemForm> orderItemFormList = new ArrayList<>();
+        orderItemForm1.setClientId(clientData1.getId());
+        orderItemForm1.setCustomerId(clientData2.getId());
+        orderItemForm1.setClientSkuId(productForm1.getClientSkuId());
+        orderItemForm1.setChannelOrderId("o1");
+        orderItemForm1.setChannelId(1L);
+        orderItemForm2.setClientId(clientData1.getId());
+        orderItemForm2.setCustomerId(clientData2.getId());
+        orderItemForm2.setClientSkuId(productForm2.getClientSkuId());
+        orderItemForm2.setChannelOrderId("o1");
+        orderItemForm2.setChannelId(1L);
+        orderItemFormList.add(orderItemForm1);
+        orderItemFormList.add(orderItemForm2);
+        orderCsvForm.setOrderItemFormList(orderItemFormList);
+        channelDataList.add(channelData);
     }
 
+    @Test(expected = CustomValidationException.class)
+    public void testAddOrder(){
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        List<OrderData> orderDataList = orderDto.addOrder(orderCsvForm,result2);
+        assertEquals(1,orderDataList.size());
+        when(result2.hasErrors()).thenReturn(true);
+        orderDto.addOrder(orderCsvForm,result2);
+    }
 
+    @Test
+    public void testAddChannelOrder(){
+        addDetails();
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        orderDto.addChannelOrder(orderCsvForm);
+        List<OrderData> orderDataList = orderDto.getAllOrders();
+        assertEquals(1,orderDataList.size());
+    }
 
+    @Test
+    public void testGetOrderDetails(){
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        orderDto.addOrder(orderCsvForm,result2);
+        OrderData orderData = orderDto.getOrderDetails(orderCsvForm.getOrderItemFormList().get(0).getChannelOrderId(),channelData.getId());
+        assertEquals(OrderStatus.ALLOCATED.toString(),orderData.getStatus());
+    }
 
+    @Test
+    public void testGet(){
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        List<OrderData> orderDataList = orderDto.addOrder(orderCsvForm,result2);
+        OrderData orderData = orderDto.get(orderDataList.get(0).getOrderId());
+        assertEquals(OrderStatus.ALLOCATED.toString(),orderData.getStatus());
+    }
+
+    @Test
+    public void testGetAll(){
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        orderDto.addOrder(orderCsvForm,result2);
+        List<OrderData> orderDataList = orderDto.getAllOrders();
+        assertEquals(1,orderDataList.size());
+    }
+
+    @Test
+    public void testSearchOrder(){
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        orderDto.addOrder(orderCsvForm,result2);
+        List<OrderData> orderDataList = orderDto.searchOrder(orderSearchForm);
+        assertEquals(1,orderDataList.size());
+        orderSearchForm.setOrderStatus(OrderStatus.CREATED.toString());
+        orderDataList = orderDto.searchOrder(orderSearchForm);
+        assertEquals(0,orderDataList.size());
+        orderSearchForm.setOrderStatus(OrderStatus.ALLOCATED.toString());
+        orderSearchForm.setClientId(productForm1.getClientId()+1);
+        orderDataList = orderDto.searchOrder(orderSearchForm);
+        assertEquals(0,orderDataList.size());
+    }
+
+    @Test
+    public void testSearchChannelOrder(){
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        orderDto.addOrder(orderCsvForm,result2);
+        List<OrderData> orderDataList = orderDto.searchChannelOrder(orderSearchForm);
+        assertEquals(0,orderDataList.size());
+        orderSearchForm.setOrderStatus(OrderStatus.CREATED.toString());
+        orderDataList = orderDto.searchChannelOrder(orderSearchForm);
+        assertEquals(0,orderDataList.size());
+        orderSearchForm.setOrderStatus(OrderStatus.ALLOCATED.toString());
+        orderSearchForm.setClientId(productForm1.getClientId()+1);
+        orderDataList = orderDto.searchChannelOrder(orderSearchForm);
+        assertEquals(0,orderDataList.size());
+    }
+
+    @Test
+    public void testGetOrderItems(){
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        List<OrderData> orderDataList = orderDto.addOrder(orderCsvForm,result2);
+        List<OrderItemData> orderItemDataList = orderDto.getOrderItems(orderDataList.get(0).getOrderId());
+        assertEquals(2,orderItemDataList.size());
+        assertEquals(orderItemForm1.getOrderedQuantity(),orderItemDataList.get(0).getOrderedQuantity());
+        assertEquals(orderItemForm1.getSellingPricePerUnit(),orderItemDataList.get(0).getSellingPricePerUnit(),0.01);
+        assertEquals(orderItemForm1.getClientSkuId(),orderItemDataList.get(0).getClientSkuId());
+        assertEquals(orderItemForm2.getOrderedQuantity(),orderItemDataList.get(1).getOrderedQuantity());
+        assertEquals(orderItemForm2.getSellingPricePerUnit(),orderItemDataList.get(1).getSellingPricePerUnit(),0.01);
+        assertEquals(orderItemForm2.getClientSkuId(),orderItemDataList.get(1).getClientSkuId());
+    }
+
+    @Test
+    public void testFulFillOrder() throws ParserConfigurationException, IOException, FOPException, TransformerException {
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        List<OrderData> orderDataList = orderDto.addOrder(orderCsvForm,result2);
+        orderDto.fulfillOrder(orderDataList.get(0).getOrderId());
+        OrderData orderData = orderDto.get(orderDataList.get(0).getOrderId());
+        assertEquals(OrderStatus.FULFILLED.toString(),orderData.getStatus());
+    }
+
+    @Test
+    public void testGetAllChannel(){
+        addDetails();
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getAllChannel()).thenReturn(channelDataList);
+        List<ChannelData> channelDataList = orderDto.getAllChannels();
+        assertEquals(1,channelDataList.size());
+    }
+
+    @Test
+    public void testGetInvoiceData(){
+        addDetails();
+        BindingResult result2 = mock(BindingResult.class);
+        when(result2.hasErrors()).thenReturn(false);
+        orderDto.setChannelRestTemplate(channelDataApi);
+        when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
+        List<OrderData> orderDataList = orderDto.addOrder(orderCsvForm,result2);
+        InvoiceData invoiceData = orderDto.getInvoiceData(orderDataList.get(0).getOrderId());
+        assertNotNull(invoiceData);
+    }
 
 }

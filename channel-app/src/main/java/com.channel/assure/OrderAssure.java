@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpStatusCodeException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,56 +20,33 @@ public class OrderAssure extends AbstractRestTemplate {
 
     public String addChannelOrder(OrderCsvForm orderCsvForm) {
         String POST_ORDER_URL = SERVER_URL + "/order/addChannelOrder";
-        try{
-            HttpEntity<OrderCsvForm> requestBody = new HttpEntity<>(orderCsvForm, getHeaders());
-            return restTemplate.exchange(POST_ORDER_URL, HttpMethod.POST, requestBody,String.class).getBody();
-        }catch (HttpStatusCodeException e) {
-            e.getMessage();
-        }
-        return "Error";
+        HttpEntity<OrderCsvForm> requestBody = new HttpEntity<>(orderCsvForm, getHeaders());
+        return restTemplate.exchange(POST_ORDER_URL, HttpMethod.POST, requestBody, String.class).getBody();
+
     }
 
     public List<OrderData> getChannelOrders() {
         String POST_ORDER_URL = SERVER_URL + "/order";
-        try{
-            HttpEntity<OrderData[]> entity = new HttpEntity<>(getHeaders());
-            return Arrays.asList(restTemplate.exchange(POST_ORDER_URL, HttpMethod.GET, entity, OrderData[].class).getBody());
-        }catch (HttpStatusCodeException e) {
-            e.getMessage();
-        }
-        return null;
+        HttpEntity<OrderData[]> entity = new HttpEntity<>(getHeaders());
+        return Arrays.asList(restTemplate.exchange(POST_ORDER_URL, HttpMethod.GET, entity, OrderData[].class).getBody());
     }
 
     public List<OrderData> searchChannelOrder(OrderSearchForm orderSearchForm) {
         String POST_ORDER_URL = SERVER_URL + "/order/searchChannelOrder";
-        try{
-            HttpEntity<OrderSearchForm> requestBody = new HttpEntity<>(orderSearchForm,getHeaders());
-            return Arrays.asList(restTemplate.exchange(POST_ORDER_URL, HttpMethod.POST, requestBody, OrderData[].class).getBody());
-        }catch (HttpStatusCodeException e) {
-            e.getMessage();
-        }
-        return null;
+        HttpEntity<OrderSearchForm> requestBody = new HttpEntity<>(orderSearchForm, getHeaders());
+        return Arrays.asList(restTemplate.exchange(POST_ORDER_URL, HttpMethod.POST, requestBody, OrderData[].class).getBody());
     }
 
     public OrderData get(Long id) {
-        String POST_ORDER_URL = SERVER_URL + "/order/"+id;
-        try{
-            HttpEntity<OrderData> entity = new HttpEntity<>(getHeaders());
-            return restTemplate.exchange(POST_ORDER_URL, HttpMethod.GET, entity, OrderData.class).getBody();
-        }catch (HttpStatusCodeException e) {
-            e.getMessage();
-        }
-        return null;
+        String POST_ORDER_URL = SERVER_URL + "/order/" + id;
+        HttpEntity<OrderData> entity = new HttpEntity<>(getHeaders());
+        return restTemplate.exchange(POST_ORDER_URL, HttpMethod.GET, entity, OrderData.class).getBody();
     }
 
     public OrderData getOrderDetails(String channelOrderId, Long channelId) {
-        String POST_ORDER_URL = SERVER_URL + "/order/"+channelId + "/"+channelOrderId;
-        try{
-            HttpEntity<OrderData> entity = new HttpEntity<>(getHeaders());
-            return restTemplate.exchange(POST_ORDER_URL, HttpMethod.GET, entity, OrderData.class).getBody();
-        }catch (HttpStatusCodeException e) {
-            e.getMessage();
-        }
-        return null;
+        String POST_ORDER_URL = SERVER_URL + "/order/" + channelId + "/" + channelOrderId;
+        HttpEntity<OrderData> entity = new HttpEntity<>(getHeaders());
+        return restTemplate.exchange(POST_ORDER_URL, HttpMethod.GET, entity, OrderData.class).getBody();
+
     }
 }

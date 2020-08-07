@@ -1,5 +1,7 @@
 package com.channel.validator;
 
+import com.channel.assure.ClientAssure;
+import com.channel.assure.ProductAssure;
 import com.channel.dto.ChannelDto;
 import com.channel.dto.ChannelListingDto;
 import com.channel.model.form.ChannelListingCsvForm;

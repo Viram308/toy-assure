@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpStatusCodeException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,37 +17,27 @@ public class ClientAssure extends AbstractRestTemplate {
 
     public List<ClientData> getClientDetails() {
         String GET_CLIENT_URL = SERVER_URL + "/client/allClients";
-        try {
-            ClientData[] response;
-            HttpEntity<ClientData[]> entity = new HttpEntity<>(getHeaders());
-            response = restTemplate.exchange(GET_CLIENT_URL, HttpMethod.GET, entity, ClientData[].class).getBody();
-            return Arrays.asList(response);
-        } catch (HttpStatusCodeException e) {
-            return null;
-        }
+        ClientData[] response;
+        HttpEntity<ClientData[]> entity = new HttpEntity<>(getHeaders());
+        response = restTemplate.exchange(GET_CLIENT_URL, HttpMethod.GET, entity, ClientData[].class).getBody();
+        return Arrays.asList(response);
     }
 
     public ClientData getClientData(Long clientId) {
-        String GET_CLIENT_URL = SERVER_URL + "/client/"+clientId;
-        try {
-            ClientData response;
-            HttpEntity<ClientData> entity = new HttpEntity<>(getHeaders());
-            response = restTemplate.exchange(GET_CLIENT_URL, HttpMethod.GET, entity, ClientData.class).getBody();
-            return response;
-        } catch (HttpStatusCodeException e) {
-            return null;
-        }
+        String GET_CLIENT_URL = SERVER_URL + "/client/" + clientId;
+        ClientData response;
+        HttpEntity<ClientData> entity = new HttpEntity<>(getHeaders());
+        response = restTemplate.exchange(GET_CLIENT_URL, HttpMethod.GET, entity, ClientData.class).getBody();
+        return response;
+
     }
 
     public List<ClientData> getCustomerDetails() {
         String GET_CLIENT_URL = SERVER_URL + "/client/allCustomers";
-        try {
-            ClientData[] response;
-            HttpEntity<ClientData[]> entity = new HttpEntity<>(getHeaders());
-            response = restTemplate.exchange(GET_CLIENT_URL, HttpMethod.GET, entity, ClientData[].class).getBody();
-            return Arrays.asList(response);
-        } catch (HttpStatusCodeException e) {
-            return null;
-        }
+        ClientData[] response;
+        HttpEntity<ClientData[]> entity = new HttpEntity<>(getHeaders());
+        response = restTemplate.exchange(GET_CLIENT_URL, HttpMethod.GET, entity, ClientData[].class).getBody();
+        return Arrays.asList(response);
+
     }
 }

@@ -15,8 +15,9 @@ public class BinApi {
     private BinDao binDao;
 
     @Transactional
-    public void add(Bin bin) {
-        binDao.insert(bin);
+    public Long add(Bin bin) {
+       Bin bin1 = binDao.insert(bin);
+       return bin1.getBinId();
     }
 
     @Transactional(readOnly = true)

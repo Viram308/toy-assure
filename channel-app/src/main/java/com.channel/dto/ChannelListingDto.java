@@ -63,7 +63,7 @@ public class ChannelListingDto {
     }
 
     @Transactional(readOnly = true)
-    public ChannelListingData getChannelListing(Long id){
+    public ChannelListingData getChannelListing(Long id) {
         ChannelListing channelListing = channelListingApi.getChannelListing(id);
         ProductData productData = productAssure.getProductData(channelListing.getGlobalSkuId());
         return ConverterUtil.convertChannelListingToChannelListingData(channelListing, channelApi.get(channelListing.getChannelId()), productData);
@@ -78,14 +78,15 @@ public class ChannelListingDto {
         }
         return null;
     }
+
     @Transactional(readOnly = true)
     public List<ChannelListingData> searchChannelListing(ChannelListingSearchForm channelListingSearchForm) {
         List<ChannelListing> channelListings = channelListingApi.getAllChannelListing();
-        if(channelListingSearchForm.getChannelId()!=0){
-            channelListings = channelListings.stream().filter(o->(channelListingSearchForm.getChannelId().equals(o.getChannelId()))).collect(Collectors.toList());
+        if (channelListingSearchForm.getChannelId() != 0) {
+            channelListings = channelListings.stream().filter(o -> (channelListingSearchForm.getChannelId().equals(o.getChannelId()))).collect(Collectors.toList());
         }
-        if(channelListingSearchForm.getClientId()!=0){
-            channelListings = channelListings.stream().filter(o->(channelListingSearchForm.getClientId().equals(o.getClientId()))).collect(Collectors.toList());
+        if (channelListingSearchForm.getClientId() != 0) {
+            channelListings = channelListings.stream().filter(o -> (channelListingSearchForm.getClientId().equals(o.getClientId()))).collect(Collectors.toList());
         }
         return channelListings.stream().map(o -> ConverterUtil.convertChannelListingToChannelListingData(o, channelApi.get(o.getChannelId()), productAssure.getProductData(o.getGlobalSkuId()))).collect(Collectors.toList());
     }
@@ -119,6 +120,14 @@ public class ChannelListingDto {
 
     public List<ProductData> getProductByClientIdAndClientSkuId(Long clientId) {
         return productAssure.getProductByClientIdAndClientSkuId(clientId);
+    }
+
+    public void setClientAssureRestTemplate(ClientAssure clientAssureRestTemplate) {
+        clientAssure = clientAssureRestTemplate;
+    }
+
+    public void setProductAssureRestTemplate(ProductAssure productAssureRestTemplate) {
+        productAssure = productAssureRestTemplate;
     }
 
 

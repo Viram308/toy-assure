@@ -101,4 +101,12 @@ public class ChannelDto {
             throw new ApiException("Please enter channel name and type !!");
         }
     }
+
+    public void setChannelListingRestTemplate(ChannelListingApi channelListingApiRestTemplate) {
+        channelListingApi = channelListingApiRestTemplate;
+    }
+
+    public void setClientAssureRestTemplate(ClientAssure clientAssureRestTemplate) {
+        clientAssure = clientAssureRestTemplate;
+    }
 }

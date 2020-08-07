@@ -1,31 +1,61 @@
 package com.channel.dto;
 
+import com.channel.api.ChannelListingApi;
+import com.channel.assure.ClientAssure;
 import com.channel.model.form.ChannelForm;
+import com.channel.pojo.ChannelListing;
 import com.channel.spring.AbstractUnitTest;
 import com.commons.api.ApiException;
+import com.commons.enums.ClientType;
 import com.commons.enums.InvoiceType;
 import com.commons.response.ChannelData;
+import com.commons.response.ClientData;
 import com.commons.util.StringUtil;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
 public class ChannelDtoTest extends AbstractUnitTest {
     private ChannelForm channelForm1,channelForm2;
+    private ClientData clientData1,clientData2;
+    private ChannelListing channelListing1, channelListing2;
 
     @Autowired
     private ChannelDto channelDto;
-    @Autowired
-    private ChannelListingDto channelListingDto;
+    @Mock
+    private ChannelListingApi channelListingApi;
+    @Mock
+    private ClientAssure clientAssure;
 
     @Before
     public void setUp(){
+        MockitoAnnotations.initMocks(this);
         channelForm1 = createChannelForm("chanNel1","channel");
         channelForm2 = createChannelForm("chaN","");
+        clientData1 = createClientData(1L,"viram",ClientType.CLIENT.toString());
+        clientData2 = createClientData(2L,"viram308",ClientType.CUSTOMER.toString());
+        channelListing1 = createChannelListing();
+        channelListing2 = createChannelListing();
+    }
+
+    private ChannelListing createChannelListing() {
+        return new ChannelListing();
+    }
+
+    private ClientData createClientData(Long clientId,String clientName,String type) {
+        ClientData clientData = new ClientData();
+        clientData.setId(clientId);
+        clientData.setName(clientName);
+        clientData.setType(type);
+        return clientData;
     }
 
     private ChannelForm createChannelForm(String name,String type) {
@@ -86,6 +116,40 @@ public class ChannelDtoTest extends AbstractUnitTest {
         // throw exception
         channelDto.validate(channelForm2);
     }
+
+    @Test
+    public void testGetChannelByClient(){
+        ChannelData channelData1 = channelDto.addChannel(channelForm1);
+        channelListing1.setChannelId(channelData1.getId());
+        List<ChannelListing> channelListing = new ArrayList<>();
+        channelListing.add(channelListing1);
+        channelDto.setChannelListingRestTemplate(channelListingApi);
+        when(channelListingApi.getByClientId(1L)).thenReturn(channelListing);
+        List<ChannelData> channelDataList = channelDto.getChannelByClient(1L);
+        assertEquals(1,channelDataList.size());
+    }
+
+    @Test
+    public void testGetAllClients(){
+        channelDto.setClientAssureRestTemplate(clientAssure);
+        List<ClientData> clientDataList = new ArrayList<>();
+        clientDataList.add(clientData1);
+        when(clientAssure.getClientDetails()).thenReturn(clientDataList);
+        List<ClientData> clientDataList1 = channelDto.getAllClients();
+        assertEquals(1,clientDataList1.size());
+    }
+
+    @Test
+    public void testGetAllCustomers(){
+        channelDto.setClientAssureRestTemplate(clientAssure);
+        List<ClientData> clientDataList = new ArrayList<>();
+        clientDataList.add(clientData2);
+        when(clientAssure.getCustomerDetails()).thenReturn(clientDataList);
+        List<ClientData> clientDataList1 = channelDto.getAllCustomers();
+        assertEquals(1,clientDataList1.size());
+    }
+
+
 
 
 }
