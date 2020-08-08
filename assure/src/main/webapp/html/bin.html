@@ -28,7 +28,7 @@
               <label for="clientSelect" class="control-label">Client</label>
             </div>
             <div class="col-2">
-              <label for="inputProductName" class="control-label">Product Name</label>
+              <label for="inputClientSku" class="control-label">Client Sku</label>
             </div>
           </div>
         </div>
@@ -50,7 +50,9 @@
            </div>
            <div class="col-2">
             <div class="form-group">
-              <input type="text" class="form-control" name="productName" id="inputProductName" placeholder="Enter Name" style="width:90%">
+              <select class="form-control" id="inputClientSku" name="clientSkuId"  style="width:90%">
+                 <option value="">Select ClientSkuId</option>
+               </select>
             </div>
           </div>
           <div class="col-5">
@@ -80,6 +82,7 @@
           <th scope="col">#</th>	
           <th scope="col">Bin Id</th>
           <th scope="col">Client Name</th>
+          <th scope="col">Client Sku</th>
           <th scope="col">Product Name</th>
           <th scope="col">Brand</th>
           <th scope="col">Quantity</th>

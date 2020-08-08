@@ -94,10 +94,10 @@ public class OrderApiController {
     }
 
     @ApiOperation(value = "Allocate Order")
-    @RequestMapping(value = "/allocate", method = RequestMethod.GET)
-    public List<OrderData> allocateOrder() {
+    @RequestMapping(value = "/allocate/{id}", method = RequestMethod.GET)
+    public List<OrderData> allocateOrder(@PathVariable Long id) {
         logger.info("Allocate Orders");
-        return orderDto.allocateOrders();
+        return orderDto.allocateOrder(id);
     }
 
     @ApiOperation(value = "Get all channels")
@@ -109,8 +109,8 @@ public class OrderApiController {
 
     @ApiOperation(value = "Download invoice")
     @RequestMapping(value = "/download/{id}", method = RequestMethod.GET)
-    public void downloadInvoice(@PathVariable Long id, HttpServletResponse response) throws ParserConfigurationException, IOException, FOPException, TransformerException {
+    public byte[] downloadInvoice(@PathVariable Long id, HttpServletResponse response) throws ParserConfigurationException, IOException, FOPException, TransformerException {
         logger.info("Download Order");
-        orderDto.downloadInvoice(id,response);
+        return orderDto.downloadInvoice(id,response);
     }
 }

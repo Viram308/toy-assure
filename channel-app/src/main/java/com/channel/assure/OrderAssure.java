@@ -2,6 +2,7 @@ package com.channel.assure;
 
 import com.commons.form.OrderCsvForm;
 import com.commons.form.OrderSearchForm;
+import com.commons.response.ChannelData;
 import com.commons.response.OrderData;
 import com.commons.util.AbstractRestTemplate;
 import org.springframework.beans.factory.annotation.Value;
@@ -48,5 +49,12 @@ public class OrderAssure extends AbstractRestTemplate {
         HttpEntity<OrderData> entity = new HttpEntity<>(getHeaders());
         return restTemplate.exchange(POST_ORDER_URL, HttpMethod.GET, entity, OrderData.class).getBody();
 
+    }
+
+    public byte[] getPDFBytes(Long id) {
+        String GET_CHANNEL_URL = SERVER_URL + "/order/download/" + id;
+
+        HttpEntity<ChannelData> entity = new HttpEntity<>(getHeaders());
+        return restTemplate.exchange(GET_CHANNEL_URL, HttpMethod.GET, entity, byte[].class, "1").getBody();
     }
 }

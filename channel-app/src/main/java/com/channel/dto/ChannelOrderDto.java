@@ -1,13 +1,16 @@
 package com.channel.dto;
 
+import com.channel.api.ChannelApi;
 import com.channel.api.ChannelListingApi;
 import com.channel.assure.ClientAssure;
 import com.channel.assure.OrderAssure;
 import com.channel.assure.OrderItemAssure;
 import com.channel.assure.ProductAssure;
 import com.channel.model.response.ChannelOrderItemData;
+import com.channel.pojo.Channel;
 import com.channel.pojo.ChannelListing;
 import com.channel.validator.ChannelOrderCsvFormValidator;
+import com.commons.api.ApiException;
 import com.commons.api.CustomValidationException;
 import com.commons.enums.InvoiceType;
 import com.commons.form.OrderCsvForm;
@@ -22,8 +25,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.File;
@@ -47,7 +48,8 @@ public class ChannelOrderDto {
 
     @Autowired
     private ClientAssure clientAssure;
-
+    @Autowired
+    private ChannelApi channelApi;
     @Autowired
     private OrderAssure orderAssure;
     @Autowired
@@ -70,12 +72,14 @@ public class ChannelOrderDto {
 
     @Transactional(readOnly = true)
     public List<OrderData> getChannelOrders() {
-        return orderAssure.getChannelOrders();
+        List<OrderData> orderDataList = orderAssure.getChannelOrders();
+        return getOrderDataExceptInternalChannel(orderDataList);
     }
 
     @Transactional(readOnly = true)
     public List<OrderData> searchChannelOrders(OrderSearchForm orderSearchForm) {
-        return orderAssure.searchChannelOrder(orderSearchForm);
+        List<OrderData> orderDataList = orderAssure.searchChannelOrder(orderSearchForm);
+        return getOrderDataExceptInternalChannel(orderDataList);
     }
 
     @Transactional(readOnly = true)
@@ -101,6 +105,17 @@ public class ChannelOrderDto {
             channelOrderItemDataList.add(channelOrderItemData);
         }
         return channelOrderItemDataList;
+    }
+
+    public List<OrderData> getOrderDataExceptInternalChannel(List<OrderData> orderDataList){
+        List<OrderData> orderDataList1 = new ArrayList<>();
+        for(OrderData orderData : orderDataList){
+            Channel channel = channelApi.get(orderData.getChannelId());
+            if(!(channel.getName().equals("internal") && channel.getInvoiceType().equals(InvoiceType.SELF))){
+                orderDataList1.add(orderData);
+            }
+        }
+        return orderDataList1;
     }
 
 
@@ -153,9 +168,22 @@ public class ChannelOrderDto {
         return df.format(timeObj);
     }
 
-    public byte[] downloadInvoice(Long id) throws ParserConfigurationException, IOException, FOPException, TransformerException {
-        byte[] fileBytes = Files.readAllBytes(Paths.get(PDF_PATH+"order"+id+".pdf"));
-        return Base64.getEncoder().encode(fileBytes);
+    public byte[] downloadInvoice(Long id) throws IOException {
+        byte[] fileBytes;
+        File file = new File(String.valueOf(Paths.get(PDF_PATH+"order"+id+".pdf")));
+        if(!(file.exists() && file.isFile())) {
+            byte[] assureByteResponse = orderAssure.getPDFBytes(id);
+            if(assureByteResponse == null) {
+                throw new ApiException("Invoice Pdf not found for orderId : "+ id);
+            }
+            logger.info("got pdf "+ assureByteResponse.length);
+            return assureByteResponse;
+        }
+        else {
+            fileBytes = Files.readAllBytes(Paths.get(PDF_PATH + "order" + id + ".pdf"));
+            logger.info(fileBytes.length);
+            return Base64.getEncoder().encode(fileBytes);
+        }
     }
 
     public ClientData getClientData(Long clientId) {

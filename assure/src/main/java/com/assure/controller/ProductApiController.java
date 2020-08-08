@@ -59,4 +59,11 @@ public class ProductApiController {
         return productDto.getAllProducts();
     }
 
+    @ApiOperation(value = "Gets all clientSkuIds by ClientId")
+    @RequestMapping(value = "/getClientSku/{clientId}", method = RequestMethod.GET)
+    public List<String> getClientSkuByClient(@PathVariable Long clientId) {
+        logger.info("get clientSkuIds");
+        return productDto.getClientSkuIds(clientId);
+    }
+
 }

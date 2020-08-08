@@ -73,13 +73,14 @@ public class OrderDto {
             order = orderApi.addOrder(order);
             for (OrderItemForm orderItemForm : orderCsvForm.getOrderItemFormList()) {
                 Product product = productApi.getByClientIdAndClientSkuId(order.getClientId(), orderItemForm.getClientSkuId());
-                Long globalSkuId = product.getGlobalSkuId();
                 OrderItem orderItem = ConverterUtil.convertFormToOrderItemPojo(orderItemForm, product.getGlobalSkuId(), order.getId());
                 orderItemApi.addOrderItem(orderItem);
             }
+            logger.info("Allocate Orders");
+            return allocateOrder(order.getId());
         }
-        logger.info("Allocate Orders");
-        return allocateOrders();
+        return getAllOrders();
+
     }
 
     @Transactional
@@ -112,29 +113,17 @@ public class OrderDto {
     }
 
     @Transactional
-    public List<OrderData> allocateOrders() {
-        int recordUpdated = orderAllocation();
-        logger.info("Records updated : " + recordUpdated);
-        return getAllOrders();
-    }
-
-    @Transactional
-    public int orderAllocation() {
-        int count = 0;
-        List<Order> orderList = orderApi.getOrdersByStatus(OrderStatus.CREATED);
-        if (orderList.isEmpty()) {
-            return 0;
-        }
-        for (Order order : orderList) {
+    public List<OrderData> allocateOrder(Long orderId) {
+        Order order = orderApi.get(orderId);
+        if(order.getStatus().equals(OrderStatus.CREATED)){
             boolean result = checkOrderInventoryStatus(order);
             if (result) {
                 logger.info("Changing the status of the order(" + order.getId() + ") to Allocated.");
                 order.setStatus(OrderStatus.ALLOCATED);
                 orderApi.updateOrder(order);
-                count++;
             }
         }
-        return count;
+        return getAllOrders();
     }
 
     @Transactional(rollbackFor = ApiException.class)
@@ -230,7 +219,6 @@ public class OrderDto {
         if (orderSearchForm.getChannelId() != 0) {
             orderList = orderList.stream().filter(o -> (o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
         }
-        orderList = orderList.stream().filter(order -> (!order.getChannelId().equals(1L))).collect(Collectors.toList());
         return orderList.stream().map(o -> ConverterUtil.convertOrderToOrderData(o, clientApi.get(o.getClientId()), clientApi.get(o.getCustomerId()), channelDataApi.getChannelDetails(o.getChannelId()))).collect(Collectors.toList());
     }
 
@@ -241,8 +229,11 @@ public class OrderDto {
     }
 
     @Transactional(rollbackFor = ApiException.class)
-    public void fulfillOrder(Long id) throws TransformerException, ParserConfigurationException, IOException, FOPException {
+    public void fulfillOrder(Long id){
         Order order = orderApi.get(id);
+        if(!order.getStatus().equals(OrderStatus.ALLOCATED)){
+            throw new ApiException("Order is not allocated with id : "+id);
+        }
         // add check for allocated orders
         boolean result = orderItemFulfillmentLogic(order);
         if (!result) {
@@ -290,7 +281,7 @@ public class OrderDto {
         channelDataApi.generateInvoice(id);
     }
 
-    public void downloadInvoice(Long id, HttpServletResponse response) throws IOException, TransformerException, ParserConfigurationException, FOPException {
+    public byte[] downloadInvoice(Long id, HttpServletResponse response) throws IOException{
         byte[] fileInBytes;
         File file = new File(String.valueOf(Paths.get(PDF_PATH+"order"+id+".pdf")));
         if(!(file.exists() && file.isFile())) {
@@ -299,13 +290,13 @@ public class OrderDto {
                 throw new ApiException("Invoice Pdf not found for orderId : "+ id);
             }
             logger.info("got pdf "+ channelByteResponse.length);
-            createResponse(channelByteResponse,response);
+            return channelByteResponse;
         }
         else{
             fileInBytes = Files.readAllBytes(Paths.get(PDF_PATH+"order"+id+".pdf"));
             logger.info(fileInBytes.length);
-            byte[] encodedBytes = Base64.getEncoder().encode(fileInBytes);
-            createResponse(encodedBytes,response);
+            return Base64.getEncoder().encode(fileInBytes);
+//            createResponse(encodedBytes,response);
         }
 
     }

@@ -20,7 +20,7 @@ public class ProductAssure extends AbstractRestTemplate {
     public List<ProductData> getProductByClientIdAndClientSkuId(Long clientId) {
         ProductSearchForm productSearchForm = new ProductSearchForm();
         productSearchForm.setClientId(clientId);
-        productSearchForm.setProductName("");
+        productSearchForm.setClientSkuId("");
         String GET_PRODUCT_URL = SERVER_URL + "/product/search";
         ProductData[] response;
         HttpEntity<ProductSearchForm> requestBody = new HttpEntity<>(productSearchForm, getHeaders());

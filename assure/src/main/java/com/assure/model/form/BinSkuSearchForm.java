@@ -8,5 +8,5 @@ import lombok.Setter;
 public class BinSkuSearchForm {
     private Long binId;
     private Long clientId;
-    private String productName;
+    private String clientSkuId;
 }

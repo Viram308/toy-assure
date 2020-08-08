@@ -16,12 +16,12 @@ var errorArray = [];
 function createChannelOrder(){
   if($totalItems.val()==0){
       $.toast({
-            heading: 'Error',
+            heading: 'Info',
             text: "Add items to create order !!",
             position: 'bottom-right',
             showHideTransition: 'fade',
             hideAfter: 3000,
-            icon: 'error',
+            icon: 'info',
             allowToastClose: true
         });
       return false;
@@ -270,11 +270,9 @@ function displayChannelDropDownList(data){
 function displayChannelListingbyChannel(data){
   $('#channelSkuIdSelected').empty();
 
-  var options = '<option value="0" selected>Select Channel Sku</option>';
+  var options = '<option value="0" selected>Channel Sku</option>';
   $.each(data, function(index, value) {
-    if(value.channelId!=1){
-     options += '<option value="' + value.id + '">' + value.channelSkuId + '</option>';
-   }
+    options += '<option value="' + value.id + '">' + value.channelSkuId + '</option>';
  });
   $('#channelSkuIdSelected').append(options);
 
@@ -455,12 +453,12 @@ function infoToast(infoText) {
 function downloadErrorsChannelOrder(){
   if(errorArray.length==0){
     $.toast({
-                    heading: 'Error',
+                    heading: 'Info',
                     text: 'There are no errors to download !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
                     hideAfter: 3000,
-                    icon: 'error',
+                    icon: 'info',
                     allowToastClose: true,
                 });
     return false;

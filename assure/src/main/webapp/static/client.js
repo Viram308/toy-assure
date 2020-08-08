@@ -11,12 +11,12 @@ function addClient(){
 	var name=$("#client-add-form input[name=name]").val().trim();
 		if(name==""){
 			$.toast({
-            heading: 'Error',
+            heading: 'Info',
             text: "Please enter name !!",
             position: 'bottom-right',
             showHideTransition: 'fade',
             hideAfter: 3000,
-            icon: 'error',
+            icon: 'info',
             allowToastClose: true
         });
 			return false;
@@ -77,12 +77,12 @@ function updateClient(event){
    var name=$("#client-edit-form input[name=name]").val().trim();
 		if(name==""){
 			$.toast({
-            heading: 'Error',
+            heading: 'Info',
             text: "Please enter name !!",
             position: 'bottom-right',
             showHideTransition: 'fade',
             hideAfter: 3000,
-            icon: 'error',
+            icon: 'info',
             allowToastClose: true
         });
 			return false;

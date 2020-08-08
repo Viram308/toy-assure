@@ -92,7 +92,17 @@ function getProductList(){
 	   });
 }
 
-
+function getClientSkuByClientId(clientId){
+	var url = getProductUrl() + "/getClientSku/"+clientId;
+	$.ajax({
+        url: url,
+        type: 'GET',
+        success: function(data) {
+            displayClientSkuDropDownList(data);
+        },
+        error: handleAjaxError
+	});
+}
 function processDataProduct(){
 	if(validateFields()){
         var file = $('#productFile')[0].files[0];
@@ -110,7 +120,6 @@ function readFileDataCallbackProduct(results){
                     text: 'File Contains more than 5000 rows !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
-                    hideAfter: 3000,
                     icon: 'error',
                     allowToastClose: true,
                 });
@@ -174,12 +183,12 @@ function uploadRowsProduct(){
 function downloadErrorsProduct(){
 	if(errorArray.length==0){
 		$.toast({
-                    heading: 'Error',
+                    heading: 'Info',
                     text: 'There are no errors to download !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
                     hideAfter: 3000,
-                    icon: 'error',
+                    icon: 'info',
                     allowToastClose: true,
                 });
 		return false;
@@ -266,6 +275,15 @@ function displayClientDropDownList(data){
     $('#clientSelected').append(options);
 }
 
+function displayClientSkuDropDownList(data){
+	$('#inputClientSku').empty();
+    var options = '<option value="" selected>Select ClientSkuId</option>';
+    $.each(data, function(index, value) {
+        options += '<option value="' + value + '">' + value + '</option>';
+    });
+    $('#inputClientSku').append(options);
+}
+
 function getClientList(){
 	var url = getClientUrl() + "/allClients";
 	$.ajax({
@@ -342,6 +360,11 @@ function init(){
 	$('#process-data-product').click(processDataProduct);
 	$('#download-errors-product').click(downloadErrorsProduct);
 	$('#productFile').on('change', updateFileNameProduct);
+
+	$('#product-form select[name=clientId]').change(function(){
+      var clientId = $(this).find("option:selected").val();
+      getClientSkuByClientId(clientId);
+    });
 }
 
 $(document).ready(init);

@@ -75,7 +75,6 @@ function readFileDataCallbackChannelListing(results){
                     text: 'File Contains more than 5000 rows !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
-                    hideAfter: 3000,
                     icon: 'error',
                     allowToastClose: true,
                 });
@@ -141,12 +140,12 @@ function uploadRowsChannelListing(){
 function downloadErrorsChannelListing(){
 	if(errorArray.length==0){
 		$.toast({
-                    heading: 'Error',
+                    heading: 'Info',
                     text: 'There are no errors to download !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
                     hideAfter: 3000,
-                    icon: 'error',
+                    icon: 'info',
                     allowToastClose: true,
                 });
 		return false;
@@ -211,7 +210,9 @@ function displayChannelDropDownList(data){
     $('#channelSelected').empty();
     var options = '<option value="0" selected>Select Channel</option>';
     $.each(data, function(index, value) {
+    if(value.id!=1){
         options += '<option value="' + value.id + '">' + value.name + '</option>';
+    }
     });
     $('#channelSelect').append(options);
     $('#channelSelected').append(options);

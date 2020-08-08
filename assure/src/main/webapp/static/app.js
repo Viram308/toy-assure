@@ -22,7 +22,6 @@ function handleAjaxError(jqXHR){
             text: "Some error occurred. Please try after some time.",
             position: 'bottom-right',
             showHideTransition: 'fade',
-            hideAfter: 3000,
             icon: 'error',
             allowToastClose: true
         });

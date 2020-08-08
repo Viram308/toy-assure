@@ -70,6 +70,7 @@ public class ConverterUtil {
         binSkuData.setBinSkuId(binSku.getId());
         binSkuData.setQuantity(binSku.getQuantity());
         binSkuData.setGlobalSkuId(product.getGlobalSkuId());
+        binSkuData.setClientSkuId(product.getClientSkuId());
         binSkuData.setProductName(product.getName());
         binSkuData.setBrandId(product.getBrandId());
         binSkuData.setClientName(client.getName());
@@ -79,6 +80,7 @@ public class ConverterUtil {
     public static InventoryData convertInventoryToInventoryData(Inventory inventory,Product product,Client client) {
         InventoryData inventoryData = new InventoryData();
         inventoryData.setClientName(client.getName());
+        inventoryData.setClientSkuId(product.getClientSkuId());
         inventoryData.setProductName(product.getName());
         inventoryData.setBrandId(product.getBrandId());
         inventoryData.setAvailableQuantity(inventory.getAvailableQuantity());
@@ -128,6 +130,7 @@ public class ConverterUtil {
         orderItemData.setBrandId(product.getBrandId());
         orderItemData.setOrderedQuantity(orderItem.getOrderedQuantity());
         orderItemData.setSellingPricePerUnit(orderItem.getSellingPricePerUnit());
+        orderItemData.setAllocatedQuantity(orderItem.getAllocatedQuantity());
         return orderItemData;
     }
 

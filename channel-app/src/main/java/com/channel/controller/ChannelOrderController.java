@@ -52,7 +52,7 @@ public class ChannelOrderController {
     @ApiOperation(value = "Gets order items by orderId")
     @RequestMapping(value = "/items/{id}", method = RequestMethod.GET)
     public List<ChannelOrderItemData> getOrderItemsByOrderId(@PathVariable Long id) {
-        logger.info("get all order items for orderId");
+        logger.info("get all order items for orderId : " + id);
         return channelOrderDto.getOrderItems(id);
     }
 

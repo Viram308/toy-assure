@@ -17,6 +17,7 @@ import com.assure.util.ConverterUtil;
 import com.assure.validator.BinSkuCsvFormValidator;
 import com.commons.api.ApiException;
 import com.commons.api.CustomValidationException;
+import com.commons.util.StringUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -100,9 +101,12 @@ public class BinSkuDto {
 
     @Transactional(readOnly = true)
     public List<BinSkuData> searchBinSku(BinSkuSearchForm binSkuSearchForm) {
-        List<Product> productList = productApi.search(binSkuSearchForm.getProductName());
-        if (binSkuSearchForm.getClientId() != 0) {
-            productList = productList.stream().filter(o -> (binSkuSearchForm.getClientId().equals(o.getClientId()))).collect(Collectors.toList());
+        List<Product> productList = productApi.getAll();
+        if(binSkuSearchForm.getClientId() != 0) {
+            productList = productList.stream().filter(o -> o.getClientId().equals(binSkuSearchForm.getClientId())).collect(Collectors.toList());
+        }
+        if (!StringUtil.isEmpty(binSkuSearchForm.getClientSkuId())) {
+            productList = productList.stream().filter(o -> o.getClientSkuId().equals(binSkuSearchForm.getClientSkuId())).collect(Collectors.toList());
         }
         List<Long> globalSkuIdList = productList.stream().map(Product::getGlobalSkuId).collect(Collectors.toList());
         if (globalSkuIdList.isEmpty()) {

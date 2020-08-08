@@ -11,12 +11,12 @@ function addChannel(){
 	var name=$("#channel-add-form input[name=channelName]").val().trim();
 		if(name==""){
 			$.toast({
-            heading: 'Error',
+            heading: 'Info',
             text: "Please enter name !!",
             position: 'bottom-right',
             showHideTransition: 'fade',
             hideAfter: 3000,
-            icon: 'error',
+            icon: 'info',
             allowToastClose: true
         });
 			return false;
@@ -77,12 +77,12 @@ function updateChannel(){
    var name=$("#channel-edit-form input[name=channelName]").val().trim();
 		if(name==""){
 			$.toast({
-            heading: 'Error',
+            heading: 'Info',
             text: "Please enter name !!",
             position: 'bottom-right',
             showHideTransition: 'fade',
             hideAfter: 3000,
-            icon: 'error',
+            icon: 'info',
             allowToastClose: true
         });
 			return false;
@@ -148,6 +148,7 @@ function displayChannelList(data){
 	for(var i in data){
 		var e = data[i];
 		// dynamic buttons
+		if(e.id!=1){
 		var buttonHtml = ' <button class="btn btn-outline-success" onclick="displayEditChannel(' + e.id + ')">Edit</button>'
 		var row = '<tr>'
 		+ '<td>' + j + '</td>'
@@ -157,6 +158,7 @@ function displayChannelList(data){
 		+ '</tr>';
 		$tbody.append(row);
 		j++;
+	}
 	}
 }
 

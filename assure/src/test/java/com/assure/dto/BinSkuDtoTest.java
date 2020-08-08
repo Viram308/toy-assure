@@ -24,10 +24,10 @@ import static org.mockito.Mockito.when;
 
 public class BinSkuDtoTest extends AbstractUnitTest {
     private ClientForm clientForm1,clientForm2;
-    private ProductForm productForm1,productForm2,productForm3;
+    private ProductForm productForm1,productForm2;
     private BinForm binForm1,binForm2;
-    private ProductCsvForm productCsvForm = new ProductCsvForm();
-    private BinSkuCsvForm binSkuCsvForm = new BinSkuCsvForm();
+    private final ProductCsvForm productCsvForm = new ProductCsvForm();
+    private final BinSkuCsvForm binSkuCsvForm = new BinSkuCsvForm();
     private BinSkuForm binSkuForm1,binSkuForm2;
     private BinSkuSearchForm binSkuSearchForm;
     private BinSkuUpdateForm binSkuUpdateForm;
@@ -48,9 +48,8 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         clientForm2 = createClientForm("viram308",ClientType.CUSTOMER);
         productForm1 = createProductForm("munch",10.00,"excellent","prod1","nestle");
         productForm2 = createProductForm("kitkat",15.00,"nice","prod2","britannia");
-        productForm3 = createProductForm("munch",10.50,"nice","prod1","nestle");
-        binForm1 = createBinForm(1L);
-        binForm2 = createBinForm(1L);
+        binForm1 = createBinForm();
+        binForm2 = createBinForm();
         binSkuForm1 = createBinSkuForm(20L);
         binSkuForm2 = createBinSkuForm(30L);
         binSkuSearchForm = createBinSkuSearchForm();
@@ -68,7 +67,7 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         BinSkuSearchForm binSkuSearchForm = new BinSkuSearchForm();
         binSkuSearchForm.setBinId(1000L);
         binSkuSearchForm.setClientId(0L);
-        binSkuSearchForm.setProductName("");
+        binSkuSearchForm.setClientSkuId("");
         return binSkuSearchForm;
     }
 
@@ -78,9 +77,9 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         return binSkuForm;
     }
 
-    private BinForm createBinForm(Long noOfBins){
+    private BinForm createBinForm(){
         BinForm binForm = new BinForm();
-        binForm.setNoOfBins(noOfBins);
+        binForm.setNoOfBins(1L);
         return binForm;
     }
     private ProductForm createProductForm(String productName,double mrp,String description,String clientSkuId,String brandId) {
@@ -170,10 +169,10 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         binSkuDto.addBinSku(binSkuCsvForm,result);
         List<BinSkuData> binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
         assertEquals(1,binSkuDataList.size());
-        binSkuSearchForm.setProductName("hii");
+        binSkuSearchForm.setClientSkuId("hii");
         binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
         assertNull(binSkuDataList);
-        binSkuSearchForm.setProductName("");
+        binSkuSearchForm.setClientSkuId("");
         binSkuSearchForm.setClientId(binSkuForm1.getClientId());
         binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
         assertEquals(1,binSkuDataList.size());

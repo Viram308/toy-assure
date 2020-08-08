@@ -54,12 +54,26 @@ function addBin(){
             icon: 'success',
             allowToastClose: true
         });
+	   		var values = '';
+	   		$.each(data, function(index, value) {
+	   			values += value + '\n';
+	   		});
+	   		downloadBinFile(values);
 	   		getBinList();
 	   	},
 	   	error: handleAjaxError
 	   });
 
 	return false;
+}
+
+
+function downloadBinFile(values){
+	var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:application/txt;charset=utf-8,' + encodeURI(values);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'bin.txt';
+    hiddenElement.click();
 }
 
 //BUTTON ACTIONS
@@ -173,7 +187,6 @@ function readFileDataCallbackBin(results){
                     text: 'File Contains more than 5000 rows !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
-                    hideAfter: 3000,
                     icon: 'error',
                     allowToastClose: true,
                 });
@@ -237,12 +250,12 @@ function uploadRowsBin(){
 function downloadErrorsBin(){
 	if(errorArray.length==0){
 		$.toast({
-                    heading: 'Error',
+                    heading: 'Info',
                     text: 'There are no errors to download !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
                     hideAfter: 3000,
-                    icon: 'error',
+                    icon: 'info',
                     allowToastClose: true,
                 });
 		return false;
@@ -264,6 +277,7 @@ function displayBinListInTable(data){
 		+ '<td>' + j + '</td>'
 		+ '<td>' + e.binId + '</td>'
 		+ '<td>'  + e.clientName + '</td>'
+		+ '<td>'  + e.clientSkuId + '</td>'
 		+ '<td>'  + e.productName + '</td>'
 		+ '<td>' + e.brandId + '</td>'
 		+ '<td>' + e.quantity + '</td>'
@@ -328,6 +342,15 @@ function displayClientDropDownList(data){
     $('#clientSelected').append(options);
 }
 
+function displayClientSkuDropDownList(data){
+	$('#inputClientSku').empty();
+    var options = '<option value="" selected>Select ClientSkuId</option>';
+    $.each(data, function(index, value) {
+        options += '<option value="' + value + '">' + value + '</option>';
+    });
+    $('#inputClientSku').append(options);
+}
+
 function displayBinListInDropDown(data){
     $('#binSelect').empty();
     var options = '<option value="0" selected>Select Bin</option>';
@@ -349,7 +372,17 @@ function getClientList(){
         error: handleAjaxError
 	});
 }
-
+function getClientSkuByClientId(clientId){
+	var url = getProductUrl() + "/getClientSku/"+clientId;
+	$.ajax({
+        url: url,
+        type: 'GET',
+        success: function(data) {
+            displayClientSkuDropDownList(data);
+        },
+        error: handleAjaxError
+	});
+}
 function validateFields(){
    var clientDropDown = $("#upload-binInventory-modal select[name=clientName]");
    if (clientDropDown.val() == '' || clientDropDown.val() == undefined || clientDropDown.val() == 0) {
@@ -405,6 +438,12 @@ function init(){
 	$('#process-data-binInventory').click(processDataBin);
 	$('#download-errors-binInventory').click(downloadErrorsBin);
 	$('#binInventoryFile').on('change', updateFileNameBin);
+
+	$('#bin-form select[name=clientId]').change(function(){
+      var clientId = $(this).find("option:selected").val();
+      getClientSkuByClientId(clientId);
+    });
+
 }
 
 $(document).ready(init);

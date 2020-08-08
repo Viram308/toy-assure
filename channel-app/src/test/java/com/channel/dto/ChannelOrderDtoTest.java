@@ -7,6 +7,7 @@ import com.channel.assure.OrderItemAssure;
 import com.channel.assure.ProductAssure;
 import com.channel.model.form.ChannelForm;
 import com.channel.model.response.ChannelOrderItemData;
+import com.channel.pojo.Channel;
 import com.channel.pojo.ChannelListing;
 import com.channel.spring.AbstractUnitTest;
 import com.commons.api.CustomValidationException;
@@ -38,7 +39,7 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
     private ProductData productData1, productData2;
     private ClientData clientData,customerData;
     private OrderData orderData;
-    private ChannelForm channelForm1;
+    private ChannelForm channelForm1,channelForm2;
     private OrderSearchForm orderSearchForm;
     private OrderItemData orderItemData1,orderItemData2;
     private ChannelListing channelListing1,channelListing2;
@@ -61,6 +62,7 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
     public void setUp(){
         MockitoAnnotations.initMocks(this);
         channelForm1 = createChannelForm();
+        channelForm2 = createChannelForm();
         orderItemForm1 = createOrderItemForm(10,15L);
         orderItemForm2 = createOrderItemForm(15,20L);
         clientData = createClientData(1L,"viram", ClientType.CLIENT.toString());
@@ -241,6 +243,19 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
         InvoiceData invoiceData = channelOrderDto.getInvoiceData(1L);
         assertNotNull(invoiceData);
         assertEquals(2,invoiceData.getInvoiceItemDataList().size());
+    }
+
+    @Test
+    public void testGetOrderDataExceptInternalChannel(){
+        channelForm2.setChannelName("internal");
+        channelForm2.setInvoiceType("SELF");
+        ChannelData channelData = channelDto.addChannel(channelForm2);
+        orderData.setChannelId(channelData.getId());
+        List<OrderData> orderDataList = new ArrayList<>();
+        orderDataList.add(orderData);
+        assertEquals(1,orderDataList.size());
+        orderDataList = channelOrderDto.getOrderDataExceptInternalChannel(orderDataList);
+        assertEquals(0,orderDataList.size());
     }
 
 }

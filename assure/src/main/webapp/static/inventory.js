@@ -59,6 +59,7 @@ function displayInventoryListInTable(data){
 		var row = '<tr>'
 		+ '<td>' + j + '</td>'
 		+ '<td>' + e.clientName + '</td>'
+		+ '<td>' + e.clientSkuId + '</td>'
 		+ '<td>'  + e.productName + '</td>'
 		+ '<td>' + e.brandId + '</td>'
 		+ '<td>' + e.availableQuantity + '</td>'

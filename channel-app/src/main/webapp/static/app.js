@@ -22,7 +22,6 @@ function handleAjaxError(jqXHR){
             text: "Some error occurred. Please try after some time.",
             position: 'bottom-right',
             showHideTransition: 'fade',
-            hideAfter: 3000,
             icon: 'error',
             allowToastClose: true
         });
@@ -47,7 +46,6 @@ function handleAjaxError(jqXHR){
                 text: "Error occurred while traversing request. Please download error file.",
                 position: 'bottom-right',
                 showHideTransition: 'fade',
-                hideAfter: 5000,
                 icon: 'error',
                 allowToastClose: true
             });
@@ -58,7 +56,6 @@ function handleAjaxError(jqXHR){
                 text: response.message,
                 position: 'bottom-right',
                 showHideTransition: 'fade',
-                hideAfter: 5000,
                 icon: 'error',
                 allowToastClose: true
             });

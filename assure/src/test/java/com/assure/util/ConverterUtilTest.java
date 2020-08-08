@@ -217,6 +217,7 @@ public class ConverterUtilTest extends AbstractUnitTest {
         assertEquals(product.getName(),orderItemData.getProductName());
         assertEquals(orderItem.getOrderedQuantity(),orderItemData.getOrderedQuantity());
         assertEquals(orderItem.getSellingPricePerUnit(),orderItemData.getSellingPricePerUnit(),0.01);
+        assertEquals(orderItem.getAllocatedQuantity(),orderItemData.getAllocatedQuantity());
     }
 
     @Test

@@ -65,11 +65,13 @@ public class ProductDto {
 
     @Transactional(readOnly = true)
     public List<ProductData> searchProducts(ProductSearchForm productSearchForm) {
-        List<Product> productList = productApi.search(productSearchForm.getProductName());
-        if(productSearchForm.getClientId() == 0) {
-            return productList.stream().map(o -> ConverterUtil.convertProductToProductData(o, clientApi.get(o.getClientId()))).collect(Collectors.toList());
+        List<Product> productList = productApi.getAll();
+        if(productSearchForm.getClientId() != 0) {
+            productList = productList.stream().filter(o -> o.getClientId().equals(productSearchForm.getClientId())).collect(Collectors.toList());
         }
-        productList = productList.stream().filter(o->(productSearchForm.getClientId().equals(o.getClientId()))).collect(Collectors.toList());
+        if (!StringUtil.isEmpty(productSearchForm.getClientSkuId())) {
+            productList = productList.stream().filter(o -> o.getClientSkuId().equals(productSearchForm.getClientSkuId())).collect(Collectors.toList());
+        }
         return productList.stream().map(o -> ConverterUtil.convertProductToProductData(o, clientApi.get(o.getClientId()))).collect(Collectors.toList());
     }
 
@@ -96,10 +98,16 @@ public class ProductDto {
         }
         return null;
     }
-
+    public List<String> getClientSkuIds(Long clientId) {
+        List<Product> productList = productApi.getByClientId(clientId);
+        List<ProductData> productDataList = productList.stream().map(o->ConverterUtil.convertProductToProductData(o,clientApi.get(o.getClientId()))).collect(Collectors.toList());
+        return productDataList.stream().map(ProductData::getClientSkuId).collect(Collectors.toList());
+    }
     public void validate(ProductForm productForm){
         if(StringUtil.isEmpty(productForm.getBrandId()) || StringUtil.isEmpty(productForm.getProductName()) || productForm.getMrp() <= 0){
             throw new ApiException("Please enter brandId,productName and valid MRP !!");
         }
     }
+
+
 }

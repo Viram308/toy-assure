@@ -257,7 +257,7 @@ public class OrderDtoTest extends AbstractUnitTest {
         when(channelDataApi.getChannelDetails(1L)).thenReturn(channelData);
         orderDto.addOrder(orderCsvForm,result2);
         List<OrderData> orderDataList = orderDto.searchChannelOrder(orderSearchForm);
-        assertEquals(0,orderDataList.size());
+        assertEquals(1,orderDataList.size());
         orderSearchForm.setOrderStatus(OrderStatus.CREATED.toString());
         orderDataList = orderDto.searchChannelOrder(orderSearchForm);
         assertEquals(0,orderDataList.size());

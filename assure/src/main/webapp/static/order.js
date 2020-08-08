@@ -71,7 +71,6 @@ function readFileDataCallbackOrder(results){
                     text: 'File Contains more than 5000 rows !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
-                    hideAfter: 3000,
                     icon: 'error',
                     allowToastClose: true,
                 });
@@ -142,12 +141,12 @@ function uploadRowsOrder(){
 function downloadErrorsOrder(){
 	if(errorArray.length==0){
 		$.toast({
-                    heading: 'Error',
+                    heading: 'Info',
                     text: 'There are no errors to download !!',
                     position: 'bottom-right',
                     showHideTransition: 'fade',
                     hideAfter: 3000,
-                    icon: 'error',
+                    icon: 'info',
                     allowToastClose: true,
                 });
 		return false;
@@ -184,6 +183,7 @@ function displayOrderItems(data){
 		+ '<td>' + e.productName + '</td>'
 		+ '<td>' + e.brandId + '</td>'
 		+ '<td>' + e.orderedQuantity + '</td>'
+        + '<td>' + e.allocatedQuantity + '</td>'
 		+ '<td>' + e.sellingPricePerUnit + '</td>'
 		+ '</tr>';
 		$tbodyViewOrder.append(row);
@@ -269,8 +269,8 @@ function base64ToArrayBuffer(base64) {
 
 
 
- function allocateOrder(){
-	var url = getOrderUrl()+"/allocate";
+ function allocateOrder(orderId){
+	var url = getOrderUrl()+"/allocate/"+orderId;
 	$.ajax({
         url: url,
         type: 'GET',
@@ -300,10 +300,16 @@ function displayOrderList(data){
 	var count=1;
 	for(var i in data){
 		var e = data[i];
+        if(e.status === 'CREATED') {
+            var buttonHtml0 = '<button type="button" class="btn btn-outline-primary" onclick="allocateOrder('+e.orderId+')">Allocate</button>'
+        } else{
+            var buttonHtml0 = '<button type="button" class="btn btn-outline-primary" disabled>Allocate</button>'
+        }
+
 		if(e.status === 'ALLOCATED') {
-		    var buttonHtml1 = '<button type="button" class="btn btn-outline-primary" onclick="fulfillOrder('+e.orderId+')">Fulfill Order</button>'
+		    var buttonHtml1 = '<button type="button" class="btn btn-outline-primary" onclick="fulfillOrder('+e.orderId+')">Fulfill</button>'
 		} else{
-            var buttonHtml1 = '<button type="button" class="btn btn-outline-secondary" disabled>Fulfill Order</button>'
+            var buttonHtml1 = '<button type="button" class="btn btn-outline-primary" disabled>Fulfill</button>'
         }
 		if(e.status === 'FULFILLED') {
 		    var buttonHtml2 = '<button type="button" class="btn btn-outline-success" onclick="downloadPdf('+ e.orderId +')">Download</button>'
@@ -318,6 +324,7 @@ function displayOrderList(data){
 		+ '<td>' + e.channelName + '</td>'
         + '<td>' + e.channelOrderId + '</td>'
         + '<td>' + e.status + '</td>'
+        + '<td>' + buttonHtml0 + '</td>'
 		+ '<td>' + buttonHtml1 + '</td>'
 		+ '<td>' + buttonHtml2 + '</td>'
 		+ '<td>' + buttonHtml3 + '</td>'
@@ -465,7 +472,6 @@ function init(){
 	$('#process-data-order').click(processDataOrder);
 	$('#download-errors-order').click(downloadErrorsOrder);
 	$('#orderFile').on('change', updateFileNameOrder);
-	$('#allocate-order').click(allocateOrder);
 }
 
 $(document).ready(init);

@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class ProductSearchForm {
     private Long clientId;
-    private String productName;
+    private String clientSkuId;
 }

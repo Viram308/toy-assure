@@ -4490,3 +4490,851 @@ java.lang.NoClassDefFoundError: Could not initialize class org.springframework.w
 2020-08-05 15:33:19 INFO  ChannelOrderController:70 - Download Order from channel
 2020-08-05 15:33:34 INFO  ChannelOrderController:56 - get all order items for orderId
 2020-08-05 15:33:34 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:22:23 INFO  ChannelApiController:64 - get all channels
+2020-08-08 13:22:23 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:32 INFO  ChannelApiController:64 - get all channels
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:22:32 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:56 INFO  ChannelApiController:64 - get all channels
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:23:56 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:24:05 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:50 INFO  ChannelApiController:64 - get all channels
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:50 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:51 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:26:52 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:28:21 INFO  ChannelApiController:64 - get all channels
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:28:22 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:29:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:03 INFO  ChannelApiController:64 - get all channels
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:07 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:30:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:64 - get all channels
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:16 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:39:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:64 - get all channels
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:15 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:20 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:20 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:20 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:20 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 13:40:20 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 13:40:20 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:29 INFO  ChannelApiController:64 - get all channels
+2020-08-08 16:04:30 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:04:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:06 INFO  ChannelApiController:71 - get all clients
+2020-08-08 16:05:06 INFO  ChannelOrderController:41 - getting channel orders
+2020-08-08 16:05:06 INFO  ChannelApiController:78 - get all customers
+2020-08-08 16:05:06 INFO  ChannelApiController:64 - get all channels
+2020-08-08 16:05:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:05:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:36 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:05:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:40 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:05:40 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:05:49 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:05:49 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:05:53 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:05:53 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:05:56 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:05:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:06:05 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:06:05 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:06:08 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:06:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:06:21 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:06:21 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:06:24 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:06:24 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:10:52 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:10:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:15:17 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:15:17 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:18:10 INFO  ChannelOrderController:55 - get all order items for orderId
+2020-08-08 16:18:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:21:48 INFO  ChannelOrderController:41 - getting channel orders
+2020-08-08 16:21:48 INFO  ChannelApiController:78 - get all customers
+2020-08-08 16:21:48 INFO  ChannelApiController:71 - get all clients
+2020-08-08 16:21:48 INFO  ChannelApiController:64 - get all channels
+2020-08-08 16:21:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:49 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:21:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:49 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:50 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:21:50 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:21:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:50 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:21:50 INFO  ChannelListingController:53 - get all channel listing
+2020-08-08 16:21:50 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:21:50 INFO  ChannelApiController:71 - get all clients
+2020-08-08 16:21:50 INFO  ChannelApiController:64 - get all channels
+2020-08-08 16:56:05 INFO  ChannelOrderController:41 - getting channel orders
+2020-08-08 16:56:05 INFO  ChannelApiController:71 - get all clients
+2020-08-08 16:56:05 INFO  ChannelApiController:78 - get all customers
+2020-08-08 16:56:05 INFO  ChannelApiController:64 - get all channels
+2020-08-08 16:56:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:09 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:56:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:56:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:56:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:56:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 16:56:22 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 16:56:27 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:56:27 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:56:27 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 16:56:27 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:20:20 INFO  ChannelOrderController:41 - getting channel orders
+2020-08-08 20:20:22 INFO  ChannelApiController:71 - get all clients
+2020-08-08 20:20:22 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:20:22 INFO  ChannelApiController:78 - get all customers
+2020-08-08 20:20:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:20:26 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:20:30 INFO  ChannelOrderController:55 - get all order items for orderId : 12
+2020-08-08 20:20:30 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:09 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:12 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:24 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:25 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:46 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:23:47 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:08 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:10 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:11 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:24:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:25:54 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 20:25:54 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:25:54 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:25:54 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:25:55 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:25:59 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 20:25:59 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:03 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 20:26:07 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 20:26:10 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 20:26:10 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:12 INFO  ChannelOrderController:55 - get all order items for orderId : 12
+2020-08-08 20:26:12 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:23 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:26:27 INFO  ChannelOrderController:41 - getting channel orders
+2020-08-08 20:26:27 INFO  ChannelApiController:71 - get all clients
+2020-08-08 20:26:27 INFO  ChannelApiController:78 - get all customers
+2020-08-08 20:26:27 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:27 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:34 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 20:26:37 INFO  ChannelOrderController:41 - getting channel orders
+2020-08-08 20:26:37 INFO  ChannelApiController:71 - get all clients
+2020-08-08 20:26:37 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:26:37 INFO  ChannelApiController:78 - get all customers
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:26:37 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:26:40 INFO  ChannelApiController:43 - get channel for id : 1
+2020-08-08 20:26:49 INFO  ChannelListingController:53 - get all channel listing
+2020-08-08 20:26:49 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:26:49 INFO  ChannelApiController:71 - get all clients
+2020-08-08 20:31:03 INFO  ChannelOrderController:41 - getting channel orders
+2020-08-08 20:31:03 INFO  ChannelApiController:71 - get all clients
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:03 INFO  ChannelApiController:78 - get all customers
+2020-08-08 20:31:03 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:31:03 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:31:08 INFO  ChannelApiController:43 - get channel for id : 1
+2020-08-08 20:32:43 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:32:47 INFO  ChannelListingController:53 - get all channel listing
+2020-08-08 20:32:47 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:32:47 INFO  ChannelApiController:71 - get all clients
+2020-08-08 20:33:53 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:35:32 INFO  ChannelListingController:53 - get all channel listing
+2020-08-08 20:35:32 INFO  ChannelApiController:71 - get all clients
+2020-08-08 20:35:32 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:35:46 INFO  ChannelListingController:39 - search channel Listing
+2020-08-08 20:37:57 INFO  ChannelListingController:32 - adding channel listing
+2020-08-08 20:37:58 INFO  ChannelListingDto:54 - No errors in channelListing csv file
+2020-08-08 20:38:01 INFO  ChannelListingDto:62 - Channel Listing added
+2020-08-08 20:38:02 INFO  ChannelListingController:39 - search channel Listing
+2020-08-08 20:38:19 INFO  ChannelOrderController:41 - getting channel orders
+2020-08-08 20:38:19 INFO  ChannelApiController:71 - get all clients
+2020-08-08 20:38:19 INFO  ChannelApiController:78 - get all customers
+2020-08-08 20:38:19 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:19 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:22 INFO  ChannelApiController:43 - get channel for id : 1
+2020-08-08 20:38:25 INFO  ChannelListingController:62 - get all channel listing by channel client
+2020-08-08 20:38:33 INFO  ChannelListingController:46 - get channel listing
+2020-08-08 20:38:35 INFO  ChannelListingController:46 - get channel listing
+2020-08-08 20:38:37 INFO  ChannelOrderController:34 - adding channel order
+2020-08-08 20:38:37 INFO  ChannelOrderCsvFormValidator:42 - Validate
+2020-08-08 20:38:37 INFO  ChannelOrderCsvFormValidator:47 - Validate item
+2020-08-08 20:38:37 INFO  ChannelOrderCsvFormValidator:53 - validate client
+2020-08-08 20:38:37 INFO  ChannelOrderCsvFormValidator:60 - validate customer
+2020-08-08 20:38:37 INFO  ChannelOrderCsvFormValidator:67 - validate channel
+2020-08-08 20:38:37 INFO  ChannelOrderCsvFormValidator:74 - validate order
+2020-08-08 20:38:37 INFO  ChannelOrderCsvFormValidator:81 - validate product
+2020-08-08 20:38:38 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 20:38:38 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:38 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:38 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:38 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:38 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:41 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:52 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:55 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:38:56 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:39:32 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:39:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:32 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:33 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:35 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:36 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:42 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:64 - get all channels
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:57 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:39:59 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:00 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:40:02 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:40:02 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:04 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:40:42 INFO  ChannelOrderController:48 - search channel orders
+2020-08-08 20:40:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:42 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:42 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:43 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:43 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:43 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-08 20:40:43 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-08 20:40:43 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 20:40:45 INFO  ChannelOrderController:69 - Download Order from channel
+2020-08-08 20:40:51 INFO  ChannelOrderController:55 - get all order items for orderId : 14
+2020-08-08 20:40:51 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 21:03:12 INFO  ChannelOrderController:69 - Download Order from channel
+2020-08-08 21:03:14 INFO  ChannelOrderDto:179 - got pdf 7672
+2020-08-08 21:03:19 INFO  ChannelOrderController:55 - get all order items for orderId : 14
+2020-08-08 21:03:30 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 21:03:38 INFO  ChannelOrderController:55 - get all order items for orderId : 14
+2020-08-08 21:03:38 INFO  ChannelApiController:36 - get channel for id : 5
+2020-08-08 21:04:21 INFO  ChannelOrderController:69 - Download Order from channel
+2020-08-08 21:04:21 INFO  ChannelOrderDto:184 - 5756

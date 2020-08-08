@@ -23,9 +23,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ProductDtoTest extends AbstractUnitTest {
-    private ClientForm clientForm1,clientForm2;
+    private ClientForm clientForm1;
     private ProductForm productForm1,productForm2,productForm3;
-    private ProductCsvForm productCsvForm = new ProductCsvForm();
+    private final ProductCsvForm productCsvForm = new ProductCsvForm();
     private ProductSearchForm productSearchForm;
 
     @Autowired
@@ -36,16 +36,15 @@ public class ProductDtoTest extends AbstractUnitTest {
     @Before
     public void setUp(){
         clientForm1 = createClientForm("viram", ClientType.CLIENT);
-        clientForm2 = createClientForm("viram308",ClientType.CUSTOMER);
         productForm1 = createProductForm("munch",10.00,"excellent","prod1","nestle");
         productForm2 = createProductForm("kitkat",15.00,"nice","prod2","britannia");
-        productForm3 = createProductForm("munch",10.50,"nice","prod1","nestle");
+        productForm3 = createProductForm("munch",10.50,"nice","prod3","nestle");
         productSearchForm = createProductSearchForm();
     }
 
     private ProductSearchForm createProductSearchForm() {
         ProductSearchForm productSearchForm = new ProductSearchForm();
-        productSearchForm.setProductName("mun");
+        productSearchForm.setClientSkuId("");
         productSearchForm.setClientId(0L);
         return productSearchForm;
     }
@@ -112,11 +111,11 @@ public class ProductDtoTest extends AbstractUnitTest {
         when(result.hasErrors()).thenReturn(false);
         productDto.addProducts(productCsvForm,result);
         List<ProductData> productDataList = productDto.searchProducts(productSearchForm);
-        assertEquals(1,productDataList.size());
-        productSearchForm.setProductName("");
+        assertEquals(2,productDataList.size());
+        productSearchForm.setClientSkuId("prod1");
         productSearchForm.setClientId(productForm1.getClientId());
         productDataList = productDto.searchProducts(productSearchForm);
-        assertEquals(2,productDataList.size());
+        assertEquals(1,productDataList.size());
     }
 
     @Test
@@ -167,6 +166,18 @@ public class ProductDtoTest extends AbstractUnitTest {
         productDto.validate(productForm1);
     }
 
+    @Test
+    public void testGetClientSkuByClientId(){
+        addProduct();
+        BindingResult result = mock(BindingResult.class);
+        when(result.hasErrors()).thenReturn(false);
+        productDto.addProducts(productCsvForm,result);
+        List<String> clientSkuIdList = productDto.getClientSkuIds(productForm1.getClientId());
+        assertEquals(2,clientSkuIdList.size());
+        assertEquals(productForm1.getClientSkuId(),clientSkuIdList.get(0));
+        assertEquals(productForm2.getClientSkuId(),clientSkuIdList.get(1));
+
+    }
 
 
 
