@@ -22,8 +22,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.File;
@@ -281,7 +279,7 @@ public class OrderDto {
         channelDataApi.generateInvoice(id);
     }
 
-    public byte[] downloadInvoice(Long id, HttpServletResponse response) throws IOException{
+    public byte[] downloadInvoice(Long id) throws IOException{
         byte[] fileInBytes;
         File file = new File(String.valueOf(Paths.get(PDF_PATH+"order"+id+".pdf")));
         if(!(file.exists() && file.isFile())) {
@@ -296,25 +294,8 @@ public class OrderDto {
             fileInBytes = Files.readAllBytes(Paths.get(PDF_PATH+"order"+id+".pdf"));
             logger.info(fileInBytes.length);
             return Base64.getEncoder().encode(fileInBytes);
-//            createResponse(encodedBytes,response);
         }
 
-    }
-
-    private void createResponse(byte[] encodedBytes, HttpServletResponse response) throws IOException {
-        String pdfFileName = "output.pdf";
-        response.reset();
-        response.addHeader("Pragma", "public");
-        response.addHeader("Cache-Control", "max-age=0");
-        response.setHeader("Content-disposition", "attachment;filename=" + pdfFileName);
-        response.setContentType("application/pdf");
-
-        // avoid "byte shaving" by specifying precise length of transferred data
-        response.setContentLength(encodedBytes.length);
-        ServletOutputStream servletOutputStream = response.getOutputStream();
-        servletOutputStream.write(encodedBytes);
-        servletOutputStream.flush();
-        servletOutputStream.close();
     }
 
 

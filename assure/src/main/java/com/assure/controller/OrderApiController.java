@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
@@ -109,8 +108,8 @@ public class OrderApiController {
 
     @ApiOperation(value = "Download invoice")
     @RequestMapping(value = "/download/{id}", method = RequestMethod.GET)
-    public byte[] downloadInvoice(@PathVariable Long id, HttpServletResponse response) throws ParserConfigurationException, IOException, FOPException, TransformerException {
+    public byte[] downloadInvoice(@PathVariable Long id) throws ParserConfigurationException, IOException, FOPException, TransformerException {
         logger.info("Download Order");
-        return orderDto.downloadInvoice(id,response);
+        return orderDto.downloadInvoice(id);
     }
 }
