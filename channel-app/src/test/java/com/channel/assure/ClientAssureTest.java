@@ -8,13 +8,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
@@ -29,11 +27,10 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withStatus;
 
-@RunWith(SpringRunner.class)
 public class ClientAssureTest extends AbstractUnitTest {
 
     List<ClientData> clientResponseList;
-    ClientData client1;
+    ClientData client1,customer;
 
     @Autowired
     private ClientAssure clientAssure;
@@ -54,11 +51,11 @@ public class ClientAssureTest extends AbstractUnitTest {
         clientResponseList = new ArrayList<>();
 
         client1 = createObject("cli1", ClientType.CLIENT, 1L);
-        clientResponseList.add(client1);
+        customer = createObject("cli2",ClientType.CUSTOMER,2L);
 
     }
 
-    public ClientData createObject(String name, ClientType type, Long id){
+    private ClientData createObject(String name, ClientType type, Long id){
         ClientData ClientData = new ClientData();
         ClientData.setName(name);
         ClientData.setType(type.toString());
@@ -67,9 +64,10 @@ public class ClientAssureTest extends AbstractUnitTest {
     }
 
     @Test
-    public void testGetChannelDetails() {
+    public void testGetClientDetails() {
 
         List<ClientData> responseList = null;
+        clientResponseList.add(client1);
         try {
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL + "/client/allClients")))
@@ -90,4 +88,56 @@ public class ClientAssureTest extends AbstractUnitTest {
         assertEquals(client1.getName(), responseList.get(0).getName());
         assertEquals(client1.getType(), responseList.get(0).getType());
     }
+
+    @Test
+    public void testGetCustomerDetails() {
+
+        List<ClientData> responseList = null;
+        clientResponseList.add(customer);
+        try {
+            mockServer.expect(ExpectedCount.once(),
+                    requestTo(new URI(SERVER_URL + "/client/allCustomers")))
+                    .andExpect(method(HttpMethod.GET))
+                    .andRespond(withStatus(HttpStatus.OK)
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .body(mapper.writeValueAsString(clientResponseList))
+                    );
+            responseList = clientAssure.getCustomerDetails();
+
+        } catch (URISyntaxException | JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        mockServer.verify();
+        Assert.assertNotNull(responseList);
+        assertEquals(1,responseList.size());
+        assertEquals(customer.getId(), responseList.get(0).getId());
+        assertEquals(customer.getName(), responseList.get(0).getName());
+        assertEquals(customer.getType(), responseList.get(0).getType());
+    }
+
+    @Test
+    public void testGetClientDetailsById() {
+
+        ClientData clientData = new ClientData();
+
+        try {
+            mockServer.expect(ExpectedCount.once(),
+                    requestTo(new URI(SERVER_URL + "/client/"+client1.getId())))
+                    .andExpect(method(HttpMethod.GET))
+                    .andRespond(withStatus(HttpStatus.OK)
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .body(mapper.writeValueAsString(client1))
+                    );
+            clientData = clientAssure.getClientData(client1.getId());
+
+        } catch (URISyntaxException | JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        mockServer.verify();
+        Assert.assertNotNull(clientData);
+        assertEquals(client1.getId(), clientData.getId());
+        assertEquals(client1.getName(), clientData.getName());
+        assertEquals(client1.getType(), clientData.getType());
+    }
+
 }

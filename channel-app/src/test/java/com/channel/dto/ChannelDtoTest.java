@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
 public class ChannelDtoTest extends AbstractUnitTest {
     private ChannelForm channelForm1,channelForm2;
     private ClientData clientData1,clientData2;
-    private ChannelListing channelListing1, channelListing2;
+    private ChannelListing channelListing1;
 
     @Autowired
     private ChannelDto channelDto;
@@ -43,7 +43,6 @@ public class ChannelDtoTest extends AbstractUnitTest {
         clientData1 = createClientData(1L,"viram",ClientType.CLIENT.toString());
         clientData2 = createClientData(2L,"viram308",ClientType.CUSTOMER.toString());
         channelListing1 = createChannelListing();
-        channelListing2 = createChannelListing();
     }
 
     private ChannelListing createChannelListing() {

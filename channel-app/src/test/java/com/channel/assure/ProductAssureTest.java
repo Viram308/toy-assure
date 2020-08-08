@@ -6,13 +6,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
@@ -22,12 +20,12 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withStatus;
 
-@RunWith(SpringRunner.class)
 public class ProductAssureTest extends AbstractUnitTest {
 
     List<ProductData> productResponseList;
@@ -93,5 +91,36 @@ public class ProductAssureTest extends AbstractUnitTest {
         assertEquals(product1.getBrandId(), productData.getBrandId());
         assertEquals(product1.getMrp(), productData.getMrp(), 0.01);
         assertEquals(product1.getDescription(), productData.getDescription());
+    }
+
+    @Test
+    public void testGetByClientId(){
+        try {
+            mockServer.expect(ExpectedCount.once(),
+                    requestTo(new URI(SERVER_URL + "/product/search")))
+                    .andExpect(method(HttpMethod.POST))
+                    .andRespond(withStatus(HttpStatus.OK)
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .body(mapper.writeValueAsString(productResponseList))
+                    );
+        } catch (URISyntaxException | JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        List<ProductData> productDataList = productAssure.getProductByClientIdAndClientSkuId(1L);
+        mockServer.verify();
+        assertEquals(product1.getClientName(), productDataList.get(0).getClientName());
+        assertEquals(product1.getClientSkuId(), productDataList.get(0).getClientSkuId());
+        assertEquals(product1.getProductName(), productDataList.get(0).getProductName());
+        assertEquals(product1.getBrandId(), productDataList.get(0).getBrandId());
+        assertEquals(product1.getMrp(), productDataList.get(0).getMrp(), 0.01);
+        assertEquals(product1.getDescription(), productDataList.get(0).getDescription());
+
+        assertEquals(product2.getClientName(), productDataList.get(1).getClientName());
+        assertEquals(product2.getClientSkuId(), productDataList.get(1).getClientSkuId());
+        assertEquals(product2.getProductName(), productDataList.get(1).getProductName());
+        assertEquals(product2.getBrandId(), productDataList.get(1).getBrandId());
+        assertEquals(product2.getMrp(), productDataList.get(1).getMrp(), 0.01);
+        assertEquals(product2.getDescription(), productDataList.get(1).getDescription());
     }
 }

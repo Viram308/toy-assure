@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 
 @Configuration
 @ComponentScan(//
-        basePackages = { "com.channel" },
+        basePackages = { "com" },
         excludeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, value = { SpringConfig.class })//
 )
 @PropertySources({ //

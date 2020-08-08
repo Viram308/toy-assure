@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 @Configuration
-@ComponentScan("com.channel")
+@ComponentScan("com")
 @PropertySources({ //
         @PropertySource(value = "file:./dbConfig.properties", ignoreResourceNotFound = true) //
 })
