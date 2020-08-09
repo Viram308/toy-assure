@@ -14,20 +14,12 @@ public class ProductDao extends AbstractDao {
     private static String selectByClientSkuIdClientId = "select p from Product p where p.clientSkuId=:clientSkuId and p.clientId=:clientId";
     // select all
     private static String selectAll = "select p from Product p";
-    // search
-    private static String searchByName = "select p from Product p where p.name like :name";
     // select according to clientId
     private static String selectByClientId = "select p from Product p where p.clientId=:clientId";
 
     // select all
     public List<Product> selectAll() {
         TypedQuery<Product> query = getQuery(selectAll, Product.class);
-        return query.getResultList();
-    }
-
-    public List<Product> searchByName(String name) {
-        TypedQuery<Product> query = getQuery(searchByName, Product.class);
-        query.setParameter("name", name + "%");
         return query.getResultList();
     }
 

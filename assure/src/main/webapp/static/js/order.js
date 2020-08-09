@@ -70,8 +70,9 @@ function readFileDataCallbackOrder(results){
                     heading: 'Error',
                     text: 'File Contains more than 5000 rows !!',
                     position: 'bottom-right',
-                    showHideTransition: 'fade',
                     icon: 'error',
+                    hideAfter: false,
+                    showHideTransition : 'fade',
                     allowToastClose: true,
                 });
 		return;
@@ -179,14 +180,15 @@ function displayOrderItems(data){
 		var e = data[i];
 		var row = '<tr>'
 		+ '<td>' + count + '</td>'
-		+ '<td>' + e.clientSkuId + '</td>'
-		+ '<td>' + e.productName + '</td>'
-		+ '<td>' + e.brandId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.clientSkuId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.productName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.brandId + '</td>'
 		+ '<td>' + e.orderedQuantity + '</td>'
         + '<td>' + e.allocatedQuantity + '</td>'
 		+ '<td>' + e.sellingPricePerUnit + '</td>'
 		+ '</tr>';
 		$tbodyViewOrder.append(row);
+        count++;
 	}
 }
 
@@ -319,10 +321,10 @@ function displayOrderList(data){
 		var buttonHtml3 = '<button class="btn btn-outline-primary" onclick="viewOrder(' + e.orderId + ')">View</button>'
 		var row = '<tr>'
 		+ '<td>' + count + '</td>'
-		+ '<td>' + e.clientName + '</td>'
-		+ '<td>' + e.customerName + '</td>'
-		+ '<td>' + e.channelName + '</td>'
-        + '<td>' + e.channelOrderId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.clientName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.customerName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.channelName + '</td>'
+        + '<td style="word-break: break-all;max-width: 0px;">' + e.channelOrderId + '</td>'
         + '<td>' + e.status + '</td>'
         + '<td>' + buttonHtml0 + '</td>'
 		+ '<td>' + buttonHtml1 + '</td>'

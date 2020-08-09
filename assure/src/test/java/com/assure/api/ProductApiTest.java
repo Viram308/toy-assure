@@ -62,26 +62,17 @@ public class ProductApiTest extends AbstractUnitTest {
     }
 
     @Test
-    public void testSearch() {
-        productApi.add(product1);
-        productApi.add(product2);
-        productApi.add(product3);
-        List<Product> productList = productApi.search("p");
-        assertEquals(3, productList.size());
-        productList = productApi.search("prod2");
-        assertEquals(1, productList.size());
-    }
-
-    @Test
     public void testUpdate() {
         productApi.add(product1);
         Product product = new Product();
         product.setName("New ProducT 2");
         product.setBrandId("New BrandId                 ");
+        product.setMrp(20.608);
         product = productApi.update(product1.getGlobalSkuId(), product);
         assertNotNull(product);
         assertEquals("new brandid", product.getBrandId());
         assertEquals("new product 2", product.getName());
+        assertEquals(20.61,product.getMrp(),0.01);
     }
 
     @Test

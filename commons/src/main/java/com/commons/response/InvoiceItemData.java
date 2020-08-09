@@ -8,7 +8,7 @@ import lombok.Setter;
 public class InvoiceItemData {
     private Long id;
     private String productName;
-    private String brandId;
+    private String clientSkuId;
     private Long orderedQuantity;
     private double sellingPricePerUnit;
 }

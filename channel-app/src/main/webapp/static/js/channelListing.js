@@ -74,8 +74,9 @@ function readFileDataCallbackChannelListing(results){
                     heading: 'Error',
                     text: 'File Contains more than 5000 rows !!',
                     position: 'bottom-right',
-                    showHideTransition: 'fade',
                     icon: 'error',
+                    hideAfter: false,
+                    showHideTransition : 'fade',
                     allowToastClose: true,
                 });
 		return;
@@ -164,11 +165,11 @@ function displayChannelListingList(data){
 		var e = data[i];
 		var row = '<tr>'
 		+ '<td>' + j + '</td>'
-		+ '<td>' + e.channelName + '</td>'
-		+ '<td>' + e.channelSkuId + '</td>'
-		+ '<td>'  + e.clientName + '</td>'
-		+ '<td>'  + e.productName + '</td>'
-		+ '<td>' + e.brandId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.channelName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.channelSkuId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">'  + e.clientName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">'  + e.productName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.brandId + '</td>'
 		+ '</tr>';
 		j++;
 		$tbody.append(row);

@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@Table(uniqueConstraints= @UniqueConstraint(columnNames = {"channelId", "channelOrderId"}))
+@Table(uniqueConstraints= @UniqueConstraint(columnNames = {"channelId", "channelOrderId"}),indexes = {@Index(name = "i_orderStatus",columnList = "status")})
 public class Order extends AbstractPojo implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

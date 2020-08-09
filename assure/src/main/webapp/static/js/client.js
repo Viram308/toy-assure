@@ -151,7 +151,7 @@ function displayClientList(data){
 		var buttonHtml = ' <button class="btn btn-outline-success" onclick="displayEditClient(' + e.id + ')">Edit</button>'
 		var row = '<tr>'
 		+ '<td>' + j + '</td>'
-		+ '<td>' + e.name + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.name + '</td>'
 		+ '<td>' + e.type + '</td>'
 		+ '<td>' + buttonHtml + '</td>'
 		+ '</tr>';

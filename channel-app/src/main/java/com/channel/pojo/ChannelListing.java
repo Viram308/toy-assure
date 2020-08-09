@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"channelId", "channelSkuId", "globalSkuId"}))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"channelId", "globalSkuId", "channelSkuId"}),indexes = {@Index(name = "i_clientId_globalSkuId",columnList = "clientId,globalSkuId",unique = true)})
 public class ChannelListing extends AbstractPojo implements Serializable {
 
     @Id

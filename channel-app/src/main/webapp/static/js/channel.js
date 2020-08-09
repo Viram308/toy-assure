@@ -152,7 +152,7 @@ function displayChannelList(data){
 		var buttonHtml = ' <button class="btn btn-outline-success" onclick="displayEditChannel(' + e.id + ')">Edit</button>'
 		var row = '<tr>'
 		+ '<td>' + j + '</td>'
-		+ '<td>' + e.name + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.name + '</td>'
 		+ '<td>' + e.invoiceType + '</td>'
 		+ '<td>' + buttonHtml + '</td>'
 		+ '</tr>';

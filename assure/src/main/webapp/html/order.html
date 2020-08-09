@@ -87,7 +87,7 @@
           <th scope="col">Channel OrderId</th>
           <th scope="col">Status</th>
           <th scope="col">Allocate</th>
-          <th scope="col">Action</th>
+          <th scope="col">Fulfill</th>
           <th scope="col">Invoice</th>
           <th scope="col">View</th>
         </tr>
@@ -124,7 +124,7 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-order-modal">
     <form  id="order-upload-form" autocomplete="off">
       <div class="modal-body mx-3">
         <div class="form-group row">
-          <label for="clientSelected" class="col-sm-2 col-form-label">Client</label>
+          <label for="clientSelected" class="col-sm-3 col-form-label">Client</label>
           <div class="col-sm-6">
             <select class="form-control" id="clientSelected" name="clientName">
               <option value="">Select Client</option>
@@ -132,7 +132,7 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-order-modal">
           </div>
         </div>
         <div class="form-group row">
-          <label for="customerSelected" class="col-sm-2 col-form-label">Customer</label>
+          <label for="customerSelected" class="col-sm-3 col-form-label">Customer</label>
           <div class="col-sm-6">
             <select class="form-control" id="customerSelected" name="customerName">
               <option value="">Select Customer</option>
@@ -140,13 +140,13 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-order-modal">
           </div>
         </div>
         <div class="form-group row">
-              <label for="inputChannelOrderId" class="col-sm-2 col-form-label">Order Id</label>
+              <label for="inputChannelOrderId" class="col-sm-3 col-form-label">Order Id</label>
               <div class="col-sm-6">
                 <input type="text" class="form-control" name="channelOrderId" id="inputChannelOrderId" placeholder="Enter Channel OrderId" required>
               </div>
             </div>
         <div class="form-group required">
-          <div class="custom-control col-8">
+          <div class="custom-control col-9">
             <input type="file" class="custom-file-input" id="orderFile" >
             <label class="custom-file-label" for="orderFile" id="orderFileName">Choose file</label>
           </div>
@@ -230,7 +230,7 @@ class="modal fade" tabindex="-1" role="dialog" id="view-order-modal">
 </div> <!-- Container end-->
 <!-- Footer -->
 <footer th:replace="snippets.html :: name_footer"></footer>
-<script th:src="@{/static/order.js}"></script>
+<script th:src="@{/static/js/order.js}"></script>
 
 
 

@@ -118,7 +118,7 @@
         </div>
         <!-- Bin add form -->
         <form  id="bin-add-form" onsubmit="return addBin()"  autocomplete="off">
-          <div class="modal-body">
+          <div class="modal-body mx-3">
 
             <div class="form-group row">
               <label for="inputBin" class="col-sm-3 col-form-label">Bins</label>
@@ -150,7 +150,7 @@ class="modal fade" tabindex="-1" role="dialog" id="edit-bin-modal">
     </div>
     <!-- Bin edit form -->
     <form  id="bin-edit-form" onsubmit="return updateBin()" autocomplete="off">
-      <div class="modal-body">
+      <div class="modal-body mx-3">
       
         <div class="form-group row">
           <label for="inputBinId" class="col-sm-3 col-form-label">Bin Id</label>
@@ -159,15 +159,15 @@ class="modal fade" tabindex="-1" role="dialog" id="edit-bin-modal">
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputProductName" class="col-sm-3 col-form-label">Product Name</label>
+          <label for="inputClientName" class="col-sm-3 col-form-label">Client</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" name="productName" placeholder="Enter Product Name" readonly>
+            <input type="text" class="form-control" id="inputClientName" name="clientName" placeholder="Enter Client Name" readonly>
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputBrand" class="col-sm-3 col-form-label">Brand</label>
+          <label for="inputClientSkuId" class="col-sm-3 col-form-label">Client Sku</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" name="brandId" placeholder="Enter Brand" readonly>
+            <input type="text" class="form-control" id="inputClientSkuId" name="clientSkuId" placeholder="Enter Client SkuId" readonly>
           </div>
         </div>
         <div class="form-group row">
@@ -204,7 +204,7 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-binInventory-modal">
     <form  id="binInventory-upload-form" autocomplete="off">
       <div class="modal-body mx-3">
         <div class="form-group row">
-          <label for="clientSelected" class="col-sm-2 col-form-label">Client</label>
+          <label for="clientSelected" class="col-sm-3 col-form-label">Client</label>
           <div class="col-sm-6">
             <select class="form-control" id="clientSelected" name="clientName">
               <option value="">Select Client</option>
@@ -212,7 +212,7 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-binInventory-modal">
           </div>
         </div>
         <div class="form-group required">
-          <div class="custom-control col-8">
+          <div class="custom-control col-9">
             <input type="file" class="custom-file-input" id="binInventoryFile" >
             <label class="custom-file-label" for="binInventoryFile" id="binInventoryFileName">Choose file</label>
           </div>
@@ -240,7 +240,7 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-binInventory-modal">
 </div> <!-- Container end-->
 <!-- Footer -->
 <footer th:replace="snippets.html :: name_footer"></footer>
-<script th:src="@{/static/bin.js}"></script>
+<script th:src="@{/static/js/bin.js}"></script>
 
 
 

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@Table(uniqueConstraints= @UniqueConstraint(columnNames = {"clientSkuId", "clientId"}))
+@Table(uniqueConstraints= @UniqueConstraint(columnNames = {"clientId", "clientSkuId"}))
 public class Product extends AbstractPojo implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="s")

@@ -119,8 +119,9 @@ function readFileDataCallbackProduct(results){
                     heading: 'Error',
                     text: 'File Contains more than 5000 rows !!',
                     position: 'bottom-right',
-                    showHideTransition: 'fade',
                     icon: 'error',
+                    hideAfter: false,
+                	showHideTransition : 'fade',
                     allowToastClose: true,
                 });
 		return;
@@ -208,12 +209,12 @@ function displayProductList(data){
 		var buttonHtml = ' <button class="btn btn-outline-success" onclick="displayEditProduct(' + e.globalSkuId + ')">Edit</button>'
 		var row = '<tr>'
 		+ '<td>' + j + '</td>'
-		+ '<td>' + e.clientSkuId + '</td>'
-		+ '<td>' + e.clientName + '</td>'
-		+ '<td>'  + e.productName + '</td>'
-		+ '<td>' + e.brandId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.clientSkuId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.clientName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">'  + e.productName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.brandId + '</td>'
 		+ '<td>' + e.mrp + '</td>'
-		+ '<td>' + e.description + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.description + '</td>'
 		+ '<td>' + buttonHtml + '</td>'
 		+ '</tr>';
 		j++;

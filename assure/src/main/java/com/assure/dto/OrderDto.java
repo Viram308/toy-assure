@@ -320,7 +320,7 @@ public class OrderDto {
             invoiceItemData.setSellingPricePerUnit(orderItem.getSellingPricePerUnit());
             Product product = productApi.get(orderItem.getGlobalSkuId());
             invoiceItemData.setProductName(product.getName());
-            invoiceItemData.setBrandId(product.getBrandId());
+            invoiceItemData.setClientSkuId(product.getClientSkuId());
             invoiceItemDataList.add(invoiceItemData);
             index++;
         }

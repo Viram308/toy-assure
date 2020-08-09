@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Component
@@ -42,42 +43,44 @@ public class OrderCsvFormValidator implements Validator {
         OrderCsvForm orderCsvForm = (OrderCsvForm) target;
         List<OrderItemForm> orderItemFormList = orderCsvForm.getOrderItemFormList();
         int index = 0;
+        HashMap<String, Integer> checkDuplicate = new HashMap<>();
         for (OrderItemForm itemForm : orderItemFormList) {
-            logger.info("Validate item");
             Long clientId = itemForm.getClientId();
             Long customerId = itemForm.getCustomerId();
             Long channelId = itemForm.getChannelId();
             String channelOrderId = itemForm.getChannelOrderId();
             String clientSkuId = itemForm.getClientSkuId();
-            logger.info("validate client");
+            if (checkDuplicate.containsKey(clientSkuId)) {
+                errors.pushNestedPath("orderItemFormList[" + index + "]");
+                errors.rejectValue("clientSkuId", "duplicate", "clientSkuId already present in csv file");
+                errors.popNestedPath();
+            } else {
+                checkDuplicate.put(clientSkuId, 1);
+            }
             ClientData clientData = clientDto.getClient(clientId);
             if (clientData == null || !StringUtil.toUpperCase(clientData.getType()).equals(ClientType.CLIENT.toString())) {
                 errors.pushNestedPath("orderItemFormList[" + index + "]");
                 errors.rejectValue("clientId", "not found", "Client doesn't exist for clientId :" + clientId);
                 errors.popNestedPath();
             }
-            logger.info("validate customer");
             ClientData customerData = clientDto.getClient(customerId);
             if (customerData == null || !StringUtil.toUpperCase(customerData.getType()).equals(ClientType.CUSTOMER.toString())) {
                 errors.pushNestedPath("orderItemFormList[" + index + "]");
                 errors.rejectValue("customerId", "not found", "Customer doesn't exist for customerId :" + customerId);
                 errors.popNestedPath();
             }
-            logger.info("validate channel");
             ChannelData channelData = orderDto.getChannelDetails(channelId);
             if(channelData == null){
                 errors.pushNestedPath("orderItemFormList[" + index + "]");
                 errors.rejectValue("channelId", "not found", "Channel doesn't exist for channelId :" + channelId);
                 errors.popNestedPath();
             }
-            logger.info("validate order");
             OrderData orderData = orderDto.getOrderDetails(channelOrderId,channelId);
             if(orderData != null){
                 errors.pushNestedPath("orderItemFormList[" + index + "]");
                 errors.rejectValue("channelOrderId", "duplicate", "Order with channelOrderId :" + channelOrderId + " already exists");
                 errors.popNestedPath();
             }
-            logger.info("validate product");
             ProductData productData = productDto.getProductByClientIdAndClientSkuId(clientId,clientSkuId);
             if(productData == null){
                 errors.pushNestedPath("orderItemFormList[" + index + "]");

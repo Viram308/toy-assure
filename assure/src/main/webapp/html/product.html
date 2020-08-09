@@ -106,7 +106,7 @@ class="modal fade" tabindex="-1" role="dialog" id="edit-product-modal">
     </div>
     <!-- Product edit form -->
     <form  id="product-edit-form" onsubmit="return updateProduct()" autocomplete="off">
-      <div class="modal-body">
+      <div class="modal-body mx-3">
       	<div class="form-group row">
           <label for="inputClientSkuId" class="col-sm-3 col-form-label">ClientSkuId</label>
           <div class="col-sm-6">
@@ -170,7 +170,7 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-product-modal">
     <form  id="product-upload-form" autocomplete="off">
       <div class="modal-body mx-3">
         <div class="form-group row">
-          <label for="clientSelected" class="col-sm-2 col-form-label">Client</label>
+          <label for="clientSelected" class="col-sm-3 col-form-label">Client</label>
           <div class="col-sm-6">
             <select class="form-control" id="clientSelected" name="clientName">
               <option value="">Select Client</option>
@@ -178,7 +178,7 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-product-modal">
           </div>
         </div>
         <div class="form-group required">
-          <div class="custom-control col-8">
+          <div class="custom-control col-9">
             <input type="file" class="custom-file-input" id="productFile" >
             <label class="custom-file-label" for="productFile" id="productFileName">Choose file</label>
           </div>
@@ -206,7 +206,7 @@ class="modal fade" tabindex="-1" role="dialog" id="upload-product-modal">
 </div> <!-- Container end-->
 <!-- Footer -->
 <footer th:replace="snippets.html :: name_footer"></footer>
-<script th:src="@{/static/product.js}"></script>
+<script th:src="@{/static/js/product.js}"></script>
 
 
 

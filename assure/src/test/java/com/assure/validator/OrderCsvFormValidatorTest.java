@@ -147,7 +147,7 @@ public class OrderCsvFormValidatorTest extends AbstractUnitTest {
         orderItemForm1.setChannelId(1L);
         orderItemForm2.setClientId(clientData1.getId());
         orderItemForm2.setCustomerId(clientData2.getId());
-        orderItemForm2.setClientSkuId(productForm2.getClientSkuId());
+        orderItemForm2.setClientSkuId(productForm1.getClientSkuId());
         orderItemForm2.setChannelOrderId("o1");
         orderItemForm2.setChannelId(1L);
 
@@ -170,7 +170,7 @@ public class OrderCsvFormValidatorTest extends AbstractUnitTest {
         Errors errors = new BeanPropertyBindingResult(orderCsvForm,"Invalid Csv");
         orderCsvFormValidator.validate(orderCsvForm,errors);
         assertTrue(errors.hasErrors());
-        assertEquals(6,errors.getErrorCount());
+        assertEquals(7,errors.getErrorCount());
     }
 
 

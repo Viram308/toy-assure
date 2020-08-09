@@ -21,8 +21,9 @@ function handleAjaxError(jqXHR){
             heading: 'Error',
             text: "Some error occurred. Please try after some time.",
             position: 'bottom-right',
-            showHideTransition: 'fade',
             icon: 'error',
+            hideAfter: false,
+            showHideTransition : 'fade',
             allowToastClose: true
         });
     }else if(jqXHR.status === 400) {
@@ -45,8 +46,9 @@ function handleAjaxError(jqXHR){
                 heading: header,
                 text: "Error occurred while traversing request. Please download error file.",
                 position: 'bottom-right',
-                showHideTransition: 'fade',
                 icon: 'error',
+                hideAfter: false,
+                showHideTransition : 'fade',
                 allowToastClose: true
             });
             return jsonArray;
@@ -55,8 +57,9 @@ function handleAjaxError(jqXHR){
                 heading: "Error",
                 text: response.message,
                 position: 'bottom-right',
-                showHideTransition: 'fade',
                 icon: 'error',
+                hideAfter: false,
+                showHideTransition : 'fade',
                 allowToastClose: true
             });
         }

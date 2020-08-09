@@ -2,6 +2,7 @@ package com.assure.api;
 
 import com.assure.dao.OrderDao;
 import com.assure.pojo.Order;
+import com.assure.util.NormalizeUtil;
 import com.commons.api.ApiException;
 import com.commons.enums.OrderStatus;
 import com.commons.util.StringUtil;
@@ -19,6 +20,7 @@ public class OrderApi {
 
     @Transactional
     public Order addOrder(Order order) {
+        NormalizeUtil.normalizeOrder(order);
         order.setStatus(OrderStatus.CREATED);
         return orderDao.insert(order);
     }
@@ -46,6 +48,7 @@ public class OrderApi {
 
     @Transactional
     public void updateOrder(Order order) {
+        NormalizeUtil.normalizeOrder(order);
         Order orderUpdate = getCheck(order.getId());
         orderUpdate.setStatus(order.getStatus());
         orderDao.update(orderUpdate);

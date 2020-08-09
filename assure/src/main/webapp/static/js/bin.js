@@ -186,8 +186,9 @@ function readFileDataCallbackBin(results){
                     heading: 'Error',
                     text: 'File Contains more than 5000 rows !!',
                     position: 'bottom-right',
-                    showHideTransition: 'fade',
                     icon: 'error',
+                    hideAfter: false,
+                	showHideTransition : 'fade',
                     allowToastClose: true,
                 });
 		return;
@@ -276,10 +277,10 @@ function displayBinListInTable(data){
 		var row = '<tr>'
 		+ '<td>' + j + '</td>'
 		+ '<td>' + e.binId + '</td>'
-		+ '<td>'  + e.clientName + '</td>'
-		+ '<td>'  + e.clientSkuId + '</td>'
-		+ '<td>'  + e.productName + '</td>'
-		+ '<td>' + e.brandId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">'  + e.clientName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">'  + e.clientSkuId + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">'  + e.productName + '</td>'
+		+ '<td style="word-break: break-all;max-width: 0px;">' + e.brandId + '</td>'
 		+ '<td>' + e.quantity + '</td>'
 		+ '<td>' + buttonHtml + '</td>'
 		+ '</tr>';
@@ -398,7 +399,8 @@ function validateFields(){
 
 function validateUpdateFields() {
 	var quantity=$("#bin-edit-form input[name=updateQuantity]").val();
-    if(quantity<=0 || quantity.trim()==""){
+	quantity = parseInt(quantity);
+    if(quantity<=0 || !Number.isInteger(quantity)){
     	infoToast("Please enter valid Quantity value.");
        	return false;
     }
@@ -419,8 +421,8 @@ function infoToast(infoText) {
 function displayBin(data){
 	$("#bin-edit-form input[name=binSkuId]").val(data.binSkuId);	
 	$("#bin-edit-form input[name=globalSkuId]").val(data.globalSkuId);
-	$("#bin-edit-form input[name=productName]").val(data.productName);
-	$("#bin-edit-form input[name=brandId]").val(data.brandId);
+	$("#bin-edit-form input[name=clientName]").val(data.clientName);
+	$("#bin-edit-form input[name=clientSkuId]").val(data.clientSkuId);
 	$("#bin-edit-form input[name=binId]").val(data.binId);
 	$("#bin-edit-form input[name=originalQuantity]").val(data.quantity);
 	$('#edit-bin-modal').modal('toggle');

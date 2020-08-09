@@ -27,11 +27,6 @@ public class ProductApi {
         return productDao.select(Product.class, globalSkuId);
     }
 
-    @Transactional(readOnly = true)
-    public List<Product> search(String name) {
-        name = StringUtil.toLowerCase(name);
-        return productDao.searchByName(name);
-    }
 
     @Transactional(rollbackFor = ApiException.class)
     public Product update(Long globalSkuId, Product product) {

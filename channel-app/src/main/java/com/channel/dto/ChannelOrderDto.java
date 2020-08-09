@@ -146,7 +146,7 @@ public class ChannelOrderDto {
             invoiceItemData.setOrderedQuantity(orderItemData.getOrderedQuantity());
             invoiceItemData.setSellingPricePerUnit(orderItemData.getSellingPricePerUnit());
             invoiceItemData.setProductName(orderItemData.getProductName());
-            invoiceItemData.setBrandId(orderItemData.getBrandId());
+            invoiceItemData.setClientSkuId(orderItemData.getClientSkuId());
             invoiceItemDataList.add(invoiceItemData);
             index++;
         }

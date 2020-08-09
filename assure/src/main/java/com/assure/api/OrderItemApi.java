@@ -2,6 +2,7 @@ package com.assure.api;
 
 import com.assure.dao.OrderItemDao;
 import com.assure.pojo.OrderItem;
+import com.assure.util.NormalizeUtil;
 import com.commons.api.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class OrderItemApi {
 
     @Transactional
     public OrderItem addOrderItem(OrderItem orderItem) {
+        NormalizeUtil.normalizeOrderItem(orderItem);
         return orderItemDao.insert(orderItem);
     }
 
@@ -27,6 +29,7 @@ public class OrderItemApi {
 
     @Transactional(rollbackFor = ApiException.class)
     public void updateOrderItem(Long orderItemId,OrderItem orderItem) {
+        NormalizeUtil.normalizeOrderItem(orderItem);
         OrderItem orderItemUpdate = getCheck(orderItemId);
         orderItemUpdate.setAllocatedQuantity(orderItem.getAllocatedQuantity());
         orderItemUpdate.setGlobalSkuId(orderItem.getGlobalSkuId());
