@@ -73,11 +73,13 @@ public class OrderAssureTest extends AbstractUnitTest {
         return OrderData;
     }
 
+    // test for getting order details
     @Test
     public void testGetOrderDetails() {
         orderResponseList.add(order1);
         orderResponseList.add(order2);
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL+"/order")))
                     .andExpect(method(HttpMethod.GET))
@@ -93,7 +95,7 @@ public class OrderAssureTest extends AbstractUnitTest {
         mockServer.verify();
         Assert.assertNotNull(responseList);
         Assert.assertTrue(responseList.size()>0);
-
+        // test each order data
         assertEquals(order1.getClientId(), responseList.get(0).getClientId());
         assertEquals(order1.getChannelId(), responseList.get(0).getChannelId());
         assertEquals(order1.getCustomerName(), responseList.get(0).getCustomerName());
@@ -109,9 +111,11 @@ public class OrderAssureTest extends AbstractUnitTest {
         assertEquals(order2.getClientName(), responseList.get(1).getClientName());
     }
 
+    // test for adding channel order
     @Test
     public void testAddChannelOrder(){
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL+"/order/addChannelOrder")))
                     .andExpect(method(HttpMethod.POST))
@@ -122,16 +126,19 @@ public class OrderAssureTest extends AbstractUnitTest {
             e.printStackTrace();
         }
         String response = orderAssure.addChannelOrder(orderCsvForm);
+        // test response
         assertEquals("Success",response);
     }
 
+    // test for searching order
     @Test
     public void testSearchChannelOrder(){
         orderResponseList.add(order1);
         orderResponseList.add(order2);
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
-                    requestTo(new URI(SERVER_URL+"/order/searchChannelOrder")))
+                    requestTo(new URI(SERVER_URL+"/order/search")))
                     .andExpect(method(HttpMethod.POST))
                     .andRespond(withStatus(HttpStatus.OK)
                             .contentType(MediaType.APPLICATION_JSON)
@@ -144,7 +151,7 @@ public class OrderAssureTest extends AbstractUnitTest {
         mockServer.verify();
         Assert.assertNotNull(responseList);
         Assert.assertTrue(responseList.size()>0);
-
+        // test for each order data
         assertEquals(order1.getClientId(), responseList.get(0).getClientId());
         assertEquals(order1.getChannelId(), responseList.get(0).getChannelId());
         assertEquals(order1.getCustomerName(), responseList.get(0).getCustomerName());
@@ -160,9 +167,11 @@ public class OrderAssureTest extends AbstractUnitTest {
         assertEquals(order2.getClientName(), responseList.get(1).getClientName());
     }
 
+    // test for getting order by orderId
     @Test
     public void testGet(){
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL+"/order/"+order1.getOrderId())))
                     .andExpect(method(HttpMethod.GET))
@@ -176,6 +185,7 @@ public class OrderAssureTest extends AbstractUnitTest {
 
         OrderData orderData = orderAssure.get(order1.getOrderId());
         assertNotNull(orderData);
+        // test data
         assertEquals(order1.getClientId(), orderData.getClientId());
         assertEquals(order1.getChannelId(), orderData.getChannelId());
         assertEquals(order1.getCustomerName(), orderData.getCustomerName());
@@ -184,6 +194,7 @@ public class OrderAssureTest extends AbstractUnitTest {
         assertEquals(order1.getClientName(), orderData.getClientName());
     }
 
+    // test for getting order by channelId and channelOrderId
     @Test
     public void testGetOrderDetailsByParameters(){
         try {
@@ -200,6 +211,7 @@ public class OrderAssureTest extends AbstractUnitTest {
 
         OrderData orderData = orderAssure.getOrderDetails(order1.getChannelOrderId(),order1.getChannelId());
         assertNotNull(orderData);
+        // test data
         assertEquals(order1.getClientId(), orderData.getClientId());
         assertEquals(order1.getChannelId(), orderData.getChannelId());
         assertEquals(order1.getCustomerName(), orderData.getCustomerName());

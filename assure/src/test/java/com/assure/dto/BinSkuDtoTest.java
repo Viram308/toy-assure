@@ -102,18 +102,21 @@ public class BinSkuDtoTest extends AbstractUnitTest {
     private void addDetails(){
         ClientData clientData1 = clientDto.addClient(clientForm1);
         ClientData clientData2 = clientDto.addClient(clientForm2);
-
+        // set client id
         productForm1.setClientId(clientData1.getId());
         productForm2.setClientId(clientData2.getId());
         List<ProductForm> productFormList = new ArrayList<>();
         productFormList.add(productForm1);
         productFormList.add(productForm2);
+        // add product
         productCsvForm.setProductFormList(productFormList);
         BindingResult result = mock(BindingResult.class);
         when(result.hasErrors()).thenReturn(false);
         productDto.addProducts(productCsvForm,result);
+        // add bins
         binDto.addBins(binForm1);
         binDto.addBins(binForm2);
+        // set data for binSku
         binSkuForm1.setClientId(clientData1.getId());
         binSkuForm1.setClientSkuId(productForm1.getClientSkuId());
         binSkuForm1.setBinId(1000L);
@@ -126,11 +129,14 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         binSkuCsvForm.setBinSkuFormList(binSkuFormList);
     }
 
+    // test for add binSku
     @Test(expected = CustomValidationException.class)
     public void testAddBinSku(){
         addDetails();
+        // Mock bindingResult
         BindingResult result = mock(BindingResult.class);
         when(result.hasErrors()).thenReturn(false);
+        // add binSku
         binSkuDto.addBinSku(binSkuCsvForm,result);
         binSkuDto.addBinSku(binSkuCsvForm,result);
         when(result.hasErrors()).thenReturn(true);
@@ -138,6 +144,7 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         binSkuDto.addBinSku(binSkuCsvForm,result);
     }
 
+    // test for getting all binSkus
     @Test
     public void testGetAll(){
         addDetails();
@@ -145,9 +152,11 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         when(result.hasErrors()).thenReturn(false);
         binSkuDto.addBinSku(binSkuCsvForm,result);
         List<BinSkuData> binSkuDataList = binSkuDto.getAllBinSku();
+        // list size 2
         assertEquals(2,binSkuDataList.size());
     }
 
+    // test for getting binSku by id
     @Test
     public void testGetBinSku(){
         addDetails();
@@ -157,10 +166,12 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         List<BinSkuData> binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
         BinSkuData binSkuData = binSkuDto.getBinSku(binSkuDataList.get(0).getBinSkuId());
         assertNotNull(binSkuData);
+        // test data
         assertEquals(binSkuForm1.getBinId(),binSkuData.getBinId());
         assertEquals(binSkuForm1.getQuantity(),binSkuData.getQuantity());
     }
 
+    // test for search binSku
     @Test
     public void testSearchBinSku(){
         addDetails();
@@ -169,19 +180,24 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         binSkuDto.addBinSku(binSkuCsvForm,result);
         List<BinSkuData> binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
         assertEquals(1,binSkuDataList.size());
+        // setting wrong name
         binSkuSearchForm.setClientSkuId("hii");
         binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
         assertNull(binSkuDataList);
+        // setting correct data
         binSkuSearchForm.setClientSkuId("");
         binSkuSearchForm.setClientId(binSkuForm1.getClientId());
         binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
         assertEquals(1,binSkuDataList.size());
+        // setting correct data
         binSkuSearchForm.setBinId(0L);
         binSkuSearchForm.setClientId(0L);
         binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
+        // list size 2
         assertEquals(2,binSkuDataList.size());
     }
 
+    // test for updating binSku
     @Test(expected = ApiException.class)
     public void testUpdateBinSku(){
         addDetails();
@@ -190,10 +206,12 @@ public class BinSkuDtoTest extends AbstractUnitTest {
         binSkuDto.addBinSku(binSkuCsvForm,result);
         List<BinSkuData> binSkuDataList = binSkuDto.searchBinSku(binSkuSearchForm);
         BinSkuData binSkuData = binSkuDto.getBinSku(binSkuDataList.get(0).getBinSkuId());
+        // update data
         binSkuUpdateForm.setGlobalSkuId(binSkuData.getGlobalSkuId());
         binSkuDto.updateBinSkuInventory(binSkuData.getBinSkuId(),binSkuUpdateForm);
         binSkuData = binSkuDto.getBinSku(binSkuDataList.get(0).getBinSkuId());
         assertEquals(binSkuUpdateForm.getUpdateQuantity(),binSkuData.getQuantity());
+        // set negative quantity
         binSkuUpdateForm.setUpdateQuantity(-1L);
         // throw exception
         binSkuDto.updateBinSkuInventory(binSkuData.getBinSkuId(),binSkuUpdateForm);

@@ -46,6 +46,7 @@ public class ChannelListingDto {
 
     @Transactional(rollbackFor = CustomValidationException.class)
     public void addChannelListing(ChannelListingCsvForm channelListingCsvForm, BindingResult result) {
+        // validate
         channelListingCsvFormValidator.validate(channelListingCsvForm, result);
         if (result.hasErrors()) {
             logger.info(result.getErrorCount());
@@ -57,6 +58,7 @@ public class ChannelListingDto {
             ProductData productData = getProductData(productDataList, channelListingForm.getClientSkuId());
             assert productData != null;
             ChannelListing channelListing = ConverterUtil.convertChannelListingFormToChannelListing(channelListingForm, productData);
+            // add
             channelListingApi.add(channelListing);
         }
         logger.info("Channel Listing added");
@@ -82,9 +84,11 @@ public class ChannelListingDto {
     @Transactional(readOnly = true)
     public List<ChannelListingData> searchChannelListing(ChannelListingSearchForm channelListingSearchForm) {
         List<ChannelListing> channelListings = channelListingApi.getAllChannelListing();
+        // filter with channelId
         if (channelListingSearchForm.getChannelId() != 0) {
             channelListings = channelListings.stream().filter(o -> (channelListingSearchForm.getChannelId().equals(o.getChannelId()))).collect(Collectors.toList());
         }
+        // filter with clientId
         if (channelListingSearchForm.getClientId() != 0) {
             channelListings = channelListings.stream().filter(o -> (channelListingSearchForm.getClientId().equals(o.getClientId()))).collect(Collectors.toList());
         }

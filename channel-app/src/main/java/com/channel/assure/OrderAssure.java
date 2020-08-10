@@ -33,7 +33,7 @@ public class OrderAssure extends AbstractRestTemplate {
     }
 
     public List<OrderData> searchChannelOrder(OrderSearchForm orderSearchForm) {
-        String POST_ORDER_URL = SERVER_URL + "/order/searchChannelOrder";
+        String POST_ORDER_URL = SERVER_URL + "/order/search";
         HttpEntity<OrderSearchForm> requestBody = new HttpEntity<>(orderSearchForm, getHeaders());
         return Arrays.asList(restTemplate.exchange(POST_ORDER_URL, HttpMethod.POST, requestBody, OrderData[].class).getBody());
     }

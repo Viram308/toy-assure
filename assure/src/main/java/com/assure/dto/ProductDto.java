@@ -40,6 +40,7 @@ public class ProductDto {
 
     @Transactional(rollbackFor = CustomValidationException.class)
     public List<ProductData> addProducts(ProductCsvForm productCsvForm, BindingResult result) {
+        // validate
         productCsvFormValidator.validate(productCsvForm, result);
         if (result.hasErrors()) {
             logger.info(result.getErrorCount());
@@ -66,9 +67,11 @@ public class ProductDto {
     @Transactional(readOnly = true)
     public List<ProductData> searchProducts(ProductSearchForm productSearchForm) {
         List<Product> productList = productApi.getAll();
+        // check with clientId
         if(productSearchForm.getClientId() != 0) {
             productList = productList.stream().filter(o -> o.getClientId().equals(productSearchForm.getClientId())).collect(Collectors.toList());
         }
+        // check with clientSkuId
         if (!StringUtil.isEmpty(productSearchForm.getClientSkuId())) {
             productList = productList.stream().filter(o -> o.getClientSkuId().equals(productSearchForm.getClientSkuId())).collect(Collectors.toList());
         }

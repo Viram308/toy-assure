@@ -63,12 +63,14 @@ public class ClientAssureTest extends AbstractUnitTest {
         return ClientData;
     }
 
+    // test for getting client details
     @Test
     public void testGetClientDetails() {
 
         List<ClientData> responseList = null;
         clientResponseList.add(client1);
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL + "/client/allClients")))
                     .andExpect(method(HttpMethod.GET))
@@ -84,17 +86,20 @@ public class ClientAssureTest extends AbstractUnitTest {
         mockServer.verify();
         Assert.assertNotNull(responseList);
         assertEquals(1,responseList.size());
+        // test data
         assertEquals(client1.getId(), responseList.get(0).getId());
         assertEquals(client1.getName(), responseList.get(0).getName());
         assertEquals(client1.getType(), responseList.get(0).getType());
     }
 
+    // test for getting customer details
     @Test
     public void testGetCustomerDetails() {
 
         List<ClientData> responseList = null;
         clientResponseList.add(customer);
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL + "/client/allCustomers")))
                     .andExpect(method(HttpMethod.GET))
@@ -109,18 +114,21 @@ public class ClientAssureTest extends AbstractUnitTest {
         }
         mockServer.verify();
         Assert.assertNotNull(responseList);
+        // test data
         assertEquals(1,responseList.size());
         assertEquals(customer.getId(), responseList.get(0).getId());
         assertEquals(customer.getName(), responseList.get(0).getName());
         assertEquals(customer.getType(), responseList.get(0).getType());
     }
 
+    // test for getting client by id
     @Test
     public void testGetClientDetailsById() {
 
         ClientData clientData = new ClientData();
 
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL + "/client/"+client1.getId())))
                     .andExpect(method(HttpMethod.GET))
@@ -135,6 +143,7 @@ public class ClientAssureTest extends AbstractUnitTest {
         }
         mockServer.verify();
         Assert.assertNotNull(clientData);
+        // test data
         assertEquals(client1.getId(), clientData.getId());
         assertEquals(client1.getName(), clientData.getName());
         assertEquals(client1.getType(), clientData.getType());

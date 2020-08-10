@@ -30,30 +30,36 @@ public class BinSkuApiTest extends AbstractUnitTest {
         return binSku;
     }
 
+    // test for adding binSku
     @Test
     public void testAddBinSku() {
         newBinSku = binSkuApi.add(binSku);
         assertNotNull(newBinSku);
     }
 
+    // test for getting binSku by id
     @Test
     public void testGetBinSkuDetailsById() {
         newBinSku = binSkuApi.add(binSku);
         BinSku binSku1 = binSkuApi.get(newBinSku.getId());
         assertNotNull(binSku1);
+        // test retrieved data
         assertEquals(newBinSku.getBinId(),binSku1.getBinId());
         assertEquals(newBinSku.getQuantity(),binSku1.getQuantity());
         assertEquals(newBinSku.getGlobalSkuId(),binSku1.getGlobalSkuId());
     }
 
+    // test for getting all binSku
     @Test
     public void testGetAllBinSku() {
         binSkuApi.add(binSku);
         List<BinSku> list = binSkuApi.getAll();
         assertNotNull(list);
+        // test list size
         assertEquals(1, list.size());
     }
 
+    // test for get binSku data bu id
     @Test
     public void testGetBinSkuData() {
         newBinSku = binSkuApi.add(binSku);
@@ -63,18 +69,22 @@ public class BinSkuApiTest extends AbstractUnitTest {
         assertNull(binSku1);
     }
 
-    @Test()
+    // test for updating binSku
+    @Test
     public void testUpdateBinSku() {
         newBinSku = binSkuApi.add(binSku);
+        // update
         newBinSku.setBinId(1001L);
         newBinSku.setQuantity(6L);
         newBinSku.setGlobalSkuId(5L);
         newBinSku = binSkuApi.update(binSku.getId(),newBinSku);
+        // test data
         assertEquals(1001,newBinSku.getBinId().intValue());
         assertEquals(6,newBinSku.getQuantity().intValue());
         assertEquals(5,newBinSku.getGlobalSkuId().intValue());
     }
 
+    // test for getCheck
     @Test(expected = ApiException.class)
     public void testGetCheck(){
         newBinSku = binSkuApi.add(binSku);
@@ -88,15 +98,20 @@ public class BinSkuApiTest extends AbstractUnitTest {
 
     }
 
+    // test for search
     @Test
     public void testSearch(){
         newBinSku = binSkuApi.add(binSku);
         List<Long> globalSkuIdList = new ArrayList<>();
+        // add wrong id
         globalSkuIdList.add(newBinSku.getGlobalSkuId()+1);
         List<BinSku> binSkuList = binSkuApi.searchByGlobalSkuIdList(globalSkuIdList);
+        // zero list size
         assertEquals(0,binSkuList.size());
+        // add correct id
         globalSkuIdList.add(newBinSku.getGlobalSkuId());
         binSkuList = binSkuApi.searchByGlobalSkuIdList(globalSkuIdList);
+        // 1 list size
         assertEquals(1,binSkuList.size());
     }
 

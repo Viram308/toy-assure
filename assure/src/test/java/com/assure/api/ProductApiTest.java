@@ -35,10 +35,12 @@ public class ProductApiTest extends AbstractUnitTest {
         return product;
     }
 
+    // test for adding product
     @Test
     public void testAdd() {
         Product product = productApi.add(product1);
         assertNotNull(product);
+        // test data
         assertEquals(product1.getClientId(), product.getClientId());
         assertEquals(product1.getBrandId(), product.getBrandId());
         assertEquals(product1.getName(), product.getName());
@@ -47,12 +49,14 @@ public class ProductApiTest extends AbstractUnitTest {
         assertEquals(product1.getMrp(), product.getMrp(), 0.01);
     }
 
+    // test for getting product by id
     @Test
     public void testGet() {
         Product newProduct1 = productApi.add(product1);
         assertNotNull(newProduct1);
         Product product = productApi.get(newProduct1.getGlobalSkuId());
         assertNotNull(product);
+        // test data
         assertEquals(product1.getClientId(), product.getClientId());
         assertEquals(product1.getBrandId(), product.getBrandId());
         assertEquals(product1.getName(), product.getName());
@@ -61,20 +65,24 @@ public class ProductApiTest extends AbstractUnitTest {
         assertEquals(product1.getMrp(), product.getMrp(), 0.01);
     }
 
+    // test for updating data
     @Test
     public void testUpdate() {
         productApi.add(product1);
         Product product = new Product();
+        // update data
         product.setName("New ProducT 2");
         product.setBrandId("New BrandId                 ");
         product.setMrp(20.608);
         product = productApi.update(product1.getGlobalSkuId(), product);
         assertNotNull(product);
+        // test data
         assertEquals("new brandid", product.getBrandId());
         assertEquals("new product 2", product.getName());
         assertEquals(20.61,product.getMrp(),0.01);
     }
 
+    // test for get all products
     @Test
     public void testGetAll() {
         productApi.add(product1);
@@ -84,6 +92,7 @@ public class ProductApiTest extends AbstractUnitTest {
         assertEquals(2, list.size());
     }
 
+    // test for getCheck
     @Test(expected = ApiException.class)
     public void testGetCheck(){
         productApi.add(product1);
@@ -100,6 +109,7 @@ public class ProductApiTest extends AbstractUnitTest {
         productApi.getCheck(product2.getGlobalSkuId()+1);
     }
 
+    // test for existing data
     @Test(expected = ApiException.class)
     public void testGetCheckExisting(){
         productApi.add(product1);
@@ -109,11 +119,13 @@ public class ProductApiTest extends AbstractUnitTest {
         productApi.getCheckExisting(product1.getClientSkuId(),product1.getClientId());
     }
 
+    // test for get product by clientId and clientSkuId
     @Test
     public void testGetProductByClientIdAndClientSkuId(){
         productApi.add(product1);
         Product product = productApi.getByClientIdAndClientSkuId(product1.getClientId(),product1.getClientSkuId());
         assertNotNull(product);
+        // test data
         assertEquals(product1.getClientId(), product.getClientId());
         assertEquals(product1.getBrandId(), product.getBrandId());
         assertEquals(product1.getName(), product.getName());
@@ -124,6 +136,7 @@ public class ProductApiTest extends AbstractUnitTest {
         assertNull(product);
     }
 
+    // test for getting product by clientId
     @Test
     public void testGetByClientId(){
         productApi.add(product1);

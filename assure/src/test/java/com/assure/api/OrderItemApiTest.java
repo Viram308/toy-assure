@@ -39,10 +39,12 @@ public class OrderItemApiTest extends AbstractUnitTest {
         return item;
     }
 
+    // test for adding order item
     @Test
     public void testAddOrderItem() {
         OrderItem item = orderItemApi.addOrderItem(orderItem1);
         assertTrue(item.getId() > 0);
+        // test data
         assertEquals(orderItem1.getOrderId(), item.getOrderId());
         assertEquals(orderItem1.getGlobalSkuId(), item.getGlobalSkuId());
         assertEquals(orderItem1.getOrderedQuantity(), item.getOrderedQuantity());
@@ -51,15 +53,17 @@ public class OrderItemApiTest extends AbstractUnitTest {
         assertEquals(orderItem1.getSellingPricePerUnit(), item.getSellingPricePerUnit());
     }
 
+    // test for updating order item
     @Test
     public void testUpdateOrderItem() {
         orderItemApi.addOrderItem(orderItem1);
         OrderItem newOrderItem = new OrderItem();
+        // update data
         newOrderItem.setOrderedQuantity(10L);
         newOrderItem.setSellingPricePerUnit(19.9);
         orderItemApi.updateOrderItem(orderItem1.getId(), newOrderItem);
         OrderItem updatedOrderItem = orderItemDao.select(OrderItem.class, orderItem1.getId());
-
+        // test data
         assertEquals(newOrderItem.getOrderId(), updatedOrderItem.getOrderId());
         assertEquals(newOrderItem.getGlobalSkuId(), updatedOrderItem.getGlobalSkuId());
         assertEquals(newOrderItem.getOrderedQuantity(), updatedOrderItem.getOrderedQuantity());
@@ -68,12 +72,13 @@ public class OrderItemApiTest extends AbstractUnitTest {
         assertEquals(newOrderItem.getSellingPricePerUnit(), updatedOrderItem.getSellingPricePerUnit());
     }
 
+    // test get orderItems by orderId
     @Test
     public void testGetOrderItemByOrderId() {
         orderItemDao.insert(orderItem2);
         orderItemDao.insert(orderItem3);
         List<OrderItem> itemList = orderItemApi.getOrderItemByOrderId(orderItem2.getOrderId());
-
+        // test data for both orderItems
         assertEquals(orderItem2.getOrderId(), itemList.get(0).getOrderId());
         assertEquals(orderItem2.getGlobalSkuId(), itemList.get(0).getGlobalSkuId());
         assertEquals(orderItem2.getOrderedQuantity(), itemList.get(0).getOrderedQuantity());
@@ -89,6 +94,7 @@ public class OrderItemApiTest extends AbstractUnitTest {
         assertEquals(orderItem3.getSellingPricePerUnit(), itemList.get(1).getSellingPricePerUnit());
     }
 
+    // test for getCheck
     @Test(expected = ApiException.class)
     public void testGetCheck() {
         orderItemApi.addOrderItem(orderItem1);

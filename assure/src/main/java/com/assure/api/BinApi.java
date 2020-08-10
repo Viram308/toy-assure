@@ -17,6 +17,7 @@ public class BinApi {
     @Transactional
     public Long add(Bin bin) {
        Bin bin1 = binDao.insert(bin);
+       // return added binId
        return bin1.getBinId();
     }
 

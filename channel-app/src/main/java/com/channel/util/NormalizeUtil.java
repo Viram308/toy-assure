@@ -5,6 +5,9 @@ import com.channel.pojo.ChannelListing;
 import com.commons.util.StringUtil;
 
 public class NormalizeUtil {
+
+    // normalize entity
+
     public static void normalizeChannel(Channel channel){
         channel.setName(StringUtil.toLowerCase(channel.getName()));
     }

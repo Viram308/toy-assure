@@ -63,10 +63,12 @@ public class ChannelOrderDto {
 
     @Transactional(rollbackFor = CustomValidationException.class)
     public String addChannelOrder(OrderCsvForm orderCsvForm, BindingResult result) {
+        // validate
         channelOrderCsvFormValidator.validate(orderCsvForm, result);
         if (result.hasErrors()) {
             throw new CustomValidationException(result);
         }
+        // add
         return orderAssure.addChannelOrder(orderCsvForm);
     }
 
@@ -111,6 +113,7 @@ public class ChannelOrderDto {
         List<OrderData> orderDataList1 = new ArrayList<>();
         for(OrderData orderData : orderDataList){
             Channel channel = channelApi.get(orderData.getChannelId());
+            // remove channel with name internal and self
             if(!(channel.getName().equals("internal") && channel.getInvoiceType().equals(InvoiceType.SELF))){
                 orderDataList1.add(orderData);
             }
@@ -130,6 +133,7 @@ public class ChannelOrderDto {
     public InvoiceData getInvoiceData(Long id) {
         OrderData order = orderAssure.get(id);
         List<OrderItemData> orderItemDataList = orderItemAssure.getOrderItems(id);
+        // create data
         InvoiceData invoiceData = new InvoiceData();
         invoiceData.setDate(getDate());
         invoiceData.setTime(getTime());
@@ -171,6 +175,7 @@ public class ChannelOrderDto {
     public byte[] downloadInvoice(Long id) throws IOException {
         byte[] fileBytes;
         File file = new File(String.valueOf(Paths.get(PDF_PATH+"order"+id+".pdf")));
+        // if file is not in channel-app it will be in assure module
         if(!(file.exists() && file.isFile())) {
             byte[] assureByteResponse = orderAssure.getPDFBytes(id);
             if(assureByteResponse == null) {

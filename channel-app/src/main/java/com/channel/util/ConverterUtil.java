@@ -11,6 +11,9 @@ import com.commons.response.ProductData;
 import com.commons.util.StringUtil;
 
 public class ConverterUtil {
+
+    // conversion between form,data and entity
+
     public static Channel convertChannelFormToChannel(ChannelForm channelForm){
         Channel channel = new Channel();
         channel.setName(channelForm.getChannelName());

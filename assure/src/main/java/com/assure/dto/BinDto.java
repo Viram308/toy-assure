@@ -22,6 +22,7 @@ public class BinDto {
     public List<Long> addBins(BinForm binForm) {
         long i,noOfBins = binForm.getNoOfBins();
         List<Long> binIdList = new ArrayList<>();
+        // add noOfBins
         for(i=0;i<noOfBins;i++){
             Long binId = binApi.add(new Bin());
             binIdList.add(binId);

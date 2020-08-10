@@ -115,7 +115,7 @@ public class OrderCsvFormValidatorTest extends AbstractUnitTest {
     private void addDetails(){
         ClientData clientData1 = clientDto.addClient(clientForm1);
         ClientData clientData2 = clientDto.addClient(clientForm2);
-
+        // set client id
         productForm1.setClientId(clientData1.getId());
         productForm2.setClientId(clientData1.getId());
         List<ProductForm> productFormList = new ArrayList<>();
@@ -124,8 +124,11 @@ public class OrderCsvFormValidatorTest extends AbstractUnitTest {
         productCsvForm.setProductFormList(productFormList);
         BindingResult result = mock(BindingResult.class);
         when(result.hasErrors()).thenReturn(false);
+        // add product
         productDto.addProducts(productCsvForm,result);
+        // add bins
         List<Long> binIdList = binDto.addBins(binForm1);
+        // set binSku details
         binSkuForm1.setClientId(clientData1.getId());
         binSkuForm1.setClientSkuId(productForm1.getClientSkuId());
         binSkuForm1.setBinId(binIdList.get(0));
@@ -138,8 +141,9 @@ public class OrderCsvFormValidatorTest extends AbstractUnitTest {
         binSkuCsvForm.setBinSkuFormList(binSkuFormList);
         BindingResult result1 = mock(BindingResult.class);
         when(result1.hasErrors()).thenReturn(false);
+        // add binSku
         binSkuDto.addBinSku(binSkuCsvForm,result1);
-
+        // set line item details
         orderItemForm1.setClientId(clientData1.getId());
         orderItemForm1.setCustomerId(clientData2.getId());
         orderItemForm1.setClientSkuId(productForm1.getClientSkuId());
@@ -153,9 +157,11 @@ public class OrderCsvFormValidatorTest extends AbstractUnitTest {
 
     }
 
+    // test validate
     @Test
     public void testValidate(){
         addDetails();
+        // set wrong details
         orderItemForm1.setClientId(0L);
         orderItemForm1.setCustomerId(0L);
         orderItemForm1.setChannelId(0L);
@@ -170,6 +176,7 @@ public class OrderCsvFormValidatorTest extends AbstractUnitTest {
         Errors errors = new BeanPropertyBindingResult(orderCsvForm,"Invalid Csv");
         orderCsvFormValidator.validate(orderCsvForm,errors);
         assertTrue(errors.hasErrors());
+        // check no. of errors
         assertEquals(7,errors.getErrorCount());
     }
 

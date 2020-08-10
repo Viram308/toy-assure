@@ -102,17 +102,21 @@ public class BinSkuDto {
     @Transactional(readOnly = true)
     public List<BinSkuData> searchBinSku(BinSkuSearchForm binSkuSearchForm) {
         List<Product> productList = productApi.getAll();
+        // filter with clientId
         if(binSkuSearchForm.getClientId() != 0) {
             productList = productList.stream().filter(o -> o.getClientId().equals(binSkuSearchForm.getClientId())).collect(Collectors.toList());
         }
+        // filter with clientSkuId
         if (!StringUtil.isEmpty(binSkuSearchForm.getClientSkuId())) {
             productList = productList.stream().filter(o -> o.getClientSkuId().equals(binSkuSearchForm.getClientSkuId())).collect(Collectors.toList());
         }
+        // create globalSkuIdList
         List<Long> globalSkuIdList = productList.stream().map(Product::getGlobalSkuId).collect(Collectors.toList());
         if (globalSkuIdList.isEmpty()) {
             return null;
         }
         List<BinSku> binSkuList = binSkuApi.searchByGlobalSkuIdList(globalSkuIdList);
+        // filter with binId
         if (binSkuSearchForm.getBinId() == 0) {
             return getBinSkuDataList(binSkuList);
         }
@@ -139,9 +143,11 @@ public class BinSkuDto {
         Long quantityToAdd = Math.subtractExact(binSkuUpdateForm.getUpdateQuantity(), binSkuUpdateForm.getOriginalQuantity());
         BinSku binSku = new BinSku();
         binSku.setQuantity(binSkuUpdateForm.getUpdateQuantity());
+        // update binSku
         binSkuApi.update(binSkuId, binSku);
         Inventory inventory = inventoryApi.getInventoryByGlobalSkuId(binSkuUpdateForm.getGlobalSkuId());
         inventory.setAvailableQuantity(inventory.getAvailableQuantity() + quantityToAdd);
+        // update inventory
         inventoryApi.update(inventory.getId(), inventory);
         logger.info("Inventory updated");
     }

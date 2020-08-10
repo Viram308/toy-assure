@@ -16,6 +16,9 @@ import com.commons.response.ProductData;
 
 public class ConverterUtil {
 
+    //converts form to data or data to entity
+
+
     public static Client convertClientFormToClient(ClientForm clientForm){
         Client client = new Client();
         client.setName(clientForm.getName());

@@ -35,7 +35,7 @@ public class ProductDtoTest extends AbstractUnitTest {
 
     @Before
     public void setUp(){
-        clientForm1 = createClientForm("viram", ClientType.CLIENT);
+        clientForm1 = createClientForm();
         productForm1 = createProductForm("munch",10.00,"excellent","prod1","nestle");
         productForm2 = createProductForm("kitkat",15.00,"nice","prod2","britannia");
         productForm3 = createProductForm("munch",10.50,"nice","prod3","nestle");
@@ -59,10 +59,10 @@ public class ProductDtoTest extends AbstractUnitTest {
         return productForm;
     }
 
-    private ClientForm createClientForm(String name, ClientType type) {
+    private ClientForm createClientForm() {
         ClientForm clientForm = new ClientForm();
-        clientForm.setName(name);
-        clientForm.setType(type);
+        clientForm.setName("viram");
+        clientForm.setType(ClientType.CLIENT);
         return clientForm;
     }
 
@@ -77,6 +77,7 @@ public class ProductDtoTest extends AbstractUnitTest {
 
     }
 
+    // test for adding product
     @Test(expected = CustomValidationException.class)
     public void testAddProduct(){
         addProduct();
@@ -87,6 +88,7 @@ public class ProductDtoTest extends AbstractUnitTest {
         productDto.addProducts(productCsvForm,result);
     }
 
+    // test for getting product by id
     @Test
     public void testGetProduct(){
         addProduct();
@@ -96,6 +98,7 @@ public class ProductDtoTest extends AbstractUnitTest {
         Long globalSkuId = productDataList.get(0).getGlobalSkuId();
         ProductData productData = productDto.getProduct(globalSkuId);
         assertNotNull(productData);
+        // test added data
         assertEquals(productDataList.get(0).getProductName(),productData.getProductName());
         assertEquals(productDataList.get(0).getClientSkuId(),productData.getClientSkuId());
         assertEquals(productDataList.get(0).getDescription(),productData.getDescription());
@@ -104,6 +107,7 @@ public class ProductDtoTest extends AbstractUnitTest {
         assertEquals(productDataList.get(0).getMrp(),productData.getMrp(),0.01);
     }
 
+    // test for search product
     @Test
     public void testSearch(){
         addProduct();
@@ -112,12 +116,14 @@ public class ProductDtoTest extends AbstractUnitTest {
         productDto.addProducts(productCsvForm,result);
         List<ProductData> productDataList = productDto.searchProducts(productSearchForm);
         assertEquals(2,productDataList.size());
+        // update search form
         productSearchForm.setClientSkuId("prod1");
         productSearchForm.setClientId(productForm1.getClientId());
         productDataList = productDto.searchProducts(productSearchForm);
         assertEquals(1,productDataList.size());
     }
 
+    // test for updating product
     @Test
     public void testUpdateProduct(){
         addProduct();
@@ -125,12 +131,14 @@ public class ProductDtoTest extends AbstractUnitTest {
         when(result.hasErrors()).thenReturn(false);
         List<ProductData> productDataList = productDto.addProducts(productCsvForm,result);
         Long globalSkuId = productDataList.get(0).getGlobalSkuId();
+        // update product
         ProductData productData = productDto.updateProduct(globalSkuId,productForm3);
         assertNotNull(productData);
         assertEquals(productForm3.getMrp(),productData.getMrp(),0.01);
         assertEquals(productForm3.getDescription(),productData.getDescription());
     }
 
+    // test for getting all product
     @Test
     public void testGetAll(){
         addProduct();
@@ -141,6 +149,7 @@ public class ProductDtoTest extends AbstractUnitTest {
         assertEquals(2,productDataList.size());
     }
 
+    // test for getting data by clientId and clientSkuId
     @Test
     public void testGetProductByClientDetails(){
         addProduct();
@@ -149,6 +158,7 @@ public class ProductDtoTest extends AbstractUnitTest {
         productDto.addProducts(productCsvForm,result);
         ProductData productData = productDto.getProductByClientIdAndClientSkuId(productForm1.getClientId(),productForm1.getClientSkuId());
         assertNotNull(productData);
+        // test data
         assertEquals(productForm1.getProductName(),productData.getProductName());
         assertEquals(productForm1.getClientSkuId(),productData.getClientSkuId());
         assertEquals(productForm1.getDescription(),productData.getDescription());
@@ -158,6 +168,7 @@ public class ProductDtoTest extends AbstractUnitTest {
         assertNull(productData);
     }
 
+    // test for validation
     @Test(expected = ApiException.class)
     public void testValidate(){
         productDto.validate(productForm1);
@@ -166,6 +177,7 @@ public class ProductDtoTest extends AbstractUnitTest {
         productDto.validate(productForm1);
     }
 
+    // test for getting clientSku by clientId
     @Test
     public void testGetClientSkuByClientId(){
         addProduct();

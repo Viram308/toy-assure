@@ -62,10 +62,12 @@ public class OrderDto {
 
     @Transactional(rollbackFor = CustomValidationException.class)
     public List<OrderData> addOrder(OrderCsvForm orderCsvForm, BindingResult result) {
+        // validate
         orderCsvFormValidator.validate(orderCsvForm, result);
         if (result.hasErrors()) {
             throw new CustomValidationException(result);
         }
+
         Order order = ConverterUtil.convertOrderCsvFormToOrder(orderCsvForm);
         if (order != null) {
             order = orderApi.addOrder(order);
@@ -75,6 +77,7 @@ public class OrderDto {
                 orderItemApi.addOrderItem(orderItem);
             }
             logger.info("Allocate Orders");
+            // allocate if available
             return allocateOrder(order.getId());
         }
         return getAllOrders();
@@ -129,6 +132,7 @@ public class OrderDto {
         List<OrderItem> itemPojoList = orderItemApi.getOrderItemByOrderId(order.getId());
         boolean orderCheck = true;
         for (OrderItem item : itemPojoList) {
+            // check for every line item
             boolean check = orderItemAllocationLogic(item);
             if (!check) {
                 orderCheck = false;
@@ -150,9 +154,11 @@ public class OrderDto {
         if (skuList == null) {
             throw new ApiException("No BinSku records found.");
         }
+        // check for available quantity
         long remaining_available_quantity = Math.subtractExact(inventory.getAvailableQuantity(), quantityToAdd);
         if (remaining_available_quantity < 0) {
             quantityToAdd = inventory.getAvailableQuantity();
+            // zero inventory
             inventory.setAvailableQuantity(0L);
         } else {
             inventory.setAvailableQuantity(remaining_available_quantity);
@@ -160,6 +166,7 @@ public class OrderDto {
         inventory.setAllocatedQuantity(inventory.getAllocatedQuantity() + quantityToAdd);
         orderItem.setAllocatedQuantity(orderItem.getAllocatedQuantity() + quantityToAdd);
         long min_Val;
+        // check for all bins with particular globalSkuId
         for (BinSku binSku : skuList) {
             if (quantityToAdd > 0) {
                 if (binSku.getQuantity() >= quantityToAdd) {
@@ -173,6 +180,7 @@ public class OrderDto {
             }
             binSkuApi.update(binSku.getId(), binSku);
         }
+        // update data
         inventoryApi.update(inventory.getId(), inventory);
         orderItemApi.updateOrderItem(orderItem.getId(), orderItem);
         return orderItem.getAllocatedQuantity().equals(orderItem.getOrderedQuantity());
@@ -193,27 +201,15 @@ public class OrderDto {
     @Transactional(readOnly = true)
     public List<OrderData> searchOrder(OrderSearchForm orderSearchForm) {
         List<Order> orderList = orderApi.getAll();
+        // check with clientId
         if (orderSearchForm.getClientId() != 0) {
             orderList = orderList.stream().filter(o -> (o.getClientId().equals(orderSearchForm.getClientId()))).collect(Collectors.toList());
         }
+        // check with status
         if (!StringUtil.isEmpty(orderSearchForm.getOrderStatus())) {
             orderList = orderList.stream().filter(o -> (o.getStatus().toString().equals(StringUtil.toUpperCase(orderSearchForm.getOrderStatus())))).collect(Collectors.toList());
         }
-        if (orderSearchForm.getChannelId() != 0) {
-            orderList = orderList.stream().filter(o -> (o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
-        }
-        return orderList.stream().map(o -> ConverterUtil.convertOrderToOrderData(o, clientApi.get(o.getClientId()), clientApi.get(o.getCustomerId()), channelDataApi.getChannelDetails(o.getChannelId()))).collect(Collectors.toList());
-    }
-
-    @Transactional(readOnly = true)
-    public List<OrderData> searchChannelOrder(OrderSearchForm orderSearchForm) {
-        List<Order> orderList = orderApi.getAll();
-        if (orderSearchForm.getClientId() != 0) {
-            orderList = orderList.stream().filter(o -> (o.getClientId().equals(orderSearchForm.getClientId()))).collect(Collectors.toList());
-        }
-        if (!StringUtil.isEmpty(orderSearchForm.getOrderStatus())) {
-            orderList = orderList.stream().filter(o -> (o.getStatus().toString().equals(StringUtil.toUpperCase(orderSearchForm.getOrderStatus())))).collect(Collectors.toList());
-        }
+        // check with channelId
         if (orderSearchForm.getChannelId() != 0) {
             orderList = orderList.stream().filter(o -> (o.getChannelId().equals(orderSearchForm.getChannelId()))).collect(Collectors.toList());
         }
@@ -229,10 +225,10 @@ public class OrderDto {
     @Transactional(rollbackFor = ApiException.class)
     public void fulfillOrder(Long id){
         Order order = orderApi.get(id);
+        // check for allocated orders
         if(!order.getStatus().equals(OrderStatus.ALLOCATED)){
             throw new ApiException("Order is not allocated with id : "+id);
         }
-        // add check for allocated orders
         boolean result = orderItemFulfillmentLogic(order);
         if (!result) {
             throw new ApiException("Can't fulfill order for orderId : " + id);
@@ -251,6 +247,7 @@ public class OrderDto {
             if ((allocated_quantity - ordered_quantity) < 0) {
                 throw new ApiException("OrderItem with orderItemId : " + orderItem.getId() + " is not allocated");
             }
+            // transfer allocated quantity to fulfilled quantty
             Inventory inventory = inventoryApi.getInventoryByGlobalSkuId(orderItem.getGlobalSkuId());
             inventory.setAllocatedQuantity(inventory.getAllocatedQuantity() - ordered_quantity);
             inventory.setFulfilledQuantity(inventory.getFulfilledQuantity() + ordered_quantity);
@@ -282,6 +279,7 @@ public class OrderDto {
     public byte[] downloadInvoice(Long id) throws IOException{
         byte[] fileInBytes;
         File file = new File(String.valueOf(Paths.get(PDF_PATH+"order"+id+".pdf")));
+        // if file is not in assure then it will be in channel-app
         if(!(file.exists() && file.isFile())) {
             byte[] channelByteResponse = channelDataApi.getPDFBytes(id);
             if(channelByteResponse == null) {
@@ -301,6 +299,7 @@ public class OrderDto {
 
     public InvoiceData getInvoiceData(Long id) {
         Order order = orderApi.get(id);
+        // create data
         List<OrderItem> orderItemList = orderItemApi.getOrderItemByOrderId(order.getId());
         InvoiceData invoiceData = new InvoiceData();
         invoiceData.setDate(getDate());

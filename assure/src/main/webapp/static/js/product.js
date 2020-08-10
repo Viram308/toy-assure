@@ -324,7 +324,8 @@ function validateUpdateFields() {
        infoToast("Please enter Brand ID value.");
        return false;
     }
-    if(mrp<=0 || mrp.trim()==""){
+    mrp=Number(mrp);
+    if(mrp<=0){
     	infoToast("Please enter valid MRP value.");
        return false;
     }

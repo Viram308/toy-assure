@@ -65,11 +65,13 @@ public class ProductAssureTest extends AbstractUnitTest {
         return product;
     }
 
+    // test for getting product details
     @Test
     public void testGetProductDetails() {
         long globalSkuId = 1L;
 
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL + "/product/" + globalSkuId)))
                     .andExpect(method(HttpMethod.GET))
@@ -84,7 +86,7 @@ public class ProductAssureTest extends AbstractUnitTest {
         ProductData productData = productAssure.getProductData(globalSkuId);
         mockServer.verify();
         assertNotNull(productData);
-
+        // test product data
         assertEquals(product1.getClientName(), productData.getClientName());
         assertEquals(product1.getClientSkuId(), productData.getClientSkuId());
         assertEquals(product1.getProductName(), productData.getProductName());
@@ -93,9 +95,11 @@ public class ProductAssureTest extends AbstractUnitTest {
         assertEquals(product1.getDescription(), productData.getDescription());
     }
 
+    // test for getting product by client id
     @Test
     public void testGetByClientId(){
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL + "/product/search")))
                     .andExpect(method(HttpMethod.POST))
@@ -109,6 +113,7 @@ public class ProductAssureTest extends AbstractUnitTest {
 
         List<ProductData> productDataList = productAssure.getProductByClientIdAndClientSkuId(1L);
         mockServer.verify();
+        // test data of each product
         assertEquals(product1.getClientName(), productDataList.get(0).getClientName());
         assertEquals(product1.getClientSkuId(), productDataList.get(0).getClientSkuId());
         assertEquals(product1.getProductName(), productDataList.get(0).getProductName());

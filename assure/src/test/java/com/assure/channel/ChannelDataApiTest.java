@@ -39,6 +39,7 @@ public class ChannelDataApiTest extends AbstractUnitTest {
         mockServer = MockRestServiceServer.createServer(restTemplate);
     }
 
+    // test for getting channel data from server
     @Test
     public void testGetChannelDetails() {
         Long channelId = 1L;
@@ -47,7 +48,7 @@ public class ChannelDataApiTest extends AbstractUnitTest {
         channelDataResponse.setName("test");
         channelDataResponse.setInvoiceType(InvoiceType.CHANNEL.toString());
         channelDataResponse.setId(1L);
-
+        // create mockServer
         try {
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI("http://localhost:9003/oms/api/channel/1")))
@@ -62,11 +63,13 @@ public class ChannelDataApiTest extends AbstractUnitTest {
 
         ChannelData response = channelDataApi.getChannelDetails(channelId);
         mockServer.verify();
+        // test data
         assertEquals(channelDataResponse.getId(), response.getId());
         assertEquals(channelDataResponse.getName(), response.getName());
         assertEquals(channelDataResponse.getInvoiceType(), response.getInvoiceType());
     }
 
+    // test for getting all channel from server
     @Test
     public void testGetAllChannel(){
         List<ChannelData> channelDataList = new ArrayList<>();
@@ -75,6 +78,7 @@ public class ChannelDataApiTest extends AbstractUnitTest {
         channelData.setInvoiceType(InvoiceType.CHANNEL.toString());
         channelData.setId(1L);
         channelDataList.add(channelData);
+        // create mockServer
         try {
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI("http://localhost:9003/oms/api/channel")))
@@ -88,10 +92,12 @@ public class ChannelDataApiTest extends AbstractUnitTest {
         }
         List<ChannelData>  response = channelDataApi.getAllChannel();
         mockServer.verify();
+        // test list size
         assertEquals(1,response.size());
 
     }
 
+    // test for getting pdfBytes from channel-app
     @Test
     public void testGetPdfBytes(){
         byte[] bytes = new byte[30];

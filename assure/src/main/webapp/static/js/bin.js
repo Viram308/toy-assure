@@ -55,7 +55,7 @@ function addBin(){
             allowToastClose: true
         });
 	   		var values = '';
-	   		$.each(data, function(index, value) {
+	   		$.each(response, function(index, value) {
 	   			values += value + '\n';
 	   		});
 	   		downloadBinFile(values);
@@ -399,7 +399,7 @@ function validateFields(){
 
 function validateUpdateFields() {
 	var quantity=$("#bin-edit-form input[name=updateQuantity]").val();
-	quantity = parseInt(quantity);
+	quantity = Number(quantity);
     if(quantity<=0 || !Number.isInteger(quantity)){
     	infoToast("Please enter valid Quantity value.");
        	return false;

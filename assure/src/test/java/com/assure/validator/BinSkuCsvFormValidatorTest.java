@@ -90,7 +90,7 @@ public class BinSkuCsvFormValidatorTest extends AbstractUnitTest {
     private void addDetails() {
         ClientData clientData1 = clientDto.addClient(clientForm1);
         ClientData clientData2 = clientDto.addClient(clientForm2);
-
+        // set client id
         productForm1.setClientId(clientData1.getId());
         productForm2.setClientId(clientData2.getId());
         List<ProductForm> productFormList = new ArrayList<>();
@@ -99,9 +99,12 @@ public class BinSkuCsvFormValidatorTest extends AbstractUnitTest {
         productCsvForm.setProductFormList(productFormList);
         BindingResult result = mock(BindingResult.class);
         when(result.hasErrors()).thenReturn(false);
+        // add product
         productDto.addProducts(productCsvForm, result);
+        // add bins
         List<Long> binIdList1 = binDto.addBins(binForm1);
         List<Long> binIdList2 = binDto.addBins(binForm2);
+        // set binSkuForm details
         binSkuForm1.setClientId(clientData1.getId());
         binSkuForm1.setClientSkuId(productForm1.getClientSkuId());
         binSkuForm1.setBinId(binIdList1.get(0));
@@ -109,9 +112,12 @@ public class BinSkuCsvFormValidatorTest extends AbstractUnitTest {
         binSkuForm2.setClientSkuId(productForm1.getClientSkuId());
         binSkuForm2.setBinId(binIdList2.get(0));
     }
+
+    // test validate function
     @Test
     public void testValidate(){
         addDetails();
+        // set wrong details
         binSkuForm1.setClientId(0L);
         binSkuForm2.setClientId(0L);
         List<BinSkuForm> binSkuFormList = new ArrayList<>();
@@ -121,6 +127,7 @@ public class BinSkuCsvFormValidatorTest extends AbstractUnitTest {
         Errors errors = new BeanPropertyBindingResult(binSkuCsvForm,"Invalid Csv");
         binSkuCsvFormValidator.validate(binSkuCsvForm,errors);
         assertTrue(errors.hasErrors());
+        // test no. of errors
         assertEquals(4,errors.getErrorCount());
     }
 }

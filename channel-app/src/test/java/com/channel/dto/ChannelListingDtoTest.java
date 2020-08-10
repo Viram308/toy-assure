@@ -103,35 +103,42 @@ public class ChannelListingDtoTest extends AbstractUnitTest {
     }
 
     private void addDetails() {
+        // add channel
         ChannelData channelData = channelDto.addChannel(channelForm1);
         List<ChannelListingForm> channelListingFormList = new ArrayList<>();
+        // set channel id
         channelListingForm1.setChannelId(channelData.getId());
         channelListingForm2.setChannelId(channelData.getId());
         channelListingSearchForm.setChannelId(channelData.getId());
         channelListingFormList.add(channelListingForm1);
         channelListingFormList.add(channelListingForm2);
         channelListingCsvForm.setChannelListingFormList(channelListingFormList);
+        // set restTemplate
         channelListingDto.setClientAssureRestTemplate(clientAssure);
         channelListingDto.setProductAssureRestTemplate(productAssure);
         List<ProductData> productDataList = new ArrayList<>();
         productDataList.add(productData1);
         productDataList.add(productData2);
+        // rules
         when(clientAssure.getClientData(1L)).thenReturn(clientData);
         when(productAssure.getProductByClientIdAndClientSkuId(1L)).thenReturn(productDataList);
         when(productAssure.getProductData(1L)).thenReturn(productData1);
         when(productAssure.getProductData(2L)).thenReturn(productData2);
     }
 
+    // test for adding channel listing
     @Test(expected = CustomValidationException.class)
     public void testAddChannelListing() {
         addDetails();
         BindingResult result = mock(BindingResult.class);
         when(result.hasErrors()).thenReturn(false);
+        // add
         channelListingDto.addChannelListing(channelListingCsvForm, result);
         when(result.hasErrors()).thenReturn(true);
         channelListingDto.addChannelListing(channelListingCsvForm, result);
     }
 
+    // test for searching channel listing
     @Test
     public void testSearch() {
         addDetails();
@@ -142,6 +149,7 @@ public class ChannelListingDtoTest extends AbstractUnitTest {
         assertEquals(2, channelListingDataList.size());
     }
 
+    // test for getting all channel listing
     @Test
     public void testGetAllChannelListing() {
         addDetails();
@@ -152,6 +160,7 @@ public class ChannelListingDtoTest extends AbstractUnitTest {
         assertEquals(2, channelListingDataList.size());
     }
 
+    // test for getting channel listing by id
     @Test
     public void testGetChannelListing() {
         addDetails();
@@ -159,8 +168,12 @@ public class ChannelListingDtoTest extends AbstractUnitTest {
         when(result.hasErrors()).thenReturn(false);
         channelListingDto.addChannelListing(channelListingCsvForm, result);
         List<ChannelListingData> channelListingDataList = channelListingDto.getAllChannelListing();
+        // get channel listing
+
         ChannelListingData channelListingData1 = channelListingDto.getChannelListing(channelListingDataList.get(0).getId());
+        // get channel listing
         ChannelListingData channelListingData2 = channelListingDto.getChannelListing(channelListingDataList.get(1).getId());
+        // test data
         assertEquals(StringUtil.toLowerCase(channelListingForm1.getChannelSkuId()), channelListingData1.getChannelSkuId());
         assertEquals(channelListingForm1.getChannelId(), channelListingData1.getChannelId());
         assertEquals(StringUtil.toLowerCase(channelListingForm1.getClientSkuId()), channelListingData1.getClientSkuId());
@@ -169,6 +182,7 @@ public class ChannelListingDtoTest extends AbstractUnitTest {
         assertEquals(StringUtil.toLowerCase(channelListingForm2.getClientSkuId()), channelListingData2.getClientSkuId());
     }
 
+    // test for getting channel listing by channelId,channelSkuId and clientId
     @Test
     public void testGetChannelListingData() {
         addDetails();
@@ -177,11 +191,13 @@ public class ChannelListingDtoTest extends AbstractUnitTest {
         channelListingDto.addChannelListing(channelListingCsvForm, result);
         ChannelListingData channelListingData = channelListingDto.getChannelListingData(channelListingForm1.getChannelId(), channelListingForm1.getChannelSkuId(), channelListingForm1.getClientId());
         assertNotNull(channelListingData);
+        // test data
         assertEquals(StringUtil.toLowerCase(channelListingForm1.getChannelSkuId()), channelListingData.getChannelSkuId());
         assertEquals(channelListingForm1.getChannelId(), channelListingData.getChannelId());
         assertEquals(StringUtil.toLowerCase(channelListingForm1.getClientSkuId()), channelListingData.getClientSkuId());
     }
 
+    // test for getting channel listing by channel and client
     @Test
     public void testGetAllByChannelClient() {
         addDetails();
@@ -189,6 +205,7 @@ public class ChannelListingDtoTest extends AbstractUnitTest {
         when(result.hasErrors()).thenReturn(false);
         channelListingDto.addChannelListing(channelListingCsvForm, result);
         List<ChannelListingData> channelListingDataList = channelListingDto.getAllChannelListingByChannelClient(channelListingForm1.getChannelId(),channelListingForm1.getClientId());
+        // test list size
         assertEquals(2,channelListingDataList.size());
     }
 

@@ -91,6 +91,8 @@ public class ConverterUtilTest extends AbstractUnitTest {
         binSkuForm.setQuantity(20L);
         return binSkuForm;
     }
+    // tests for converting form to data and data to entity
+
 
     @Test
     public void testConvertClientFormToClient(){

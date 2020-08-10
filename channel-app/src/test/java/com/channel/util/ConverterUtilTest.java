@@ -40,6 +40,8 @@ public class ConverterUtilTest extends AbstractUnitTest {
         return channelForm;
     }
 
+    // tests for conversion between form,data and entity
+
     @Test
     public void testConvertChannelFormToChannel(){
         Channel channel = ConverterUtil.convertChannelFormToChannel(channelForm);

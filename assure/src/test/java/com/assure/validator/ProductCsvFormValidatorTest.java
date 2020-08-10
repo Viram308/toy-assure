@@ -57,13 +57,16 @@ public class ProductCsvFormValidatorTest extends AbstractUnitTest {
 
     private void addProduct(){
         ClientData clientData = clientDto.addClient(clientForm1);
+        // set clientId
         productForm1.setClientId(clientData.getId());
         productForm2.setClientId(clientData.getId());
     }
 
+    // test validate
     @Test
     public void testValidate(){
         addProduct();
+        // set wrong data
         productForm1.setProductName("");
         productForm1.setBrandId("");
         productForm1.setClientId(0L);
@@ -74,6 +77,7 @@ public class ProductCsvFormValidatorTest extends AbstractUnitTest {
         Errors errors = new BeanPropertyBindingResult(productCsvForm,"Invalid Csv");
         productCsvFormValidator.validate(productCsvForm,errors);
         assertTrue(errors.hasErrors());
+        // test no. of errors
         assertEquals(3,errors.getErrorCount());
     }
 

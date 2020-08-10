@@ -4,7 +4,6 @@ import com.channel.dao.ChannelDao;
 import com.channel.pojo.Channel;
 import com.channel.util.NormalizeUtil;
 import com.commons.api.ApiException;
-import com.commons.enums.ClientType;
 import com.commons.enums.InvoiceType;
 import com.commons.util.StringUtil;
 import org.apache.log4j.Logger;

@@ -50,6 +50,7 @@ public class ChannelDto {
     @Transactional(readOnly = true)
     public List<ChannelData> getChannelByClient(Long clientId) {
         List<ChannelListing> channelListingList = channelListingApi.getByClientId(clientId);
+        // create channel id list
         List<Long> channelIdList = channelListingList.stream().map(ChannelListing::getChannelId).collect(Collectors.toList());
         if(channelIdList.isEmpty()){
             return null;
@@ -65,6 +66,7 @@ public class ChannelDto {
             return channelList.stream().map(ConverterUtil::convertChannelToChannelData).collect(Collectors.toList());
         }
         String type = StringUtil.toUpperCase(channelForm.getInvoiceType());
+        // filter with type
         channelList = channelList.stream().filter(o->(o.getInvoiceType().toString().equals(type))).collect(Collectors.toList());
         return channelList.stream().map(ConverterUtil::convertChannelToChannelData).collect(Collectors.toList());
     }

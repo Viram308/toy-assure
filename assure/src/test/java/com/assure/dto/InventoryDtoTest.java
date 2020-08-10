@@ -93,7 +93,7 @@ public class InventoryDtoTest extends AbstractUnitTest {
     private void addDetails(){
         ClientData clientData1 = clientDto.addClient(clientForm1);
         ClientData clientData2 = clientDto.addClient(clientForm2);
-
+        // set client id
         productForm1.setClientId(clientData1.getId());
         productForm2.setClientId(clientData2.getId());
         List<ProductForm> productFormList = new ArrayList<>();
@@ -102,9 +102,12 @@ public class InventoryDtoTest extends AbstractUnitTest {
         productCsvForm.setProductFormList(productFormList);
         BindingResult result = mock(BindingResult.class);
         when(result.hasErrors()).thenReturn(false);
+        // add products
         productDto.addProducts(productCsvForm,result);
+        // add bins
         binDto.addBins(binForm1);
         binDto.addBins(binForm2);
+        // setting binSku data
         binSkuForm1.setClientId(clientData1.getId());
         binSkuForm1.setClientSkuId(productForm1.getClientSkuId());
         binSkuForm1.setBinId(1000L);
@@ -117,10 +120,12 @@ public class InventoryDtoTest extends AbstractUnitTest {
         binSkuCsvForm.setBinSkuFormList(binSkuFormList);
         BindingResult result1 = mock(BindingResult.class);
         when(result1.hasErrors()).thenReturn(false);
+        // add binSku
         binSkuDto.addBinSku(binSkuCsvForm,result1);
         inventorySearchForm.setClientId(clientData1.getId());
     }
 
+    // test for getting all inventory
     @Test
     public void testGetAll(){
         addDetails();
@@ -128,15 +133,19 @@ public class InventoryDtoTest extends AbstractUnitTest {
         assertEquals(2,inventoryDataList.size());
     }
 
+    // test for search inventory
     @Test
     public void testGetSearchInventory(){
         addDetails();
         inventorySearchForm.setClientId(0L);
+        // search inventory
         List<InventoryData> inventoryDataList = inventoryDto.searchInventory(inventorySearchForm);
         assertEquals(2,inventoryDataList.size());
+        // update search form
         inventorySearchForm.setClientId(productForm1.getClientId());
         inventoryDataList = inventoryDto.searchInventory(inventorySearchForm);
         assertEquals(1,inventoryDataList.size());
+        // update search form
         inventorySearchForm.setClientId(productForm2.getClientId()+1);
         inventoryDataList = inventoryDto.searchInventory(inventorySearchForm);
         assertEquals(0,inventoryDataList.size());

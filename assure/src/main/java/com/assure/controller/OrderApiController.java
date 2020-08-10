@@ -44,16 +44,9 @@ public class OrderApiController {
 
     @ApiOperation(value = "Search order")
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public List<OrderData> searchDetail(@RequestBody OrderSearchForm orderSearchForm) {
+    public List<OrderData> searchOrder(@RequestBody OrderSearchForm orderSearchForm) {
         logger.info("search-order");
         return orderDto.searchOrder(orderSearchForm);
-    }
-
-    @ApiOperation(value = "Search Channel order")
-    @RequestMapping(value = "/searchChannelOrder", method = RequestMethod.POST)
-    public List<OrderData> searchChannelOrder(@RequestBody OrderSearchForm orderSearchForm) {
-        logger.info("search-channel-order");
-        return orderDto.searchChannelOrder(orderSearchForm);
     }
 
     @ApiOperation(value = "Gets all order")

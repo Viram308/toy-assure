@@ -57,9 +57,6 @@ public class ChannelOrderCsvFormValidatorTest extends AbstractUnitTest {
         orderData = createOrderData();
         orderItemForm1 = createOrderItemForm(10,15L);
         orderItemForm2 = createOrderItemForm(15,20L);
-
-
-
     }
 
     private OrderData createOrderData() {
@@ -104,22 +101,26 @@ public class ChannelOrderCsvFormValidatorTest extends AbstractUnitTest {
 
     private void addDetails(){
         ChannelData channelData = channelDto.addChannel(channelForm1);
+        // set channel id
         orderItemForm1.setChannelId(channelData.getId());
         orderItemForm2.setChannelId(channelData.getId());
-
+        // set restTemplate
         channelOrderDto.setClientAssureRestTemplate(clientAssure);
         channelOrderDto.setProductAssureRestTemplate(productAssure);
         channelOrderDto.setOrderAssureRestTemplate(orderAssure);
         orderData.setChannelId(channelData.getId());
+        // rules
         when(clientAssure.getClientData(0L)).thenReturn(null);
         when(productAssure.getProductByClientIdAndClientSkuId(1L)).thenReturn(new ArrayList<>());
         when(orderAssure.getOrderDetails("o1",channelData.getId())).thenReturn(null);
 
     }
 
+    // test validate
     @Test
     public void testValidate(){
         addDetails();
+        // set line item data
         orderItemForm1.setClientId(0L);
         orderItemForm1.setCustomerId(0L);
         orderItemForm1.setChannelOrderId("o1");
@@ -133,6 +134,7 @@ public class ChannelOrderCsvFormValidatorTest extends AbstractUnitTest {
         Errors errors = new BeanPropertyBindingResult(orderCsvForm,"Invalid Csv");
         channelOrderCsvFormValidator.validate(orderCsvForm,errors);
         assertTrue(errors.hasErrors());
+        // test no. of errors
         assertEquals(6,errors.getErrorCount());
     }
 }

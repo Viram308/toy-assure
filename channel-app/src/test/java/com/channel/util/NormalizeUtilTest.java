@@ -23,6 +23,7 @@ public class NormalizeUtilTest extends AbstractUnitTest {
         return channel;
     }
 
+    // test for normalize channel
     @Test
     public void testNormalizeChannel(){
         NormalizeUtil.normalizeChannel(channel);

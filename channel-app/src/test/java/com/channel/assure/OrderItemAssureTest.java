@@ -64,11 +64,13 @@ public class OrderItemAssureTest extends AbstractUnitTest {
         return response;
     }
 
+    // test for getting line items
     @Test
     public void testGetOrderItemDetails() {
         Long orderId = 10L;
 
         try {
+            // create mock server
             mockServer.expect(ExpectedCount.once(),
                     requestTo(new URI(SERVER_URL+"/order/items/"+orderId)))
                     .andExpect(method(HttpMethod.GET))
@@ -84,7 +86,7 @@ public class OrderItemAssureTest extends AbstractUnitTest {
         mockServer.verify();
         Assert.assertNotNull(responseList);
         Assert.assertTrue(responseList.size()>0);
-
+        // test each line item
         assertEquals(orderItem1.getBrandId(), responseList.get(0).getBrandId());
         assertEquals(orderItem1.getOrderedQuantity(), responseList.get(0).getOrderedQuantity());
         assertEquals(orderItem1.getClientSkuId(),responseList.get(0).getClientSkuId());

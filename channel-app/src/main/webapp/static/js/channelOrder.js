@@ -428,8 +428,9 @@ function validateFields(){
  }
 
  var quantity = $("#channelOrder-create-form input[name=quantity]").val();
- if (quantity<=0) {
-   infoToast("Please enter positive quantity");
+ quantity = Number(quantity);
+ if (quantity<=0 || !Number.isInteger(quantity)) {
+   infoToast("Please enter positive and integer quantity");
    return false;
  }
 

@@ -32,30 +32,35 @@ public class ChannelListingApiTest extends AbstractUnitTest {
         return channelListing;
     }
 
+    // test for adding channel listing
     @Test
     public void testAddListing() {
         channelListingApi.add(channelListing1);
         ChannelListing newChannelListing = channelListingApi.getChannelListing(channelListing1.getId());
         assertNotNull(newChannelListing);
         assertTrue( newChannelListing.getId()>0);
+        // test data
         assertEquals(channelListing1.getClientId(), newChannelListing.getClientId());
         assertEquals(channelListing1.getGlobalSkuId(), newChannelListing.getGlobalSkuId());
         assertEquals(channelListing1.getChannelId(), newChannelListing.getChannelId());
         assertEquals(channelListing1.getChannelSkuId(), newChannelListing.getChannelSkuId());
     }
 
+    // test for get channel data by channelId,channelSkuId and clientId
     @Test
     public void testGetChannelListingByParameters() {
         channelListingApi.add(channelListing1);
         ChannelListing newChannelListing = channelListingApi.getChannelListingByParameters(channelListing1.getChannelId(),channelListing1.getChannelSkuId(),channelListing1.getClientId());
         assertNotNull(newChannelListing);
         assertTrue( newChannelListing.getId()>0);
+        // test data
         assertEquals(channelListing1.getClientId(), newChannelListing.getClientId());
         assertEquals(channelListing1.getGlobalSkuId(), newChannelListing.getGlobalSkuId());
         assertEquals(channelListing1.getChannelId(), newChannelListing.getChannelId());
         assertEquals(channelListing1.getChannelSkuId(), newChannelListing.getChannelSkuId());
     }
 
+    // test for get channel data by clientId
     @Test
     public void testGetChannelListingByClientId() {
         channelListingApi.add(channelListing1);
@@ -64,18 +69,21 @@ public class ChannelListingApiTest extends AbstractUnitTest {
         assertEquals(2,channelListingList.size());
     }
 
+    // test for get channel data by channelId,globalSkuId and clientId
     @Test
     public void testGetChannelListingByParametersLong() {
         channelListingApi.add(channelListing1);
         ChannelListing newChannelListing = channelListingApi.getChannelListingByParameters(channelListing1.getChannelId(),channelListing1.getClientId(),channelListing1.getGlobalSkuId());
         assertNotNull(newChannelListing);
         assertTrue( newChannelListing.getId()>0);
+        // test data
         assertEquals(channelListing1.getClientId(), newChannelListing.getClientId());
         assertEquals(channelListing1.getGlobalSkuId(), newChannelListing.getGlobalSkuId());
         assertEquals(channelListing1.getChannelId(), newChannelListing.getChannelId());
         assertEquals(channelListing1.getChannelSkuId(), newChannelListing.getChannelSkuId());
     }
 
+    // test for getting all listings
     @Test
     public void testGetAll() {
         channelListingApi.add(channelListing1);
@@ -85,12 +93,14 @@ public class ChannelListingApiTest extends AbstractUnitTest {
         assertEquals(3,channelListingList.size());
     }
 
+    // test for getting channel listing by id
     @Test
     public void testGetListing(){
         channelListingApi.add(channelListing1);
         ChannelListing newChannelListing = channelListingApi.getChannelListing(channelListing1.getId());
         assertNotNull(newChannelListing);
         assertTrue( newChannelListing.getId()>0);
+        // test data
         assertEquals(channelListing1.getClientId(), newChannelListing.getClientId());
         assertEquals(channelListing1.getGlobalSkuId(), newChannelListing.getGlobalSkuId());
         assertEquals(channelListing1.getChannelId(), newChannelListing.getChannelId());

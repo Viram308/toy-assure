@@ -1,8 +1,6 @@
 package com.channel.api;
 
 import com.channel.dao.ChannelListingDao;
-import com.channel.model.form.ChannelListingSearchForm;
-import com.channel.model.response.ChannelListingData;
 import com.channel.pojo.ChannelListing;
 import com.channel.util.NormalizeUtil;
 import com.commons.util.StringUtil;

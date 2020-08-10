@@ -33,54 +33,63 @@ public class ClientApiTest extends AbstractUnitTest {
         return client;
     }
 
+    // test for adding client
     @Test
     public void testAddClient() {
         newClient1 = clientApi.add(client1);
         assertNotNull(newClient1);
+        // test data
         assertEquals(StringUtil.toLowerCase(client1.getName()), newClient1.getName());
         assertEquals(client1.getType(), newClient1.getType());
 
         Client newClient2 = clientApi.add(client2);
         assertNotNull(newClient2);
+        // test data
         assertEquals(StringUtil.toLowerCase(client2.getName()), newClient2.getName());
         assertEquals(client2.getType(), newClient2.getType());
     }
 
+    // test for getting client data by id
     @Test
     public void testGetClientDetails() {
         clientApi.add(client1);
         Client client = clientApi.get(client1.getId());
         assertNotNull(client);
+        // test data
         assertEquals(client1.getId(), client.getId());
         assertEquals(StringUtil.toLowerCase(client1.getName()), client.getName());
         assertEquals(client1.getType(), client.getType());
     }
-    
+
+    // test search by name
     @Test
     public void testSearchByName(){
         clientApi.add(client1);
         clientApi.add(client2);
         List<Client> clientList = clientApi.searchByName("test");
         assertEquals(2,clientList.size());
+        // here name will be normalized so enter name in small letters
         clientList=clientApi.searchByName("testcl");
         assertEquals(1,clientList.size());
     }
-    
+
+    // test for update client
     @Test
     public void testUpdateClient() {
         clientApi.add(client1);
         newClient1 = new Client();
+        // update
         newClient1.setName("updatedName");
         newClient1.setType(ClientType.CUSTOMER);
 
         Client clientUpdate = clientApi.update(client1.getId(),newClient1);
+        // test data
         assertNotNull(clientUpdate);
         assertEquals("updatedname", clientUpdate.getName());
         assertEquals(ClientType.CUSTOMER,clientUpdate.getType());
     }
 
-    
-
+    // test for get all clients
     @Test
     public void testGetAll() {
         clientApi.add(client1);
@@ -90,6 +99,7 @@ public class ClientApiTest extends AbstractUnitTest {
         assertEquals(2, list.size());
     }
 
+    // test for get only clients
     @Test
     public void testGetAllClients() {
         clientApi.add(client1);
@@ -99,6 +109,7 @@ public class ClientApiTest extends AbstractUnitTest {
         assertEquals(1, list.size());
     }
 
+    // test for get only customers
     @Test
     public void testGetAllCustomers() {
         clientApi.add(client1);
@@ -108,6 +119,7 @@ public class ClientApiTest extends AbstractUnitTest {
         assertEquals(1, list.size());
     }
 
+    // test for get check
     @Test(expected = ApiException.class)
     public void testGetCheck(){
         clientApi.add(client1);
@@ -121,6 +133,7 @@ public class ClientApiTest extends AbstractUnitTest {
         clientApi.getCheck(client2.getId()+1);
     }
 
+    // test for existing data
     @Test(expected = ApiException.class)
     public void testGetCheckExisting(){
         clientApi.add(client1);

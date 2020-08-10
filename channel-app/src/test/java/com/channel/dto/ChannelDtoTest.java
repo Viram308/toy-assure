@@ -64,6 +64,7 @@ public class ChannelDtoTest extends AbstractUnitTest {
         return channelForm;
     }
 
+    // test for adding channel
     @Test
     public void testAddChannel(){
         ChannelData channelData = channelDto.addChannel(channelForm1);
@@ -72,6 +73,7 @@ public class ChannelDtoTest extends AbstractUnitTest {
         assertEquals(InvoiceType.CHANNEL.toString(),channelData.getInvoiceType());
     }
 
+    // test for getting channel
     @Test
     public void testGetChannel(){
         ChannelData channelData1 = channelDto.addChannel(channelForm1);
@@ -81,16 +83,19 @@ public class ChannelDtoTest extends AbstractUnitTest {
         assertEquals(InvoiceType.CHANNEL.toString(),channelData2.getInvoiceType());
     }
 
+    // test for searching channel
     @Test
     public void testSearchChannel(){
         channelDto.addChannel(channelForm1);
         List<ChannelData> channelDataList = channelDto.searchChannels(channelForm2);
         assertEquals(1,channelDataList.size());
+        // update form
         channelForm2.setInvoiceType("self");
         channelDataList = channelDto.searchChannels(channelForm2);
         assertEquals(0,channelDataList.size());
     }
 
+    // test for updating channel
     @Test
     public void testUpdateChannel(){
         ChannelData channelData = channelDto.addChannel(channelForm1);
@@ -101,6 +106,7 @@ public class ChannelDtoTest extends AbstractUnitTest {
         assertEquals(channelForm2.getInvoiceType(),StringUtil.toLowerCase(channelData1.getInvoiceType()));
     }
 
+    // test for getting all channels
     @Test
     public void testGetAll(){
         channelDto.addChannel(channelForm1);
@@ -109,6 +115,7 @@ public class ChannelDtoTest extends AbstractUnitTest {
         assertEquals(1,channelDataList.size());
     }
 
+    // test for validation
     @Test(expected = ApiException.class)
     public void testValidate(){
         channelDto.validate(channelForm1);
@@ -116,6 +123,7 @@ public class ChannelDtoTest extends AbstractUnitTest {
         channelDto.validate(channelForm2);
     }
 
+    // test for getting channel by client
     @Test
     public void testGetChannelByClient(){
         ChannelData channelData1 = channelDto.addChannel(channelForm1);
@@ -128,6 +136,7 @@ public class ChannelDtoTest extends AbstractUnitTest {
         assertEquals(1,channelDataList.size());
     }
 
+    // test for getting all clients
     @Test
     public void testGetAllClients(){
         channelDto.setClientAssureRestTemplate(clientAssure);
@@ -138,6 +147,7 @@ public class ChannelDtoTest extends AbstractUnitTest {
         assertEquals(1,clientDataList1.size());
     }
 
+    // test for getting all customers
     @Test
     public void testGetAllCustomers(){
         channelDto.setClientAssureRestTemplate(clientAssure);
@@ -147,8 +157,5 @@ public class ChannelDtoTest extends AbstractUnitTest {
         List<ClientData> clientDataList1 = channelDto.getAllCustomers();
         assertEquals(1,clientDataList1.size());
     }
-
-
-
 
 }

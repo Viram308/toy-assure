@@ -19,22 +19,24 @@ public class BinDtoTest extends AbstractUnitTest {
 
     @Before
     public void setUp(){
-        binForm1 = createBinForm(1L);
-        binForm2 = createBinForm(1L);
+        binForm1 = createBinForm();
+        binForm2 = createBinForm();
     }
 
-    private BinForm createBinForm(Long noOfBins){
+    private BinForm createBinForm(){
         BinForm binForm = new BinForm();
-        binForm.setNoOfBins(noOfBins);
+        binForm.setNoOfBins(1L);
         return binForm;
     }
 
+    // test for adding bins
     @Test
     public void testAddBins(){
         List<Long> binIdList= binDto.addBins(binForm1);
         assertEquals(binForm1.getNoOfBins().longValue(),binIdList.size());
     }
 
+    // test for getting bin by id
     @Test
     public void testGetBin(){
         binDto.addBins(binForm1);
@@ -45,6 +47,7 @@ public class BinDtoTest extends AbstractUnitTest {
         assertNull(bin);
     }
 
+    // test for get all
     @Test
     public void testGetAll(){
         binDto.addBins(binForm1);

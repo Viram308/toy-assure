@@ -21,12 +21,14 @@ public class BinApiTest extends AbstractUnitTest {
         bin = new Bin();
     }
 
+    // test for addition of bins
     @Test
     public void testAdd() {
         binApi.add(bin);
         assertTrue(bin.getBinId()>=1000);
     }
 
+    //test for getting all bins
     @Test
     public void testGetAllBins() {
         binApi.add(bin);
@@ -35,6 +37,7 @@ public class BinApiTest extends AbstractUnitTest {
         assertEquals(1, list.size());
     }
 
+    // test for getting one bin
     @Test
     public void testGetBin() {
         binApi.add(bin);

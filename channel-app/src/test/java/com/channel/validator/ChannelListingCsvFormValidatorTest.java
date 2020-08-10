@@ -94,22 +94,23 @@ public class ChannelListingCsvFormValidatorTest extends AbstractUnitTest {
     }
 
     public void addDetails(){
+        // set restTemplate
         channelListingDto.setClientAssureRestTemplate(clientAssure);
         channelListingDto.setProductAssureRestTemplate(productAssure);
-        List<ProductData> productDataList = new ArrayList<>();
-        productDataList.add(productData1);
-        productDataList.add(productData2);
+        // rules
         when(clientAssure.getClientData(1L)).thenReturn(null);
-        when(productAssure.getProductByClientIdAndClientSkuId(1L)).thenReturn(new ArrayList<ProductData>());
+        when(productAssure.getProductByClientIdAndClientSkuId(1L)).thenReturn(new ArrayList<>());
         when(productAssure.getProductData(1L)).thenReturn(productData1);
         when(productAssure.getProductData(2L)).thenReturn(productData2);
     }
 
+    // test validate function
     @Test
     public void testValidate(){
         addDetails();
         ChannelData channelData = channelDto.addChannel(channelForm);
         List<ChannelListingForm> channelListingFormList = new ArrayList<>();
+        // set channel id
         channelListingForm1.setChannelId(channelData.getId());
         channelListingForm2.setChannelId(channelData.getId());
         channelListingFormList.add(channelListingForm1);
@@ -118,6 +119,7 @@ public class ChannelListingCsvFormValidatorTest extends AbstractUnitTest {
         Errors errors = new BeanPropertyBindingResult(channelListingCsvForm,"Invalid Csv");
         channelListingCsvFormValidator.validate(channelListingCsvForm,errors);
         assertTrue(errors.hasErrors());
+        // test no.of errors
         assertEquals(6,errors.getErrorCount());
 
     }

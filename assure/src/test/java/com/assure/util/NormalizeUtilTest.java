@@ -55,6 +55,8 @@ public class NormalizeUtilTest extends AbstractUnitTest {
         return client;
     }
 
+    // tests for normalizing entity
+
     @Test
     public void testNormalizeClient(){
         NormalizeUtil.normalizeClient(client);

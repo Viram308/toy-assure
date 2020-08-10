@@ -7,7 +7,6 @@ import com.channel.assure.OrderItemAssure;
 import com.channel.assure.ProductAssure;
 import com.channel.model.form.ChannelForm;
 import com.channel.model.response.ChannelOrderItemData;
-import com.channel.pojo.Channel;
 import com.channel.pojo.ChannelListing;
 import com.channel.spring.AbstractUnitTest;
 import com.commons.api.CustomValidationException;
@@ -153,13 +152,16 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
     }
 
     private void addDetails(){
+        // add channel
         ChannelData channelData = channelDto.addChannel(channelForm1);
+        // set channel
         orderItemForm1.setChannelId(channelData.getId());
         orderItemForm2.setChannelId(channelData.getId());
         List<OrderItemForm> orderItemFormList = new ArrayList<>();
         orderItemFormList.add(orderItemForm1);
         orderItemFormList.add(orderItemForm2);
         orderCsvForm.setOrderItemFormList(orderItemFormList);
+        // set restTemplate
         channelOrderDto.setClientAssureRestTemplate(clientAssure);
         channelOrderDto.setProductAssureRestTemplate(productAssure);
         channelOrderDto.setOrderAssureRestTemplate(orderAssure);
@@ -174,11 +176,13 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
         List<OrderItemData> orderItemDataList = new ArrayList<>();
         orderItemDataList.add(orderItemData1);
         orderItemDataList.add(orderItemData2);
+        // set listing data
         channelListing1.setChannelId(channelData.getId());
         channelListing1.setChannelSkuId("channelSku1");
 
         channelListing2.setChannelId(channelData.getId());
         channelListing2.setChannelSkuId("channelSku2");
+        // rules
         when(clientAssure.getClientData(1L)).thenReturn(clientData);
         when(clientAssure.getClientData(2L)).thenReturn(customerData);
         when(productAssure.getProductByClientIdAndClientSkuId(1L)).thenReturn(productDataList);
@@ -192,6 +196,7 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
         when(channelListingApi.getChannelListingByParameters(channelData.getId(),1L,2L)).thenReturn(channelListing2);
     }
 
+    // test for adding channel order
     @Test(expected = CustomValidationException.class)
     public void testAddChannelOrder(){
         addDetails();
@@ -204,6 +209,7 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
 
     }
 
+    // test for getting channel order list
     @Test
     public void testGetOrderList(){
         addDetails();
@@ -214,6 +220,7 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
         assertEquals(1,orderDataList.size());
     }
 
+    // test for searching channel order
     @Test
     public void testSearchChannelOrder(){
         addDetails();
@@ -224,6 +231,7 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
         assertEquals(1,orderDataList.size());
     }
 
+    // test for getting order items
     @Test
     public void testGetOrderItems(){
         addDetails();
@@ -234,6 +242,7 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
         assertEquals(2,orderItemDataList.size());
     }
 
+    // test for getting invoice data
     @Test
     public void testInvoiceData(){
         addDetails();
@@ -245,13 +254,16 @@ public class ChannelOrderDtoTest extends AbstractUnitTest {
         assertEquals(2,invoiceData.getInvoiceItemDataList().size());
     }
 
+    // test for getting order data except internal channel
     @Test
     public void testGetOrderDataExceptInternalChannel(){
         channelForm2.setChannelName("internal");
         channelForm2.setInvoiceType("SELF");
         ChannelData channelData = channelDto.addChannel(channelForm2);
+        // set order data
         orderData.setChannelId(channelData.getId());
         List<OrderData> orderDataList = new ArrayList<>();
+        // update list
         orderDataList.add(orderData);
         assertEquals(1,orderDataList.size());
         orderDataList = channelOrderDto.getOrderDataExceptInternalChannel(orderDataList);
