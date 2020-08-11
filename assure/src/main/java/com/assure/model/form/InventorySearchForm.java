@@ -7,4 +7,5 @@ import lombok.Setter;
 @Setter
 public class InventorySearchForm {
     private Long clientId;
+    private String clientSkuId;
 }

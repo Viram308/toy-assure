@@ -16,7 +16,7 @@ import com.commons.response.ProductData;
 
 public class ConverterUtil {
 
-    //converts form to data or data to entity
+    //converts between form,data and entity
 
 
     public static Client convertClientFormToClient(ClientForm clientForm){
@@ -134,6 +134,7 @@ public class ConverterUtil {
         orderItemData.setOrderedQuantity(orderItem.getOrderedQuantity());
         orderItemData.setSellingPricePerUnit(orderItem.getSellingPricePerUnit());
         orderItemData.setAllocatedQuantity(orderItem.getAllocatedQuantity());
+        orderItemData.setFulfilledQuantity(orderItem.getFulfilledQuantity());
         return orderItemData;
     }
 

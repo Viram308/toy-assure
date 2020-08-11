@@ -5965,3 +5965,11 @@ java.lang.NoClassDefFoundError: Could not initialize class org.springframework.w
 2020-08-10 18:59:34 INFO  ChannelOrderDto:184 - got pdf 8216
 2020-08-10 18:59:53 INFO  ChannelOrderController:55 - get all order items for orderId : 3
 2020-08-10 18:59:53 INFO  ChannelApiController:36 - get channel for id : 4
+2020-08-11 10:01:13 INFO  ChannelApiController:64 - get all channels
+2020-08-11 10:01:13 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-11 10:01:15 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-11 10:01:15 INFO  ChannelApiController:36 - get channel for id : 4
+2020-08-11 10:17:45 INFO  ChannelApiController:64 - get all channels
+2020-08-11 10:17:45 INFO  ChannelApiController:36 - get channel for id : 1
+2020-08-11 10:17:46 INFO  ChannelApiController:36 - get channel for id : 2
+2020-08-11 10:17:46 INFO  ChannelApiController:36 - get channel for id : 4

@@ -185,6 +185,7 @@ function displayOrderItems(data){
 		+ '<td style="word-break: break-all;max-width: 0px;">' + e.brandId + '</td>'
 		+ '<td>' + e.orderedQuantity + '</td>'
         + '<td>' + e.allocatedQuantity + '</td>'
+        + '<td>' + e.fulfilledQuantity + '</td>'
 		+ '<td>' + e.sellingPricePerUnit + '</td>'
 		+ '</tr>';
 		$tbodyViewOrder.append(row);

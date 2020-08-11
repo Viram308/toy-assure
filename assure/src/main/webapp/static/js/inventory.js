@@ -7,6 +7,10 @@ function getInventoryUrl(){
 	var baseUrl = $("meta[name=baseUrl]").attr("content")
 	return baseUrl + "/api/inventory";
 }
+function getProductUrl(){
+	var baseUrl = $("meta[name=baseUrl]").attr("content")
+	return baseUrl + "/api/product";
+}
 
 //BUTTON ACTIONS
 function searchInventory(event){
@@ -70,7 +74,14 @@ function displayInventoryListInTable(data){
 		$tbody.append(row);
 	}
 }
-
+function displayClientSkuDropDownList(data){
+	$('#inputClientSku').empty();
+    var options = '<option value="" selected>Select ClientSkuId</option>';
+    $.each(data, function(index, value) {
+        options += '<option value="' + value + '">' + value + '</option>';
+    });
+    $('#inputClientSku').append(options);
+}
 
 function displayClientDropDownList(data){
 	$('#clientSelect').empty();
@@ -80,7 +91,17 @@ function displayClientDropDownList(data){
     });
     $('#clientSelect').append(options);
 }
-
+function getClientSkuByClientId(clientId){
+	var url = getProductUrl() + "/getClientSku/"+clientId;
+	$.ajax({
+        url: url,
+        type: 'GET',
+        success: function(data) {
+            displayClientSkuDropDownList(data);
+        },
+        error: handleAjaxError
+	});
+}
 
 function getClientList(){
 	var url = getClientUrl() + "/allClients";
@@ -98,6 +119,10 @@ function getClientList(){
 //INITIALIZATION CODE
 function init(){
 	$('#search-inventory').click(searchInventory);
+	$('#inventory-form select[name=clientId]').change(function(){
+      var clientId = $(this).find("option:selected").val();
+      getClientSkuByClientId(clientId);
+    });
 }
 
 $(document).ready(init);

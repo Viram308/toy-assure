@@ -24,6 +24,9 @@
             <div class="col-2">
               <label for="clientSelect" class="control-label">Client</label>
             </div>
+            <div class="col-2">
+              <label for="inputClientSku" class="control-label">Client Sku</label>
+            </div>
           </div>
         </div>
         <div class="col-12" style="margin-top: 5px">
@@ -35,7 +38,14 @@
                </select>
              </div>
            </div>
-          <div class="col-1">
+           <div class="col-2">
+            <div class="form-group">
+              <select class="form-control" id="inputClientSku" name="clientSkuId"  style="width:90%">
+                 <option value="">Select ClientSkuId</option>
+               </select>
+            </div>
+          </div>
+          <div class="col-2">
             <div class="form-group">
              <button type="button" class="btn btn-outline-info" id="search-inventory">Search</button>
            </div>

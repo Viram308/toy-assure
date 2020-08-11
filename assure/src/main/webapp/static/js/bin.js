@@ -400,7 +400,7 @@ function validateFields(){
 function validateUpdateFields() {
 	var quantity=$("#bin-edit-form input[name=updateQuantity]").val();
 	quantity = Number(quantity);
-    if(quantity<=0 || !Number.isInteger(quantity)){
+    if(quantity<0 || !Number.isInteger(quantity)){
     	infoToast("Please enter valid Quantity value.");
        	return false;
     }

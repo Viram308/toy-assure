@@ -6458,3 +6458,61 @@ java.lang.NoClassDefFoundError: Could not initialize class org.springframework.w
 2020-08-10 18:59:53 INFO  OrderApiController:76 - get all order items for orderId
 2020-08-10 18:59:53 INFO  ProductApiController:44 - search products
 2020-08-10 18:59:57 INFO  OrderApiController:76 - get all order items for orderId
+2020-08-11 10:00:20 INFO  InventoryController:30 - get all inventory
+2020-08-11 10:00:20 INFO  ClientApiController:65 - get only clients
+2020-08-11 10:00:26 INFO  InventoryDto:77 - InventoryDataList size : 4
+2020-08-11 10:01:10 INFO  OrderApiController:55 - get all orders
+2020-08-11 10:01:10 INFO  ClientApiController:72 - get only customers
+2020-08-11 10:01:10 INFO  ClientApiController:65 - get only clients
+2020-08-11 10:01:10 INFO  OrderApiController:98 - get channels
+2020-08-11 10:01:17 INFO  OrderApiController:76 - get all order items for orderId
+2020-08-11 10:01:22 INFO  OrderApiController:76 - get all order items for orderId
+2020-08-11 10:01:25 INFO  OrderApiController:76 - get all order items for orderId
+2020-08-11 10:12:38 INFO  InventoryController:30 - get all inventory
+2020-08-11 10:12:38 INFO  ClientApiController:65 - get only clients
+2020-08-11 10:12:55 INFO  InventoryDto:77 - InventoryDataList size : 4
+2020-08-11 10:16:56 INFO  InventoryController:30 - get all inventory
+2020-08-11 10:16:56 INFO  ClientApiController:65 - get only clients
+2020-08-11 10:16:57 INFO  InventoryDto:77 - InventoryDataList size : 4
+2020-08-11 10:17:00 INFO  ProductApiController:65 - get clientSkuIds
+2020-08-11 10:17:11 INFO  InventoryController:37 - search inventory
+2020-08-11 10:17:11 INFO  InventoryDto:77 - InventoryDataList size : 1
+2020-08-11 10:17:14 INFO  ProductApiController:65 - get clientSkuIds
+2020-08-11 10:17:15 INFO  InventoryController:37 - search inventory
+2020-08-11 10:17:15 INFO  InventoryDto:77 - InventoryDataList size : 2
+2020-08-11 10:17:19 INFO  InventoryController:37 - search inventory
+2020-08-11 10:17:19 INFO  InventoryDto:77 - InventoryDataList size : 1
+2020-08-11 10:17:22 INFO  ProductApiController:65 - get clientSkuIds
+2020-08-11 10:17:24 INFO  InventoryController:37 - search inventory
+2020-08-11 10:17:24 INFO  InventoryDto:77 - InventoryDataList size : 4
+2020-08-11 10:17:28 INFO  ProductApiController:65 - get clientSkuIds
+2020-08-11 10:17:29 INFO  InventoryController:37 - search inventory
+2020-08-11 10:17:29 INFO  InventoryDto:77 - InventoryDataList size : 2
+2020-08-11 10:17:45 INFO  OrderApiController:55 - get all orders
+2020-08-11 10:17:45 INFO  ClientApiController:72 - get only customers
+2020-08-11 10:17:45 INFO  ClientApiController:65 - get only clients
+2020-08-11 10:17:45 INFO  OrderApiController:98 - get channels
+2020-08-11 10:18:17 INFO  OrderApiController:76 - get all order items for orderId
+2020-08-11 10:18:56 INFO  BinController:38 - get all bins
+2020-08-11 10:18:56 INFO  ClientApiController:65 - get only clients
+2020-08-11 10:18:56 INFO  BinSkuController:37 - get all binSku
+2020-08-11 10:19:18 INFO  BinSkuController:44 - get binSku for binSkuId : 3
+2020-08-11 10:19:43 INFO  BinSkuController:44 - get binSku for binSkuId : 2
+2020-08-11 10:19:47 INFO  BinSkuController:58 - update binSku
+2020-08-11 10:19:47 INFO  BinSkuDto:152 - Inventory updated
+2020-08-11 10:19:47 INFO  BinSkuController:51 - search binSku
+2020-08-11 10:19:57 INFO  InventoryController:30 - get all inventory
+2020-08-11 10:19:57 INFO  ClientApiController:65 - get only clients
+2020-08-11 10:19:57 INFO  InventoryDto:77 - InventoryDataList size : 4
+2020-08-11 10:20:04 INFO  BinController:38 - get all bins
+2020-08-11 10:20:04 INFO  ClientApiController:65 - get only clients
+2020-08-11 10:20:04 INFO  BinSkuController:37 - get all binSku
+2020-08-11 10:20:07 INFO  BinSkuController:44 - get binSku for binSkuId : 4
+2020-08-11 10:29:26 INFO  BinSkuController:44 - get binSku for binSkuId : 3
+2020-08-11 10:29:31 INFO  BinSkuController:58 - update binSku
+2020-08-11 10:29:31 INFO  BinSkuDto:152 - Inventory updated
+2020-08-11 10:29:31 INFO  BinSkuController:51 - search binSku
+2020-08-11 10:29:37 INFO  BinSkuController:44 - get binSku for binSkuId : 4
+2020-08-11 10:29:40 INFO  BinSkuController:58 - update binSku
+2020-08-11 10:29:40 INFO  BinSkuDto:152 - Inventory updated
+2020-08-11 10:29:40 INFO  BinSkuController:51 - search binSku

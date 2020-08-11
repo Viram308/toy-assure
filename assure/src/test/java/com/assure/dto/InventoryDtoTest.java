@@ -95,7 +95,7 @@ public class InventoryDtoTest extends AbstractUnitTest {
         ClientData clientData2 = clientDto.addClient(clientForm2);
         // set client id
         productForm1.setClientId(clientData1.getId());
-        productForm2.setClientId(clientData2.getId());
+        productForm2.setClientId(clientData1.getId());
         List<ProductForm> productFormList = new ArrayList<>();
         productFormList.add(productForm1);
         productFormList.add(productForm2);
@@ -143,10 +143,14 @@ public class InventoryDtoTest extends AbstractUnitTest {
         assertEquals(2,inventoryDataList.size());
         // update search form
         inventorySearchForm.setClientId(productForm1.getClientId());
+        inventorySearchForm.setClientSkuId("");
+        inventoryDataList = inventoryDto.searchInventory(inventorySearchForm);
+        assertEquals(2,inventoryDataList.size());
+        // update search form
+        inventorySearchForm.setClientSkuId("prod1");
         inventoryDataList = inventoryDto.searchInventory(inventorySearchForm);
         assertEquals(1,inventoryDataList.size());
-        // update search form
-        inventorySearchForm.setClientId(productForm2.getClientId()+1);
+        inventorySearchForm.setClientSkuId("prod22");
         inventoryDataList = inventoryDto.searchInventory(inventorySearchForm);
         assertEquals(0,inventoryDataList.size());
     }

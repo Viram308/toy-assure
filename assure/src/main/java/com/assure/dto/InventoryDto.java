@@ -9,6 +9,7 @@ import com.assure.pojo.Client;
 import com.assure.pojo.Inventory;
 import com.assure.pojo.Product;
 import com.assure.util.ConverterUtil;
+import com.commons.util.StringUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -41,17 +42,31 @@ public class InventoryDto {
         if (inventorySearchForm.getClientId() == 0) {
             return getAllInventory();
         }
-        List<Product> productList = productApi.getByClientId(inventorySearchForm.getClientId());
-        List<Long> globalSkuIdList = productList.stream().map(Product::getGlobalSkuId).collect(Collectors.toList());
+        List<Long> globalSkuIdList;
+        List<Product> productList = getProductList(inventorySearchForm);
+        globalSkuIdList = productList.stream().map(Product::getGlobalSkuId).collect(Collectors.toList());
         List<Inventory> inventoryList = new ArrayList<>();
-        if(globalSkuIdList.isEmpty()){
+        if (globalSkuIdList.isEmpty()) {
             return getInventoryDataList(inventoryList);
         }
         inventoryList = inventoryApi.searchByGlobalSkuIdList(globalSkuIdList);
         return getInventoryDataList(inventoryList);
     }
 
-    private List<InventoryData> getInventoryDataList(List<Inventory> inventoryList){
+    private List<Product> getProductList(InventorySearchForm inventorySearchForm) {
+        List<Product> productList = new ArrayList<>();
+        if (StringUtil.isEmpty(inventorySearchForm.getClientSkuId())) {
+            productList = productApi.getByClientId(inventorySearchForm.getClientId());
+        } else {
+            Product product = productApi.getByClientIdAndClientSkuId(inventorySearchForm.getClientId(), inventorySearchForm.getClientSkuId());
+            if (product != null) {
+                productList.add(product);
+            }
+        }
+        return productList;
+    }
+
+    private List<InventoryData> getInventoryDataList(List<Inventory> inventoryList) {
         List<InventoryData> inventoryDataList = new ArrayList<>();
         for (Inventory inventory : inventoryList) {
             Product product = productApi.get(inventory.getGlobalSkuId());
